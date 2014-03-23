@@ -1,0 +1,14 @@
+{
+    "name": "kr/application",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Merblr",
+            "email": "merblr@live.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/framework": "4.1.0"
+    }
+}
