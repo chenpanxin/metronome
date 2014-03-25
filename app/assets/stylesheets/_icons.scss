@@ -1,0 +1,22 @@
+@font-face {
+  font-family: $icon;
+  font-style: normal;
+  font-weight: 400;
+  src: url(./icons/#{$icon}.eot);
+  src: url('./icons/#{$icon}.eot?#iefix') format("ie9-skip-eot"),
+       url('./icons/#{$icon}.ttf') format("truetype"),
+       url('./icons/#{$icon}.woff') format("woff");
+}
+span[class^='icon-'],
+span[class*=' icon-'] {
+  font-family: $icon;
+  display: inline-block;
+  position: static;
+  min-width: 20px;
+  margin: 0 5px;
+  text-align: center;
+  color: $icon-color;
+}
+.icon-user:before {
+  @include icon(\e740);
+}

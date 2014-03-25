@@ -1,21 +1,19 @@
+* {
+  @include border-box;
+}
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 body {
   margin: 0;
 }
-header, footer, nav, section {
+section {
   display: block;
 }
-ul, ol {
+li {
   list-style: none;
-}
-[hidden] {
-  display: none;
-}
-b, strong {
-  font-weight: bold;
 }
 img {
   border: 0;
@@ -28,6 +26,11 @@ a {
     outline: 0;
   }
 }
+code,
+pre {
+  font-family: monospace;
+  font-size: 1em;
+}
 pre {
   overflow: auto;
 }
@@ -36,22 +39,28 @@ hr {
   box-sizing: content-box;
   height: 0;
 }
-code, kbd, pre, samp {
-  font-family: monospace;
-  font-size: 1em;
-}
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-td, th {
+td,
+th {
   padding: 0;
 }
-select, input, textarea {
+select,
+input,
+textarea {
   margin: 0;
 }
 select {
   text-transform: none;
+}
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
 }
 input[type='submit'] {
   -webkit-appearance: button;
@@ -60,17 +69,14 @@ input[type='submit'] {
 input[disabled] {
   cursor: default;
 }
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
 input {
   line-height: normal;
 }
-input[type='checkbox'], input[type='radio'] {
+input[type='checkbox'],
+input[type='radio'] {
   box-sizing: border-box;
   padding: 0;
 }
-textarea {
-  overflow: auto;
+[hidden] {
+  display: none;
 }

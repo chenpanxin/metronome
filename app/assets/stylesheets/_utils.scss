@@ -1,0 +1,15 @@
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.pull_right {
+  float: right;
+}
+.pull_left {
+  float: left;
+}
+.clearfix {
+  @include clearfix();
+}
