@@ -1,5 +1,16 @@
 .grid {
-  *zoom: 1;
   display: block;
+  .unit {
+    float: left;
+    display: inline-block;
+    padding: 12px 12px;
+  }
+  .fat {
+    width: percentage(1-$waistline);
+  }
+  .slim {
+    width: percentage($waistline);
+  }
+  *zoom: 1;
   @include clearfix();
 }

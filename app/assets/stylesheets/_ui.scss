@@ -1,0 +1,7 @@
+.boxify {
+  min-height: 100px;
+  margin-bottom: 20px;
+  background-color: $boxify-color;
+  @include border-radius(3px);
+  @include box-shadow(0 1px 3px rgba(#000, .28));
+}

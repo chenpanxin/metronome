@@ -21,6 +21,15 @@
     </div>
 </div>
 <div class="master">
+    <div class="grid">
+        <div class="unit fat">
+            <div class="boxify"></div>
+        </div>
+        <div class="unit slim">
+            <div class="boxify"></div>
+            <div class="boxify"></div>
+        </div>
+    </div>
     @yield('main')
     <div class="sidebar"></div>
 </div>
