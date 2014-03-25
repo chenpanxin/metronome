@@ -23,7 +23,14 @@
 <div class="master">
     <div class="grid">
         <div class="unit fat">
-            <div class="boxify"></div>
+            <div class="boxify">
+                <ul class="list topic">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="pagination"></div>
+            </div>
         </div>
         <div class="unit slim">
             <div class="boxify"></div>
