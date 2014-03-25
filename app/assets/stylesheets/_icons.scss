@@ -17,6 +17,21 @@ span[class*=' icon-'] {
   text-align: center;
   color: $icon-color;
 }
-.icon-user:before {
+.icon-login:before {
   @include icon(\e740);
+}
+.icon-logout:before {
+  @include icon(\e741);
+}
+.icon-signup:before {
+  @include icon(\e700);
+}
+.icon-user:before {
+  @include icon(\1F464);
+}
+.icon-users:before {
+  @include icon(\1F465);
+}
+.icon-home:before {
+  @include icon(\2302);
 }

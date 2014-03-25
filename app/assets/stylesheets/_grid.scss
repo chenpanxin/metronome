@@ -1,0 +1,5 @@
+.grid {
+  *zoom: 1;
+  display: block;
+  @include clearfix();
+}
