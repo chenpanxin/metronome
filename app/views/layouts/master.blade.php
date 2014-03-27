@@ -12,11 +12,6 @@
         <div class="options pull_right">
             <a href=""><span class="icon-login"></span></a>
             <a href=""><span class="icon-signup"></span></a>
-            <a href=""><span class="icon-logout"></span></a>
-            <a href=""><span class="icon-user"></span></a>
-            <a href=""><span class="icon-users"></span></a>
-            <a href=""><span class="icon-logout"></span></a>
-            <a href=""><span class="icon-home"></span></a>
         </div>
     </div>
 </div>
@@ -25,9 +20,11 @@
         <div class="unit fat">
             <div class="boxify">
                 <ul class="list topic">
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>
+                        <a class="title" href="">Ampou</a>
+                        <span class="avatar"><img src="http://composer.qiniudn.com/me.jpg"></span>
+                        <p></p>
+                    </li>
                 </ul>
                 <div class="pagination"></div>
             </div>

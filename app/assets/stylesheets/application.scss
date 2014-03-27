@@ -15,8 +15,11 @@ body {
   left: 0;
   right: 0;
   height: 50px;
-  background-color: rgba(#fff, .97);
-  @include box-shadow(0 0 3px rgba(#000, .37));
+  background-color: $boxify-color;
+  span {
+    color: rgba($icon-color, .789);
+  }
+  @include box-shadow(0 0 3px rgba(#000, .387));
 }
 .master {
   margin: 0 auto;
@@ -25,7 +28,7 @@ body {
   width: $master-width;
 }
 .footer {
-  border-top: 1px solid #e0ebeb;
+  border-top: 1px solid #e0e1e3;
   min-height: 50px;
 }
 .options {
