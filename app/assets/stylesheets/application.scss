@@ -38,6 +38,40 @@ body {
     display: inline-block;
     height: 100%;
     line-height: 50px;
-    color: $navbar-color;
+    color: $font-color;
+    font-size: .85em;
+    padding: 0 12px;
+  }
+}
+.topic {
+  &.list {
+    > li {
+      position: relative;
+      min-height: 72px;
+      padding: 10px 10px;
+      border-bottom: 1px solid rgba(#505050, .12);
+      > a {
+        display: block;
+        margin-left: 76px;
+        line-height: 32px;
+        font-size: .85em;
+        color: rgba($font-color, .836);
+      }
+      > span {
+        display: inline-block;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        height: 52px;
+        width: 52px;
+        overflow: hidden;
+        @include border-radius(40px);
+        @include box-shadow(0 0 2px rgba(#505050, .37));
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 }

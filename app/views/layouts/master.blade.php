@@ -10,8 +10,12 @@
     <div class="inner">
         <div id="logo"></div>
         <div class="options pull_right">
-            <a href=""><span class="icon-login"></span></a>
-            <a href=""><span class="icon-signup"></span></a>
+            @if (Auth::check())
+                <a href=""><span class="icon-user"></span></a>
+            @else
+                <a href="{{ URL::to('login') }}">{{ Lang::get('locale.login') }}</a>
+                <a href="{{ URL::to('signup') }}">{{ Lang::get('locale.signup') }}</a>
+            @endif
         </div>
     </div>
 </div>
