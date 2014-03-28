@@ -91,7 +91,6 @@ ul {
       label {
         display: inline-block;
         position: absolute;
-        font-size: .85em;
         color: rgba($font-color, .720);
         padding-right: 12px;
         line-height: 40px;
@@ -104,6 +103,10 @@ ul {
     input[type=submit] {
       float: right;
       margin-right: 158px;
+    }
+    > label {
+      color: rgba(#000, .37);
+      margin-left: 158px;
     }
     @include clearfix();
   }
