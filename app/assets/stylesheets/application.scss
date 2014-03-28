@@ -89,11 +89,12 @@ ul {
       label {
         display: inline-block;
         position: absolute;
-        font-size: 1em;
+        font-size: .85em;
         color: rgba($font-color, .720);
+        padding-right: 12px;
         line-height: 40px;
         text-align: right;
-        width: 116px;
+        width: 128px;
         left: 16px;
         top: 0;
       }

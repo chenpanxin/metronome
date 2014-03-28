@@ -4,8 +4,9 @@
     <div class="boxify">
         {{ Form::open() }}
             <ul class="signup">
-                {{ Form::userText('username', 'Username Field', ['label'=>'Name']) }}
-                {{ Form::userPassword('password', ['label'=>'Password']) }}
+                {{ Form::userText('username', Input::old('username'), ['label'=>Lang::get('locale.username')]) }}
+                {{ Form::userText('email', Input::old('email'), ['label'=>Lang::get('locale.email')]) }}
+                {{ Form::userPassword('password', ['label'=>Lang::get('locale.password')]) }}
             </ul>
         {{ Form::close() }}
     </div>
