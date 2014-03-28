@@ -79,6 +79,7 @@ ul {
   &.login,
   &.signup,
   &.find {
+    padding: 20px 0;
     li.field {
       position: relative;
       margin: 12px 0;
@@ -99,5 +100,10 @@ ul {
         top: 0;
       }
     }
+    input[type=submit] {
+      float: right;
+      margin-right: 158px;
+    }
+    @include clearfix();
   }
 }
