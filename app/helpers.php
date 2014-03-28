@@ -10,3 +10,14 @@ Form::macro('userText', function($name, $value = null, $options = [])
         '</li>'
     ]);
 });
+
+Form::macro('userPassword', function($name, $options = [])
+{
+    $label = (array_key_exists('label', $options)) ? $options['label'] : null;
+    return join('', [
+        '<li class="field">',
+        Form::label($name, $label),
+        Form::password($name, $options),
+        '</li>'
+    ]);
+});

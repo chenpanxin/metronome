@@ -4,7 +4,8 @@
     <div class="boxify">
         {{ Form::open() }}
             <ul class="signup">
-                {{ Form::userText('username', '', ['label'=>'ZUsername']) }}
+                {{ Form::userText('username', 'Username Field', ['label'=>'Name']) }}
+                {{ Form::userPassword('password', ['label'=>'Password']) }}
             </ul>
         {{ Form::close() }}
     </div>
