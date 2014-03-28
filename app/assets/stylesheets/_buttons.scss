@@ -1,0 +1,16 @@
+.btn {
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: .1em;
+  padding: 0 .85em;
+  line-height: 38px;
+  font-weight: bold;
+  font-size: .85em;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.normal {
+  color: rgba(#fff, .978);
+  background-color: rgba($btn-normal-color, .37);
+}
