@@ -75,3 +75,28 @@ body {
     }
   }
 }
+ul {
+  &.login,
+  &.signup,
+  &.find {
+    li.field {
+      position: relative;
+      margin: 12px 0;
+      input {
+        margin: 0 auto;
+        width: 320px;
+      }
+      label {
+        display: inline-block;
+        position: absolute;
+        font-size: 1em;
+        color: rgba($font-color, .720);
+        line-height: 40px;
+        text-align: right;
+        width: 116px;
+        left: 16px;
+        top: 0;
+      }
+    }
+  }
+}

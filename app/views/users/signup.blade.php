@@ -2,7 +2,11 @@
 
 @section('main')
     <div class="boxify">
-
+        {{ Form::open() }}
+            <ul class="signup">
+                {{ Form::userText('username', '', ['label'=>'ZUsername']) }}
+            </ul>
+        {{ Form::close() }}
     </div>
 @stop
 
