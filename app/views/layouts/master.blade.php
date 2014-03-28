@@ -10,36 +10,19 @@
     <div class="inner">
         <div id="logo"></div>
         <div class="options pull_right">
-            @if (Auth::check())
-                <a href=""><span class="icon-user"></span></a>
-            @else
-                <a href="{{ URL::to('login') }}">{{ Lang::get('locale.login') }}</a>
-                <a href="{{ URL::to('signup') }}">{{ Lang::get('locale.signup') }}</a>
-            @endif
+        @include('partials.user')
         </div>
     </div>
 </div>
 <div class="master">
     <div class="grid">
         <div class="unit fat">
-            <div class="boxify">
-                <ul class="list topic">
-                    <li>
-                        <a class="title" href="">Ampou</a>
-                        <span class="avatar"><img src="http://composer.qiniudn.com/me.jpg"></span>
-                        <p></p>
-                    </li>
-                </ul>
-                <div class="pagination"></div>
-            </div>
+            @yield('main')
         </div>
         <div class="unit slim">
-            <div class="boxify"></div>
-            <div class="boxify"></div>
+            @yield('sidebar')
         </div>
     </div>
-    @yield('main')
-    <div class="sidebar"></div>
 </div>
 <div class="footer"></div>
 </body>
