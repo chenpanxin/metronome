@@ -7,6 +7,11 @@ class TopicController extends BaseController {
 
     }
 
+    public function create()
+    {
+        return View::make('topics.new');
+    }
+
     public function index()
     {
         return View::make('topics.index');

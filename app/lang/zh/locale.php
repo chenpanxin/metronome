@@ -10,5 +10,8 @@ return [
     'confirm_password' => '确认密码',
     'remember_me'      => '记住登录状态',
     'name_or_email'    => '用户名或邮箱',
-    'account'          => '账户'
+    'account'          => '账户',
+    'title'            => '标题',
+    'body'             => '内容',
+    'new_topic'        => '新建话题',
 ];

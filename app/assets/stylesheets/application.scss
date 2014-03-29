@@ -75,6 +75,19 @@ body {
       }
     }
   }
+  &.new {
+    padding: 20px 20px;
+    input[type=text],
+    textarea {
+      width: 100%;
+      resize: none;
+      margin-bottom: .73em;
+    }
+    label {
+      color: rgba($font-color, .720);
+      padding: .37em .12em .73em .12em;
+    }
+  }
 }
 ul {
   &.login,
