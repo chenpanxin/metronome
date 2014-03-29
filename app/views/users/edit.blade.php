@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        {{ Form::open(['url'=>'settings/password']) }}
+        {{ Form::open(['url'=>'settings/password', 'method'=>'put']) }}
             <ul class="password">
                 {{ HTML::group([
                     Form::label('current_password', Lang::get('locale.current_password')),

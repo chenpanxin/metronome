@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        {{ Form::open(['url'=>'settings/profile']) }}
+        {{ Form::open(['url'=>'settings/profile', 'method'=>'put']) }}
             <ul class="profile">
                 {{ HTML::group([
                     Form::label('nickname', Lang::get('locale.nickname')),
