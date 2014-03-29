@@ -27,11 +27,17 @@ span[class*=' icon-'] {
   @include icon(\e700);
 }
 .icon-user:before {
-  @include icon(\1F464);
+  @include icon(\1f464);
 }
 .icon-users:before {
-  @include icon(\1F465);
+  @include icon(\1f465);
 }
 .icon-home:before {
   @include icon(\2302);
+}
+.icon-export:before {
+  @include icon(\e715);
+}
+.icon-setting:before {
+  @include icon(\2699);
 }

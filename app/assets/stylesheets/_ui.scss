@@ -26,6 +26,18 @@ form {
 .pagination {
   min-height: 50px;
 }
+p {
+  &.meta {
+    margin: 0 auto 0 76px;
+    font-size: .75em;
+    line-height: 20px;
+    color: rgba(#000, .522);
+    > a {
+      color: rgba($font-color, .720);
+      margin-right: 12px;
+    }
+  }
+}
 #logo {
   float: left;
   display: inline-block;
@@ -44,4 +56,8 @@ form {
       color: rgba(#000, .37);
     }
   }
+}
+#logout {
+  margin-left: 28px;
+  margin-top: 28px;
 }

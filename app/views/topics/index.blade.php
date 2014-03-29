@@ -3,11 +3,16 @@
 @section('main')
     <div class="boxify">
         <ul class="list topic">
-            <li>
-                <a class="title" href="">Ampou</a>
-                <span class="avatar"><img src="http://composer.qiniudn.com/me.jpg"></span>
-                <p></p>
-            </li>
+            @foreach ($topics as $topic)
+                <li>
+                    <a class="title" href="">{{ $topic->title }}<span class="icon-export pull_right"></span></a>
+                    <span class="avatar"><img src="http://composer.qiniudn.com/me.jpg"></span>
+                    <p class="meta">
+                        <a href="">{{ Auth::user()->username }}</a>
+                        {{ $topic->created_at->diffForHumans() }}
+                    </p>
+                </li>
+            @endforeach
         </ul>
         <div class="pagination"></div>
     </div>
