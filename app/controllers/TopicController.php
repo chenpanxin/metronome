@@ -10,7 +10,7 @@ class TopicController extends BaseController {
     public function index()
     {
         return View::make('topics.index')
-            ->withTopics(Topic::all());
+            ->withTopics(Topic::with('user')->get());
     }
 
     public function show($id)

@@ -47,3 +47,8 @@ Route::group(['domain'=>'ghost.nhn.io'], function()
 {
 
 });
+
+Event::listen('illuminate.query', function($query)
+{
+    var_dump($query);
+});
