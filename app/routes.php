@@ -3,6 +3,7 @@
 Route::pattern('id', '[0-9]+');
 Route::pattern('username', '[A-Z0-9a-z]+');
 Route::pattern('reply', 'reply|r');
+Route::pattern('not_found', '404(\.html)?');
 
 Route::group(['prefix'=>'admin'], function()
 {
@@ -36,6 +37,11 @@ Route::post('{reply}/store', 'ReplyController@store');
 
 Route::get('{reply}/{id}', 'ReplyController@show');
 Route::put('{reply}/{id}', 'ReplyController@update');
+
+Route::get('{not_found}', function()
+{
+    return Response::json(['error'=>'page not found.']);
+});
 
 Route::group(['domain'=>'ghost.nhn.io'], function()
 {
