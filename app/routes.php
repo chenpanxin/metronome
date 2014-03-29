@@ -32,6 +32,8 @@ Route::post('topic/store', 'TopicController@store');
 Route::put('topic/{id}', 'TopicController@update');
 Route::delete('topic/{id}', 'TopicController@destroy');
 
+Route::get('settings', 'UserController@notify');
+Route::get('settings/profile', 'UserController@profileEdit');
 Route::get('u/{username}/replies', 'UserController@show');
 Route::post('{reply}/store', 'ReplyController@store');
 
@@ -50,5 +52,5 @@ Route::group(['domain'=>'ghost.nhn.io'], function()
 
 Event::listen('illuminate.query', function($query)
 {
-    var_dump($query);
+
 });

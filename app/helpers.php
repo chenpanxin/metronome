@@ -1,28 +1,11 @@
 <?php
 
-HTML::macro('logo', function($text, $options)
+HTML::macro('label', function($array = [])
 {
-
+    return '<label>'.join(' ', $array).'</label>';
 });
 
-Form::macro('userText', function($name, $value = null, $options = [])
+HTML::macro('group', function($array = [])
 {
-    $label = (array_key_exists('label', $options)) ? $options['label'] : null;
-    return join('', [
-        '<li class="field">',
-        Form::label($name, $label),
-        Form::text($name, $value, $options),
-        '</li>'
-    ]);
-});
-
-Form::macro('userPassword', function($name, $options = [])
-{
-    $label = (array_key_exists('label', $options)) ? $options['label'] : null;
-    return join('', [
-        '<li class="field">',
-        Form::label($name, $label),
-        Form::password($name, $options),
-        '</li>'
-    ]);
+    return '<li class="field">'.join('', $array).'</li>';
 });

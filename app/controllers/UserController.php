@@ -25,4 +25,14 @@ class UserController extends BaseController {
         }
         return Redirect::back();
     }
+
+    public function profileEdit()
+    {
+        return View::make('users.profile.edit');
+    }
+
+    public function notify()
+    {
+        return Redirect::to('settings/profile');
+    }
 }

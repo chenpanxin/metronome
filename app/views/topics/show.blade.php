@@ -10,5 +10,7 @@
 @stop
 
 @section('sidebar')
-    <div class="boxify"></div>
+    <div class="boxify">
+        <div>{{ $topic->user->username }}</div>
+    </div>
 @stop
