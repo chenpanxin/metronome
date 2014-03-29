@@ -3,6 +3,7 @@
 return [
     'login'            => '登录',
     'signup'           => '注册',
+    'logout'           => '登出',
     'username'         => '用户名',
     'email'            => '邮箱',
     'password'         => '密码',

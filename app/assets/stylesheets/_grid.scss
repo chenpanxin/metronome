@@ -5,11 +5,18 @@
     display: inline-block;
     padding: 12px 12px;
   }
+  .full {
+    width: 100%;
+  }
   .fat {
     width: percentage(1-$waistline);
   }
   .slim {
     width: percentage($waistline);
+  }
+  .centre {
+    width: 50%;
+    @include center();
   }
   *zoom: 1;
   @include clearfix();

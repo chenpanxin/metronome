@@ -15,6 +15,9 @@
 .pull_left {
   float: left;
 }
+.center {
+  @include center();
+}
 .clearfix {
   @include clearfix();
 }
