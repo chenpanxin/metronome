@@ -5,7 +5,7 @@
         <ul class="list topic">
             @foreach ($topics as $topic)
                 <li>
-                    <a class="title" href="">{{ $topic->title }}<span class="icon-export pull_right"></span></a>
+                    <a class="title" href="{{ URL::to('topic/'.$topic->id) }}">{{ $topic->title }}<span class="icon-export pull_right"></span></a>
                     <span class="avatar"><img src="http://composer.qiniudn.com/me.jpg"></span>
                     <p class="meta">
                         <a href="">{{ Auth::user()->username }}</a>

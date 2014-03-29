@@ -88,6 +88,20 @@ body {
       padding: .37em .12em .73em .12em;
     }
   }
+  &.show {
+    .title {
+      padding: 20px 20px;
+      border-bottom: 1px solid rgba(#505050, .12);
+      font-weight: bold;
+      font-size: .97em;
+      color: rgba(#000, .67);
+    }
+    .body {
+      padding: 20px 20px;
+      font-size: .85em;
+      color: lighten(#000, 37%);
+    }
+  }
 }
 ul {
   &.login,

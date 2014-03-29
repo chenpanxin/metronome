@@ -7,6 +7,19 @@ class TopicController extends BaseController {
 
     }
 
+    public function index()
+    {
+        return View::make('topics.index')
+            ->withTopics(Topic::all());
+    }
+
+    public function show($id)
+    {
+        $topic = Topic::findOrFail($id);
+        return View::make('topics.show')
+            ->withTopic($topic);
+    }
+
     public function create()
     {
         return View::make('topics.new');
@@ -21,11 +34,5 @@ class TopicController extends BaseController {
         $topic->body = Input::get('body');
         $topic->save();
         return Redirect::to('/');
-    }
-
-    public function index()
-    {
-        return View::make('topics.index')
-            ->withTopics(Topic::all());
     }
 }

@@ -27,7 +27,7 @@ Route::get('u/{username}', 'UserController@show');
 Route::get('/', 'TopicController@index');
 Route::get('topic/new', 'TopicController@create');
 Route::get('topic/{id}', 'TopicController@show');
-Route::get('topic/{id}', 'TopicController@edit');
+Route::get('topic/{id}/edit', 'TopicController@edit');
 Route::post('topic/store', 'TopicController@store');
 Route::put('topic/{id}', 'TopicController@update');
 Route::delete('topic/{id}', 'TopicController@destroy');
