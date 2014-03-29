@@ -104,13 +104,15 @@ body {
   }
 }
 ul {
-  &.login,
+  &.profile,
   &.signup,
+  &.login,
   &.find {
     padding: 20px 0;
     li.field {
       position: relative;
       margin: 12px 0;
+      textarea,
       input {
         margin: 0 auto;
         width: 320px;
@@ -130,6 +132,9 @@ ul {
     input[type=submit] {
       float: right;
       margin-right: 158px;
+    }
+    textarea {
+      resize: none;
     }
     > label {
       color: rgba(#000, .37);
