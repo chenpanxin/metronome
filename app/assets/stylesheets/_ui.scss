@@ -26,3 +26,22 @@ form {
 .pagination {
   min-height: 50px;
 }
+#logo {
+  float: left;
+  display: inline-block;
+  font-family: Georgia, 'Xin Gothic', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft YaHei', SimSun, sans-serif;
+  > a {
+    display: inline-block;
+    color: rgba(#000, .404);
+    font-size: 1.024em;
+    font-weight: 400;
+    height: 50px;
+    padding: 12px 12px;
+    sup {
+      font-size: .752em;
+      margin-left: .257em;
+      font-style: italic;
+      color: rgba(#000, .37);
+    }
+  }
+}

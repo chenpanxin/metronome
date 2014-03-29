@@ -1,5 +1,10 @@
 <?php
 
+HTML::macro('logo', function($text, $options)
+{
+
+});
+
 Form::macro('userText', function($name, $value = null, $options = [])
 {
     $label = (array_key_exists('label', $options)) ? $options['label'] : null;
