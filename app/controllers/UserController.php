@@ -31,6 +31,11 @@ class UserController extends BaseController {
         return View::make('users.profile.edit');
     }
 
+    public function edit()
+    {
+        return View::make('users.edit');
+    }
+
     public function notify()
     {
         return Redirect::to('settings/profile');

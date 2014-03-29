@@ -34,6 +34,7 @@ Route::delete('topic/{id}', 'TopicController@destroy');
 
 Route::get('settings', 'UserController@notify');
 Route::get('settings/profile', 'UserController@profileEdit');
+Route::get('settings/password', 'UserController@edit');
 Route::get('u/{username}/replies', 'UserController@show');
 Route::post('{reply}/store', 'ReplyController@store');
 
