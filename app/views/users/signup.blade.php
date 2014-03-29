@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        {{ Form::open(['url'=>'users/store']) }}
+        {{ Form::open(['url'=>'user/store']) }}
             <ul class="signup">
                 {{ HTML::group([
                     Form::label('username', Lang::get('locale.email')),

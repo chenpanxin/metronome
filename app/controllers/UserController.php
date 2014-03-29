@@ -26,14 +26,29 @@ class UserController extends BaseController {
         return Redirect::back();
     }
 
+    public function show($username)
+    {
+        return View::make('users.show');
+    }
+
     public function profileEdit()
     {
         return View::make('users.profile.edit');
     }
 
+    public function profileUpdate()
+    {
+
+    }
+
     public function edit()
     {
         return View::make('users.edit');
+    }
+
+    public function update()
+    {
+
     }
 
     public function notify()

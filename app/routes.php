@@ -21,8 +21,8 @@ Route::delete('logout', 'SessionController@destroy');
 
 Route::get('signup', 'UserController@create');
 Route::get('users', 'UserController@index');
-Route::post('users/store', 'UserController@store');
-Route::get('u/{username}', 'UserController@show');
+Route::post('user/store', 'UserController@store');
+Route::get('user/{username}', 'UserController@show');
 
 Route::get('/', 'TopicController@index');
 Route::get('topic/new', 'TopicController@create');

@@ -1,5 +1,5 @@
 @if (Auth::check())
-    <a href="{{ URL::to('user/') }}"><span class="icon-user"></span></a>
+    <a href="{{ URL::to('user/'.Auth::user()->username) }}"><span class="icon-user"></span></a>
     <a href="{{ URL::to('settings') }}"><span class="icon-setting"></span></a>
     <a href="{{ URL::to('logout') }}"><span class="icon-logout"></span></a>
 @else
