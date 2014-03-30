@@ -5,7 +5,7 @@
         {{ Form::open(['url'=>'user/store']) }}
             <ul class="signup">
                 {{ HTML::group([
-                    Form::label('username', Lang::get('locale.email')),
+                    Form::label('username', Lang::get('locale.username')),
                     Form::text('username')
                 ]) }}
                 {{ HTML::group([

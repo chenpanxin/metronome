@@ -9,3 +9,13 @@ HTML::macro('group', function($array = [])
 {
     return '<li class="field">'.join('', $array).'</li>';
 });
+
+HTML::macro('tag', function()
+{
+
+});
+
+HTML::macro('tab', function($name, $url, $count)
+{
+    return '<li><a href="'.$url.'">'.$name.'</a><span>'.'</span></li>';
+});
