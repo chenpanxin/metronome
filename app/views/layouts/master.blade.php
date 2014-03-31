@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>{{ $title or 'Hello, Laravel.' }}</title>
     {{ HTML::style('assets/application.css') }}
+    {{ HTML::script('http://remote.qiniudn.com/jquery.js') }}
 </head>
 <body>
 <div class="navbar">
