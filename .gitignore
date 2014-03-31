@@ -1,3 +1,5 @@
-vendor/
-composer.lock
 .sass-cache/
+node_modules/
+vendor/
+*.lock
+*.log
