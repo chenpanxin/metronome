@@ -22,7 +22,8 @@ class TopicController extends BaseController {
 
     public function create()
     {
-        return View::make('topics.new');
+        return View::make('topics.new')
+            ->withCategories(Category::all());
     }
 
     public function store()

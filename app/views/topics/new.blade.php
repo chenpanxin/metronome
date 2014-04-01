@@ -3,6 +3,7 @@
 @section('main')
     <div class="boxify">
         <div class="new topic">
+            @include('partials.select')
             {{ Form::open(['url'=>'topic/store']) }}
                 {{ Form::label('title', Lang::get('locale.title')) }}
                 {{ Form::text('title') }}

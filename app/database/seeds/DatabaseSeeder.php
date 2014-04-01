@@ -8,5 +8,6 @@ class DatabaseSeeder extends Seeder {
 
         $this->call('UserTableSeeder');
         $this->call('TopicTableSeeder');
+        $this->call('CategoryTableSeeder');
     }
 }
