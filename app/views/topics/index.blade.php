@@ -19,7 +19,13 @@
 @stop
 
 @section('sidebar')
-    <div class="boxify"></div>
+    <div class="boxify">
+        <ul class="tab right">
+            @foreach ($categories as $category)
+                <li><a href="">{{ $category->name }}<span class="pull_right">10</span></a></li>
+            @endforeach
+        </ul>
+    </div>
     <div class="boxify"></div>
     <div class="boxify"></div>
     <div class="boxify"></div>

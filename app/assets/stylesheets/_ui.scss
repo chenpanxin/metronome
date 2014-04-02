@@ -61,3 +61,34 @@ p {
   margin-left: 28px;
   margin-top: 28px;
 }
+.tab {
+  padding: .85em .85em;
+  li {
+    a {
+      display: block;
+      font-size: .85em;
+      line-height: 1.65em;
+      padding: .195em .85em;
+      border-left: .195em solid #ededed;
+      border-right: .195em solid transparent;
+      color: rgba($font-color, .836);
+      margin-bottom: .195em;
+    }
+    &:hover {
+      a {
+        border-right: .195em solid rgba($font-color, .404);
+        background-color: rgba($font-color, .082);
+      }
+    }
+    &.active {
+      a {
+        border-left: .195em solid rgba($font-color, .404);
+      }
+    }
+    &:last-child {
+      a {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
