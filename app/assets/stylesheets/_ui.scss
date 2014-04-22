@@ -66,18 +66,18 @@ p {
   li {
     a {
       display: block;
-      font-size: .85em;
-      line-height: 1.65em;
+      font-size: .825em;
+      line-height: 1.85em;
       padding: .195em .85em;
       border-left: .195em solid #ededed;
       border-right: .195em solid transparent;
-      color: rgba($font-color, .836);
-      margin-bottom: .195em;
+      color: rgba($font-color, .625);
     }
     &:hover {
       a {
-        border-right: .195em solid rgba($font-color, .404);
+        border-right: .195em solid rgba($font-color, .37);
         background-color: rgba($font-color, .082);
+        color: rgba($font-color, .720);
       }
     }
     &.active {

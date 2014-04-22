@@ -22,7 +22,7 @@
     <div class="boxify">
         <ul class="tab right">
             @foreach ($categories as $category)
-                <li><a href="">{{ $category->name }}<span class="pull_right">10</span></a></li>
+                <li><a href="{{ URL::to('category/'.$category->id) }}">{{ $category->name }}<span class="pull_right">10</span></a></li>
             @endforeach
         </ul>
     </div>

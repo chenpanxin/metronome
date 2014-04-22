@@ -11,6 +11,7 @@
   }
 }
 .normal {
-  color: rgba(#fff, .978);
-  background-color: rgba($btn-normal-color, .37);
+  color: #fefefe;
+  border-color: rgba($btn-border-color, .12);
+  background-color: rgba($btn-normal-color, .97);
 }
