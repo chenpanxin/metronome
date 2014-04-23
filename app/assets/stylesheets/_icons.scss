@@ -7,9 +7,12 @@
        url('./icons/#{$icon}.ttf') format("truetype"),
        url('./icons/#{$icon}.woff') format("woff");
 }
+i[class^='icon-'],
+i[class*=' icon-'],
 span[class^='icon-'],
 span[class*=' icon-'] {
   font-family: $icon;
+  font-style: normal;
   display: inline-block;
   position: static;
   min-width: 20px;
@@ -40,4 +43,10 @@ span[class*=' icon-'] {
 }
 .icon-setting:before {
   @include icon(\2699);
+}
+.icon-nav-left:before {
+  @include icon(\e765);
+}
+.icon-nav-right:before {
+  @include icon(\e766);
 }

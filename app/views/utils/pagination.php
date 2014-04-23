@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Pagination\BootstrapPresenter;
+use Ampou\Presenters\AmpouPresenter;
 
-$presenter = new BootstrapPresenter($paginator);
+$presenter = new AmpouPresenter($paginator);
 
 if ($paginator->getLastPage() > 1) {
     echo join($presenter->render(), ['<ul>', '</ul>']);
