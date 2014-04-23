@@ -37,4 +37,12 @@ class TopicController extends BaseController {
         $topic->save();
         return Redirect::to('/');
     }
+
+    public function category($id)
+    {
+        $topics = Topic::with('user')->whereCategoryId($id)->get();
+        return View::make('topics.index')
+            ->withCategories(Category::all())
+            ->withTopics($topics);
+    }
 }
