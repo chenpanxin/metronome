@@ -25,6 +25,19 @@ form {
 }
 .pagination {
   min-height: 50px;
+  ul {
+    text-align: center;
+    li {
+      min-width: 1.65em;
+      display: inline-block;
+      font-size: .85em;
+      line-height: 50px;
+      color: rgba(#5b657c, .625);
+      a {
+        color: rgba($font-color, .875);
+      }
+    }
+  }
 }
 p {
   &.meta {

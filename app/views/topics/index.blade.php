@@ -14,7 +14,9 @@
                 </li>
             @endforeach
         </ul>
-        <div class="pagination"></div>
+        <div class="pagination">
+            {{ $topics->links() }}
+        </div>
     </div>
 @stop
 
