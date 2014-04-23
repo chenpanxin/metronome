@@ -6,12 +6,20 @@
   line-height: 38px;
   font-weight: bold;
   font-size: .85em;
+  background-image: linear-gradient(rgba(#000, 0), rgba(#000, .115));
+  @include transition(.185s background-color ease-in-out);
   &:hover {
     cursor: pointer;
+  }
+  &:focus {
+    outline: none;
   }
 }
 .normal {
   color: #fefefe;
-  border-color: rgba($btn-border-color, .12);
-  background-color: rgba($btn-normal-color, .97);
+  border-color: darken($btn-normal-color, 5%) !important;
+  background-color: rgba($btn-normal-color, .895);
+  &:hover {
+    background-color: rgba($btn-normal-color, .985);
+  }
 }

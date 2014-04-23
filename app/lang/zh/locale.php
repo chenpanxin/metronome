@@ -22,4 +22,7 @@ return [
     'school'           => '学校',
     'contact_email'    => '联系邮箱',
     'biography'        => '简介',
+    'followers'        => '关注者',
+    'following'        => '正在关注',
+    'topic'            => '主题',
 ];
