@@ -24,7 +24,7 @@
     <div class="boxify">
         <ul class="tab right">
             @foreach ($categories as $category)
-                <li class="{{ HTML::isActive(Request::segment(2), $category->id) }}"><a href="{{ URL::to('category/'.$category->id) }}">{{ $category->name }}<span class="pull_right">10</span></a></li>
+                <li class="{{ HTML::isActive(Request::segment(2), $category->id) }}"><a href="{{ URL::to('category/'.$category->id) }}">{{ $category->name }}<span class="pull_right">{{ $category->topics_count }}</span></a></li>
             @endforeach
         </ul>
     </div>

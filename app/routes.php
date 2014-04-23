@@ -34,7 +34,7 @@ Route::get('topic/{id}/edit', 'TopicController@edit');
 Route::post('topic/store', 'TopicController@store');
 Route::put('topic/{id}', 'TopicController@update');
 Route::delete('topic/{id}', 'TopicController@destroy');
-Route::get('category/{id}', 'TopicController@category');
+Route::get('category/{id}', 'TopicController@byCategory');
 
 Route::get('settings', 'UserController@notify');
 Route::get('settings/profile', 'UserController@profileEdit');

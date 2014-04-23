@@ -11,7 +11,7 @@ class TopicController extends BaseController {
     {
         return View::make('topics.index')
             ->withCategories(Category::all())
-            ->withTopics(Topic::with('user')->paginate(12));
+            ->withTopics(Topic::with('user')->paginate(16));
     }
 
     public function show($id)
@@ -38,9 +38,9 @@ class TopicController extends BaseController {
         return Redirect::to('/');
     }
 
-    public function category($id)
+    public function byCategory($id)
     {
-        $topics = Topic::with('user')->whereCategoryId($id)->get();
+        $topics = Topic::with('user')->whereCategoryId($id)->paginate(16);
         return View::make('topics.index')
             ->withCategories(Category::all())
             ->withTopics($topics);
