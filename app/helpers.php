@@ -15,9 +15,9 @@ HTML::macro('tag', function()
 
 });
 
-HTML::macro('isActive', function($segment, $id)
+HTML::macro('isActive', function($segment, $match)
 {
-    return $segment == $id ? 'active' : 'nil';
+    return $segment == $match ? 'active' : 'nil';
 });
 
 HTML::macro('tab', function($name, $url, $count)

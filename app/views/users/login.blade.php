@@ -23,5 +23,7 @@
 @stop
 
 @section('sidebar')
-    <div class="boxify"></div>
+    <div class="boxify">
+        @include('partials.user_entries')
+    </div>
 @stop

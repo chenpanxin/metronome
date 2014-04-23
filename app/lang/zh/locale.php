@@ -25,4 +25,5 @@ return [
     'followers'        => '关注者',
     'following'        => '正在关注',
     'topic'            => '主题',
+    'reset_password'   => '重置密码',
 ];
