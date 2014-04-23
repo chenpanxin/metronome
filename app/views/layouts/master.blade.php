@@ -11,7 +11,7 @@
     <div class="inner">
         <div id="logo"><a href="{{ url('/') }}">Ruby<sup>Beta</sup></a></div>
         <div class="options pull_right">
-        @include('partials.user')
+        @include('partials.user.options')
         </div>
     </div>
 </div>

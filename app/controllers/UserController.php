@@ -28,7 +28,12 @@ class UserController extends BaseController {
 
     public function show($username)
     {
-        return View::make('users.show');
+        $user = User::whereUsername($username)->first();
+        if ($user) {
+            return View::make('users.show')
+                ->withUser($user);
+        }
+        App::abort();
     }
 
     public function profileEdit()
@@ -54,5 +59,15 @@ class UserController extends BaseController {
     public function notify()
     {
         return Redirect::to('settings/profile');
+    }
+
+    public function topics($username)
+    {
+        $user = User::with('Topics')->whereUsername($username)->first();
+        if ($user) {
+            return View::make('users.topics')
+                ->withUser($user);
+        }
+        App::abort();
     }
 }

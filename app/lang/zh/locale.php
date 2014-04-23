@@ -26,4 +26,6 @@ return [
     'following'        => '正在关注',
     'topic'            => '主题',
     'reset_password'   => '重置密码',
+    'user_info'        => '个人信息',
+    'user_topic'       => '发布的话题',
 ];

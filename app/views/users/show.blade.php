@@ -7,5 +7,7 @@
 @stop
 
 @section('sidebar')
-    <div class="boxify"></div>
+    <div class="boxify">
+        @include('partials.user.tab')
+    </div>
 @stop

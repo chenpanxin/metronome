@@ -23,6 +23,9 @@ Route::get('signup', 'UserController@create');
 Route::get('users', 'UserController@index');
 Route::post('user/store', 'UserController@store');
 Route::get('user/{username}', 'UserController@show');
+Route::get('user/{username}/topics', 'UserController@topics');
+Route::get('user/{username}/following', 'UserController@following');
+Route::get('user/{username}/followers', 'UserController@followers');
 
 Route::get('/', 'TopicController@index');
 Route::get('topic/new', 'TopicController@create');
