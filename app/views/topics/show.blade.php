@@ -7,6 +7,9 @@
             <div class="body">{{ $topic->body }}</div>
         </div>
     </div>
+    <div class="boxify">
+        @include('partials.comments')
+    </div>
 @stop
 
 @section('sidebar')
