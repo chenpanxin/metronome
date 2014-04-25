@@ -26,7 +26,7 @@ class UserController extends BaseController {
             'username' => Input::get('username')
         ]);
         $user->password = Hash::make(Input::get('password'));
-        $user->avatar_url = '';
+        $user->avatar_url = Str::avatar_url($user->email);
 
         if ($user->save()) {
             Auth::login($user);

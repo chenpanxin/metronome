@@ -12,7 +12,7 @@ class UserTableSeeder extends Seeder {
             User::create([
                 'email'      => $faker->freeEmail,
                 'username'   => $faker->userName,
-                'avatar_url' => $faker->imageUrl(56, 56),
+                'avatar_url' => Str::avatar_url(),
                 'password'   => Hash::make('password')
             ]);
         }
