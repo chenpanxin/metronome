@@ -35,6 +35,9 @@ Route::post('topic/store', 'TopicController@store');
 Route::put('topic/{id}', 'TopicController@update');
 Route::delete('topic/{id}', 'TopicController@destroy');
 Route::get('category/{id}', 'TopicController@byCategory');
+Route::get('newest', 'TopicController@newest');
+Route::get('popular', 'TopicController@popular');
+Route::get('no_discuss', 'TopicController@byComment');
 
 Route::get('settings', 'UserController@notify');
 Route::get('settings/profile', 'UserController@profileEdit');

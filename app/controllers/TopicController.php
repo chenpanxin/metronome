@@ -45,4 +45,22 @@ class TopicController extends BaseController {
             ->withCategories(Category::all())
             ->withTopics($topics);
     }
+
+    public function byComment()
+    {
+        $topics = Topic::with('user')->paginate(16);
+        return View::make('topics.index')
+            ->withCategories(Category::all())
+            ->withTopics($topics);
+    }
+
+    public function popular()
+    {
+        return Redirect::to('/');
+    }
+
+    public function newest()
+    {
+        return Redirect::to('/');
+    }
 }
