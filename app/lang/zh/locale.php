@@ -28,4 +28,6 @@ return [
     'reset_password'   => '重置密码',
     'user_info'        => '个人信息',
     'user_topic'       => '发布的话题',
+    'discuss'          => '讨论',
+    'users'            => '用户',
 ];

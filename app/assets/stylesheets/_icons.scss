@@ -50,3 +50,12 @@ span[class*=' icon-'] {
 .icon-nav-right:before {
   @include icon(\e766);
 }
+.icon-book:before {
+  @include icon(\1f4d6);
+}
+.icon-discuss:before {
+  @include icon(\1f500);
+}
+.icon-vcard:before {
+  @include icon(\e722);
+}

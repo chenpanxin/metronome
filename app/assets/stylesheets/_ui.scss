@@ -1,5 +1,4 @@
 .boxify {
-  min-height: 100px;
   margin-bottom: 20px;
   padding: 4px 0;
   border-top: 1px solid rgba(#505050, .12);
@@ -113,25 +112,12 @@ p {
     padding: 20px 20px;
   }
   .vcard-stats {
-    padding: 12px 0;
     border-top: 1px solid rgba(#505050, .12);
-    @include clearfix();
-    li {
-      display: inline-block;
-      float: left;
-      width: 33.333%;
-      > a {
-        display: block;
-        font-size: 1.15em;
-        text-align: center;
-        line-height: 1.65em;
-        color: rgba($font-color, .825);
-        > span {
-          display: block;
-          font-size: .65em;
-          line-height: 1.15em;
-        }
-      }
-    }
+    @include stat();
+  }
+}
+.web {
+  .web-stats {
+    @include stat();
   }
 }
