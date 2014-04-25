@@ -28,7 +28,9 @@
             @endforeach
         </ul>
     </div>
-    <div class="boxify"></div>
-    <div class="boxify"></div>
-    <div class="boxify"></div>
+    @if (Auth::check())
+        <div class="boxify">
+            @include('partials.stat')
+        </div>
+    @endif
 @stop

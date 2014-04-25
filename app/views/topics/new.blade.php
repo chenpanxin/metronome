@@ -3,7 +3,6 @@
 @section('main')
     <div class="boxify">
         <div class="new topic">
-            @include('partials.select')
             {{ Form::open(['url'=>'topic/store']) }}
                 {{ Form::label('title', Lang::get('locale.title')) }}
                 {{ Form::text('title') }}
@@ -16,5 +15,11 @@
 @stop
 
 @section('sidebar')
-    <div class="boxify"></div>
+    <div class="boxify">
+        <ul class="tab right">
+            @foreach ($categories as $category)
+                <li><a href="">{{ $category->name }}<span class="pull_right">{{ $category->topics_count }}</span></a></li>
+            @endforeach
+        </ul>
+    </div>
 @stop
