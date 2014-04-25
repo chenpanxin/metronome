@@ -21,7 +21,10 @@ class UserController extends BaseController {
                 ->withErrors($validator->errors());
         }
 
-        $user = new User($this->params());
+        $user = new User([
+            'email'    => Input::get('email'),
+            'username' => Input::get('username')
+        ]);
         $user->password = Hash::make(Input::get('password'));
         $user->avatar_url = '';
 
@@ -75,13 +78,5 @@ class UserController extends BaseController {
                 ->withUser($user);
         }
         App::abort();
-    }
-
-    private function params()
-    {
-        return [
-            'email'    => Input::get('email'),
-            'username' => Input::get('username')
-        ];
     }
 }
