@@ -4,17 +4,25 @@
     <meta charset="utf-8">
     <title>{{ $title or 'Hello, Laravel.' }}</title>
     {{ HTML::style('assets/application.css') }}
+    {{ HTML::script('http://remote.qiniudn.com/jquery.js') }}
+    {{ HTML::script('assets/application.js') }}
 </head>
 <body>
 <div class="navbar">
     <div class="inner">
-        <div id="logo"><a href="{{ url('/') }}">Ruby<sup>Beta</sup></a></div>
-        <div class="options pull_right">@include('partials.user.options')</div>
+        <div id="logo">
+            <a href="{{ url('/') }}">{{ studly_case($stat->website_name) }}<sup>{{ studly_case($stat->website_version) }}</sup></a>
+        </div>
+        <div class="options pull_right">
+        @include('partials.user.options')
+        </div>
     </div>
 </div>
 <div class="master">
     <div class="grid">
-        <div class="unit centre">@yield('main')</div>
+        <div class="unit centre">
+            @yield('main')
+        </div>
     </div>
 </div>
 <div class="footer"></div>
