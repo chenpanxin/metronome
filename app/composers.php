@@ -1,6 +1,6 @@
 <?php
 
-View::composer(['topics.index'], function($view)
+View::composer(['topics.*', 'users.*'], function($view)
 {
     $view->with('stat', Stat::orderBy('id', 'desc')->first());
 });

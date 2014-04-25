@@ -9,7 +9,7 @@
 <body>
 <div class="navbar">
     <div class="inner">
-        <div id="logo"><a href="{{ url('/') }}">Ruby<sup>Beta</sup></a></div>
+        <div id="logo"><a href="{{ url('/') }}">{{ studly_case($stat->website_name) }}<sup>{{ studly_case($stat->website_version) }}</sup></a></div>
         <div class="options pull_right">
         @include('partials.user.options')
         </div>

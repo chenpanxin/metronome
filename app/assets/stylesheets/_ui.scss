@@ -65,11 +65,13 @@ p {
     font-weight: 400;
     height: 50px;
     padding: 12px 12px;
+    letter-spacing: .115em;
     sup {
-      font-size: .752em;
-      margin-left: .257em;
+      font-size: .720em;
+      margin-left: .225em;
       font-style: italic;
       color: rgba(#000, .37);
+      letter-spacing: normal;
     }
   }
 }
