@@ -1,4 +1,5 @@
 .boxify {
+  min-height: 50px;
   margin-bottom: 20px;
   padding: 4px 0;
   border-top: 1px solid rgba(#505050, .12);
@@ -118,6 +119,11 @@ p {
 }
 .web {
   .web-stats {
+    @include stat();
+  }
+}
+.sort {
+  .sort-tab {
     @include stat();
   }
 }

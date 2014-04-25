@@ -30,4 +30,7 @@ return [
     'user_topic'       => '发布的话题',
     'discuss'          => '讨论',
     'users'            => '用户',
+    'newest'           => '最新',
+    'popular'          => '推荐',
+    'no_discuss'       => '冷门',
 ];

@@ -59,3 +59,15 @@ span[class*=' icon-'] {
 .icon-vcard:before {
   @include icon(\e722);
 }
+.icon-time:before {
+  @include icon(\1f554);
+}
+.icon-bulb:before {
+  @include icon(\1f4a1);
+}
+.icon-newest:before {
+  @include icon(\1f4c8);
+}
+.icon-list:before {
+  @include icon(\e005);
+}
