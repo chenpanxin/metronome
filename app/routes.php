@@ -62,5 +62,5 @@ Route::group(['domain'=>'ghost.nhn.io'], function()
 
 Event::listen('illuminate.query', function($query)
 {
-
+    Log::info($query);
 });

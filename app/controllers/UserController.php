@@ -28,7 +28,7 @@ class UserController extends BaseController {
         $user->password = Hash::make(Input::get('password'));
         $user->avatar_url = Str::avatar_url($user->email);
 
-        if ($user->save()) {
+        if ($user->save() and $user->profile()->save(new Profile)) {
             Auth::login($user);
             return Redirect::to('/');
         }
@@ -47,12 +47,21 @@ class UserController extends BaseController {
 
     public function profileEdit()
     {
-        return View::make('users.profile.edit');
+        return View::make('users.profile.edit')
+            ->withProfile(Auth::user()->profile);
     }
 
     public function profileUpdate()
     {
+        Auth::user()->profile->update([
+            'nickname'      => Input::get('nickname'),
+            'location'      => Input::get('location'),
+            'school'        => Input::get('school'),
+            'contact_email' => Input::get('contact_email'),
+            'biography'     => Input::get('biography')
+        ]);
 
+        return Redirect::to('settings/profile');
     }
 
     public function edit()
