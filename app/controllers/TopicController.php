@@ -17,7 +17,12 @@ class TopicController extends BaseController {
     public function show($id)
     {
         $topic = Topic::with('user')->findOrFail($id);
+
+        $markdown = new Ampou\Services\Markdown($topic->body);
+        $topic_html = Ampou\Services\Sanitization::make($markdown->html());
+
         return View::make('topics.show')
+            ->withTopicHtml($topic_html)
             ->withTopic($topic);
     }
 
@@ -29,12 +34,19 @@ class TopicController extends BaseController {
 
     public function store()
     {
-        $topic = new Topic;
-        $topic->category_id = 1;
-        $topic->user_id = Auth::user()->id;
-        $topic->title = Input::get('title');
-        $topic->body = Input::get('body');
-        $topic->save();
+        $validator = new Ampou\Validators\TopicValidator;
+
+        if ($validator->fails()) {
+            return Redirect::back();
+        }
+
+        $topic = new Topic([
+            'category_id' => Input::get('category_id'),
+            'title'       => Input::get('title'),
+            'body'        => Input::get('body')
+        ]);
+
+        Auth::user()->topics()->save($topic);
         return Redirect::to('/');
     }
 

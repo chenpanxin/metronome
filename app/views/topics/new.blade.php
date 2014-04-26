@@ -8,6 +8,7 @@
                 {{ Form::text('title') }}
                 {{ Form::label('body', Lang::get('locale.body')) }}
                 {{ Form::textarea('body', '', ['cols'=>28]) }}
+                {{ Form::hidden('category_id', 1) }}
                 {{ Form::submit(Lang::get('locale.new_topic'), ['class'=>'btn normal']) }}
             {{ Form::close() }}
         </div>
