@@ -88,4 +88,24 @@ class UserController extends BaseController {
         }
         App::abort();
     }
+
+    public function following($username)
+    {
+        $user = User::with('following')->whereUsername($username)->first();
+        if ($user) {
+            return View::make('users.following')
+                ->withUser($user);
+        }
+        App::abort();
+    }
+
+    public function followers($username)
+    {
+        $user = User::with('followers')->whereUsername($username)->first();
+        if ($user) {
+            return View::make('users.followers')
+                ->withUser($user);
+        }
+        App::abort();
+    }
 }

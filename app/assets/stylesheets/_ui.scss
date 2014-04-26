@@ -158,3 +158,20 @@ p {
     height: auto;
   }
 }
+.following,
+.followers {
+  padding: .85em .85em;
+  @include clearfix();
+  .user-item {
+    display: inline-block;
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: .37em 0;
+    .user-info {
+      color: rgba(#000, .404);
+      font-size: .85em;
+      margin-bottom: .37em;
+    }
+  }
+}
