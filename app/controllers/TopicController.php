@@ -16,7 +16,7 @@ class TopicController extends BaseController {
 
     public function show($id)
     {
-        $topic = Topic::findOrFail($id);
+        $topic = Topic::with('user')->findOrFail($id);
         return View::make('topics.show')
             ->withTopic($topic);
     }

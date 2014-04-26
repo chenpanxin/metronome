@@ -15,7 +15,13 @@
 @section('sidebar')
     <div class="boxify">
         <div class="vcard">
-            <div class="vcard-user-info"></div>
+            <div class="vcard-user-info">
+                <div class="avatar">{{ HTML::image($topic->user->avatar_url) }}</div>
+                <div class="account">
+                    <span>{{ $topic->user->username }}</span>
+                    <span>{{ $topic->user->created_at }}</span>
+                </div>
+            </div>
             <ul class="vcard-stats">
                 <li><a href="">0<span>{{ Lang::get('locale.topic') }}</span></a></li>
                 <li><a href="">10<span>{{ Lang::get('locale.following') }}</span></a></li>

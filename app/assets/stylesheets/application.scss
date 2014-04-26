@@ -60,19 +60,11 @@ body {
         color: rgba($font-color, .836);
       }
       > span {
-        display: inline-block;
         position: absolute;
         left: 10px;
         top: 10px;
         height: 52px;
         width: 52px;
-        overflow: hidden;
-        @include border-radius(40px);
-        @include box-shadow(0 0 2px rgba(#505050, .37));
-      }
-      img {
-        width: 100%;
-        height: auto;
       }
     }
   }

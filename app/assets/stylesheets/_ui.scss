@@ -112,6 +112,26 @@ p {
 .vcard {
   .vcard-user-info {
     padding: 20px 20px;
+    .avatar {
+      width: 52px;
+      height: 52px;
+    }
+    .account {
+      display: inline-block;
+      padding: .12em .12em;
+      width: 180px;
+      float: right;
+      color: $font-color;
+      font-size: .85em;
+      > span {
+        display: block;
+        &:last-child {
+          font-size: .825em;
+          color: rgba(#000, .404);
+          margin-top: .404em;
+        }
+      }
+    }
   }
   .vcard-stats {
     border-top: 1px solid rgba(#505050, .12);
@@ -126,5 +146,15 @@ p {
 .sort {
   .sort-tab {
     @include stat();
+  }
+}
+.avatar {
+  display: inline-block;
+  overflow: hidden;
+  @include border-radius(40px);
+  @include box-shadow(0 0 2px rgba(#505050, .37));
+  img {
+    width: 100%;
+    height: auto;
   }
 }
