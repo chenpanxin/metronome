@@ -8,7 +8,7 @@
                 {{ Form::text('title', $topic->title) }}
                 {{ Form::label('body', Lang::get('locale.body')) }}
                 {{ Form::textarea('body', $topic->body, ['cols'=>28]) }}
-                {{ Form::hidden('category_id', 1) }}
+                {{ Form::hidden('category_id', $topic->category->id) }}
                 {{ Form::submit(Lang::get('locale.new_topic'), ['class'=>'btn normal']) }}
             {{ Form::close() }}
         </div>

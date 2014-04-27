@@ -52,7 +52,7 @@ class TopicController extends BaseController {
 
     public function edit($id)
     {
-        $topic = Topic::findOrFail($id);
+        $topic = Topic::with('category')->findOrFail($id);
         return View::make('topics.edit')
             ->withCategories(Category::all())
             ->withTopic($topic);
@@ -61,11 +61,20 @@ class TopicController extends BaseController {
     public function update($id)
     {
         $topic = Topic::findOrFail($id);
-        if ($topic->user_id == Auth::user()->id) {
-            $topic->title = Input::get('title');
-        }
-        $topic->save();
 
+        $validator = new Ampou\Validators\TopicValidator;
+
+        if ($validator->fails()) {
+            return Redirect::back();
+        }
+
+        if ($topic->user_id == Auth::user()->id) {
+            $topic->update([
+                'title'       => Input::get('title'),
+                'body'        => Input::get('body'),
+                'category_id' => Input::get('category_id')
+            ]);
+        }
         return Redirect::back();
     }
 
