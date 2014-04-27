@@ -11,7 +11,7 @@ class TopicController extends BaseController {
     {
         return View::make('topics.index')
             ->withCategories(Category::all())
-            ->withTopics(Topic::with('user')->paginate(16));
+            ->withTopics(Topic::with('user')->orderBy('created_at', 'desc')->paginate(16));
     }
 
     public function show($id)
@@ -87,7 +87,10 @@ class TopicController extends BaseController {
 
     public function popular()
     {
-        return Redirect::to('/');
+        $topics = Topic::with('user')->paginate(16);
+        return View::make('topics.index')
+            ->withCategories(Category::all())
+            ->withTopics($topics);
     }
 
     public function newest()
