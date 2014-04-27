@@ -68,7 +68,8 @@ body {
       }
     }
   }
-  &.new {
+  &.new,
+  &.edit {
     padding: 20px 20px;
     input[type=text],
     textarea {

@@ -50,6 +50,25 @@ class TopicController extends BaseController {
         return Redirect::to('/');
     }
 
+    public function edit($id)
+    {
+        $topic = Topic::findOrFail($id);
+        return View::make('topics.edit')
+            ->withCategories(Category::all())
+            ->withTopic($topic);
+    }
+
+    public function update($id)
+    {
+        $topic = Topic::findOrFail($id);
+        if ($topic->user_id == Auth::user()->id) {
+            $topic->title = Input::get('title');
+        }
+        $topic->save();
+
+        return Redirect::back();
+    }
+
     public function byCategory($id)
     {
         $topics = Topic::with('user')->whereCategoryId($id)->paginate(16);
