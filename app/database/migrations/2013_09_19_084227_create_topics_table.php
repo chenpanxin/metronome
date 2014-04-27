@@ -14,7 +14,7 @@ class CreateTopicsTable extends Migration {
             $table->string('title');
             $table->text('body');
             $table->integer('likes_count')->default(0);
-            $table->integer('replies_count')->default(0);
+            $table->integer('comments_count')->default(0);
             $table->boolean('trashed')->default(false);
             $table->boolean('frozen')->default(false);
             $table->softDeletes();
