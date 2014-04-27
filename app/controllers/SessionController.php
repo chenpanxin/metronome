@@ -38,6 +38,11 @@ class SessionController extends BaseController {
         return View::make('users.logout');
     }
 
+    public function reminder()
+    {
+        return View::make('users.login');
+    }
+
     private function params()
     {
         return [

@@ -15,9 +15,10 @@ form {
   input,
   textarea {
     display: block;
-    font-size: 1em;
-    line-height: 1.4;
     outline: none;
+    font-size: .85em;
+    line-height: 1.65em;
+    color: rgba(#000, .625);
     padding: 5px 6px;
     border: 1px solid #e0e0eb;
     @include border-radius(3px);

@@ -5,6 +5,13 @@
         <div class="show topic">
             <div class="title">{{{ $topic->title }}}</div>
             <div class="body">{{ $topic_html }}</div>
+            <div class="topic-stats">
+                {{ Lang::get('locale.post_on') }}
+                <span class="post_on">{{ $topic->created_at }}</span>
+                {{ Lang::get('locale.comments_count') }}
+                <span>{{ $topic->comments_count }}</span>
+                <span class="pull_right"><i class="icon-like"></i></span>
+            </div>
         </div>
     </div>
     <div class="boxify">

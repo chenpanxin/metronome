@@ -71,3 +71,9 @@ span[class*=' icon-'] {
 .icon-list:before {
   @include icon(\e005);
 }
+.icon-like:before {
+  @include icon(\2665);
+}
+.icon-unlike:before {
+  @include icon(\2661);
+}

@@ -74,8 +74,12 @@ body {
     input[type=text],
     textarea {
       width: 100%;
-      resize: none;
       margin-bottom: .73em;
+    }
+    textarea {
+      resize: none;
+      font-size: .92em;
+      line-height: 1.85em;
     }
     label {
       color: rgba($font-color, .720);
@@ -92,6 +96,7 @@ body {
     }
     .body {
       padding: 20px 20px;
+      border-bottom: 1px solid rgba(#505050, .12);
       font-size: .85em;
       color: lighten(#000, 37%);
       p {
@@ -100,6 +105,12 @@ body {
       code {
         @include white-space();
       }
+    }
+    .topic-stats {
+      padding: 10px 10px;
+      font-size: .85em;
+      line-height: 1.65em;
+      color: rgba(#000, .404);
     }
   }
 }

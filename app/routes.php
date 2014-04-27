@@ -16,7 +16,7 @@ Route::group(['prefix'=>'admin'], function()
 
 Route::get('login', 'SessionController@create');
 Route::get('logout', 'SessionController@logout');
-Route::post('sessions/store', 'SessionController@store');
+Route::post('session/store', 'SessionController@store');
 Route::delete('logout', 'SessionController@destroy');
 
 Route::get('signup', 'UserController@create');
@@ -46,6 +46,8 @@ Route::get('settings/password', 'UserController@edit');
 Route::put('settings/password', 'UserController@update');
 Route::get('u/{username}/replies', 'UserController@show');
 Route::post('{reply}/store', 'ReplyController@store');
+
+Route::get('session/forgot_password', 'SessionController@reminder');
 
 Route::get('{reply}/{id}', 'ReplyController@show');
 Route::put('{reply}/{id}', 'ReplyController@update');

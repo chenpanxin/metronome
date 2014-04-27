@@ -33,4 +33,7 @@ return [
     'newest'           => '最新',
     'popular'          => '推荐',
     'no_discuss'       => '冷门',
+    'post_on'          => '发表于',
+    'comments_count'   => '评论',
+    'likes_count'      => '',
 ];
