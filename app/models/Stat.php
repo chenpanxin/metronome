@@ -2,5 +2,5 @@
 
 class Stat extends Eloquent {
 
-    protected $table = 'current_stats';
+    protected $table = 'website_stats';
 }

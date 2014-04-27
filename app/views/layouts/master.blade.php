@@ -11,7 +11,7 @@
 <div class="navbar">
     <div class="inner">
         <div id="logo">
-            <a href="{{ url('/') }}">{{ studly_case($stat->website_name) }}<sup>{{ studly_case($stat->website_version) }}</sup></a>
+            <a href="{{ url('/') }}">{{ studly_case('ruby') }}<sup>{{ studly_case('beta') }}</sup></a>
         </div>
         <div class="options pull_right">
         @include('partials.user.options')
