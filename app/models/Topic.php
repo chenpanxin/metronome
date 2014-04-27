@@ -8,4 +8,9 @@ class Topic extends Eloquent {
     {
         return $this->belongsTo('User');
     }
+
+    public function category()
+    {
+        return $this->belongsTo('Category');
+    }
 }
