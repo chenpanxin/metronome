@@ -157,13 +157,18 @@ p {
   overflow: hidden;
   @include border-radius(40px);
   @include box-shadow(0 0 2px rgba(#505050, .37));
+  > a {
+    display: block;
+    line-height: 0;
+  }
   img {
     width: 100%;
     height: auto;
   }
 }
 .following,
-.followers {
+.followers,
+.users {
   padding: .85em .85em;
   @include clearfix();
   .user-item {

@@ -2,13 +2,13 @@
 
 @section('main')
     <div class="boxify">
-        <div class="followers">
-            @foreach ($user->followers as $follower)
+        <div class="users">
+            @foreach ($users as $user)
                 <div class="user-item">
                     <div class="avatar">
-                        <a href="{{ URL::to('user/'.$follower->username) }}">{{ HTML::image($follower->avatar_url) }}</a>
+                        <a href="{{ URL::to('user/'.$user->username) }}">{{ HTML::image($user->avatar_url) }}</a>
                     </div>
-                    <div class="user-info">{{ $follower->username }}</div>
+                    <div class="user-info">{{ $user->username }}</div>
                 </div>
             @endforeach
         </div>
@@ -17,6 +17,6 @@
 
 @section('sidebar')
     <div class="boxify">
-        @include('partials.user.tab')
+
     </div>
 @stop

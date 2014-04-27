@@ -7,6 +7,12 @@ class UserController extends BaseController {
 
     }
 
+    public function index()
+    {
+        return View::make('users.index')
+            ->withUsers(User::with('profile')->paginate(30));
+    }
+
     public function create()
     {
         return View::make('users.signup');
