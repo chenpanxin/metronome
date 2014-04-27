@@ -24,6 +24,12 @@
        -o-transition: $var;
           transition: $var;
 }
+@mixin white-space() {
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
 @mixin clearfix() {
   &:before,
   &:after {
@@ -58,11 +64,16 @@
       text-align: center;
       line-height: 1.65em;
       color: rgba($font-color, .825);
-      > span {
+      span {
         display: block;
-        font-size: .65em;
-        line-height: 1em;
-        margin-top: .625em;
+        &:last-child {
+          font-size: .65em;
+          line-height: 1em;
+          margin-top: .625em;
+        }
+        &.number {
+          font-size: .85em;
+        }
       }
     }
   }

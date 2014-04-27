@@ -94,6 +94,12 @@ body {
       padding: 20px 20px;
       font-size: .85em;
       color: lighten(#000, 37%);
+      p {
+        line-height: 1.65em;
+      }
+      code {
+        @include white-space();
+      }
     }
   }
 }

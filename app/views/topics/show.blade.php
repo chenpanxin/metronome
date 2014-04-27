@@ -23,9 +23,9 @@
                 </div>
             </div>
             <ul class="vcard-stats">
-                <li><a href="{{ URL::to('user/'.$topic->user->username.'/topics') }}">0<span>{{ Lang::get('locale.topic') }}</span></a></li>
-                <li><a href="{{ URL::to('user/'.$topic->user->username.'/following') }}">10<span>{{ Lang::get('locale.following') }}</span></a></li>
-                <li><a href="{{ URL::to('user/'.$topic->user->username.'/followers') }}">1<span>{{ Lang::get('locale.followers') }}</span></a></li>
+                <li><a href="{{ URL::to('user/'.$topic->user->username.'/topics') }}"><span class="number">100</span><span>{{ Lang::get('locale.topic') }}</span></a></li>
+                <li><a href="{{ URL::to('user/'.$topic->user->username.'/following') }}"><span class="number">100</span><span>{{ Lang::get('locale.following') }}</span></a></li>
+                <li><a href="{{ URL::to('user/'.$topic->user->username.'/followers') }}"><span class="number">12</span><span>{{ Lang::get('locale.followers') }}</span></a></li>
             </ul>
         </div>
     </div>
