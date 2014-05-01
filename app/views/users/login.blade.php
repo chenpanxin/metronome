@@ -2,6 +2,7 @@
 
 @section('main')
     <div class="boxify">
+        @include('partials.notify')
         {{ Form::open(['url'=>'session/store']) }}
             <ul class="login">
                 {{ HTML::group([

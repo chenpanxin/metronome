@@ -37,4 +37,5 @@ return [
     'comments_count'   => '评论',
     'likes_count'      => '',
     'open_incorrect'   => '打开网页的方式不太对哦',
+    'auth_incorrect'   => '账号或者密码错误',
 ];

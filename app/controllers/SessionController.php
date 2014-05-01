@@ -19,10 +19,11 @@ class SessionController extends BaseController {
             : array_only($this->params(), ['username', 'password']);
 
         if (Auth::attempt($authenticator, Input::has('remember_me'))) {
-            return Redirect::intended('/')
-                ->withNotice('User authenticate failed');
+            return Redirect::intended('/');
         }
-        return Redirect::back();
+
+        Session::flash('msg', Lang::get('locale.auth_incorrect'));
+        return Redirect::to('login');
     }
 
     public function destroy()
