@@ -52,6 +52,8 @@ Route::get('session/forgot_password', 'SessionController@reminder');
 Route::get('{reply}/{id}', 'ReplyController@show');
 Route::put('{reply}/{id}', 'ReplyController@update');
 
+// Route::controller('password', 'RemindersController');
+
 Route::get('{not_found}', function()
 {
     return Response::json(['error'=>'page not found.']);

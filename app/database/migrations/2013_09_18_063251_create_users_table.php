@@ -13,6 +13,7 @@ class CreateUsersTable extends Migration {
             $table->string('avatar_url');
             $table->string('email')->unique();
             $table->string('username')->unique();
+            $table->string('remember_token')->nullable();
             $table->string('locale')->default('zh');
             $table->boolean('verify')->default(false);
             $table->boolean('staff')->default(false);
