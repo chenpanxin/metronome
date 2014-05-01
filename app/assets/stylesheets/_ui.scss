@@ -210,3 +210,11 @@ p {
     }
   }
 }
+span {
+  &.error {
+    font-size: .72em;
+    line-height: 1.65em;
+    margin-left: 160px;
+    color: lighten($font-color, 10%);
+  }
+}
