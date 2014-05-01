@@ -21,8 +21,11 @@ class TopicController extends BaseController {
         $markdown = new Ampou\Services\Markdown($topic->body);
         $topic_html = Ampou\Services\Sanitization::make($markdown->html());
 
+        $comments = Comment::with('replies')->whereTopicId($topic->id)->get();
+
         return View::make('topics.show')
             ->withTopicHtml($topic_html)
+            ->withComments($comments)
             ->withTopic($topic);
     }
 
