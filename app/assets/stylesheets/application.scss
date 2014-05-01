@@ -180,6 +180,9 @@ ul {
   li {
     position: relative;
     padding: 10px 12px;
+    font-size: .85em;
+    line-height: 1.4em;
+    color: rgba($comment-color, .94);
     .avatar {
       position: absolute;
       left: 12px;
@@ -191,13 +194,22 @@ ul {
       margin: 0 0 .37em 62px;
     }
     .content {
-      font-size: .85em;
-      line-height: 1.4em;
-      color: #5f5f5f;
       margin: 0 0 0 62px;
-      .reply {
-        a {
-          color: rgba($font-color, .72);
+    }
+    .reply {
+      li {
+        .avatar {
+          position: absolute;
+          left: 30px;
+          top: 10px;
+          height: 36px;
+          width: 36px;
+        }
+        .meta {
+          margin: 0 0 0 72px;
+        }
+        .reply-content {
+          margin: 0 0 0 72px;
         }
       }
     }

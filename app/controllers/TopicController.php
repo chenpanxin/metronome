@@ -18,15 +18,16 @@ class TopicController extends BaseController {
     {
         $topic = Topic::with('user')->findOrFail($id);
 
+        $comments = $topic->comments;
+        $comments->load('user', 'replies', 'replies.user');
+
         $markdown = new Ampou\Services\Markdown($topic->body);
         $topic_html = Ampou\Services\Sanitization::make($markdown->html());
 
-        $comments = Comment::with('replies')->whereTopicId($topic->id)->get();
-
         return View::make('topics.show')
+            ->withTopic($topic)
             ->withTopicHtml($topic_html)
-            ->withComments($comments)
-            ->withTopic($topic);
+            ->withComments($comments);
     }
 
     public function create()

@@ -1,14 +1,18 @@
 <ul class="list comment">
     @foreach ($comments as $comment)
         <li>
-            <div class="avatar">{{ HTML::image($topic->user->avatar_url) }}</div>
-            <p class="meta"><a href="">{{ $topic->user->username }}</a><span data-time="{{ $comment->created_at }}">40 minutes ago</span><a href="" class="pull_right">reply</a></p>
-            <div class="content">
-                {{{ $comment->content }}}
+            <div class="avatar">{{ HTML::image($comment->user->avatar_url) }}</div>
+            <p class="meta"><a href="">{{ $comment->user->username }}</a><span data-time="{{ $comment->created_at }}">40 minutes ago</span><a href="" class="pull_right">reply</a></p>
+            <p class="content">{{{ $comment->content }}}</p>
+            <ul class="reply">
                 @foreach ($comment->replies as $reply)
-                    <p class="reply"><a href="">Laravel Says: </a>{{ $reply->content }}</p>
+                    <li>
+                        <span class="avatar">{{ HTML::image($reply->user->avatar_url) }}</span>
+                        <p class="meta"><a href="">{{ $reply->user->username }}<span>40 minutes ago</span></a></p>
+                        <p class="reply-content">{{ $reply->content }}</p>
+                    </li>
                 @endforeach
-            </div>
+            </ul>
         </li>
     @endforeach
 </ul>
