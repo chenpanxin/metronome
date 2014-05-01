@@ -1,25 +1,21 @@
 .btn {
-  vertical-align: middle;
-  text-decoration: none;
-  letter-spacing: .1em;
   padding: 0 .85em;
   line-height: 38px;
   font-weight: bold;
   font-size: .85em;
-  background-image: linear-gradient(rgba(#000, 0), rgba(#000, .115));
-  @include transition(.185s background-color ease-in-out);
-  &:hover {
-    cursor: pointer;
-  }
+  vertical-align: middle;
+  letter-spacing: .1em;
+  @include transition(.115s background-color ease-in-out);
   &:focus {
-    outline: none;
+    @include box-shadow(none);
   }
 }
 .normal {
-  color: #fefefe;
-  border-color: darken($btn-normal-color, 5%) !important;
-  background-color: rgba($btn-normal-color, .895);
+  color: #fefef3;
+  border: 1px solid darken($btn-normal-color, 3%);
+  background-color: $btn-normal-color;
   &:hover {
-    background-color: rgba($btn-normal-color, .985);
+    border: 1px solid darken($btn-normal-color, 8%);
+    background-color: darken($btn-normal-color, 5%);
   }
 }
