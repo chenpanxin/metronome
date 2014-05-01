@@ -22,7 +22,7 @@
 </div>
 <div class="master">
     <div class="grid">
-        <div class="unit centre">
+        <div class="unit full">
             @yield('main')
         </div>
     </div>

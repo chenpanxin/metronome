@@ -36,4 +36,5 @@ return [
     'post_on'          => '发表于',
     'comments_count'   => '评论',
     'likes_count'      => '',
+    'open_incorrect'   => '打开网页的方式不太对哦',
 ];

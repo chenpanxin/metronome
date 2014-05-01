@@ -184,3 +184,17 @@ p {
     }
   }
 }
+.page {
+  &.error {
+    text-align: center;
+    font-size: .85em;
+    line-height: 1.65em;
+    color: rgba(#000, .37);
+    margin-bottom: 2.25em;
+  }
+}
+.smile {
+  text-align: center;
+  color: rgba($font-color, .85);
+  font-size: 2.25em;
+}

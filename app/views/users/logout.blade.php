@@ -2,9 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        <a href="{{ URL::to('logout') }}">{{ Lang::get('locale.logout') }}</a>
-        {{ Form::open(['url'=>URL::to('logout'), 'method'=>'delete']) }}
-            {{ Form::submit(Lang::get('locale.logout'), ['id'=>'logout']) }}
-        {{ Form::close() }}
+        <p class="not smile">:(</p>
+        <p class="page error">{{ Lang::get('locale.open_incorrect') }}</p>
     </div>
 @stop
