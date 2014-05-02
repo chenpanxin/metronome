@@ -1,79 +1,76 @@
 @font-face {
   font-family: $icon;
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   src: url(./icons/#{$icon}.eot);
-  src: url('./icons/#{$icon}.eot?#iefix') format("ie9-skip-eot"),
-       url('./icons/#{$icon}.ttf') format("truetype"),
-       url('./icons/#{$icon}.woff') format("woff");
+  src: url('./icons/#{$icon}.eot?#iefix') format('ie9-skip-eot'),
+       url('./icons/#{$icon}.ttf') format('truetype'),
+       url('./icons/#{$icon}.woff') format('woff'),
+       url('./icons/#{$icon}.svg') format('svg');
 }
 i[class^='icon-'],
 i[class*=' icon-'],
 span[class^='icon-'],
 span[class*=' icon-'] {
+  position: static;
   font-family: $icon;
   font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
   display: inline-block;
-  position: static;
-  min-width: 20px;
   margin: 0 5px;
-  text-align: center;
+  min-width: 20px;
   color: $icon-color;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .icon-login:before {
-  @include icon(\e740);
+  @include icon(\e632);
 }
 .icon-logout:before {
-  @include icon(\e741);
-}
-.icon-signup:before {
-  @include icon(\e700);
+  @include icon(\e631);
 }
 .icon-user:before {
-  @include icon(\1f464);
+  @include icon(\e61d);
 }
 .icon-users:before {
-  @include icon(\1f465);
+  @include icon(\e61e);
 }
 .icon-home:before {
-  @include icon(\2302);
+  @include icon(\e626);
 }
 .icon-export:before {
-  @include icon(\e715);
+  @include icon(\e621);
 }
 .icon-setting:before {
-  @include icon(\2699);
-}
-.icon-nav-left:before {
-  @include icon(\e765);
-}
-.icon-nav-right:before {
-  @include icon(\e766);
+  @include icon(\e658);
 }
 .icon-book:before {
-  @include icon(\1f4d6);
+  @include icon(\e63f);
 }
 .icon-discuss:before {
-  @include icon(\1f500);
+  @include icon(\e62c);
 }
 .icon-vcard:before {
-  @include icon(\e722);
+  @include icon(\e620);
 }
 .icon-time:before {
   @include icon(\1f554);
 }
 .icon-bulb:before {
-  @include icon(\1f4a1);
+  @include icon(\e62b);
 }
 .icon-newest:before {
-  @include icon(\1f4c8);
+  @include icon(\e600);
 }
 .icon-list:before {
-  @include icon(\e005);
+  @include icon(\e602);
 }
 .icon-like:before {
-  @include icon(\2665);
+  @include icon(\e60c);
 }
 .icon-unlike:before {
-  @include icon(\2661);
+  @include icon(\e616);
 }

@@ -24,7 +24,8 @@ class UserController extends BaseController {
 
         if ($validator->fails()) {
             return Redirect::back()
-                ->withErrors($validator->errors());
+                ->withErrors($validator->errors())
+                ->withInput();
         }
 
         $user = new User([
