@@ -20,6 +20,7 @@ return [
     'nickname'         => '昵称',
     'location'         => '所在地',
     'school'           => '学校',
+    'website'          => '个人网址',
     'contact_email'    => '联系邮箱',
     'biography'        => '简介',
     'followers'        => '关注者',
@@ -39,5 +40,9 @@ return [
     'open_incorrect'   => '打开网页的方式不太对哦',
     'auth_incorrect'   => '账号或者密码错误',
     'profile_updated'  => '个人信息已更新',
+    'password_updated' => '密码更新成功',
+    'old_pw_incorrect' => '当前密码不正确',
     'change_avatar'    => '更换头像',
+    'change_password'  => '修改密码',
+    'profile'          => '个人资料',
 ];

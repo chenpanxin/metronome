@@ -2,6 +2,7 @@
 
 @section('main')
     <div class="boxify">
+        @include('partials.notify')
         {{ Form::open(['url'=>'settings/password', 'method'=>'put']) }}
             <ul class="password">
                 {{ HTML::group([
@@ -23,5 +24,7 @@
 @stop
 
 @section('sidebar')
-    <div class="boxify"></div>
+    <div class="boxify">
+        @include('partials.settings.tab')
+    </div>
 @stop

@@ -238,15 +238,19 @@ ul {
       }
     }
   }
-  .avatar-square {
-    margin: 12px 14px;
-    padding: 8px 8px;
-    line-height: 0;
-    @include border-radius(3px);
-    @include box-shadow(0 0 1px rgba(#000, .37));
-    img {
-      width: 100%;
-      height: auto;
-    }
+}
+.avatar-not-square {
+  margin: 1em auto;
+  width: 128px;
+  height: 128px;
+  padding: 3px 3px;
+  line-height: 0;
+  @include border-radius(128px);
+  @include box-shadow(0 0 1px rgba(#000, .37));
+  img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    @include border-radius(128px);
   }
 }

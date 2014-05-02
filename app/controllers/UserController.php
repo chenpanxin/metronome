@@ -64,6 +64,7 @@ class UserController extends BaseController {
             'nickname'      => Input::get('nickname'),
             'location'      => Input::get('location'),
             'school'        => Input::get('school'),
+            'website'       => Input::get('website'),
             'contact_email' => Input::get('contact_email'),
             'biography'     => Input::get('biography')
         ]);
@@ -98,7 +99,28 @@ class UserController extends BaseController {
 
     public function update()
     {
+        $user = Auth::user();
 
+        if (! Hash::check(Input::get('current_password'), $user->password)) {
+            Session::flash('msg', Lang::get('locale.old_pw_incorrect'));
+            return Redirect::to('settings/password');
+        }
+
+        $validator = Validator::make(Input::all(), [
+            'password'              => 'required|alpha_dash|between:6,16|confirmed',
+            'password_confirmation' => 'required|alpha_dash|between:6,16'
+        ]);
+
+        if ($validator->fails()) {
+            Session::flash('msg', $validator->messages()->first('password'));
+            return Redirect::to('settings/password');
+        }
+
+        $user->password = Hash::make(Input::get('password'));
+        $user->save();
+
+        Session::flash('msg', Lang::get('locale.password_updated'));
+        return Redirect::to('settings/password');
     }
 
     public function notify()
