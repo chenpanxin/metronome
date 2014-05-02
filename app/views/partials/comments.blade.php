@@ -2,7 +2,7 @@
     @foreach ($comments as $comment)
         <li>
             <div class="avatar">{{ HTML::image($comment->user->avatar_url) }}</div>
-            <p class="meta"><a href="">{{ $comment->user->username }}</a><span data-time="{{ $comment->created_at }}">40 minutes ago</span><a href="" class="pull_right">reply</a></p>
+            <p class="meta"><a href="">{{ $comment->user->username }}</a><span data-time="{{ $comment->created_at }}">40 minutes ago</span><a href="" class="pull_right">{{ Lang::get('locale.reply') }}</a></p>
             <p class="content">{{{ $comment->content }}}</p>
             <ul class="reply">
                 @foreach ($comment->replies as $reply)

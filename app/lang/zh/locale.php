@@ -34,7 +34,7 @@ return [
     'newest'           => '最新',
     'popular'          => '推荐',
     'no_discuss'       => '冷门',
-    'post_on'          => '发表于',
+    'created_on'       => '创建于',
     'comments_count'   => '评论',
     'likes_count'      => '',
     'open_incorrect'   => '打开网页的方式不太对哦',
@@ -46,4 +46,8 @@ return [
     'change_password'  => '修改密码',
     'profile'          => '个人资料',
     'topic_updated'    => '话题保存成功',
+    'reply'            => '回应',
+    'follow'           => '关注 Ta',
+    'unfollow'         => '取消关注',
+    'join_on'          => '加入',
 ];

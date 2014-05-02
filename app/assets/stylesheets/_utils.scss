@@ -15,6 +15,16 @@
 .pull_left {
   float: left;
 }
+span {
+  &.space {
+    padding: 0 .195em;
+  }
+}
+i {
+  &.number {
+    font-style: normal;
+  }
+}
 .center {
   @include center();
 }

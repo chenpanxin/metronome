@@ -16,10 +16,12 @@ class TopicController extends BaseController {
 
     public function show($id)
     {
-        $topic = Topic::with('user')->findOrFail($id);
+        $topic = Topic::findOrFail($id);
 
         $comments = $topic->comments;
         $comments->load('user', 'replies', 'replies.user');
+
+        $topic->load('user', 'category');
 
         $markdown = new Ampou\Services\Markdown($topic->body);
         $topic_html = Ampou\Services\Sanitization::make($markdown->html());

@@ -45,7 +45,7 @@ span[class*=' icon-'] {
   @include icon(\e621);
 }
 .icon-setting:before {
-  @include icon(\e658);
+  @include icon(\e628);
 }
 .icon-book:before {
   @include icon(\e63f);
@@ -57,7 +57,7 @@ span[class*=' icon-'] {
   @include icon(\e620);
 }
 .icon-time:before {
-  @include icon(\1f554);
+  @include icon(\e62a);
 }
 .icon-bulb:before {
   @include icon(\e62b);
@@ -76,4 +76,7 @@ span[class*=' icon-'] {
 }
 .icon-upload:before {
   @include icon(\e63c);
+}
+.icon-comment:before {
+  @include icon(\e625);
 }

@@ -13,6 +13,17 @@
             $('.tab.select>li').removeClass('active');
             $(this).parent('li').addClass('active');
         });
+        $('.relationship').click(function(e){
+            e.preventDefault();
+            var url = $(this).attr('href');
+            $.ajax({
+                url: url,
+                type: 'post',
+                success: function() {
+                    console.log('...');
+                }
+            });
+        });
 
         /** defalut **/
         $('.tab.select>li:first').addClass('active');

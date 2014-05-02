@@ -132,7 +132,6 @@ p {
         &:last-child {
           font-size: .825em;
           color: rgba(#000, .404);
-          margin-top: .404em;
         }
       }
     }
@@ -140,6 +139,15 @@ p {
   .vcard-stats {
     border-top: 1px solid rgba(#505050, .12);
     @include stat();
+  }
+  .relationship {
+    margin-top: .37em;
+    margin-bottom: .12em;
+    font-size: .825em;
+    display: block;
+    line-height: 2.0em;
+    color: rgba(#006ecc, .404);
+    font-weight: bold;
   }
 }
 .web {
