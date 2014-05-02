@@ -45,4 +45,5 @@ return [
     'change_avatar'    => '更换头像',
     'change_password'  => '修改密码',
     'profile'          => '个人资料',
+    'topic_updated'    => '话题保存成功',
 ];

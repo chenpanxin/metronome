@@ -104,6 +104,7 @@ body {
       color: lighten(#000, 37%);
       p {
         line-height: 1.65em;
+        @include white-space();
       }
       code {
         @include white-space();

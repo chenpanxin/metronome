@@ -56,8 +56,11 @@ return [
 
     ],
     'attributes' => [
-        'username' => '用户名',
-        'password' => '密码',
-        'email'    => '邮箱',
+        'username'    => '用户名',
+        'password'    => '密码',
+        'email'       => '邮箱',
+        'title'       => '标题',
+        'body'        => '内容',
+        'category_id' => '该分类',
     ],
 ];

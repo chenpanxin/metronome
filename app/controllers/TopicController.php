@@ -41,7 +41,9 @@ class TopicController extends BaseController {
         $validator = new Ampou\Validators\TopicValidator;
 
         if ($validator->fails()) {
-            return Redirect::back();
+            Session::flash('msg', $validator->messages()->first());
+            return Redirect::to('topic/new')
+                ->withInput();
         }
 
         $topic = new Topic([
@@ -69,6 +71,7 @@ class TopicController extends BaseController {
         $validator = new Ampou\Validators\TopicValidator;
 
         if ($validator->fails()) {
+            Session::flash('msg', $validator->messages()->first());
             return Redirect::back();
         }
 
@@ -79,6 +82,7 @@ class TopicController extends BaseController {
                 'category_id' => Input::get('category_id')
             ]);
         }
+        Session::flash('msg', Lang::get('locale.topic_updated'));
         return Redirect::back();
     }
 
