@@ -74,3 +74,6 @@ span[class*=' icon-'] {
 .icon-unlike:before {
   @include icon(\e616);
 }
+.icon-upload:before {
+  @include icon(\e63c);
+}

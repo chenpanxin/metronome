@@ -4,5 +4,8 @@
             e.preventDefault();
             $(this).next().submit();
         });
+        $('input.auto').change(function(){
+            $(this).parent('form').submit();
+        });
     });
 }).call(this);

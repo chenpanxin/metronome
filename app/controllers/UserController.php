@@ -55,7 +55,7 @@ class UserController extends BaseController {
     public function profileEdit()
     {
         return View::make('users.profile.edit')
-            ->withProfile(Auth::user()->profile);
+            ->withUser(Auth::user()->load('profile'));
     }
 
     public function profileUpdate()
@@ -68,7 +68,27 @@ class UserController extends BaseController {
             'biography'     => Input::get('biography')
         ]);
 
+        Session::flash('msg', Lang::get('locale.profile_updated'));
         return Redirect::to('settings/profile');
+    }
+
+    public function avatarStore()
+    {
+        $validator = Validator::make(Input::all(), ['avatar'=>'mimes:jpeg,jpg,png,gif']);
+        if ($validator->fails()) {
+            return Redirect::to('settings/profile');
+        }
+        $user = Auth::user();
+        $avatar = Image::make(Input::file('avatar')->getRealPath());
+        $user_uploads = join('/', [public_path(), 'uploads', md5($user->email)]);
+        File::exists($user_uploads) or File::makeDirectory($user_uploads);
+        $avatar->grab(256)->save(join('/', [$user_uploads, 'avatar.jpg']));
+        $avatar->grab(56)->save(join('/', [$user_uploads, 'avatar_s56.jpg']));
+
+        $user->avatar_url = URL::to(join('/', ['uploads', md5($user->email), 'avatar_s56.jpg']));
+        $user->save();
+
+        return Redirect::back();
     }
 
     public function edit()

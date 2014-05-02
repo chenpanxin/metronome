@@ -42,6 +42,7 @@ Route::get('no_discuss', 'TopicController@byComment');
 Route::get('settings', 'UserController@notify');
 Route::get('settings/profile', 'UserController@profileEdit');
 Route::put('settings/profile', 'UserController@profileUpdate');
+Route::post('settings/avatar', 'UserController@avatarStore');
 Route::get('settings/password', 'UserController@edit');
 Route::put('settings/password', 'UserController@update');
 Route::get('u/{username}/replies', 'UserController@show');

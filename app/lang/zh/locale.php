@@ -38,4 +38,6 @@ return [
     'likes_count'      => '',
     'open_incorrect'   => '打开网页的方式不太对哦',
     'auth_incorrect'   => '账号或者密码错误',
+    'profile_updated'  => '个人信息已更新',
+    'change_avatar'    => '更换头像',
 ];
