@@ -53,6 +53,7 @@ Route::get('session/forgot_password', 'SessionController@reminder');
 Route::get('{reply}/{id}', 'ReplyController@show');
 Route::put('{reply}/{id}', 'ReplyController@update');
 
+Route::get('relationship', 'RelationshipController@show');
 Route::post('follow', 'RelationshipController@store');
 Route::post('unfollow', 'RelationshipController@destroy');
 

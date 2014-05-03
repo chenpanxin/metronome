@@ -27,7 +27,13 @@
                 <div class="avatar">{{ HTML::image($topic->user->avatar_url) }}</div>
                 <div class="account">
                     <span>{{ $topic->user->username }}</span>
-                    <span><a href="{{ URL::to('follow?target='.$topic->user->username) }}" class="relationship">{{ Lang::get('locale.follow') }}</a></span>
+                    @if (Auth::check() and $topic->user->id == Auth::user()->id)
+                        <span><a href="{{ URL::to('settings') }}" class="linklr">{{ Lang::get('locale.edit_profile') }}</a></span>
+                    @elseif (0)
+                        <span><a href="{{ URL::to('unfollow?target='.$topic->user->username) }}" class="linklr relationship">{{ Lang::get('locale.unfollow') }}</a></span>
+                    @else
+                        <span><a href="{{ URL::to('follow?target='.$topic->user->username) }}" class="linklr relationship">{{ Lang::get('locale.follow') }}</a></span>
+                    @endif
                     <span>{{ join(' ', [$topic->user->created_at->toFormattedDateString(), Lang::get('locale.join_on')]) }}</span>
                 </div>
             </div>

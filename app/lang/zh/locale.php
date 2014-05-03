@@ -50,4 +50,5 @@ return [
     'follow'           => '关注 Ta',
     'unfollow'         => '取消关注',
     'join_on'          => '加入',
+    'edit_profile'     => '编辑个人信息',
 ];

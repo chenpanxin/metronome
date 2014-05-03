@@ -2,6 +2,27 @@
 
 class RelationshipController extends BaseController {
 
+    public function __construct()
+    {
+        $this->beforeFilter(function()
+        {
+            if (Auth::guest()) {
+                return Response::json(['msg'=>'login_required', 'code'=>'94401']);
+            }
+        });
+    }
+
+    public function show()
+    {
+        $followed = User::whereUsername(Input::get('target'))->first();
+        if ($followed and Relationship::whereFollowedId($followed->id)
+            ->whereFollowerId(Auth::user()->id)
+            ->first()) {
+            return Response::json(['msg'=>'followed', 'code'=>'94200', 'replace'=>Lang::get('locale.unfollow')]);
+        }
+        return Response::json(['msg'=>'not_followed', 'code'=>'94404']);
+    }
+
     public function store()
     {
         $followed = User::whereUsername(Input::get('target'))->first();

@@ -30,12 +30,28 @@
                             _this.attr('href', link.replace('follow', 'unfollow'));
                             _this.text(data.msg);
                         }
+                    } else if (data.code == 94401) {
+                        console.log(data.msg);
                     }
                 }
             });
         });
 
         /** defalut **/
+        $('.relationship').each(function(){
+            var _this = $(this);
+            var username = $('.vcard .account>span:first').text() || '';
+            $.ajax({
+                url: '/relationship?target='+username,
+                success: function(data) {
+                    if (data.code == '94200') {
+                        var link = _this.attr('href');
+                        _this.attr('href', link.replace('follow', 'unfollow'));
+                        _this.text(data.replace);
+                    }
+                }
+            });
+        });
         $('.tab.select>li:first').addClass('active');
         $('#category').val($('.tab.select>li:first>a').data('category'));
     });
