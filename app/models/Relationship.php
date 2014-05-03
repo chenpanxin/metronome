@@ -3,6 +3,7 @@
 class Relationship extends Eloquent {
 
     public $timestamps = false;
+    protected $guarded = ['id'];
 
     public function follower()
     {

@@ -16,11 +16,21 @@
         $('.relationship').click(function(e){
             e.preventDefault();
             var url = $(this).attr('href');
+            var _this = $(this);
             $.ajax({
                 url: url,
                 type: 'post',
-                success: function() {
-                    console.log('...');
+                success: function(data) {
+                    if (data.code == 94200) {
+                        var link = _this.attr('href');
+                        if (link.match('unfollow')) {
+                            _this.attr('href', link.replace('unfollow', 'follow'));
+                            _this.text(data.msg);
+                        } else {
+                            _this.attr('href', link.replace('follow', 'unfollow'));
+                            _this.text(data.msg);
+                        }
+                    }
                 }
             });
         });
