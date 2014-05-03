@@ -51,4 +51,6 @@ return [
     'unfollow'         => '取消关注',
     'join_on'          => '加入',
     'edit_profile'     => '编辑个人信息',
+    'comment'          => '评论',
+    'comment_it'       => '我来说几句 >>',
 ];

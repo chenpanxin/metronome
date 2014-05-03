@@ -36,6 +36,13 @@
                 }
             });
         });
+        $('.comment-panel>.back-cancel').click(function(){
+            $(this).parent().fadeOut(200);
+        });
+        $('.trigger.comment').click(function(e){
+            e.preventDefault();
+            $('.comment-panel').fadeIn(200);
+        });
 
         /** defalut **/
         $('.relationship').each(function(){

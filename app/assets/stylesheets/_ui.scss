@@ -218,6 +218,46 @@ p {
     }
   }
 }
+.comment-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 320;
+  display: none;
+  background-color: rgba(#fefefe, .625);
+  .back-cancel {
+    width: 100%;
+    height: 100%;
+  }
+  .panel {
+    position: absolute;
+    left: 50%;
+    top: 160px;
+    width: 800px;
+    min-height: 200px;
+    margin-left: -400px;
+    background-color: rgba(#fffffe, .94);
+    @include border-radius(3px);
+    @include box-shadow(0 1px 2px rgba(#000, .404), 0 0 1px rgba(#000, .12) inset);
+  }
+  .comment-area {
+    padding: 20px 20px;
+    textarea {
+      width: 100%;
+      resize: none;
+    }
+    input[type=submit] {
+      float: right;
+      margin: 10px auto;
+    }
+  }
+}
+.trigger {
+  color: $font-color;
+  font-size: .825em;
+}
 span {
   &.error {
     font-size: .72em;
