@@ -46,6 +46,7 @@ class UserController extends BaseController {
     {
         $user = User::whereUsername($username)->first();
         if ($user) {
+            $user->load('profile');
             return View::make('users.show')
                 ->withUser($user);
         }

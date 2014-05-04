@@ -191,6 +191,31 @@ p {
       margin-bottom: .37em;
     }
   }
+  &.show {
+    .avatar-not-square {
+      float: right;
+      margin-right: 1.15em;
+      margin-top: 1.15em;
+    }
+    .user-account,
+    .user-profile {
+      p {
+        font-size: .85em;
+        color: rgba($font-color, .825);
+        span {
+          display: inline-block;
+          text-align: right;
+          width: 120px;
+          margin-left: 1.15em;
+          margin-right: 1.15em;
+          color: rgba(#000, .404);
+        }
+        a {
+          color: rgba($font-color, .825);
+        }
+      }
+    }
+  }
 }
 .page {
   &.error {

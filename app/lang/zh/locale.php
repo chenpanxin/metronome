@@ -50,9 +50,11 @@ return [
     'follow'           => '关注 Ta',
     'unfollow'         => '取消关注',
     'join_on'          => '加入',
+    'signup_date'      => '注册日期',
     'edit_profile'     => '编辑个人信息',
     'comment'          => '评论',
     'edit'             => '编辑',
     'delete'           => '删除',
-    'comment_it'       => '我来说几句 >>',
+    'comment_it'       => '我来说几句',
+    'user_number'      => '第 :number 位用户',
 ];
