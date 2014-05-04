@@ -39,6 +39,10 @@ Route::get('newest', 'TopicController@newest');
 Route::get('popular', 'TopicController@popular');
 Route::get('no_discuss', 'TopicController@byComment');
 
+Route::post('topic/{id}', 'CommentController@store');
+Route::put('topic/{id}/comment/{comment_id}', 'CommentController@update');
+Route::delete('topic/{id}/comment/{comment_id}', 'CommentController@destroy');
+
 Route::get('settings', 'UserController@notify');
 Route::get('settings/profile', 'UserController@profileEdit');
 Route::put('settings/profile', 'UserController@profileUpdate');

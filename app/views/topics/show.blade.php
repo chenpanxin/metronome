@@ -11,7 +11,7 @@
                 <span class="space"></span>
                 <span>{{ Lang::get('locale.comments_count') }}</span>
                 <span>{{ $topic->comments_count }}</span>
-                <span class="pull_right"><a href="{{ URL::to('') }}" class="trigger comment">{{ Lang::get('locale.comment_it') }}</a></span>
+                <span class="pull_right"><a href="{{ URL::to('topic/'.$topic->id) }}" class="trigger comment">{{ Lang::get('locale.comment_it') }}</a></span>
             </div>
         </div>
     </div>
@@ -46,10 +46,10 @@
     </div>
     <div class="comment-panel">
         <div class="back-cancel"></div>
-        <div class="panel">
+        <div class="boxify panel">
             <div class="comment-area">
                 {{ Form::open(['url'=>'topic/'.$topic->id]) }}
-                    {{ Form::textarea('comment') }}
+                    {{ Form::textarea('content') }}
                     {{ Form::submit(Lang::get('locale.comment'), ['class'=>'btn normal']) }}
                 {{ Form::close() }}
             </div>

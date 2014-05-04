@@ -2,7 +2,16 @@
     @foreach ($comments as $comment)
         <li>
             <div class="avatar">{{ HTML::image($comment->user->avatar_url) }}</div>
-            <p class="meta"><a href="">{{ $comment->user->username }}</a><span data-time="{{ $comment->created_at }}">40 minutes ago</span><a href="" class="pull_right">{{ Lang::get('locale.reply') }}</a></p>
+            <p class="meta">
+                <a href="">{{ $comment->user->username }}</a>
+                <span data-time="{{ $comment->created_at }}">40 minutes ago</span>
+                @if (Auth::user()->id == $comment->user->id)
+                    <a href="{{ URL::to('topic/'.$topic->id.'/comment/'.$comment->id) }}" class="pull_right edit">{{ Lang::get('locale.edit') }}</a>
+                    <a href="{{ URL::to('topic/'.$topic->id.'/comment/'.$comment->id) }}" class="pull_right delete">{{ Lang::get('locale.delete') }}</a>
+                @else
+                    <!-- <a href="" class="pull_right">{{ Lang::get('locale.reply') }}</a> -->
+                @endif
+            </p>
             <p class="content">{{{ $comment->content }}}</p>
             <ul class="reply">
                 @foreach ($comment->replies as $reply)

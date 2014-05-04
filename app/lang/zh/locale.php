@@ -52,5 +52,7 @@ return [
     'join_on'          => '加入',
     'edit_profile'     => '编辑个人信息',
     'comment'          => '评论',
+    'edit'             => '编辑',
+    'delete'           => '删除',
     'comment_it'       => '我来说几句 >>',
 ];

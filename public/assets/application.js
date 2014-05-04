@@ -41,6 +41,28 @@
         });
         $('.trigger.comment').click(function(e){
             e.preventDefault();
+            var url = $(this).attr('href');
+            $('.comment-panel form').attr('action', url);
+            $('.comment-panel').fadeIn(200);
+        });
+        $('.comment a.delete').click(function(e){
+            e.preventDefault(0);
+            var _this = $(this);
+            var url = _this.attr('href');
+            $.ajax({
+                url: url,
+                type: 'delete',
+                success: function(data) {
+                    _this.parents('li').fadeOut(500);
+                }
+            });
+        });
+        $('.comment a.edit').click(function(e){
+            e.preventDefault();
+            var _this = $(this);
+            var url = _this.attr('href');
+            $('.comment-panel textarea').val(_this.parent('p').next().text());
+            $('.comment-panel form').attr('action', url+'?_method=PUT');
             $('.comment-panel').fadeIn(200);
         });
 
