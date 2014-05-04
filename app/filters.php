@@ -13,13 +13,22 @@
 
 App::before(function($request)
 {
-	//
+    //
 });
 
 
 App::after(function($request, $response)
 {
-	//
+    if (App::environment() != 'development') {
+        if ($response instanceof Illuminate\Http\Response) {
+            $output = $response->getOriginalContent();
+            $output = preg_replace('/<!--([^\[|(<!)].*)/', '', $output);
+            $output = preg_replace('/(?<!\S)\/\/\s*[^\r\n]*/', '', $output);
+            $output = preg_replace('/\s{2,}/', '', $output);
+            $output = preg_replace('/(\r?\n)/', '', $output);
+            $response->setContent($output);
+        }
+    }
 });
 
 /*
@@ -35,13 +44,13 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+    if (Auth::guest()) return Redirect::guest('login');
 });
 
 
 Route::filter('auth.basic', function()
 {
-	return Auth::basic();
+    return Auth::basic();
 });
 
 /*
@@ -57,7 +66,7 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+    if (Auth::check()) return Redirect::to('/');
 });
 
 /*
@@ -73,8 +82,8 @@ Route::filter('guest', function()
 
 Route::filter('csrf', function()
 {
-	if (Session::token() != Input::get('_token'))
-	{
-		throw new Illuminate\Session\TokenMismatchException;
-	}
+    if (Session::token() != Input::get('_token'))
+    {
+        throw new Illuminate\Session\TokenMismatchException;
+    }
 });

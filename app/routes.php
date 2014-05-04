@@ -77,3 +77,7 @@ Event::listen('illuminate.query', function($query)
 {
     Log::info($query);
 });
+
+// Route::pattern('hash', '[a-z0-9]{32}');
+// Route::pattern('slug', '[a-z0-9-]+');
+// Route::when('*', 'csrf', array('post', 'put', 'delete'));

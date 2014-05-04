@@ -6,6 +6,8 @@ return array(
 
     'version'     => 'website version',
 
+    'author'      => 'website author',
+
     'title'       => 'website title',
 
     'keywords'    => 'website keywords',
