@@ -1,10 +1,14 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+    <meta name="author" content="{{ Config::get('website.author') }}">
     <meta name="keywords" content="{{ Config::get('website.keywords') }}">
     <meta name="description" content="{{ Config::get('website.description') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>{{ $title or 'Hello, Laravel.' }}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     {{ HTML::style('assets/application.css') }}
     {{ HTML::script('http://remote.qiniudn.com/jquery.js') }}
     {{ HTML::script('assets/application.js') }}
