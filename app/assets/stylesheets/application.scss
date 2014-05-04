@@ -32,6 +32,11 @@ body {
 .footer {
   border-top: 1px solid #e0e1e3;
   min-height: 50px;
+  p {
+    text-align: center;
+    font-size: .85em;
+    color: rgba(#546673, .404);
+  }
 }
 .options {
   display: inline-block;

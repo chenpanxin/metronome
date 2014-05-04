@@ -12,6 +12,6 @@ return array(
 
     'description' => 'laravel',
 
-    'copyright'   => 'laravel',
+    'copyright'   => '© 2014 Application · All rights reserved.',
 
 );

@@ -30,6 +30,8 @@
         </div>
     </div>
 </div>
-<div class="footer"></div>
+<div class="footer">
+    <p>{{ Config::get('website.copyright') }}</p>
+</div>
 </body>
 </html>

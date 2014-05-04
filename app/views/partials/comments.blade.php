@@ -5,7 +5,7 @@
             <p class="meta">
                 <a href="">{{ $comment->user->username }}</a>
                 <span data-time="{{ $comment->created_at }}">40 minutes ago</span>
-                @if (Auth::user()->id == $comment->user->id)
+                @if (Auth::check() and Auth::user()->id == $comment->user->id)
                     <a href="{{ URL::to('topic/'.$topic->id.'/comment/'.$comment->id) }}" class="pull_right edit">{{ Lang::get('locale.edit') }}</a>
                     <a href="{{ URL::to('topic/'.$topic->id.'/comment/'.$comment->id) }}" class="pull_right delete">{{ Lang::get('locale.delete') }}</a>
                 @else
