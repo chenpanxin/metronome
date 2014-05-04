@@ -195,7 +195,8 @@ ul {
       margin: 0 0 .37em 62px;
     }
     .content {
-      margin: 0 0 0 62px;
+      margin: 0 12px 0 62px;
+      @include white-space();
     }
     .reply {
       li {

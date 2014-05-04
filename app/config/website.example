@@ -1,9 +1,0 @@
-<?php
-
-return [
-    'logo'        => 'Laravel',
-    'version'     => 'beta',
-    'title'       => 'Hello, laravel.',
-    'keywords'    => 'laravel',
-    'description' => 'An application build with laravel framework.'
-];
