@@ -61,6 +61,9 @@ Route::get('relationship', 'RelationshipController@show');
 Route::post('follow', 'RelationshipController@store');
 Route::post('unfollow', 'RelationshipController@destroy');
 
+Route::post('topic/{id}/like', 'LikeController@store');
+Route::post('topic/{id}/unlike', 'LikeController@destroy');
+
 // Route::controller('password', 'RemindersController');
 
 Route::get('{not_found}', function()

@@ -65,6 +65,22 @@
             $('.comment-panel form').attr('action', url+'?_method=PUT');
             $('.comment-panel').fadeIn(200);
         });
+        $('.me.like').click(function(e){
+            e.preventDefault();
+            var _this = $(this);
+            var url = _this.attr('href');
+            $.ajax({
+                url: url,
+                type: 'post',
+                success: function() {
+                    if (url.match('unlike')) {
+                        _this.attr('href', url.replace('unlike', 'like'));
+                    } else {
+                        _this.attr('href', url.replace('like', 'unlike'));
+                    }
+                }
+            });
+        });
 
         /** defalut **/
         $('.relationship').each(function(){

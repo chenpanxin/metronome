@@ -12,6 +12,7 @@
                 <span>{{ Lang::get('locale.comments_count') }}</span>
                 <span>{{ $topic->comments_count }}</span>
                 <span class="pull_right"><a href="{{ URL::to('topic/'.$topic->id) }}" class="trigger comment">{{ Lang::get('locale.comment_it') }}</a></span>
+                <span class="pull_right"><a href="{{ URL::to('topic/'.$topic->id.'/like') }}" class="me like">{{ Lang::get('locale.like') }}</a></span>
             </div>
         </div>
     </div>
