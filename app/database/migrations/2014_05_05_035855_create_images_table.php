@@ -3,21 +3,19 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLikesTable extends Migration {
+class CreateImagesTable extends Migration {
 
     public function up()
     {
-        Schema::create('likes', function($table)
+        Schema::create('images', function($table)
         {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('topic_id');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('likes');
+        Schema::dropIfExists('images');
     }
 }

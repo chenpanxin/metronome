@@ -56,5 +56,5 @@ return [
     'edit'             => '编辑',
     'delete'           => '删除',
     'comment_it'       => '我来说几句',
-    'user_number'      => '第 :number 位用户',
+    'user_number'      => '第 :number 号会员',
 ];
