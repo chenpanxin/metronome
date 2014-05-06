@@ -11,12 +11,12 @@ class CreateTopicsTable extends Migration {
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('category_id');
-            $table->string('title');
-            $table->text('body');
             $table->integer('likes_count')->default(0);
             $table->integer('comments_count')->default(0);
             $table->boolean('trashed')->default(false);
             $table->boolean('frozen')->default(false);
+            $table->string('title');
+            $table->text('body');
             $table->softDeletes();
             $table->timestamps();
         });
