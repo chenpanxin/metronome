@@ -83,6 +83,7 @@
         });
 
         /** defalut **/
+        $('span.timeago').timeago();
         $('.relationship').each(function(){
             var _this = $(this);
             var username = $('.vcard .account>span:first').text() || '';

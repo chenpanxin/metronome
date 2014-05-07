@@ -11,7 +11,7 @@ class TopicController extends BaseController {
     {
         return View::make('topics.index')
             ->withCategories(Category::all())
-            ->withTopics(Topic::with('user')->orderBy('created_at', 'desc')->paginate(16));
+            ->withTopics(Topic::with('user', 'category')->orderBy('created_at', 'desc')->paginate(16));
     }
 
     public function show($id)
@@ -90,7 +90,7 @@ class TopicController extends BaseController {
 
     public function byCategory($id)
     {
-        $topics = Topic::with('user')->whereCategoryId($id)->paginate(16);
+        $topics = Topic::with('user', 'category')->whereCategoryId($id)->paginate(16);
         return View::make('topics.index')
             ->withCategories(Category::all())
             ->withTopics($topics);
@@ -98,7 +98,7 @@ class TopicController extends BaseController {
 
     public function byComment()
     {
-        $topics = Topic::with('user')->paginate(16);
+        $topics = Topic::with('user', 'category')->paginate(16);
         return View::make('topics.index')
             ->withCategories(Category::all())
             ->withTopics($topics);

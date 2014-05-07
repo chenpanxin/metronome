@@ -53,24 +53,26 @@ body {
 }
 .topic {
   &.list {
-    > li {
+    li {
       position: relative;
       min-height: 72px;
       padding: 10px 12px;
       border-bottom: 1px solid rgba($font-color, .12);
-      > a {
-        display: block;
-        margin-left: 76px;
-        line-height: 32px;
-        font-size: .85em;
-        color: rgba($font-color, .836);
-      }
-      > span {
-        position: absolute;
-        left: 12px;
-        top: 10px;
-        height: 52px;
-        width: 52px;
+      a {
+        &.title {
+          display: block;
+          margin-left: 76px;
+          line-height: 32px;
+          font-size: .85em;
+          color: rgba($font-color, .836);
+        }
+        &.avatar {
+          position: absolute;
+          left: 12px;
+          top: 10px;
+          height: 52px;
+          width: 52px;
+        }
       }
       p {
         margin: 0 auto 0 76px;
