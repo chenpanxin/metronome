@@ -14,7 +14,9 @@
                 <p><span>{{ Lang::get('locale.location') }}</span>{{ $user->profile->location }}</p>
                 <p><span>{{ Lang::get('locale.school') }}</span>{{ $user->profile->school }}</p>
                 <p><span>{{ Lang::get('locale.website') }}</span>{{ $user->profile->website }}</p>
+                @unless ($user->profile->contact_email == '')
                 <p><span>{{ Lang::get('locale.contact_email') }}</span>{{ HTML::mailto($user->profile->contact_email) }}</p>
+                @endunless
                 <p><span>{{ Lang::get('locale.biography') }}</span>{{ $user->profile->biography }}</p>
                 <p><span>{{ Lang::get('locale.signup_date') }}</span>{{ $user->created_at->toFormattedDateString() }} ( {{ Lang::get('locale.user_number', ['number'=>$user->id]) }} )</p>
             </div>

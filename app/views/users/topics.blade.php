@@ -6,10 +6,10 @@
             @foreach ($user->topics as $topic)
                 <li>
                     <a class="title" href="{{ URL::to('topic/'.$topic->id) }}">{{ $topic->title }}<span class="icon-export pull_right"></span></a>
-                    <span class="avatar">{{ HTML::image($user->avatar_url) }}</span>
+                    <a class="avatar">{{ HTML::image($user->avatar_url) }}</a>
                     <p class="meta">
                         <a href="{{ URL::to('user/'.$user->username) }}">{{ $user->username }}</a>
-                        {{ $topic->created_at->diffForHumans() }}
+                        <span class="timeago" title="{{ $topic->created_at }}">{{ $topic->created_at->diffForHumans() }}</span>
                     </p>
                 </li>
             @endforeach
