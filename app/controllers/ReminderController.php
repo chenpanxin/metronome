@@ -1,10 +1,10 @@
 <?php
 
-class RemindersController extends Controller {
+class ReminderController extends Controller {
 
     public function getRemind()
     {
-        return View::make('password.remind');
+        return View::make('users.remind');
     }
 
     public function postRemind()
