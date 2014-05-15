@@ -7,9 +7,11 @@
 @import 'ui';
 @import 'utils';
 
+html {
+  font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'WenQuanYi Micro Hei', STHeiti, 'Microsoft YaHei', sans-serif;
+}
 body {
   background-color: $body-color;
-  font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'WenQuanYi Micro Hei', STHeiti, 'Microsoft YaHei', sans-serif;
 }
 .navbar {
   position: fixed;
@@ -18,7 +20,7 @@ body {
   right: 0;
   z-index: 115;
   height: 50px;
-  background-color: $boxify-color;
+  background-color: $navbar-color;
   span {
     color: rgba($icon-color, .789);
   }
@@ -32,10 +34,13 @@ body {
 }
 .footer {
   border-top: 1px solid #e0e1e3;
-  min-height: 50px;
+  background-color: $footer-color;
+  min-height: 56px;
   p {
+    margin: 0;
     text-align: center;
     font-size: .85em;
+    line-height: 54px;
     color: rgba(#546673, .404);
   }
 }

@@ -1,5 +1,5 @@
 ::selection {
-  background-color: #3f3f49;
+  background-color: $selection-color;
   color: #f0f1fb;
 }
 .boxify {
@@ -7,9 +7,8 @@
   margin-bottom: 20px;
   padding: 4px 0;
   background-color: $boxify-color;
-  border-top: 1px solid rgba($font-color, .12);
   @include border-radius(3px);
-  @include box-shadow(0 1px 1px rgba(#000, .37));
+  @include box-shadow(0 0 1px rgba(#000, .225), 0 1px 1px rgba(#000, .404));
 }
 form {
   input,
