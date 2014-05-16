@@ -12,11 +12,19 @@
             </div>
         </div>
     </div>
+    @unless ($comments->count() == 0)
+        <div class="boxify" data-comments-count="{{ $comments->count() }}">
+            @include('partials.comments')
+            <div class="hidden comment-edit-template">
+                {{ Form::open(['url'=>'']) }}
+                {{ Form::close() }}
+            </div>
+        </div>
+    @endif
     <div class="boxify">
-        @include('partials.comments')
         <div class="new comment">
             {{ Form::open(['url'=>'topic/'.$topic->id]) }}
-                {{ Form::textarea('content') }}
+                {{ Form::textarea('content', null, ['placeholder'=>Lang::get('locale.write_comment')]) }}
                 {{ Form::submit(Lang::get('locale.comment'), ['class'=>'btn normal']) }}
             {{ Form::close() }}
         </div>

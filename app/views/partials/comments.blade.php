@@ -1,9 +1,9 @@
 <ul class="list comment">
     @foreach ($comments as $comment)
         <li>
-            <div class="avatar">{{ HTML::image($comment->user->avatar_url) }}</div>
+            <a href="{{ URL::to('user/'.$comment->user->username) }}" class="avatar">{{ HTML::image($comment->user->avatar_url) }}</a>
             <p class="meta">
-                <a href="">{{ $comment->user->username }}</a>
+                <a href="{{ URL::to('user/'.$comment->user->username) }}" name="comment-{{ $comment->id }}">{{ $comment->user->username }}</a>
                 <span data-time="{{ $comment->created_at }}">40 minutes ago</span>
                 @if (Auth::check() and Auth::user()->id == $comment->user->id)
                     <a href="{{ URL::to('topic/'.$topic->id.'/comment/'.$comment->id) }}" class="pull_right edit">{{ Lang::get('locale.edit') }}</a>

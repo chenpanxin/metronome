@@ -1,24 +1,33 @@
 (function(){
+    $.fn.timeago.defaults = {
+        lang: {
+            units: {
+                second: "秒",
+                seconds: "秒",
+                minute: "分钟",
+                minutes: "分钟",
+                hour: "小时",
+                hours: "小时",
+                day: "天",
+                days: "天",
+                month: "月",
+                months: "月",
+                year: "年",
+                years: "年"
+            },
+            prefixes: {
+                lt: "不到 1",
+                about: "大约",
+                over: "超过",
+                almost: "接近",
+                ago: ""
+            },
+            suffix: "之前"
+        },
+        selector: 'span.timeago',
+        attr: 'title'
+    };
     $(document).ready(function(){
-        jQuery.timeago.settings.strings = {
-            prefixAgo: null,
-            prefixFromNow: "从现在开始",
-            suffixAgo: "之前",
-            suffixFromNow: null,
-            seconds: "不到 1 分钟",
-            minute: "大约 1 分钟",
-            minutes: "%d 分钟",
-            hour: "大约 1 小时",
-            hours: "大约 %d 小时",
-            day: "1 天",
-            days: "%d 天",
-            month: "大约 1 个月",
-            months: "%d 月",
-            year: "大约 1 年",
-            years: "%d 年",
-            numbers: [],
-            wordSeparator: ""
-        };
         $('.push.delete').click(function(e){
             e.preventDefault();
             $(this).next().submit();
@@ -81,7 +90,10 @@
             var _this = $(this);
             var url = _this.attr('href');
             var comment = _this.parent().next();
-            comment.attr('contenteditable', 'true');
+            var html = comment.html();
+            var commentTemplate = $('.comment-edit-template').html();
+
+            console.log(commentTemplate);
 
             // $('.comment-panel textarea').val(_this.parent('p').next().text());
             // $('.comment-panel form').attr('action', url+'?_method=PUT');
@@ -106,6 +118,7 @@
 
         /** defalut **/
         $('span.timeago').timeago();
+        $('textarea').autosize();
         $('.relationship').each(function(){
             var _this = $(this);
             var username = $('.vcard .account>span:first').text() || '';

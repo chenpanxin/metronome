@@ -16,7 +16,7 @@ class CommentController extends BaseController {
             $comment->user_id = Auth::user()->id;
             $topic->comments()->save($comment);
         }
-        return Redirect::back();
+        return Redirect::to('topic/'.join('#comment-', [$topic->id, $comment->id]));
     }
 
     public function update($id, $comment_id)
@@ -33,6 +33,6 @@ class CommentController extends BaseController {
         if ($comment->user->id == Auth::user()->id) {
             $comment->delete();
         }
-        return Response::json([]);
+        return Response::json(['comments_count'=>0]);
     }
 }

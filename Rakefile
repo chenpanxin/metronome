@@ -1,6 +1,7 @@
 #!usr/bin/env ruby
 require 'rainbow'
 require 'uglifier'
+require 'open-uri'
 
 namespace :build do
   desc 'Sass'
@@ -16,5 +17,13 @@ namespace :build do
     if Uglifier.new.compile(File.read('app/assets/javascripts/application.js'))
     else
     end
+  end
+  desc 'Component'
+  task :component do
+    component = []
+    ['jquery', 'jquery.timeago', 'jquery.autosize', 'underscore'].each do |name|
+      open("https://raw.githubusercontent.com/Menglr/component/master/src/#{name}.js") { |f| component << f.read }
+    end
+    File.write(File.dirname(__FILE__) + '/public/assets/component.js', component.join("\n"))
   end
 end

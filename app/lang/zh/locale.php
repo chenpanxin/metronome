@@ -57,4 +57,5 @@ return [
     'delete'           => '删除',
     'comment_it'       => '我来说几句',
     'user_number'      => '第 :number 号会员',
+    'write_comment'    => '评论在这里...',
 ];

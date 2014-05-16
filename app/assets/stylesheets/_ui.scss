@@ -254,11 +254,10 @@ p {
 }
 .comment {
   &.new {
-    margin-top: 1em;
-    border-top: 1px solid rgba(80,80,80,0.12);
     padding: 1em 1em;
     textarea {
       width: 100%;
+      resize: none;
       margin-bottom: 1em;
     }
   }
