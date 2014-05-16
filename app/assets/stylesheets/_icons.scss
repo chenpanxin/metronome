@@ -1,82 +1,49 @@
 @font-face {
-  font-family: $icon;
-  font-style: normal;
+  font-family: $icon-name;
   font-weight: normal;
-  src: url(./icons/#{$icon}.eot);
-  src: url('./icons/#{$icon}.eot?#iefix') format('ie9-skip-eot'),
-       url('./icons/#{$icon}.ttf') format('truetype'),
-       url('./icons/#{$icon}.woff') format('woff'),
-       url('./icons/#{$icon}.svg') format('svg');
+  font-style: normal;
+  src: url("./icons/#{$icon-name}.eot");
+  src: url("./icons/#{$icon-name}.eot?#iefix") format("ie9-skip-eot"),
+       url("./icons/#{$icon-name}.ttf") format("truetype"),
+       url("./icons/#{$icon-name}.woff") format("woff"),
+       url("./icons/#{$icon-name}.svg") format("svg");
 }
-i[class^='icon-'],
-i[class*=' icon-'],
-span[class^='icon-'],
-span[class*=' icon-'] {
-  position: static;
-  font-family: $icon;
+i[class^="icon-"],
+i[class*=" icon-"],
+span[class^="icon-"],
+span[class*=" icon-"] {
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
-  text-transform: none;
+  font-family: $icon-name;
+  color: $icon-color;
   display: inline-block;
   margin: 0 5px;
   min-width: 20px;
-  color: $icon-color;
+  position: static;
+  text-transform: none;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  &:before {
+    height: inherit;
+  }
 }
-.icon-login:before {
-  @include icon(\e632);
-}
-.icon-logout:before {
-  @include icon(\e631);
-}
-.icon-user:before {
-  @include icon(\e61d);
-}
-.icon-users:before {
-  @include icon(\e61e);
-}
-.icon-home:before {
-  @include icon(\e626);
-}
-.icon-export:before {
-  @include icon(\e621);
-}
-.icon-setting:before {
-  @include icon(\e628);
-}
-.icon-book:before {
-  @include icon(\e63f);
-}
-.icon-discuss:before {
-  @include icon(\e62c);
-}
-.icon-vcard:before {
-  @include icon(\e620);
-}
-.icon-time:before {
-  @include icon(\e62a);
-}
-.icon-bulb:before {
-  @include icon(\e62b);
-}
-.icon-newest:before {
-  @include icon(\e600);
-}
-.icon-list:before {
-  @include icon(\e602);
-}
-.icon-like:before {
-  @include icon(\e60c);
-}
-.icon-unlike:before {
-  @include icon(\e616);
-}
-.icon-upload:before {
-  @include icon(\e63c);
-}
-.icon-comment:before {
-  @include icon(\e625);
-}
+.icon-login:before   { content: "\e632"; }
+.icon-logout:before  { content: "\e631"; }
+.icon-user:before    { content: "\e61d"; }
+.icon-users:before   { content: "\e61e"; }
+.icon-home:before    { content: "\e626"; }
+.icon-export:before  { content: "\e621"; }
+.icon-setting:before { content: "\e628"; }
+.icon-book:before    { content: "\e63f"; }
+.icon-discuss:before { content: "\e62c"; }
+.icon-vcard:before   { content: "\e620"; }
+.icon-time:before    { content: "\e62a"; }
+.icon-bulb:before    { content: "\e62b"; }
+.icon-newest:before  { content: "\e600"; }
+.icon-list:before    { content: "\e602"; }
+.icon-like:before    { content: "\e60c"; }
+.icon-unlike:before  { content: "\e616"; }
+.icon-upload:before  { content: "\e63c"; }
+.icon-comment:before { content: "\e625"; }

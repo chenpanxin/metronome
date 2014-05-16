@@ -5,7 +5,7 @@
         <ul class="list topic">
             @foreach ($topics as $topic)
                 <li>
-                    <a class="title" href="{{ URL::to('topic/'.$topic->id) }}">{{ $topic->title }}<span class="icon-export pull_right"></span></a>
+                    <a class="title" href="{{ URL::to('topic/'.$topic->id) }}">{{ $topic->title }}<span class="countify pull_right">12</span></a>
                     <a class="avatar" href="{{ URL::to('user/'.$topic->user->username) }}"><img src="{{ $topic->user->avatar_url }}"></a>
                     <p class="meta">
                         <a href="{{ URL::to('user/'.$topic->user->username) }}">{{ $topic->user->username }}</a>

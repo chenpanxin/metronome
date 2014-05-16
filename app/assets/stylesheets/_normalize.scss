@@ -7,27 +7,26 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 body,
-ul {
+ul,
+li {
   margin: 0;
-}
-ul {
   padding: 0;
-}
-section {
-  display: block;
 }
 li {
   list-style: none;
 }
 img {
   border: 0;
+  width: 100%;
+  height: auto;
 }
 a {
   background: transparent;
   text-decoration: none;
+  &:visited,
   &:active,
-  &:hover,
-  &:focus {
+  &:focus,
+  &:hover {
     outline: 0;
   }
 }
@@ -38,11 +37,6 @@ pre {
 }
 pre {
   overflow: auto;
-}
-hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0;
 }
 table {
   border-collapse: collapse;
@@ -67,7 +61,7 @@ input::-moz-focus-inner {
 textarea {
   overflow: auto;
 }
-input[type='submit'] {
+input[type=submit] {
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -77,8 +71,8 @@ input[disabled] {
 input {
   line-height: normal;
 }
-input[type='checkbox'],
-input[type='radio'] {
+input[type=checkbox],
+input[type=radio] {
   display: inline-block;
   padding: 0;
 }

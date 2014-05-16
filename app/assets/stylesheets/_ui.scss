@@ -1,6 +1,7 @@
 ::selection {
+  text-shadow: none;
   background-color: $selection-color;
-  color: #f0f1fb;
+  color: #3f3f49;
 }
 .boxify {
   min-height: 50px;
@@ -9,6 +10,15 @@
   background-color: $boxify-color;
   @include border-radius(3px);
   @include box-shadow(0 0 1px rgba(#000, .225), 0 1px 1px rgba(#000, .404));
+}
+.countify {
+  background-color: rgba($icon-color, .225);
+  color: $icon-color;
+  line-height: 24px;
+  font-size: .825em;
+  padding: 0 .825em;
+  margin: 4px 0;
+  @include border-radius(32px);
 }
 form {
   input,

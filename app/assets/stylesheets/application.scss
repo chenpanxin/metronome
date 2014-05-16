@@ -7,11 +7,9 @@
 @import 'ui';
 @import 'utils';
 
-html {
-  font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'WenQuanYi Micro Hei', STHeiti, 'Microsoft YaHei', sans-serif;
-}
 body {
   background-color: $body-color;
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "WenQuanYi Micro Hei", STHeiti, "Microsoft YaHei", sans-serif;
 }
 .navbar {
   position: fixed;
@@ -33,7 +31,7 @@ body {
   width: $master-width;
 }
 .footer {
-  border-top: 1px solid #e0e1e3;
+  border-top: 1px solid #efefef;
   background-color: $footer-color;
   min-height: 56px;
   p {
