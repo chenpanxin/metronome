@@ -67,7 +67,7 @@ body {
           margin-left: 76px;
           line-height: 32px;
           font-size: .85em;
-          color: rgba($font-color, .836);
+          color: $title-color;
         }
         &.avatar {
           position: absolute;
@@ -112,7 +112,7 @@ body {
       padding: 20px 20px;
       border-bottom: 1px solid rgba(#505050, .12);
       font-size: .85em;
-      color: lighten(#000, 37%);
+      color: $content-color;
       p {
         line-height: 1.65em;
         @include white-space();

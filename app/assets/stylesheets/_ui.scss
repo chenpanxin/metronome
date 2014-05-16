@@ -1,7 +1,7 @@
 ::selection {
   text-shadow: none;
   background-color: $selection-color;
-  color: #3f3f49;
+  color: $selection-font-color;
 }
 .boxify {
   min-height: 50px;
@@ -29,7 +29,7 @@ form {
     line-height: 1.65em;
     color: rgba(#000, .625);
     padding: 5px 6px;
-    border: 1px solid #e0e0eb;
+    border: 1px solid rgba($font-color, .225);
     @include border-radius(3px);
     &:focus {
       border-color: $border-color;
@@ -101,18 +101,18 @@ p {
       padding: .195em .85em;
       border-left: .195em solid #ededed;
       border-right: .195em solid transparent;
-      color: rgba($font-color, .625);
+      color: $tab-color;
     }
     &:hover {
       a {
-        border-right: .195em solid rgba($font-color, .37);
-        background-color: rgba($font-color, .082);
+        border-right: .195em solid rgba($tab-color, .37);
+        background-color: rgba($tab-color, .082);
         color: rgba($font-color, .720);
       }
     }
     &.active {
       a {
-        border-left: .195em solid rgba($font-color, .404);
+        border-left: .195em solid rgba($tab-color, .404);
       }
     }
     &:last-child {

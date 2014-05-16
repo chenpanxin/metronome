@@ -38,7 +38,7 @@
 <div class="navbar"></div>
 <div class="colour-data">
     <div class="boxify">
-        @foreach (range(1, 19) as $index)
+        @foreach (range(1, 24) as $index)
             <div class="color-box">
                 <span class="color-bar"></span>
                 <span class="color"></span>
@@ -50,14 +50,16 @@
     (function(){
         $(document).ready(function(){
             /**
-             * ! Colours are from http://www.kakao.com/ !_^_^_!
+             * ! Colours are from kakao and mypeople.
              */
-            var colours = ['#FB7F7B', '#DCC356', '#CCAB60'
-                , '#D6B298', '#7ED7EC', '#A27559', '#AA9D63'
-                , '#6EA2D2', '#6C7F99', '#C1B3C9', '#DAC26E'
-                , '#628E85', '#A17158', '#D0B0A2', '#419BF0'
-                , '#CF583E', '#628E85', '#F28361', '#94D560'
-            ];
+            var colours = [
+                  '#616D79', '#9BAFC3', '#9CCAE8', '#94D560'
+                , '#84B7DB', '#6F8092', '#91C2E3', '#748698'
+                , '#82B3D6', '#8098AF', '#3898EF', '#7D8C9B'
+                , '#8D9EAF', '#D8B196', '#A99865', '#A17158'
+                , '#D0B0A2', '#419BF0', '#CFA56E', '#D7C93D'
+                , '#4086E1', '#CF583E', '#628E85', '#F28361'
+            ].sort();
 
             $('.color-box').each(function(index){
                 var colour = colours[index];
