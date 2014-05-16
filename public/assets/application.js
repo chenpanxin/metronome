@@ -55,15 +55,15 @@
                 }
             });
         });
-        $('.comment-panel>.back-cancel').click(function(){
-            $(this).parent().fadeOut(200);
-        });
-        $('.trigger.comment').click(function(e){
-            e.preventDefault();
-            var url = $(this).attr('href');
-            $('.comment-panel form').attr('action', url);
-            $('.comment-panel').fadeIn(200);
-        });
+        // $('.comment-panel>.back-cancel').click(function(){
+        //     $(this).parent().fadeOut(200);
+        // });
+        // $('.trigger.comment').click(function(e){
+        //     e.preventDefault();
+        //     var url = $(this).attr('href');
+        //     $('.comment-panel form').attr('action', url);
+        //     $('.comment-panel').fadeIn(200);
+        // });
         $('.comment a.delete').click(function(e){
             e.preventDefault(0);
             var _this = $(this);
@@ -80,9 +80,12 @@
             e.preventDefault();
             var _this = $(this);
             var url = _this.attr('href');
-            $('.comment-panel textarea').val(_this.parent('p').next().text());
-            $('.comment-panel form').attr('action', url+'?_method=PUT');
-            $('.comment-panel').fadeIn(200);
+            var comment = _this.parent().next();
+            comment.attr('contenteditable', 'true');
+
+            // $('.comment-panel textarea').val(_this.parent('p').next().text());
+            // $('.comment-panel form').attr('action', url+'?_method=PUT');
+            // $('.comment-panel').fadeIn(200);
         });
         $('.me.like').click(function(e){
             e.preventDefault();

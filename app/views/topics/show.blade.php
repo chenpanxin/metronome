@@ -7,17 +7,19 @@
             <div class="body">{{ $topic_html }}</div>
             <div class="topic-stats">
                 <span>{{ Lang::get('locale.created_on') }}</span>
-                <span>{{ $topic->created_at->toDateString() }}</span>
-                <span class="space"></span>
-                <span>{{ Lang::get('locale.comments_count') }}</span>
-                <span>{{ $topic->comments_count }}</span>
-                <span class="pull_right"><a href="{{ URL::to('topic/'.$topic->id) }}" class="trigger comment">{{ Lang::get('locale.comment_it') }}</a></span>
-                <span class="pull_right"><a href="{{ URL::to('topic/'.$topic->id.'/like') }}" class="me like">{{ Lang::get('locale.like') }}</a></span>
+                <span class="timeago" title="{{ $topic->created_at }}">{{ $topic->created_at->toDateString() }}</span>
+                <span class="pull_right"><a href="{{ URL::to('topic/'.$topic->id.'/like') }}" class="me like"><i class="icon-like"></i></a></span>
             </div>
         </div>
     </div>
     <div class="boxify">
         @include('partials.comments')
+        <div class="new comment">
+            {{ Form::open(['url'=>'topic/'.$topic->id]) }}
+                {{ Form::textarea('content') }}
+                {{ Form::submit(Lang::get('locale.comment'), ['class'=>'btn normal']) }}
+            {{ Form::close() }}
+        </div>
     </div>
 @stop
 
@@ -43,17 +45,6 @@
                 <li><a href="{{ URL::to('user/'.$topic->user->username.'/following') }}"><span class="number">100</span><span>{{ Lang::get('locale.following') }}</span></a></li>
                 <li><a href="{{ URL::to('user/'.$topic->user->username.'/followers') }}"><span class="number">12</span><span>{{ Lang::get('locale.followers') }}</span></a></li>
             </ul>
-        </div>
-    </div>
-    <div class="comment-panel">
-        <div class="back-cancel"></div>
-        <div class="boxify panel">
-            <div class="comment-area">
-                {{ Form::open(['url'=>'topic/'.$topic->id]) }}
-                    {{ Form::textarea('content') }}
-                    {{ Form::submit(Lang::get('locale.comment'), ['class'=>'btn normal']) }}
-                {{ Form::close() }}
-            </div>
         </div>
     </div>
 @stop

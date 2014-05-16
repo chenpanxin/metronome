@@ -242,7 +242,7 @@ p {
 }
 .alert {
   &.notify {
-    background-color: rgba($font-color, .082);
+    background-color: rgba(#82B3D6, .12);
     p {
       margin: 0;
       padding: .625em 0;
@@ -252,36 +252,14 @@ p {
     }
   }
 }
-.comment-panel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 320;
-  display: none;
-  background-color: rgba(#000, .625);
-  .back-cancel {
-    width: 100%;
-    height: 100%;
-  }
-  .panel {
-    position: absolute;
-    left: 50%;
-    top: 160px;
-    width: 800px;
-    min-height: 200px;
-    margin-left: -400px;
-  }
-  .comment-area {
-    padding: 20px 20px;
+.comment {
+  &.new {
+    margin-top: 1em;
+    border-top: 1px solid rgba(80,80,80,0.12);
+    padding: 1em 1em;
     textarea {
       width: 100%;
-      resize: none;
-    }
-    input[type=submit] {
-      float: right;
-      margin: 10px auto;
+      margin-bottom: 1em;
     }
   }
 }
