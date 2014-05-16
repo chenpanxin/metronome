@@ -12,7 +12,6 @@
     {{ HTML::style('assets/application.css') }}
     {{ HTML::script('http://remote.qiniudn.com/jquery.js') }}
     {{ HTML::script('http://remote.qiniudn.com/jquery.timeago.js') }}
-    {{ HTML::script('http://remote.qiniudn.com/jquery.timeago.zh.js') }}
     {{ HTML::script('assets/application.js') }}
 </head>
 <body>

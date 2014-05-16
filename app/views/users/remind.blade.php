@@ -2,6 +2,15 @@
 
 @section('main')
     <div class="boxify">
+        @if (Session::has('error'))
+            <div class="alert notify">
+                <p>{{ Session::get('error') }}</p>
+            </div>
+        @elseif (Session::has('status'))
+            <div class="alert notify">
+                <p>{{ Session::get('status') }}</p>
+            </div>
+        @endif
         {{ Form::open(['url'=>'password/remind']) }}
             <ul class="find">
                 {{ HTML::group([
