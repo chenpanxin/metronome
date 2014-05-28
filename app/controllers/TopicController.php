@@ -10,6 +10,7 @@ class TopicController extends BaseController {
     public function index()
     {
         return View::make('topics.index')
+            ->withTitle(Config::get('website.title'))
             ->withCategories(Category::all())
             ->withTopics(Topic::with('user', 'category')->orderBy('created_at', 'desc')->paginate(16));
     }
@@ -92,6 +93,7 @@ class TopicController extends BaseController {
     {
         $topics = Topic::with('user', 'category')->whereCategoryId($id)->paginate(16);
         return View::make('topics.index')
+            ->withTitle(Config::get('website.title'))
             ->withCategories(Category::all())
             ->withTopics($topics);
     }
@@ -100,6 +102,7 @@ class TopicController extends BaseController {
     {
         $topics = Topic::with('user', 'category')->paginate(16);
         return View::make('topics.index')
+            ->withTitle(Config::get('website.title'))
             ->withCategories(Category::all())
             ->withTopics($topics);
     }
@@ -108,6 +111,7 @@ class TopicController extends BaseController {
     {
         $topics = Topic::with('user')->paginate(16);
         return View::make('topics.index')
+            ->withTitle(Config::get('website.title'))
             ->withCategories(Category::all())
             ->withTopics($topics);
     }
