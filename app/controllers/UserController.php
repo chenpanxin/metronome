@@ -35,7 +35,7 @@ class UserController extends BaseController {
         $user->password = Hash::make(Input::get('password'));
         $user->avatar_url = Str::avatar_url($user->email);
 
-        if ($user->save() and $user->profile()->save(new Profile)) {
+        if ($user->save() and $user->profile()->save(new Profile(['verify_token'=>str_random(64)]))) {
             Auth::login($user);
             return Redirect::to('/');
         }
@@ -122,6 +122,24 @@ class UserController extends BaseController {
 
         Session::flash('msg', Lang::get('locale.password_updated'));
         return Redirect::to('settings/password');
+    }
+
+    public function verify($token)
+    {
+        $profile = Profile::whereVerifyToken($token)->first();
+        if (! $profile) {
+            App::abort(404);
+        }
+
+        $user = $profile->user;
+        if ($user->verify) {
+            App::abort(400);
+        }
+
+        $user->verify = true;
+        $user->save();
+
+        return Redirect::to('/');
     }
 
     public function notify()

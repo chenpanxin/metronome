@@ -26,6 +26,7 @@ Route::get('user/{username}', 'UserController@show');
 Route::get('user/{username}/topics', 'UserController@topics');
 Route::get('user/{username}/following', 'UserController@following');
 Route::get('user/{username}/followers', 'UserController@followers');
+Route::get('user/verify/{token}', 'UserController@verify');
 
 Route::get('/', 'TopicController@index');
 Route::get('topic/new', 'TopicController@create');
