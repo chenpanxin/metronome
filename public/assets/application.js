@@ -86,14 +86,14 @@
             });
         });
         $('.comment a.edit').click(function(e){
-            e.preventDefault();
-            var _this = $(this);
-            var url = _this.attr('href');
-            var comment = _this.parent().next();
-            var html = comment.html();
-            var commentTemplate = $('.comment-edit-template').html();
+            // e.preventDefault();
+            // var _this = $(this);
+            // var url = _this.attr('href');
+            // var comment = _this.parent().next();
+            // var html = comment.html();
+            // var commentTemplate = $('.comment-edit-template').html();
 
-            console.log(commentTemplate);
+            // console.log(commentTemplate);
 
             // $('.comment-panel textarea').val(_this.parent('p').next().text());
             // $('.comment-panel form').attr('action', url+'?_method=PUT');

@@ -15,8 +15,14 @@ class CommentController extends BaseController {
             $comment = new Comment(['content'=>Input::get('content')]);
             $comment->user_id = Auth::user()->id;
             $topic->comments()->save($comment);
+            return Redirect::to('topic/'.join('#comment-', [$topic->id, $comment->id]));
         }
-        return Redirect::to('topic/'.join('#comment-', [$topic->id, $comment->id]));
+        return Redirect::to('topic/'.$topic->id);
+    }
+
+    public function edit($id, $comment_id)
+    {
+
     }
 
     public function update($id, $comment_id)

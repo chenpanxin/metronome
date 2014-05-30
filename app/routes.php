@@ -42,6 +42,7 @@ Route::get('no_discuss', 'TopicController@byComment');
 Route::post('topic/{id}', 'CommentController@store');
 Route::put('topic/{id}/comment/{comment_id}', 'CommentController@update');
 Route::delete('topic/{id}/comment/{comment_id}', 'CommentController@destroy');
+Route::get('topic/{id}/comment/{comment_id}', 'CommentController@edit');
 
 Route::get('settings', 'UserController@notify');
 Route::get('settings/profile', 'UserController@profileEdit');
