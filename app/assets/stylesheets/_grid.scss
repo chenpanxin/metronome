@@ -21,3 +21,12 @@
   *zoom: 1;
   @include clearfix();
 }
+
+@media only screen and (max-width: 970px) {
+  .grid {
+    .fat,
+    .slim {
+      width: 100%;
+    }
+  }
+}

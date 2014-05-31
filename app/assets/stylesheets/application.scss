@@ -28,7 +28,7 @@ body {
   margin: 0 auto;
   min-height: 360px;
   padding-top: 72px;
-  width: $master-width;
+  max-width: $master-width;
 }
 .footer {
   border-top: 1px solid #efefef;

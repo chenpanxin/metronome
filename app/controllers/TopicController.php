@@ -28,6 +28,7 @@ class TopicController extends BaseController {
         $topic_html = Ampou\Services\Sanitization::make($markdown->html());
 
         return View::make('topics.show')
+            ->withTitle(join(' | ', [Config::get('website.title'), $topic->title]))
             ->withTopic($topic)
             ->withTopicHtml($topic_html)
             ->withComments($comments);
