@@ -13,6 +13,7 @@ Route::group(['prefix'=>'admin'], function()
     Route::get('topics', 'Admin\TopicController@index');
     Route::get('categories', 'Admin\CategoryController@index');
     Route::get('category/new', 'Admin\CategoryController@create');
+    Route::post('category/store', 'Admin\CategoryController@store');
 });
 
 Route::get('login', 'SessionController@create');
