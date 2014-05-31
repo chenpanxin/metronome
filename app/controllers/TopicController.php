@@ -4,7 +4,12 @@ class TopicController extends BaseController {
 
     public function __construct()
     {
-        $this->beforeFilter('auth');
+        $this->beforeFilter('auth', [
+            'only' => ['create', 'store', 'edit', 'update']
+        ]);
+        $this->beforeFilter('csrf', [
+            'on' => 'post'
+        ]);
     }
 
     public function index()

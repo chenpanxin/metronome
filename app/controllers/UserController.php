@@ -4,7 +4,9 @@ class UserController extends BaseController {
 
     public function __construct()
     {
-
+        $this->beforeFilter('csrf', [
+            'on' => 'post'
+        ]);
     }
 
     public function index()

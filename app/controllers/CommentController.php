@@ -5,6 +5,9 @@ class CommentController extends BaseController {
     public function __construct()
     {
         $this->beforeFilter('auth');
+        $this->beforeFilter('csrf', [
+            'on' => 'post'
+        ]);
     }
 
     public function store($id)
