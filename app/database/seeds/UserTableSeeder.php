@@ -16,5 +16,11 @@ class UserTableSeeder extends Seeder {
                 'password'   => Hash::make('password')
             ]);
         }
+        foreach (range(1, 9) as $index) {
+            Profile::create([
+                'user_id'      => $index,
+                'verify_token' => str_random(64)
+            ]);
+        }
     }
 }
