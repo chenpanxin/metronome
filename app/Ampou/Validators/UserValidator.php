@@ -3,8 +3,8 @@
 class UserValidator extends Validator {
 
     protected static $rules = [
-        'username' => 'required|alpha_dash|unique:users|max:32',
+        'username' => ['required', 'regex:/\A[A-Za-z0-9]{1,}[-_]?[A-Za-z0-9]+?\z/', 'unique:users', 'min:2', 'max:32'],
         'email'    => 'required|email|unique:users',
-        'password' => 'required|alpha_dash|between:6,16'
+        'password' => ['required', 'regex:/\A[0-9a-z-_\.]+\z/i', 'between:6,16']
     ];
 }

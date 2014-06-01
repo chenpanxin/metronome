@@ -1,7 +1,7 @@
 <?php
 
 Route::pattern('id', '[0-9]+');
-Route::pattern('username', '[A-Z0-9a-z]+');
+Route::pattern('username', '[A-Z0-9a-z-_]+');
 Route::pattern('reply', 'reply|r');
 Route::pattern('not_found', '404(\.html)?');
 
