@@ -11,7 +11,7 @@ class CreateCategoriesTable extends Migration {
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->integer('topics_count')->default(0);
             $table->timestamps();
         });

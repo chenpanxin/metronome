@@ -9,8 +9,8 @@ class CreateRelationshipsTable extends Migration {
         Schema::create('relationships', function($table)
         {
             $table->increments('id');
-            $table->integer('follower_id');
-            $table->integer('followed_id');
+            $table->integer('follower_id')->index();
+            $table->integer('followed_id')->index();
         });
     }
 

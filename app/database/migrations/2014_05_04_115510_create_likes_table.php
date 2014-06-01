@@ -10,8 +10,8 @@ class CreateLikesTable extends Migration {
         Schema::create('likes', function($table)
         {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('topic_id');
+            $table->integer('user_id')->index();
+            $table->integer('topic_id')->index();
             $table->timestamps();
         });
     }

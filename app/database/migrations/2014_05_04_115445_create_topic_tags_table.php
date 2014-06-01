@@ -10,8 +10,8 @@ class CreateTopicTagsTable extends Migration {
         Schema::create('topic_tags', function($table)
         {
             $table->increments('id');
-            $table->integer('tag_id');
-            $table->integer('topic_id');
+            $table->integer('tag_id')->index();
+            $table->integer('topic_id')->index();
         });
     }
 

@@ -9,9 +9,9 @@ class CreateCollectionsTable extends Migration {
         Schema::create('collections', function($table)
         {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->string('name');
+            $table->integer('user_id')->index();
             $table->string('slug')->unique();
+            $table->string('name');
             $table->string('cover');
             $table->timestamps();
         });

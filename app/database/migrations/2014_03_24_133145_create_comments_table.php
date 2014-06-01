@@ -9,10 +9,10 @@ class CreateCommentsTable extends Migration {
         Schema::create('comments', function($table)
         {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('topic_id');
+            $table->integer('user_id')->index();
+            $table->integer('topic_id')->index();
             $table->text('content');
-            $table->boolean('trashed')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

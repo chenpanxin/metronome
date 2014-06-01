@@ -9,9 +9,9 @@ class CreateNotificationsTable extends Migration {
         Schema::create('notifications', function($table)
         {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->text('content');
+            $table->integer('user_id')->index();
             $table->boolean('read')->default(false);
+            $table->text('content');
             $table->timestamps();
         });
     }

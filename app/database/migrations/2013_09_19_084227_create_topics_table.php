@@ -9,12 +9,12 @@ class CreateTopicsTable extends Migration {
         Schema::create('topics', function($table)
         {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('category_id');
+            $table->integer('user_id')->index();
+            $table->integer('category_id')->index();
             $table->integer('likes_count')->default(0);
             $table->integer('comments_count')->default(0);
-            $table->boolean('trashed')->default(false);
             $table->boolean('frozen')->default(false);
+            $table->float('ranking')->default('0.0');
             $table->string('title');
             $table->text('body');
             $table->softDeletes();

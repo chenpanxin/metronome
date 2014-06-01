@@ -22,7 +22,9 @@ class UserController extends BaseController {
 
     public function store()
     {
-        $validator = new Ampou\Validators\UserValidator;
+        $email = strtolower(Input::get('email'));
+
+        $validator = new Ampou\Validators\UserValidator(array_merge(Input::all(), ['email'=>$email]));
 
         if ($validator->fails()) {
             return Redirect::back()
@@ -31,7 +33,7 @@ class UserController extends BaseController {
         }
 
         $user = new User([
-            'email'    => Input::get('email'),
+            'email'    => $email,
             'username' => Input::get('username')
         ]);
         $user->password = Hash::make(Input::get('password'));

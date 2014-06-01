@@ -9,10 +9,10 @@ class CreateRepliesTable extends Migration {
         Schema::create('replies', function($table)
         {
             $table->increments('id');
-            $table->integer('comment_id');
-            $table->integer('user_id');
-            $table->text('content');
+            $table->integer('user_id')->index();
+            $table->integer('comment_id')->index();
             $table->boolean('trashed')->default(false);
+            $table->text('content');
             $table->timestamps();
         });
     }
