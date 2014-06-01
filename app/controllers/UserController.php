@@ -23,6 +23,7 @@ class UserController extends BaseController {
     public function store()
     {
         $email = strtolower(Input::get('email'));
+        $username = Input::get('username');
 
         $validator = new Ampou\Validators\UserValidator(array_merge(Input::all(), ['email'=>$email]));
 
@@ -34,7 +35,8 @@ class UserController extends BaseController {
 
         $user = new User([
             'email'    => $email,
-            'username' => Input::get('username')
+            'username' => $username,
+            'downcase' => strtolower($username)
         ]);
         $user->password = Hash::make(Input::get('password'));
         $user->avatar_url = Str::avatar_url($user->email);
