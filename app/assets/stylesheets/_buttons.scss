@@ -19,3 +19,9 @@
     background-color: darken($btn-normal-color, 5%);
   }
 }
+a {
+  &.btn {
+    display: inline-block;
+    @include border-radius(3px);
+  }
+}

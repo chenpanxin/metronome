@@ -59,6 +59,7 @@ return [
     'user_number'      => '第 :number 号会员',
     'write_comment'    => '评论在这里...',
     'create_category'  => '创建分类',
+    'create_topic'     => '创建帖子',
     'name'             => '名称',
     'slug'             => '标示符',
 ];

@@ -25,6 +25,9 @@ i {
     font-style: normal;
   }
 }
+.text-center {
+  text-align: center;
+}
 .center {
   @include center();
 }

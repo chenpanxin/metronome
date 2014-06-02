@@ -32,6 +32,11 @@
         </div>
     </div>
     <div class="boxify">
+        <div class="text-center">
+            <a href="{{ URL::to('topic/new') }}" class="btn normal">{{ Lang::get('locale.create_topic') }}</a>
+        </div>
+    </div>
+    <div class="boxify">
         <ul class="tab right">
             @foreach ($categories as $category)
                 <li class="{{ HTML::isActive(Request::segment(2), $category->id) }}"><a href="{{ URL::to('category/'.$category->id) }}">{{ $category->name }}<span class="pull_right">{{ $category->topics_count }}</span></a></li>
