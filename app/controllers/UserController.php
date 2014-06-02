@@ -50,7 +50,8 @@ class UserController extends BaseController {
 
     public function show($username)
     {
-        $user = User::whereUsername($username)->first();
+        $user = User::whereUsername($username)->first() ?: User::whereDowncase(strtolower($username))->first();
+
         if ($user) {
             $user->load('profile');
             return View::make('users.show')
