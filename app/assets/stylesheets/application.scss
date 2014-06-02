@@ -30,6 +30,27 @@ body {
   padding-top: 72px;
   max-width: $master-width;
 }
+.ghost {
+  margin: 0 auto;
+  min-height: 360px;
+  padding-top: 72px;
+  width: 1140px;
+  .category {
+    &.new,
+    &.edit {
+      padding: 20px 20px;
+      input[type=text] {
+        margin-bottom: .73em;
+        width: 320px;
+      }
+    }
+  }
+}
+.ghost-inner {
+  width: 1140px;
+  height: 100%;
+  margin: 0 auto;
+}
 .footer {
   border-top: 1px solid #efefef;
   background-color: $footer-color;

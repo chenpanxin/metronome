@@ -62,5 +62,7 @@ return [
         'title'       => '标题',
         'body'        => '内容',
         'category_id' => '该分类',
+        'name'        => '名称',
+        'slug'        => '英文缩写',
     ],
 ];

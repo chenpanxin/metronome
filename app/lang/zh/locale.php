@@ -58,4 +58,7 @@ return [
     'comment_it'       => '我来说几句',
     'user_number'      => '第 :number 号会员',
     'write_comment'    => '评论在这里...',
+    'create_category'  => '创建分类',
+    'name'             => '名称',
+    'slug'             => '标示符',
 ];
