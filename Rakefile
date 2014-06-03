@@ -26,4 +26,12 @@ namespace :build do
     end
     File.write(File.dirname(__FILE__) + '/public/assets/component.js', component.join("\n"))
   end
+  desc 'Test'
+  task :test do
+    system('./vendor/bin/phpunit')
+  end
+end
+
+task :test do
+  system('./vendor/bin/phpunit')
 end

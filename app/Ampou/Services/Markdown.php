@@ -15,10 +15,5 @@ class Markdown {
     {
         return MarkdownExtra::defaultTransform($this->text);
     }
-
-    public function inverse()
-    {
-        return (new \Markdownify\ConverterExtra)->parseString($this->text);
-    }
 }
 
