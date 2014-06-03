@@ -29,7 +29,17 @@ class TopicController extends BaseController {
 
         $topic->load('user', 'category');
 
+        $following_count = Relationship::whereFollowerId($topic->user->id)->count();
+        $followers_count = Relationship::whereFollowedId($topic->user->id)->count();
+
+        $topics_count = $topic->user->topics()->count();
+
         return View::make('topics.show')
+            ->with([
+                'following_count' => $following_count,
+                'followers_count' => $followers_count,
+                'topics_count'    => $topics_count
+            ])
             ->withTitle(join(' | ', [Config::get('website.title'), $topic->title]))
             ->withTopic($topic)
             ->withComments($comments);
