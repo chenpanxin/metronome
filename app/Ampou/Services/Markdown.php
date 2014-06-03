@@ -1,19 +1,24 @@
 <?php namespace Ampou\Services;
 
-use \Michelf\MarkdownExtra;
+use Michelf\MarkdownExtra;
 
 class Markdown {
 
-    protected $html;
+    protected $text;
 
     public function __construct($text = null)
     {
-        $this->html = MarkdownExtra::defaultTransform($text ?: 'hello, markdown.');
+        $this->text = $text ?: 'hello, text.';
     }
 
     public function html()
     {
-        return $this->html;
+        return MarkdownExtra::defaultTransform($this->text);
+    }
+
+    public function inverse()
+    {
+        return (new \Markdownify\ConverterExtra)->parseString($this->text);
     }
 }
 

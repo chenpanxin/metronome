@@ -19,16 +19,19 @@ App::before(function($request)
 
 App::after(function($request, $response)
 {
-    if (App::environment() != 'development') {
-        if ($response instanceof Illuminate\Http\Response) {
-            $output = $response->getOriginalContent();
-            $output = preg_replace('/<!--([^\[|(<!)].*)/', '', $output);
-            $output = preg_replace('/(?<!\S)\/\/\s*[^\r\n]*/', '', $output);
-            $output = preg_replace('/\s{2,}/', '', $output);
-            $output = preg_replace('/(\r?\n)/', '', $output);
-            $response->setContent($output);
-        }
-    }
+    // if (App::environment() != 'development') {
+    //     if ($response instanceof Illuminate\Http\Response) {
+    //         $output = $response->getOriginalContent();
+    //         $output = preg_replace('/<!--([^\[|(<!)].*)/', '', $output);
+    //         $output = preg_replace('/(?<!\S)\/\/\s*[^\r\n]*/', '', $output);
+    //         $output = preg_replace('/\s{2,}/', '', $output);
+    //         $output = preg_replace('/(\r?\n)/', '', $output);
+    //         $response->setContent($output);
+    //     }
+    // }
+
+    // This will filter all `pre`, `textarea` tags, not so good.
+    // Maybe has a pretty way.
 });
 
 /*

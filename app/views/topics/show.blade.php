@@ -4,7 +4,7 @@
     <div class="boxify">
         <div class="show topic" hidden-category="{{ $topic->category->name }}">
             <div class="title">{{{ $topic->title }}}</div>
-            <div class="body">{{ $topic_html }}</div>
+            <div class="body">{{ $topic->body }}</div>
             <div class="topic-stats">
                 <span>{{ Lang::get('locale.created_on') }}</span>
                 <span class="timeago" title="{{ $topic->created_at }}">{{ $topic->created_at->toDateString() }}</span>

@@ -29,13 +29,9 @@ class TopicController extends BaseController {
 
         $topic->load('user', 'category');
 
-        $markdown = new Ampou\Services\Markdown($topic->body);
-        $topic_html = Ampou\Services\Sanitization::make($markdown->html());
-
         return View::make('topics.show')
             ->withTitle(join(' | ', [Config::get('website.title'), $topic->title]))
             ->withTopic($topic)
-            ->withTopicHtml($topic_html)
             ->withComments($comments);
     }
 
@@ -55,19 +51,29 @@ class TopicController extends BaseController {
                 ->withInput();
         }
 
+        $markdown = new Ampou\Services\Markdown(Input::get('body'));
+
         $topic = new Topic([
             'category_id' => Input::get('category_id'),
             'title'       => Input::get('title'),
-            'body'        => Input::get('body')
+            'body'        => Ampou\Services\Sanitization::make($markdown->html())
+        ]);
+
+        $text = new Text([
+            'content' => Input::get('body')
         ]);
 
         Auth::user()->topics()->save($topic);
+        $topic->texts()->save($text);
+
         return Redirect::to('/');
     }
 
     public function edit($id)
     {
         $topic = Topic::with('category')->findOrFail($id);
+        $topic->body = $topic->texts()->first()->content;
+
         return View::make('topics.edit')
             ->withCategories(Category::all())
             ->withTopic($topic);
@@ -85,11 +91,18 @@ class TopicController extends BaseController {
         }
 
         if ($topic->user_id == Auth::user()->id) {
+
+            $markdown = new Ampou\Services\Markdown(Input::get('body'));
+
             $topic->update([
+                'category_id' => Input::get('category_id'),
                 'title'       => Input::get('title'),
-                'body'        => Input::get('body'),
-                'category_id' => Input::get('category_id')
+                'body'        => Ampou\Services\Sanitization::make($markdown->html())
             ]);
+
+            $text = $topic->texts()->first();
+            $text->content = Input::get('body');
+            $text->save();
         }
         Session::flash('msg', Lang::get('locale.topic_updated'));
         return Redirect::back();

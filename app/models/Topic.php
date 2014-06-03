@@ -18,4 +18,9 @@ class Topic extends Eloquent {
     {
         return $this->hasMany('Comment');
     }
+
+    public function texts()
+    {
+        return $this->morphMany('Text', 'markdownable');
+    }
 }
