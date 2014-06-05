@@ -10,6 +10,8 @@
                     <p class="meta">
                         <a href="{{ URL::to('user/'.$user->username) }}">{{ $user->username }}</a>
                         <span class="timeago" title="{{ $topic->created_at }}">{{ $topic->created_at->diffForHumans() }}</span>
+                        <a href="{{ URL::to('topic/'.$topic->id) }}" class="pull_right" data-method="delele">{{ Lang::get('locale.delete') }}</a>
+                        <a href="{{ URL::to('topic/'.$topic->id.'/edit') }}" class="pull_right">{{ Lang::get('locale.edit') }}</a>
                     </p>
                 </li>
             @endforeach

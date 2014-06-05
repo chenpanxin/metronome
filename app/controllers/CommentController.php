@@ -25,15 +25,20 @@ class CommentController extends BaseController {
 
     public function edit($id, $comment_id)
     {
+        $comment = Comment::findOrFail($comment_id);
+        if ($comment->user == Auth::user()) {
 
+        }
+        return View::make('comments.edit')
+            ->withComment($comment);
     }
 
-    public function update($id, $comment_id)
+    public function update($id)
     {
-        $comment = Comment::findOrFail($comment_id);
+        $comment = Comment::findOrFail($id);
         $comment->content = Input::get('content');
         $comment->save();
-        return Redirect::back();
+        return Redirect::to('topic/'.$comment->topic->id);
     }
 
     public function destroy($id, $comment_id)
