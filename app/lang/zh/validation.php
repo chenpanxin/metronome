@@ -64,5 +64,6 @@ return [
         'category_id' => '该分类',
         'name'        => '名称',
         'slug'        => '英文缩写',
+        'content'     => '内容',
     ],
 ];

@@ -62,4 +62,5 @@ return [
     'create_topic'     => '创建帖子',
     'name'             => '名称',
     'slug'             => '标示符',
+    'liking'           => '人喜欢',
 ];

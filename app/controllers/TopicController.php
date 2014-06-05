@@ -36,6 +36,8 @@ class TopicController extends BaseController {
 
         $liking = in_array(Auth::user()->id, $likers);
 
+        $likers_count = count($likers);
+
         $topics_count = $topic->user->topics()->count();
 
         return View::make('topics.show')
@@ -43,6 +45,7 @@ class TopicController extends BaseController {
                 'following_count' => $following_count,
                 'followers_count' => $followers_count,
                 'topics_count'    => $topics_count,
+                'likers_count'    => $likers_count,
                 'liking'          => $liking
             ])
             ->withTitle(join(' | ', [Config::get('website.title'), $topic->title]))

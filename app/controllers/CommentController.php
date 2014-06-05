@@ -13,7 +13,7 @@ class CommentController extends BaseController {
     public function store($id)
     {
         $topic = Topic::findOrFail($id);
-        $validator = Validator::make(Input::all(), ['content'=>'required|min:12']);
+        $validator = Validator::make(Input::all(), ['content'=>'required|min:2']);
         if ($validator->passes()) {
             $comment = new Comment(['content'=>Input::get('content')]);
             $comment->user_id = Auth::user()->id;
@@ -36,8 +36,17 @@ class CommentController extends BaseController {
     public function update($id)
     {
         $comment = Comment::findOrFail($id);
+
+        $validator = Validator::make(Input::all(), ['content'=>'required|min:2']);
+
+        if ($validator->fails()) {
+            Session::flash('msg', $validator->messages()->first());
+            return Redirect::back();
+        }
+
         $comment->content = Input::get('content');
         $comment->save();
+
         return Redirect::to('topic/'.$comment->topic->id);
     }
 
