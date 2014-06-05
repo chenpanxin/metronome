@@ -106,13 +106,14 @@
             $.ajax({
                 url: url,
                 type: 'post',
-                success: function() {
+                success: function(data) {
+                  if (data.code != 94401) {
                     if (url.match('unlike')) {
                         _this.attr('href', url.replace('unlike', 'like')).removeClass('liking');
                     } else {
                         _this.attr('href', url.replace('like', 'unlike')).addClass('liking');
-
                     }
+                  }
                 }
             });
         });

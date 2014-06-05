@@ -34,7 +34,7 @@ class TopicController extends BaseController {
 
         $likers = Like::whereTopicId($topic->id)->lists('user_id');
 
-        $liking = in_array(Auth::user()->id, $likers);
+        $liking = Auth::check() ? in_array(Auth::user()->id, $likers) : false;
 
         $likers_count = count($likers);
 
