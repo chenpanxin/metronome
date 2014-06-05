@@ -108,9 +108,10 @@
                 type: 'post',
                 success: function() {
                     if (url.match('unlike')) {
-                        _this.attr('href', url.replace('unlike', 'like'));
+                        _this.attr('href', url.replace('unlike', 'like')).removeClass('liking');
                     } else {
-                        _this.attr('href', url.replace('like', 'unlike'));
+                        _this.attr('href', url.replace('like', 'unlike')).addClass('liking');
+
                     }
                 }
             });
