@@ -22,6 +22,5 @@ class ConcatCommand extends Command {
             $content .= file_get_contents($file);
         }
         file_put_contents(public_path().'/assets/application.js', $content);
-        $this->info('application.js created.');
     }
 }
