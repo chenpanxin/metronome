@@ -1,3 +1,11 @@
+// .jquery
+// .underscore
+// .jquery.autosize
+// .jquery.timaago
+// _demo.js
+// _editor.js
+// _rest.js
+
 (function(){
     $.fn.timeago.defaults = {
         lang: {

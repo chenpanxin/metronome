@@ -14,17 +14,10 @@ namespace :build do
   end
   desc 'Uglify'
   task :uglify do
-    if Uglifier.new.compile(File.read('app/assets/javascripts/application.js'))
-    else
-    end
+    File.write(File.dirname(__FILE__) + '/public/assets/application.js', Uglifier.compile(File.read('public/assets/application.js')))
   end
   desc 'Component'
   task :component do
-    component = []
-    ['jquery', 'jquery.timeago', 'jquery.autosize', 'underscore'].each do |name|
-      open("https://raw.githubusercontent.com/Menglr/component/master/src/#{name}.js") { |f| component << f.read }
-    end
-    File.write(File.dirname(__FILE__) + '/public/assets/component.js', component.join("\n"))
   end
   desc 'Test'
   task :test do

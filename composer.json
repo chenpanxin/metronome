@@ -23,6 +23,7 @@
     },
     "require": {
         "php": ">=5.4.3",
+        "menglr/component": "v1.0",
         "laravel/framework": "4.1.29",
         "intervention/image": "2.0.1",
         "michelf/php-markdown": "1.4.0",
