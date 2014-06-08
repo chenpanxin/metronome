@@ -2,7 +2,28 @@
 
 class UserControllerTest extends TestCase {
 
-    public function testSignup()
+    public function setUp()
+    {
+        parent::setUp();
+        Artisan::call('migrate');
+        DB::beginTransaction();
+        Artisan::call('db:seed');
+    }
+
+    public function tearDown()
+    {
+        DB::rollback();
+        Mockery::close();
+    }
+
+    public function testUserIndex()
+    {
+        $this->call('GET', 'users');
+        $this->assertViewHas('users');
+        $this->assertResponseOk();
+    }
+
+    public function testUserCreate()
     {
         $this->call('GET', 'signup');
         $this->assertResponseOk();
@@ -10,8 +31,8 @@ class UserControllerTest extends TestCase {
 
     public function testUserStore()
     {
-        // $this->call('POST', 'user/store');
-        // $this->assertRedirectedTo('signup');
+        $this->call('POST', 'user/store');
+        $this->assertRedirectedTo('signup');
     }
 
     public function testUserShow()
@@ -21,9 +42,31 @@ class UserControllerTest extends TestCase {
         $this->assertResponseOk();
     }
 
-    public function testUsersList()
+    public function testUserEdit()
     {
-        $this->call('GET', 'users');
+        $this->call('GET', 'settings/password');
+        $this->assertResponseOk();
+    }
+
+    public function testUserProfileEdit()
+    {
+        $this->be(User::first());
+        $this->call('GET', 'settings/profile');
+        $this->assertViewHas('user');
+        $this->assertResponseOk();
+    }
+
+    public function testUserFollowing()
+    {
+        $username = User::first()->username;
+        $this->action('GET', 'UserController@following', ['username'=>$username]);
+        $this->assertResponseOk();
+    }
+
+    public function testUserFollowers()
+    {
+        $username = User::first()->username;
+        $this->action('GET', 'UserController@followers', ['username'=>$username]);
         $this->assertResponseOk();
     }
 }

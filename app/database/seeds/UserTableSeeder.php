@@ -8,7 +8,7 @@ class UserTableSeeder extends Seeder {
     {
         User::truncate();
         $faker = Fakery::create();
-        foreach (range(1, 9) as $index) {
+        foreach (range(1, 3) as $index) {
             $username = $faker->firstNameFemale;
             User::create([
                 'username'   => $username,
@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder {
                 'password'   => Hash::make('password')
             ]);
         }
-        foreach (range(1, 9) as $index) {
+        foreach (range(1, 3) as $index) {
             Profile::create([
                 'user_id'      => $index,
                 'verify_token' => str_random(64)

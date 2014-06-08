@@ -7,6 +7,9 @@ class UserController extends BaseController {
         $this->beforeFilter('csrf', [
             'on' => 'post'
         ]);
+        $this->beforeFilter('auth', [
+            'only' => ['edit']
+        ]);
     }
 
     public function index()
@@ -28,7 +31,7 @@ class UserController extends BaseController {
         $validator = new Ampou\Validators\UserValidator(array_merge(Input::all(), ['email'=>$email]));
 
         if ($validator->fails()) {
-            return Redirect::back()
+            return Redirect::to('signup')
                 ->withErrors($validator->errors())
                 ->withInput();
         }
@@ -45,7 +48,7 @@ class UserController extends BaseController {
             Auth::login($user);
             return Redirect::to('/');
         }
-        return Redirect::back();
+        return Redirect::to('signup');
     }
 
     public function show($username)

@@ -8,10 +8,10 @@ class TopicTableSeeder extends Seeder {
     {
         Topic::truncate();
         $faker = Fakery::create();
-        foreach (range(1, 19) as $index) {
+        foreach (range(1, 4) as $index) {
             Topic::create([
-                'user_id'     => mt_rand(1, 9),
-                'category_id' => mt_rand(1, 9),
+                'user_id'     => mt_rand(1, 3),
+                'category_id' => mt_rand(1, 2),
                 'title'       => $faker->userName,
                 'body'        => $faker->paragraph,
             ]);

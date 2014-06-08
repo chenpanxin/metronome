@@ -8,7 +8,7 @@ class CategoryTableSeeder extends Seeder {
     {
         Category::truncate();
         $faker = Fakery::create();
-        foreach (range(1, 9) as $index) {
+        foreach (range(1, 2) as $index) {
             Category::create([
                 'name'        => $faker->userName,
                 'slug'        => join('-', [$faker->userName, $faker->randomNumber]),

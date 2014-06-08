@@ -8,10 +8,10 @@ class CommentTableSeeder extends Seeder {
     {
         Comment::truncate();
         $faker = Fakery::create();
-        foreach (range(1, 37) as $index) {
+        foreach (range(1, 3) as $index) {
             Comment::create([
-                'user_id'  => mt_rand(1, 9),
-                'topic_id' => mt_rand(1, 19),
+                'user_id'  => mt_rand(1, 3),
+                'topic_id' => mt_rand(1, 4),
                 'content'  => $faker->paragraph,
             ]);
         }
