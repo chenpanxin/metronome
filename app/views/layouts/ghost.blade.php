@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
     <meta name="author" content="{{ Config::get('website.author') }}">
+    <meta name="csrf_token" content="{{ csrf_token() }}">
     <title>{{ $title or 'Hello, Laravel.' }}</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     {{ HTML::style('assets/application.css') }}

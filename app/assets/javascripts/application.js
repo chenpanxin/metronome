@@ -1,11 +1,3 @@
-// .jquery
-// .underscore
-// .jquery.autosize
-// .jquery.timaago
-// _demo.js
-// _editor.js
-// _rest.js
-
 (function(){
     $.fn.timeago.defaults = {
         lang: {
@@ -147,3 +139,29 @@
         $('#category').val($('.tab.select>li:first>a').data('category'));
     });
 }).call(this);
+
+(function(){
+  var template = "<form method=\"{{ method }}\" action=\"{{ action }}\" accept-charset=\"UTF-8\"><input name=\"_method\" type=\"hidden\" value=\"{{ _method }}\"><input name=\"_token\" type=\"hidden\" value=\"{{ _token }}\"></form>";
+  _.templateSettings = {
+    interpolate: /\{\{(.+?)\}\}/g
+  };
+
+  $(document).ready(function(){
+    $('a[data-method]').each(function(){
+      var _this = $(this);
+      _this.parent().append(function(){
+        return _.template(template)({
+          action: _this.attr('href'),
+          method: 'post'.toUpperCase(),
+          _method: _this.data('method').toUpperCase(),
+          _token: $('meta[name=csrf_token]').attr('content')
+        });
+      });
+      _this.click(function(e){
+        e.preventDefault();
+        $(this).next('form').submit();
+      });
+    });
+  });
+}).call(this);
+
