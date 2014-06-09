@@ -32,7 +32,6 @@
     "require-dev": {
         "phpunit/phpunit": "4.0.*@dev",
         "fzaninotto/faker": "1.4.*@dev",
-        "mockery/mockery": "dev-master",
-        "laracasts/testdummy": "dev-master"
+        "mockery/mockery": "dev-master"
     }
 }

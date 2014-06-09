@@ -7,7 +7,6 @@ class UserTest extends TestCase {
         parent::setUp();
         Artisan::call('migrate');
         DB::beginTransaction();
-        Artisan::call('db:seed');
     }
 
     public function tearDown()
@@ -16,9 +15,9 @@ class UserTest extends TestCase {
         Mockery::close();
     }
 
-    public function testHasManyTopic()
+    public function testHasOneProfile()
     {
-        $this->assertTrue(User::first()->topics() instanceOf Illuminate\Database\Eloquent\Relations\HasMany);
+
     }
 
     public function testFollowers()
@@ -32,7 +31,12 @@ class UserTest extends TestCase {
     {
         $mock = Mockery::mock('User');
         $mock->shouldReceive('following')->andReturn('Following');
-        $this->assertEquals('Following', $mock->following());
+        // $this->assertEquals('Following', $this->userCreator()->following());
+    }
+
+    public function testHasManyTopics()
+    {
+        // $this->assertTrue($this->userCreator()->topics() instanceOf Illuminate\Database\Eloquent\Relations\HasMany);
     }
 
     public function testHasManyComments()
@@ -43,5 +47,16 @@ class UserTest extends TestCase {
     public function testHasManyReplies()
     {
 
+    }
+
+    private function userCreator()
+    {
+        return User::firstOrCreate([
+            'username'   => 'Suzy',
+            'downcase'   => 'suzy',
+            'email'      => 'suzy@me.io',
+            'avatar_url' => Str::avatar_url(),
+            'password'   => Hash::make('password')
+        ]);
     }
 }
