@@ -37,9 +37,16 @@
         </div>
     </div>
     <div class="boxify">
-        <ul class="tab right">
+        <ul class="tab">
             @foreach ($categories as $category)
-                <li class=""><a href="{{ URL::to('category/'.$category->id) }}">{{ $category->name }}<span class="pull_right">{{ $category->topics_count }}</span></a></li>
+                {{ HTML::easyActived($category->id, Request::segment(2)) }}
+                    <a href="{{ URL::to('category/'.$category->id) }}">
+                        {{ $category->name }}
+                        <span class="pull_right">
+                            {{ $category->topics_count }}
+                        </span>
+                    </a>
+                </li>
             @endforeach
         </ul>
     </div>

@@ -37,3 +37,8 @@ HTML::macro('easyTab', function($name, $url, $actived = false, $lang = false)
     $url = $url ?: URL::to('admin/'.$name);
     return '<li'.$actived.'><a href="'.$url.'">'.$lang.'</a></li>';
 });
+
+HTML::macro('easyActived', function($match, $segment)
+{
+    return ($match == $segment) ? '<li class="active">' : '<li>';
+});

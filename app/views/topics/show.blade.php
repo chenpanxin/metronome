@@ -51,7 +51,7 @@
                 </div>
             </div>
             <ul class="vcard-stats">
-                <li><a href="{{ URL::to('user/'.$topic->user->username.'/topics') }}"><span class="number">{{ $topics_count }}</span><span>{{ Lang::get('locale.topic') }}</span></a></li>
+                <li><a href="{{ URL::to('user/'.$topic->user->username.'/topic') }}"><span class="number">{{ $topics_count }}</span><span>{{ Lang::get('locale.topic') }}</span></a></li>
                 <li><a href="{{ URL::to('user/'.$topic->user->username.'/following') }}"><span class="number">{{ $following_count }}</span><span>{{ Lang::get('locale.following') }}</span></a></li>
                 <li><a href="{{ URL::to('user/'.$topic->user->username.'/followers') }}"><span class="number">{{ $followers_count }}</span><span>{{ Lang::get('locale.followers') }}</span></a></li>
             </ul>

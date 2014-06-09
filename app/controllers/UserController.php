@@ -27,8 +27,8 @@ class UserController extends BaseController {
         $validator = new Ampou\Validators\UserValidator(array_merge(Input::all(), ['email'=>$email]));
 
         if ($validator->fails()) {
+            Session::flash('msg', $validator->messages()->first());
             return Redirect::to('signup')
-                ->withErrors($validator->errors())
                 ->withInput();
         }
 

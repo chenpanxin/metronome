@@ -193,23 +193,8 @@ ul {
     @include clearfix();
   }
 }
-.categories {
-  margin-bottom: 12px;
-  li {
-    display: inline-block;
-    padding: .15em .15em;
-    margin-bottom: .15em;
-    float: left;
-  }
-  a {
-    display: inline-block;
-    padding: .16em .65em;
-    font-size: .85em;
-    background-color: rgba($font-color, .404);
-    color: #f5f4f0;
-    @include border-radius(1em);
-  }
-  @include clearfix();
+.category {
+
 }
 .comment {
   li {
