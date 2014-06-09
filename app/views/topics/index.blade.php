@@ -6,7 +6,7 @@
             @foreach ($topics as $topic)
                 <li>
                     <a class="title" href="{{ URL::to('topic/'.$topic->id) }}">{{ $topic->title }}<span class="icon-export pull_right"></span></a>
-                    <a class="avatar" href="{{ URL::to('user/'.$topic->user->username) }}"><img src="{{ $topic->user->avatar_url }}"></a>
+                    <div class="avatar"><a href="{{ URL::to('user/'.$topic->user->username) }}"><img src="{{ $topic->user->avatar_url }}"></a></div>
                     <p class="meta">
                         <a href="{{ URL::to('user/'.$topic->user->username) }}">{{ $topic->user->username }}</a>
                         <a href="{{ URL::to('category/'.$topic->category->id) }}">{{ $topic->category->name }}</a>
@@ -39,7 +39,7 @@
     <div class="boxify">
         <ul class="tab right">
             @foreach ($categories as $category)
-                <li class="{{ HTML::isActive(Request::segment(2), $category->id) }}"><a href="{{ URL::to('category/'.$category->id) }}">{{ $category->name }}<span class="pull_right">{{ $category->topics_count }}</span></a></li>
+                <li class=""><a href="{{ URL::to('category/'.$category->id) }}">{{ $category->name }}<span class="pull_right">{{ $category->topics_count }}</span></a></li>
             @endforeach
         </ul>
     </div>

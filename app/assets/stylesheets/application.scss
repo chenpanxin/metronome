@@ -92,17 +92,17 @@ body {
           font-size: .85em;
           color: $title-color;
         }
-        &.avatar {
-          position: absolute;
-          left: 12px;
-          top: 10px;
-          height: 52px;
-          width: 52px;
-        }
       }
       p {
         margin: 0 auto 0 76px;
       }
+    }
+    .avatar {
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      height: 52px;
+      width: 52px;
     }
   }
   &.new,
@@ -164,31 +164,31 @@ ul {
       margin: 12px 0;
       textarea,
       input {
-        margin: 0 auto;
-        width: 320px;
+        margin-left: 30%;
+        width: 50%;
       }
       label {
         display: inline-block;
         position: absolute;
-        color: rgba($font-color, .720);
-        padding-right: 12px;
         line-height: 40px;
         text-align: right;
-        width: 128px;
-        left: 16px;
+        padding-right: 1.2em;
+        color: rgba(#7d8c9b, .95);
+        left: 5%;
+        right: 70%;
         top: 0;
       }
     }
     input[type=submit] {
       float: right;
-      margin-right: 158px;
+      margin-right: 20%;
     }
     textarea {
       resize: none;
     }
     > label {
       color: rgba(#000, .37);
-      margin-left: 158px;
+      margin-left: 30%;
     }
     @include clearfix();
   }

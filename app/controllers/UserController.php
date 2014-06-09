@@ -4,12 +4,8 @@ class UserController extends BaseController {
 
     public function __construct()
     {
-        $this->beforeFilter('csrf', [
-            'on' => 'post'
-        ]);
-        $this->beforeFilter('auth', [
-            'only' => ['edit']
-        ]);
+        $this->beforeFilter('csrf', ['on'=>'post']);
+        $this->beforeFilter('auth', ['only' => ['edit']]);
     }
 
     public function index()

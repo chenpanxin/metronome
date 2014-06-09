@@ -1,5 +1,5 @@
 <ul class="tab right">
-    <li class="{{ HTML::isActive(Request::segment(1), 'login') }}"><a href="{{ URL::to('login') }}">{{ Lang::get('locale.login') }}</a></li>
-    <li class="{{ HTML::isActive(Request::segment(1), 'signup') }}"><a href="{{ URL::to('signup') }}">{{ Lang::get('locale.signup') }}</a></li>
-    <li class="{{ HTML::isActive(Request::segment(2), 'forgot_password') }}"><a href="{{ URL::to('session/forgot_password') }}">{{ Lang::get('locale.reset_password') }}</a></li>
+    {{ HTML::easyTab('login', URL::to('login'), Request::segment(1), Lang::get('locale.login')) }}
+    {{ HTML::easyTab('signup', URL::to('signup'), Request::segment(1), Lang::get('locale.signup')) }}
+    {{ HTML::easyTab('forgot_password', URL::to('session/forgot_password'), Request::segment(2), Lang::get('locale.reset_password')) }}
 </ul>

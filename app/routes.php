@@ -15,19 +15,24 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Busker', 'before'=>'staff'], func
 
 Route::get('login', 'SessionController@create');
 Route::get('logout', 'SessionController@logout');
+Route::get('session/new', 'AliasController@login');
 Route::post('session/store', 'SessionController@store');
 Route::delete('logout', 'SessionController@destroy');
 
-Route::get('signup', 'UserController@create');
+Route::get('user', 'AliasController@users');
 Route::get('users', 'UserController@index');
+Route::get('user/new', 'AliasController@signup');
+Route::get('signup', 'UserController@create');
 Route::post('user/store', 'UserController@store');
 Route::get('user/{username}', 'UserController@show');
-Route::get('user/{username}/topics', 'UserController@topics');
+Route::get('user/{username}/topic', 'UserController@topics');
 Route::get('user/{username}/following', 'UserController@following');
 Route::get('user/{username}/followers', 'UserController@followers');
 Route::get('user/verify/{token}', 'UserController@verify');
 
 Route::get('/', 'TopicController@index');
+Route::get('topic', 'AliasController@index');
+Route::get('topics', 'AliasController@index');
 Route::get('topic/new', 'TopicController@create');
 Route::get('topic/{id}', 'TopicController@show');
 Route::get('topic/{id}/edit', 'TopicController@edit');
