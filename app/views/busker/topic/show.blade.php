@@ -2,7 +2,9 @@
 
 @section('main')
 
-    <div class="boxify"></div>
+    <div class="boxify">
+
+    </div>
 
 @stop
 

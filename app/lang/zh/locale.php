@@ -64,4 +64,5 @@ return [
     'slug'             => '标示符',
     'liking'           => '人喜欢',
     'category'         => '分类',
+    'user'             => '用户',
 ];

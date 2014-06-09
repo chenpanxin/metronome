@@ -6,5 +6,7 @@
 @stop
 
 @section('sidebar')
-    <div class="boxify"></div>
+    <div class="boxify">
+        @include('busker.partial.tab')
+    </div>
 @stop

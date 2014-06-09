@@ -69,6 +69,15 @@ body {
   }
 }
 .topic {
+  &.index {
+    li {
+      border-bottom: 1px solid rgba(#000, .12);
+      padding: 10px 12px;
+      a {
+        color: rgba(#000, .625);
+      }
+    }
+  }
   &.list {
     li {
       position: relative;

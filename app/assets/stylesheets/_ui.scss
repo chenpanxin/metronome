@@ -96,28 +96,20 @@ p {
   li {
     a {
       display: block;
-      font-size: .825em;
-      line-height: 1.85em;
-      padding: .195em 1em;
+      font-size: .85em;
+      line-height: 1.65em;
+      padding: .12em .85em;
       border-left: .195em solid #ededed;
       border-right: .195em solid transparent;
-      color: $tab-color;
+      color: rgba($tab-color, .85);
     }
     &:hover {
       a {
-        border-right: .195em solid rgba($tab-color, .37);
-        background-color: rgba($tab-color, .082);
-        color: rgba($font-color, .720);
       }
     }
     &.active {
       a {
         border-left: .195em solid rgba($tab-color, .404);
-      }
-    }
-    &:last-child {
-      a {
-        margin-bottom: 0;
       }
     }
   }
@@ -126,11 +118,6 @@ p {
       a {
         border-left: .195em solid transparent;
         border-right: .195em solid #ededed;
-      }
-      &:hover {
-        a {
-          border-left: .195em solid rgba($tab-color, .37);
-        }
       }
       &.active {
         a {
