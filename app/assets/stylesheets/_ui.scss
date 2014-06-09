@@ -98,7 +98,7 @@ p {
       display: block;
       font-size: .825em;
       line-height: 1.85em;
-      padding: .195em .85em;
+      padding: .195em 1em;
       border-left: .195em solid #ededed;
       border-right: .195em solid transparent;
       color: $tab-color;
@@ -118,6 +118,24 @@ p {
     &:last-child {
       a {
         margin-bottom: 0;
+      }
+    }
+  }
+  &.inverse {
+    li {
+      a {
+        border-left: .195em solid transparent;
+        border-right: .195em solid #ededed;
+      }
+      &:hover {
+        a {
+          border-left: .195em solid rgba($tab-color, .37);
+        }
+      }
+      &.active {
+        a {
+          border-right: .195em solid rgba($tab-color, .404);
+        }
       }
     }
   }

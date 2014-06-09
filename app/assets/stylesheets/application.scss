@@ -30,26 +30,19 @@ body {
   padding-top: 72px;
   max-width: $master-width;
 }
-.ghost {
-  margin: 0 auto;
-  min-height: 360px;
-  padding-top: 72px;
-  width: 1140px;
-  .category {
-    &.new,
-    &.edit {
-      padding: 20px 20px;
-      input[type=text] {
-        margin-bottom: .73em;
-        width: 320px;
-      }
-    }
+#busker {
+  .master {
+    max-width: 1140px;
   }
-}
-.ghost-inner {
-  width: 1140px;
-  height: 100%;
-  margin: 0 auto;
+  .inner {
+    max-width: 1140px;
+  }
+  .fat {
+    width: percentage(1-$waistline*.625);
+  }
+  .slim {
+    width: percentage($waistline*.625);
+  }
 }
 .footer {
   border-top: 1px solid #efefef;

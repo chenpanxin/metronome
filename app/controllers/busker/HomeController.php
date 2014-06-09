@@ -1,8 +1,9 @@
-<?php namespace Admin;
+<?php namespace Busker;
 
 use BaseController;
 use View;
 use Category;
+use Topic;
 use Redirect;
 use Input;
 
@@ -10,7 +11,9 @@ class HomeController extends BaseController {
 
     public function index()
     {
-        return View::make('admin.home');
+        $topics = Topic::all();
+        return View::make('busker.home', [
+            'topics' => $topics
+        ]);
     }
-
 }

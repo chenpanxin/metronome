@@ -1,10 +1,10 @@
 <?php
 
 return array(
-    'logo'        => 'laravel',
+    'logo'        => 'Busker',
     'version'     => 'beta',
-    'title'       => 'laravel',
-    'keywords'    => 'laravel',
-    'description' => 'laravel',
-    'copyright'   => '© 2014 Application · All rights reserved.',
+    'title'       => 'Busker',
+    'keywords'    => 'Busker',
+    'description' => 'Busker',
+    'copyright'   => '© 2014 Busker · All rights reserved.',
 );

@@ -1,4 +1,4 @@
-<?php namespace Admin;
+<?php namespace Busker;
 
 use BaseController;
 use View;
@@ -16,9 +16,14 @@ class CategoryController extends BaseController {
         $this->beforeFilter('staff');
     }
 
+    public function index()
+    {
+        return View::make('busker.category.index');
+    }
+
     public function create()
     {
-        return View::make('admin.category.new');
+        return View::make('busker.category.new');
     }
 
     public function store()
@@ -42,7 +47,7 @@ class CategoryController extends BaseController {
     public function edit($id)
     {
         $category = Category::findOrFail($id);
-        return View::make('admin.category.edit')
+        return View::make('busker.category.edit')
             ->withCategory($category);
     }
 
@@ -62,7 +67,7 @@ class CategoryController extends BaseController {
         $category->slug = Input::get('slug');
         $category->save();
 
-        return Redirect::to('ghost');
+        return Redirect::to('admin');
     }
 
     public function destroy($id)

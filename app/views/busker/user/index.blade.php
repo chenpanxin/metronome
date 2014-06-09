@@ -1,4 +1,4 @@
-@extends('layouts.ghost')
+@extends('layout.busker')
 
 @section('main')
 

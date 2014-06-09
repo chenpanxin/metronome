@@ -5,17 +5,12 @@ Route::pattern('username', '[A-Z0-9a-z-_]+');
 Route::pattern('reply', 'reply|r');
 Route::pattern('not_found', '404(\.html)?');
 
-Route::group(['prefix'=>'ghost'], function()
+Route::group(['prefix'=>'admin', 'namespace'=>'Busker', 'before'=>'staff'], function()
 {
-    Route::get('/', 'Admin\HomeController@index');
-    Route::get('users', 'Admin\UserController@index');
-    Route::get('topics', 'Admin\TopicController@index');
-    Route::get('categories', 'Admin\CategoryController@index');
-    Route::get('category/new', 'Admin\CategoryController@create');
-    Route::post('category/store', 'Admin\CategoryController@store');
-    Route::get('category/{id}/edit', 'Admin\CategoryController@edit');
-    Route::put('category/{id}', 'Admin\CategoryController@update');
-    Route::delete('category/{id}', 'Admin\CategoryController@destroy');
+    Route::get('/', 'HomeController@index');
+    Route::resource('user', 'UserController');
+    Route::resource('topic', 'TopicController');
+    Route::resource('category', 'CategoryController');
 });
 
 Route::get('login', 'SessionController@create');
