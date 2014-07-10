@@ -18,20 +18,21 @@
             "app/tests/TestCase.php"
         ],
         "psr-4": {
-            "Ampou\\": "app/Ampou"
+            "Ampou\\": "app/Ampou",
+            "Crayon\\": "app/Crayon"
         }
     },
     "require": {
         "php": ">=5.4.3",
         "menglr/component": "v1.0",
-        "laravel/framework": "4.1.29",
-        "intervention/image": "2.0.1",
-        "michelf/php-markdown": "1.4.0",
+        "erusev/parsedown": "1.0.1",
+        "laravel/framework": "4.2.0",
+        "intervention/image": "2.0.5",
         "ezyang/htmlpurifier": "v4.6.0"
     },
     "require-dev": {
+        "mockery/mockery": "0.9.1",
         "phpunit/phpunit": "4.0.*@dev",
-        "fzaninotto/faker": "1.4.*@dev",
-        "mockery/mockery": "dev-master"
+        "fzaninotto/faker": "1.4.*@dev"
     }
 }
