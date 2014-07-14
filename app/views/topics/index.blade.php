@@ -52,5 +52,7 @@
     </div>
     <div class="boxify">
         @include('partials.stat')
+        <a href="http://git.io">git.io</a>
+        <a href="/redirect">redirect</a>
     </div>
 @stop

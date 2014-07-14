@@ -12,6 +12,7 @@
     {{ HTML::style('assets/application.css') }}
     <link rel="stylesheet" type="text/css" href="http://ricostacruz.com/nprogress/nprogress.css">
     <script src="http://remote.qiniudn.com/jquery.js"></script>
+    <script src="http://remote.qiniudn.com/u.js"></script>
     <script src="http://ricostacruz.com/nprogress/nprogress.js"></script>
     <script src="http://remote.qiniudn.com/turbolinks.js"></script>
     {{ HTML::script('assets/application.js') }}

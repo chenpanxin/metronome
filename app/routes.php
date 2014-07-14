@@ -83,6 +83,11 @@ Route::get('colour', function()
     return View::make('pages.colour');
 });
 
+Route::get('/redirect', function()
+{
+    return Redirect::to('http://git.io');
+});
+
 Route::get('{not_found}', function()
 {
     return Response::json(['error'=>'page not found.']);

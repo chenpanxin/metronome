@@ -13,13 +13,21 @@
 
 App::before(function($request)
 {
-    Crayon\Utils\set_request_method_cookie();
-    Crayon\Utils\set_xhr_redirected_to();
+    Crayon\Utils\set_request_method_cookie($request);
 });
 
 
 App::after(function($request, $response)
 {
+    Crayon\Utils\set_xhr_redirected_to($request, $response);
+    if ($response instanceof Illuminate\Http\RedirectResponse) {
+        Crayon\Utils\store_for_turbolinks($request, $response->getTargetUrl());
+        Crayon\Utils\abort_xdomain_redirect($request, $response);
+    }
+
+    // "Turbolinks.visit('#{location}');"
+    // 'ContentType' => 'application/x-javascript'
+
     // if (App::environment() != 'development') {
     //     if ($response instanceof Illuminate\Http\Response) {
     //         $output = $response->getOriginalContent();
