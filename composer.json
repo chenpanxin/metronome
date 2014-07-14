@@ -20,7 +20,10 @@
         "psr-4": {
             "Ampou\\": "app/Ampou",
             "Crayon\\": "app/Crayon"
-        }
+        },
+        "files": [
+            "app/Crayon/Utils/turbolinks.php"
+        ]
     },
     "require": {
         "php": ">=5.4.3",

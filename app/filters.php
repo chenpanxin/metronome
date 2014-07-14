@@ -13,7 +13,8 @@
 
 App::before(function($request)
 {
-    //
+    Crayon\Utils\set_request_method_cookie();
+    Crayon\Utils\set_xhr_redirected_to();
 });
 
 
@@ -52,7 +53,7 @@ Route::filter('auth', function()
 
 Route::filter('staff', function()
 {
-    if (Auth::guest() or Auth::user()->notStaff()) return Redirect::to('/');
+    // if (Auth::guest() or Auth::user()->notStaff()) return Redirect::to('/');
 });
 
 

@@ -5,12 +5,17 @@ Route::pattern('username', '[A-Z0-9a-z-_]+');
 Route::pattern('reply', 'reply|r');
 Route::pattern('not_found', '404(\.html)?');
 
-Route::group(['prefix'=>'admin', 'namespace'=>'Busker', 'before'=>'staff'], function()
+Route::group(['domain'=>'api.nhn.io', 'prefix'=>'v1', 'namespace'=>'y'], function()
 {
-    Route::get('/', 'HomeController@index');
-    Route::resource('user', 'UserController');
-    Route::resource('topic', 'TopicController');
-    Route::resource('category', 'CategoryController');
+    Route::get('users', 'UserController@index');
+});
+
+Route::group(['prefix'=>'admin', 'namespace'=>'Crayon\Layers'], function()
+{
+    Route::get('/', 'UserController@index');
+    // Route::resource('user', 'UserController');
+    // Route::resource('topic', 'TopicController');
+    // Route::resource('category', 'CategoryController');
 });
 
 Route::get('login', 'SessionController@create');
@@ -81,11 +86,6 @@ Route::get('colour', function()
 Route::get('{not_found}', function()
 {
     return Response::json(['error'=>'page not found.']);
-});
-
-Route::group(['domain'=>'ghost.nhn.io'], function()
-{
-
 });
 
 Event::listen('illuminate.query', function($query)
