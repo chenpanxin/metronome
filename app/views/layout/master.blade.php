@@ -20,8 +20,8 @@
 <body>
 <div class="navbar">
     <div class="inner w970">
-        <div id="logo">@include('util.logo')</div>
-        <div id="navtab">@include('partial.navtab')</div>
+        <div class="logo">@include('util.logo')</div>
+        <div class="navtab">@include('partial.navtab')</div>
     </div>
 </div>
 <div class="master">

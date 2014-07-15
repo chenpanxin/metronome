@@ -1,5 +1,5 @@
 * {
-  @include border-box;
+  @include border-box();
 }
 html {
   -ms-text-size-adjust: 100%;
@@ -18,6 +18,10 @@ li {
 img {
   border: 0;
 }
+b,
+strong {
+  font-weight: bold;
+}
 a {
   background: transparent;
   text-decoration: none;
@@ -35,6 +39,19 @@ pre {
 }
 pre {
   overflow: auto;
+}
+mark {
+}
+sub,
+sup {
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
 }
 table {
   border-collapse: collapse;
