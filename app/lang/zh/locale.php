@@ -65,4 +65,7 @@ return [
     'liking'           => '人喜欢',
     'category'         => '分类',
     'user'             => '用户',
+    'timeline'         => '时间轴',
+    'home'             => '个人主页',
+    'settings'         => '编辑资料',
 ];

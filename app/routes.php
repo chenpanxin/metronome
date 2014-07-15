@@ -78,6 +78,8 @@ Route::post('unfollow', 'RelationshipController@destroy');
 Route::post('topic/{id}/like', 'LikeController@store');
 Route::post('topic/{id}/unlike', 'LikeController@destroy');
 
+Route::get('notification', 'NotificationController@index');
+
 Route::get('colour', function()
 {
     return View::make('pages.colour');

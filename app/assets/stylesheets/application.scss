@@ -59,7 +59,7 @@ body {
   border-top: 1px solid #e0e1e3;
   min-height: 50px;
   margin-bottom: 20px;
-  @include box-shadow(0 0 1px rgba(#000, .12), 0 1px 2px rgba(#000, .32));
+  @include box-shadow(0 1px 1px rgba(#000, .404));
   @include border-radius(3px);
 }
 .master {
