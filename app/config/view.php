@@ -26,6 +26,6 @@ return array(
     |
     */
 
-    'pagination' => 'utils.pagination',
+    'pagination' => 'util.pagination',
 
 );

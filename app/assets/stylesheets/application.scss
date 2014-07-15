@@ -2,6 +2,7 @@
 @import 'values';
 @import 'base';
 @import 'grid';
+@import 'ui';
 @import 'icons';
 @import 'buttons';
 @import 'utils';
@@ -20,50 +21,123 @@ body {
   height: 45px;
   background-color: #53575b;
   border-bottom: 1px solid #43474b;
-  // background-color: #dd604a;
-  // border-bottom: 1px solid #c45644;
-}
-.navtab {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  min-width: 120px;
-  ul {
-    height: 44px;
-    li {
-      display: inline-block;
-      height: 100%;
-      a {
-        display: block;
-        line-height: 42px;
-      }
-    }
-  }
-  span {
-    color: rgba(#fff, .97);
-  }
 }
 .inner {
   position: relative;
   margin: 0 auto;
-  width: 950px;
+  &.w970 {
+    width: 970px;
+  }
+  &.w560 {
+    width: 560px;
+  }
 }
-
-
-
-
-
-
+.boxify {
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dfdfdf #d0d1d3 #bebcbb #d0d1d3;
+  min-height: 50px;
+  margin-bottom: 20px;
+  @include border-radius(3px);
+}
 .master {
-  margin: 0 auto;
-  min-height: 360px;
   padding-top: 72px;
-  max-width: $master-width;
+}
+ul {
+  &.list {
+    > li {
+      border-bottom: 1px solid #eaeaeb;
+      &:last-child {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
+}
+.list {
+  .title {
+  }
+  .meta {
+    display: inline-block;
+  }
+  &.topic {
+    &.index {
+      li {
+        position: relative;
+        min-height: 56px;
+        padding-left: 56px;
+      }
+      .title {
+        display: block;
+        padding-top: 12px;
+        font-size: 16px;
+        line-height: 40px;
+        color: rgba(#000, .625);
+      }
+      .avatar {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .meta {
+        color: rgba(#000, .37);
+      }
+      .date {
+        color: rgba(#000, .37);
+      }
+    }
+  }
+}
+.avatar {
+  display: inline-block;
+  img {
+    width: 100%;
+    height: auto;
+    @include border-radius(50%);
+  }
+  &.s56 {
+    width: 56px;
+    height: 56px;
+  }
+}
+span {
+  &.icon {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    background-image: url(/assets/icon.png);
+    background-repeat: no-repeat;
+    background-size: 183px 21px;
+  }
+  &.icon-email {
+    background-position: 0 0;
+  }
+  &.icon-notify {
+    background-position: -27px 0;
+  }
+  &.icon-settings {
+    background-position: -54px 0;
+  }
+  &.icon-user {
+    background-position: -81px 0;
+  }
+  &.icon-message {
+    background-position: -108px 0;
+  }
+  &.icon-logout {
+    background-position: -135px 0;
+  }
+  &.icon-list {
+    background-position: -162px 0;
+  }
 }
 
 
-.topic {
+
+
+
+
+.todpic {
   &.index {
     li {
       border-bottom: 1px solid rgba(#000, .12);

@@ -3,14 +3,7 @@
   background-color: $selection-color;
   color: $selection-font-color;
 }
-.boxify {
-  min-height: 50px;
-  margin-bottom: 20px;
-  padding: 4px 0;
-  background-color: $boxify-color;
-  @include border-radius(3px);
-  @include box-shadow(0 0 1px rgba(#000, .225), 0 1px 1px rgba(#000, .404));
-}
+
 .countify {
   background-color: rgba($icon-color, .225);
   color: $icon-color;
@@ -69,24 +62,6 @@ p {
 }
 #logo {
   float: left;
-  display: none;
-  font-family: Georgia, 'Xin Gothic', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft YaHei', SimSun, sans-serif;
-  > a {
-    display: inline-block;
-    color: rgba(#000, .404);
-    font-size: 1.024em;
-    font-weight: 400;
-    height: 50px;
-    padding: 12px 12px;
-    letter-spacing: .115em;
-    sup {
-      font-size: .720em;
-      margin-left: .225em;
-      font-style: italic;
-      color: rgba(#000, .37);
-      letter-spacing: normal;
-    }
-  }
 }
 #logout {
   display: none;
@@ -175,19 +150,7 @@ p {
   }
 }
 .avatar {
-  display: inline-block;
-  overflow: hidden;
-  @include border-radius(40px);
-  @include box-shadow(0 0 2px rgba(#505050, .37));
-  > a {
-    display: block;
-    line-height: 0;
-  }
-  img {
-    width: 100%;
-    height: auto;
-    @include border-radius(50%);
-  }
+
 }
 .following,
 .followers,
@@ -284,4 +247,21 @@ span {
   i {
     color: #de533c;
   }
+}
+
+#nprogress .bar {
+  display: none;
+  background: #e8e8e8;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  // box-shadow: 0 0 10px #e0e0e0, 0 0 5px #e0e0e0;
+}
+
+#nprogress .spinner-icon {
+  display: none;
+  border: solid 2px transparent;
+  border-top-color: #bbb;
+  border-left-color: #bbb;
 }

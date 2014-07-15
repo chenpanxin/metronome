@@ -16,7 +16,7 @@ class UserController extends BaseController {
 
     public function create()
     {
-        return View::make('users.signup');
+        return View::make('user.new');
     }
 
     public function store()
@@ -61,7 +61,7 @@ class UserController extends BaseController {
 
     public function profileEdit()
     {
-        return View::make('users.profile.edit')
+        return View::make('user.profile.edit')
             ->withUser(Auth::user()->load('profile'));
     }
 

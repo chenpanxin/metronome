@@ -14,8 +14,8 @@ class TopicController extends BaseController {
 
     public function index()
     {
-        return View::make('topics.index')
-            ->withTitle(Config::get('website.title'))
+        return View::make('topic.index')
+            ->withTitle('Yes')
             ->withCategories(Category::all())
             ->withTopics(Topic::with('user', 'category')->orderBy('created_at', 'desc')->paginate(16));
     }
@@ -40,7 +40,7 @@ class TopicController extends BaseController {
 
         $topics_count = $topic->user->topics()->count();
 
-        return View::make('topics.show')
+        return View::make('topic.show')
             ->with([
                 'following_count' => $following_count,
                 'followers_count' => $followers_count,
@@ -55,7 +55,7 @@ class TopicController extends BaseController {
 
     public function create()
     {
-        return View::make('topics.new')
+        return View::make('topic.new')
             ->withCategories(Category::all());
     }
 
@@ -69,20 +69,21 @@ class TopicController extends BaseController {
                 ->withInput();
         }
 
-        $markdown = new Ampou\Services\Markdown(Input::get('body'));
+        // $markdown = new Ampou\Services\Markdown(Input::get('body'));
 
         $topic = new Topic([
             'category_id' => Input::get('category_id'),
             'title'       => Input::get('title'),
-            'body'        => Ampou\Services\Sanitization::make($markdown->html())
+            // 'body'        => Ampou\Services\Sanitization::make($markdown->html())
+            'body'        => Input::get('body')
         ]);
 
-        $text = new Text([
-            'content' => Input::get('body')
-        ]);
+        // $text = new Text([
+        //     'content' => Input::get('body')
+        // ]);
 
         Auth::user()->topics()->save($topic);
-        $topic->texts()->save($text);
+        // $topic->texts()->save($text);
 
         return Redirect::to('/');
     }
