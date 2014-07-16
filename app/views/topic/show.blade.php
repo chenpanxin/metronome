@@ -3,15 +3,15 @@
 @section('main')
     <div class="boxify">
         <div class="topic show">
-            <div class="title">{{{ $topic->title }}}</div>
+            <div class="title"><span>{{{ $topic->title }}}</span></div>
             <div class="body">{{ $topic->body }}</div>
-            <div class="topic-stats">
+<!--             <div class="topic-stats">
                 <span>{{ Lang::get('locale.created_on') }}</span>
                 <span class="timeago" title="{{ $topic->created_at }}">{{ $topic->created_at->toDateString() }}</span>
                 <span>{{ $likers_count }}</span>
                 <span>{{ Lang::get('locale.liking') }}</span>
                 <span class="pull_right"><a href="{{ URL::to('topic/'.$topic->id.'/'.($liking ? 'unlike' : 'like')) }}" class="me like {{ $liking ? 'liking' : 'nil' }}"><i class="icon-like"></i></a></span>
-            </div>
+            </div> -->
         </div>
     </div>
     @unless ($comments->count() == 0)

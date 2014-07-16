@@ -38,7 +38,7 @@ class SessionController extends BaseController {
 
     public function logout()
     {
-        return View::make('users.logout');
+        return View::make('session.destroy');
     }
 
     private function params()

@@ -2,10 +2,10 @@
 
 @section('main')
     <div class="boxify">
-        <div class="users show">
-            <div class="avatar-not-square">
+        <div class="user show">
+<!--             <div class="avatar-not-square">
                 {{ HTML::image(str_replace('_s56', '', $user->avatar_url)) }}
-            </div>
+            </div> -->
             <div class="user-account">
                 <p><span>{{ Lang::get('locale.username') }}</span>{{ $user->username }}</p>
             </div>

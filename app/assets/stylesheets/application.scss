@@ -129,7 +129,8 @@ ul {
   }
 }
 .topic {
-  &.new {
+  &.new,
+  &.edit {
     padding: 1em 1em;
   }
   input[type=text],
@@ -138,6 +139,58 @@ ul {
     width: 100%;
   }
   &.show {
-
+    .title {
+      position: relative;
+      min-height: 56px;
+      padding-left: 72px;
+      padding-right: 1em;
+      border-bottom: 1px solid #e5e6e8;
+      span {
+        display: block;
+        font-size: 1em;
+        line-height: 56px;
+        color: rgba(#53575b, .94);
+      }
+    }
+    .body {
+      padding: 1em 1em;
+      color: #565656;
+    }
+  }
+}
+.user {
+  &.profile {
+    &.edit {
+      padding: 1em 1em;
+      input[type=text] {
+        margin-bottom: .5em;
+      }
+      textarea {
+        margin-bottom: .5em;
+        width: 100%;
+      }
+    }
+  }
+  &.show {
+    padding: 1em 1em;
+    color: rgba(#000, .5);
+  }
+  &.new {
+    padding: 1em 1em;
+    input[type=text],
+    input[type=password] {
+      margin-bottom: .5em;
+      width: 100%;
+    }
+  }
+}
+.session {
+  &.new {
+    padding: 1em 1em;
+    input[type=text],
+    input[type=password] {
+      margin-bottom: .5em;
+      width: 100%;
+    }
   }
 }

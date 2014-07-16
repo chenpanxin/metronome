@@ -1,9 +1,9 @@
-@extends('layouts.master')
+@extends('layout.master')
 
 @section('main')
     <div class="boxify">
         @include('partials.notify')
-        <div class="edit topic">
+        <div class="topic edit">
             {{ Form::open(['url'=>'topic/'.$topic->id, 'method'=>'put']) }}
                 {{ Form::label('title', Lang::get('locale.title')) }}
                 {{ Form::text('title', $topic->title) }}
