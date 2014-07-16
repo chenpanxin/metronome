@@ -53,7 +53,7 @@ class UserController extends BaseController {
 
         if ($user) {
             $user->load('profile');
-            return View::make('users.show')
+            return View::make('user.show')
                 ->withUser($user);
         }
         App::abort();

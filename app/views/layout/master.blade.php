@@ -21,7 +21,13 @@
 <div class="navbar">
     <div class="inner w970">
         <div class="logo">@include('util.logo')</div>
-        <div class="navtab">@include('partial.navtab')</div>
+        <div class="tab left">
+            <ul class="navtab">
+                <li><a href="{{ URL::to('newest') }}">{{ Lang::get('locale.newest') }}</a></li>
+                <li><a href="{{ URL::to('category') }}">{{ Lang::get('locale.category') }}</a></li>
+            </ul>
+        </div>
+        <div class="tab right">@include('partial.navtab')</div>
     </div>
 </div>
 <div class="master">

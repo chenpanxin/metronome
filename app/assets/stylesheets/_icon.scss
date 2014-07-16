@@ -52,6 +52,24 @@
 .icon-clock:before {
   content: "\e014";
 }
+.icon-archive:before {
+  content: "\e121";
+}
+.icon-plus:before {
+  content: "\e114";
+}
+.icon-speech-bubble:before {
+  content: "\e076";
+}
+.icon-menu:before {
+  content: "\e120";
+}
+.icon-inbox:before {
+  content: "\e122";
+}
+.icon-search:before {
+  content: "\e036";
+}
 .logo {
   position: relative;
   display: inline-block;
@@ -81,14 +99,7 @@
   height: 100%;
 }
 .navtab {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  min-width: 56px;
-  ul {
-    display: inline-block;
-  }
+  display: inline-block;
   li {
     position: relative;
     display: inline-block;
@@ -96,7 +107,7 @@
     a {
       display: block;
       font-size: 16px;
-      padding: 4px 4px 0 4px;
+      padding: 4px 8px 0 8px;
       line-height: 40px;
       min-width: 42px;
       text-align: center;

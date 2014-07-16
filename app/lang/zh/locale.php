@@ -68,4 +68,5 @@ return [
     'timeline'         => '时间轴',
     'home'             => '个人主页',
     'settings'         => '编辑资料',
+    'search'           => '搜索',
 ];

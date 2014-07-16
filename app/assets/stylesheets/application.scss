@@ -43,6 +43,18 @@ body {
   height: 45px;
   background-color: #53575b;
   border-bottom: 1px solid #43474b;
+  .tab {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    min-width: 56px;
+    &.right {
+      right: 0;
+    }
+    &.left {
+      left: 90px;
+    }
+  }
 }
 .inner {
   position: relative;
