@@ -4,31 +4,26 @@
   color: $selection-font-color;
 }
 form {
+  label {
+    color: rgba(#000, .5);
+    margin-bottom: .5em;
+  }
   input,
   textarea {
     display: block;
     outline: none;
-    padding: 5px 5px;
-    font-size: .85em;
-    line-height: 1.65em;
-    border: 1px solid transparent;
-    color: rgba(#000, .625);
-    @include border-radius(3px);
-    @include box-shadow(0 0 1px rgba(#000, .625));
+    padding: 4px 4px;
+    font-size: 1em;
+    line-height: 32px;
+    border: 1px solid #dbdbdb;
+    color: #53575b;
     &:focus {
-      @include box-shadow(0 0 1px rgba(#000, .85));
+      border: 1px solid rgba(#53575b, .5);
     }
   }
-}
-p {
-  &.meta {
-    font-size: .75em;
-    line-height: 20px;
-    color: rgba(#000, .522);
-    > a {
-      color: rgba($font-color, .720);
-      margin-right: 12px;
-    }
+  textarea {
+    min-height: 120px;
+    resize: none;
   }
 }
 

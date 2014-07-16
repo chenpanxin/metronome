@@ -32,7 +32,8 @@ $icon-name: icomoon;
 /****/
 
 body {
-  background-color: #ebecee;
+  background-color: #edeeef;
+  font-family: Georgia, Monaco, "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Songti SC", "SimSun", sans-serif;
 }
 .navbar {
   position: fixed;
@@ -68,11 +69,11 @@ body {
 }
 .boxify {
   background-color: white;
-  border-top: 1px solid #e0e1e3;
   min-height: 50px;
   margin-bottom: 20px;
-  @include box-shadow(0 1px 1px rgba(#000, .404));
-  @include border-radius(3px);
+  padding: 5px 0;
+  border: 1px solid rgba(#b2bac2, .5);
+  @include border-radius(5px);
 }
 .master {
   padding-top: 72px;
@@ -88,34 +89,28 @@ ul {
   }
 }
 .list {
-  .title {
-  }
-  .meta {
-    display: inline-block;
-  }
   &.topic {
     &.index {
       li {
         position: relative;
         min-height: 56px;
-        padding-left: 56px;
+        padding-left: 72px;
+        padding-right: 1em;
       }
       .title {
         display: block;
-        padding-top: 12px;
-        font-size: 16px;
-        line-height: 40px;
-        color: rgba(#000, .625);
+        font-size: 1em;
+        line-height: 56px;
+        color: rgba(#53575b, .94);
       }
       .avatar {
         position: absolute;
-        left: 0;
+        left: .5em;
         top: 0;
       }
-      .meta {
-        color: rgba(#000, .37);
-      }
       .date {
+        float: right;
+        font-size: 14px;
         color: rgba(#000, .37);
       }
     }
@@ -133,247 +128,16 @@ ul {
     height: 56px;
   }
 }
-span {
-  &.icon {
-    display: inline-block;
-    width: 21px;
-    height: 21px;
-    background-image: url(/assets/icon.png);
-    background-repeat: no-repeat;
-    background-size: 183px 21px;
+.topic {
+  &.new {
+    padding: 1em 1em;
   }
-  &.icon-email {
-    background-position: 0 0;
-  }
-  &.icon-notify {
-    background-position: -27px 0;
-  }
-  &.icon-settings {
-    background-position: -54px 0;
-  }
-  &.icon-user {
-    background-position: -81px 0;
-  }
-  &.icon-message {
-    background-position: -108px 0;
-  }
-  &.icon-logout {
-    background-position: -135px 0;
-  }
-  &.icon-list {
-    background-position: -162px 0;
-  }
-}
-
-
-
-
-
-
-.todpic {
-  &.index {
-    li {
-      border-bottom: 1px solid rgba(#000, .12);
-      padding: 10px 12px;
-      a {
-        color: rgba(#000, .625);
-      }
-    }
-  }
-  &.list {
-    li {
-      position: relative;
-      min-height: 72px;
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba($font-color, .12);
-      a {
-        &.title {
-          display: block;
-          margin-left: 76px;
-          line-height: 32px;
-          font-size: .85em;
-          color: $title-color;
-        }
-      }
-      p {
-        margin: 0 auto 0 76px;
-      }
-    }
-    .avatar {
-      position: absolute;
-      left: 12px;
-      top: 10px;
-      height: 52px;
-      width: 52px;
-    }
-  }
-  &.new,
-  &.edit {
-    padding: 20px 20px;
-    input[type=text],
-    textarea {
-      width: 100%;
-      margin-bottom: .73em;
-    }
-    textarea {
-      resize: none;
-      font-size: .92em;
-      line-height: 1.85em;
-    }
-    label {
-      color: rgba($font-color, .720);
-      padding: .37em .12em .73em .12em;
-    }
+  input[type=text],
+  textarea {
+    margin-bottom: .5em;
+    width: 100%;
   }
   &.show {
-    .title {
-      padding: 20px 20px;
-      border-bottom: 1px solid rgba(#505050, .12);
-      font-weight: bold;
-      font-size: .97em;
-      color: rgba(#000, .67);
-    }
-    .body {
-      padding: 20px 20px;
-      border-bottom: 1px solid rgba(#505050, .12);
-      font-size: .85em;
-      color: $content-color;
-      p {
-        line-height: 1.65em;
-        @include white-space();
-      }
-      code {
-        @include white-space();
-      }
-    }
-    .topic-stats {
-      padding: 10px 10px;
-      font-size: .85em;
-      line-height: 1.65em;
-      color: rgba(#000, .404);
-    }
-  }
-}
-ul {
-  &.password,
-  &.profile,
-  &.signup,
-  &.login,
-  &.find {
-    padding: 20px 0;
-    li.field {
-      position: relative;
-      margin: 12px 0;
-      textarea,
-      input {
-        margin-left: 30%;
-        width: 50%;
-      }
-      label {
-        display: inline-block;
-        position: absolute;
-        line-height: 40px;
-        text-align: right;
-        padding-right: 1.2em;
-        color: rgba(#7d8c9b, .95);
-        left: 5%;
-        right: 70%;
-        top: 0;
-      }
-    }
-    input[type=submit] {
-      float: right;
-      margin-right: 20%;
-    }
-    textarea {
-      resize: none;
-    }
-    > label {
-      color: rgba(#000, .37);
-      margin-left: 30%;
-    }
-    @include clearfix();
-  }
-}
-.category {
 
-}
-.comment {
-  li {
-    position: relative;
-    padding: 10px 12px;
-    font-size: .85em;
-    line-height: 1.4em;
-    color: rgba($comment-color, .94);
-    .avatar {
-      position: absolute;
-      left: 12px;
-      top: 10px;
-      height: 42px;
-      width: 42px;
-    }
-    .meta {
-      margin: 0 0 .37em 62px;
-    }
-    .content {
-      margin: 0 12px 0 62px;
-      @include white-space();
-    }
-    .reply {
-      li {
-        .avatar {
-          position: absolute;
-          left: 30px;
-          top: 10px;
-          height: 36px;
-          width: 36px;
-        }
-        .meta {
-          margin: 0 0 0 72px;
-        }
-        .reply-content {
-          margin: 0 0 0 72px;
-        }
-      }
-    }
-  }
-}
-.upload-avatar {
-  .upload-form {
-    position: relative;
-    margin: 1em 1em;
-    padding: 1em 1em;
-    font-size: .72em;
-    line-height: 1.65em;
-    color: $font-color;
-    text-align: center;
-    border: 2px dashed rgba($font-color, .404);
-    form {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      input[type=file] {
-        cursor: pointer;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-      }
-    }
-  }
-}
-.avatar-not-square {
-  margin: 1em auto;
-  width: 128px;
-  height: 128px;
-  padding: 3px 3px;
-  line-height: 0;
-  @include border-radius(128px);
-  @include box-shadow(0 0 1px rgba(#000, .37));
-  img {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    @include border-radius(128px);
   }
 }

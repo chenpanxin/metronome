@@ -8,10 +8,10 @@
 
 <li>
     <a href="{{ URL::to('user/'.$topic->user->username) }}" class="avatar s56">{{ HTML::image('/assets/avatar.jpg') }}</a>
-    <a href="{{ URL::to('topic/'.$topic->id) }}" class="title">{{ $topic->title }}</a>
-    <a href="{{ URL::to('user/'.$topic->user->username) }}" class="meta">{{ $topic->user->username }}</a>
-    <a href="{{ URL::to('category/'.$topic->category->id) }}" class="meta">{{ $topic->category->name }}</a>
-    <a href="" class="date" data-time="{{ $topic->created_at }}">{{ $topic->created_at->toFormattedDateString() }}</a>
+    <a href="{{ URL::to('topic/'.$topic->id) }}" class="title">{{ $topic->title }}<span class="date">{{ $topic->created_at->toFormattedDateString() }}</span></a>
+    <!-- <a href="{{ URL::to('user/'.$topic->user->username) }}" class="meta">{{ $topic->user->username }}</a> -->
+    <!-- <a href="{{ URL::to('category/'.$topic->category->id) }}" class="meta">{{ $topic->category->name }}</a> -->
+    <!-- <a href="" class="date" data-time="{{ $topic->created_at }}"></a> -->
 </li>
             @endforeach
 

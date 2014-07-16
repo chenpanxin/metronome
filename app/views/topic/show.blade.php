@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        <div class="show topic" hidden-category="{{ $topic->category->name }}">
+        <div class="topic show">
             <div class="title">{{{ $topic->title }}}</div>
             <div class="body">{{ $topic->body }}</div>
             <div class="topic-stats">
@@ -15,21 +15,21 @@
         </div>
     </div>
     @unless ($comments->count() == 0)
-        <div class="boxify" data-comments-count="{{ $comments->count() }}">
+<!--         <div class="boxify" data-comments-count="{{ $comments->count() }}">
             @include('partials.comments')
             <div class="hidden comment-edit-template">
                 {{ Form::open(['url'=>'']) }}
                 {{ Form::close() }}
             </div>
-        </div>
+        </div> -->
     @endif
-    <div class="boxify">
-        <div class="new comment">
+    <div class="boxify hide">
+<!--         <div class="new comment">
             {{ Form::open(['url'=>'topic/'.$topic->id]) }}
                 {{ Form::textarea('content', null, ['placeholder'=>Lang::get('locale.write_comment')]) }}
                 {{ Form::submit(Lang::get('locale.comment'), ['class'=>'btn normal']) }}
             {{ Form::close() }}
-        </div>
+        </div> -->
     </div>
 @stop
 
