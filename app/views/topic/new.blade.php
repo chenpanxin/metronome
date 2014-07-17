@@ -14,14 +14,14 @@
             {{ Form::close() }}
         </div>
     </div>
+    <div class="boxify">
+        <div class="category selection">
+            @foreach ($categories as $category)
+                <a href="#category-{{ $category->id }}" data-category="{{ $category->id }}">{{ $category->name }}</a>
+            @endforeach
+        </div>
+    </div>
 @stop
 
 @section('sidebar')
-<!--     <div class="boxify">
-        <ul class="tab right select">
-            @foreach ($categories as $category)
-                <li><a href="#{{ $category->id }}" data-category="{{ $category->id }}">{{ $category->name }}<span class="pull_right">{{ $category->topics_count }}</span></a></li>
-            @endforeach
-        </ul>
-    </div> -->
 @stop

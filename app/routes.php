@@ -79,6 +79,7 @@ Route::post('topic/{id}/like', 'LikeController@store');
 Route::post('topic/{id}/unlike', 'LikeController@destroy');
 
 Route::get('notification', 'NotificationController@index');
+Route::get('search', 'SearchController@index');
 
 Route::get('colour', function()
 {

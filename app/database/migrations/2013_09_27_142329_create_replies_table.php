@@ -10,9 +10,9 @@ class CreateRepliesTable extends Migration {
         {
             $table->increments('id');
             $table->integer('user_id')->index();
-            $table->integer('comment_id')->index();
-            $table->boolean('trashed')->default(false);
+            $table->integer('topic_id')->index();
             $table->text('content');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

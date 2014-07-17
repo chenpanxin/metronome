@@ -11,4 +11,9 @@ class Reply extends Eloquent {
     {
         return $this->belongsTo('Comment');
     }
+
+    public function texts()
+    {
+        return $this->morphMany('Text', 'textable');
+    }
 }

@@ -24,8 +24,8 @@ class TopicController extends BaseController {
     {
         $topic = Topic::findOrFail($id);
 
-        $comments = $topic->comments;
-        $comments->load('user', 'replies', 'replies.user');
+        // $comments = $topic->comments;
+        // $comments->load('user', 'replies', 'replies.user');
 
         $topic->load('user', 'category');
 
@@ -40,6 +40,10 @@ class TopicController extends BaseController {
 
         $topics_count = $topic->user->topics()->count();
 
+        $text = $topic->texts()->first();
+
+        $topic->body = $text ? $text->markdown : '';
+
         return View::make('topic.show')
             ->with([
                 'following_count' => $following_count,
@@ -49,8 +53,7 @@ class TopicController extends BaseController {
                 'liking'          => $liking
             ])
             ->withTitle(join(' | ', [Config::get('website.title'), $topic->title]))
-            ->withTopic($topic)
-            ->withComments($comments);
+            ->withTopic($topic);
     }
 
     public function create()
@@ -78,12 +81,13 @@ class TopicController extends BaseController {
             'body'        => Input::get('body')
         ]);
 
-        // $text = new Text([
-        //     'content' => Input::get('body')
-        // ]);
+        $text = new Text([
+            'markup'   => Input::get('body'),
+            'markdown' => Input::get('body')
+        ]);
 
         Auth::user()->topics()->save($topic);
-        // $topic->texts()->save($text);
+        $topic->texts()->save($text);
 
         return Redirect::to('/');
     }
@@ -91,7 +95,7 @@ class TopicController extends BaseController {
     public function edit($id)
     {
         $topic = Topic::with('category')->findOrFail($id);
-        // $topic->body = $topic->texts()->first()->content;
+        $topic->body = $topic->texts()->first()->markdown;
 
         return View::make('topic.edit')
             ->withCategories(Category::all())
@@ -130,7 +134,7 @@ class TopicController extends BaseController {
     public function byCategory($id)
     {
         $topics = Topic::with('user', 'category')->whereCategoryId($id)->paginate(16);
-        return View::make('topics.index')
+        return View::make('topic.index')
             ->withTitle(Config::get('website.title'))
             ->withCategories(Category::all())
             ->withTopics($topics);

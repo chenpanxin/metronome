@@ -14,13 +14,13 @@ class Topic extends Eloquent {
         return $this->belongsTo('Category');
     }
 
-    public function comments()
+    public function replies()
     {
-        return $this->hasMany('Comment');
+        return $this->hasMany('Reply');
     }
 
     public function texts()
     {
-        return $this->morphMany('Text', 'markdownable');
+        return $this->morphMany('Text', 'textable');
     }
 }

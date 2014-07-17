@@ -1,6 +1,4 @@
 .inner {
-  margin: 0 auto;
-  max-width: $master-width;
   height: 100%;
 }
 .hide {
@@ -17,19 +15,6 @@
 }
 .pull_left {
   float: left;
-}
-span {
-  &.space {
-    padding: 0 .195em;
-  }
-}
-i {
-  &.number {
-    font-style: normal;
-  }
-}
-.text-center {
-  text-align: center;
 }
 .center {
   @include center();

@@ -10,9 +10,10 @@ class CreateTextsTable extends Migration {
         Schema::create('texts', function($table)
         {
             $table->increments('id');
-            $table->integer('markdownable_id')->index();
-            $table->string('markdownable_type')->index();
-            $table->text('content');
+            $table->integer('textable_id')->index();
+            $table->string('textable_type')->index();
+            $table->text('markdown');
+            $table->text('markup');
             $table->timestamps();
         });
     }

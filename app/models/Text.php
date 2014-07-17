@@ -2,9 +2,9 @@
 
 class Text extends Eloquent {
 
-    protected $fillable = ['content'];
+    protected $fillable = ['markup', 'markdown'];
 
-    public function markdownable()
+    public function textable()
     {
         return $this->morphTo();
     }

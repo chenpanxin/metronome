@@ -1,25 +1,6 @@
-$html-color: #fbfbf9;
-$body-color: #fbfbf9;
-$navbar-color: #fffefe;
-$boxify-color: #fffefe;
-$footer-color: #fefffe;
-$selection-color: #9CCAE8;
-$selection-font-color: #4086E1;
 $btn-border-color: #8098AF;
 $btn-normal-color: #5fcf80;
-$comment-color: #6b7283;
-$border-color: #9CCAE8;
-$error-color: #f4645f;
-$font-color: #6F8092;
-$icon-color: #748698;
-$link-color: #9CCAE8;
-$title-color: #CF583E;
-$content-color: #7D8C9B;
-$tab-color: #CF583E;
-$alert-color: #D0B0A2;
-$master-width: 970px;
 $waistline: .32;
-$icon-name: icomoon;
 
 @import 'mixin';
 @import 'base';
@@ -191,6 +172,35 @@ ul {
     input[type=password] {
       margin-bottom: .5em;
       width: 100%;
+    }
+  }
+}
+.category {
+  &.index {
+    padding: 1em 1em;
+    a {
+      color: rgba(#000, .5);
+      font-size: 1em;
+      line-height: 32px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &.selection {
+    padding: .625em .75em;
+    @include clearfix();
+    a {
+      display: inline-block;
+      float: left;
+      padding: 4px 1em;
+      margin: .375em .25em;
+      font-size: 1em;
+      line-height: 32px;
+      color: rgba(#53575b, .5);
+      background-color: #edeeef;
+      border: 1px solid #dbdbdb;
+      @include border-radius(20px);
     }
   }
 }

@@ -14,15 +14,14 @@
             </div> -->
         </div>
     </div>
-    @unless ($comments->count() == 0)
-<!--         <div class="boxify" data-comments-count="{{ $comments->count() }}">
-            @include('partials.comments')
+
+<!--         <div class="boxify" data-comments-count="">
             <div class="hidden comment-edit-template">
                 {{ Form::open(['url'=>'']) }}
                 {{ Form::close() }}
             </div>
         </div> -->
-    @endif
+
     <div class="boxify hide">
 <!--         <div class="new comment">
             {{ Form::open(['url'=>'topic/'.$topic->id]) }}

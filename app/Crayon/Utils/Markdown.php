@@ -13,6 +13,6 @@ class Markdown {
 
     public function make($input)
     {
-        $this->parser->text($input);
+        return $this->parser->text($input);
     }
 }
