@@ -24,7 +24,7 @@ class UserController extends BaseController {
         $email = strtolower(Input::get('email'));
         $username = Input::get('username');
 
-        $validator = new Ampou\Validators\UserValidator(array_merge(Input::all(), ['email'=>$email]));
+        $validator = new Crayon\Validators\UserValidator(array_merge(Input::all(), ['email'=>$email]));
 
         if ($validator->fails()) {
             Session::flash('msg', $validator->messages()->first());

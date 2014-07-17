@@ -15,14 +15,19 @@
         </div>
     </div>
     <div class="boxify">
-        <div class="reply index">
+        <ul class="reply index">
             @foreach ($replies as $reply)
-                <div class="">
-                    <a href="">{{ $reply->user->username }}</a>
-                    <div>{{ $reply->texts->first()->markup; }}</div>
-                </div>
+                <li class="r-{{ $reply->id }}">
+                    <a href="{{ URL::to('user/'.$reply->user->username) }}" class="avatar s56">{{ HTML::image('assets/avatar.jpg') }}</a>
+                    <a href="{{ URL::to('user/'.$reply->user->username) }}" class="username">{{ $reply->user->username }}</a>
+                    <span class="date">{{ $reply->created_at }}</span>
+                    @if (Auth::check() and Auth::user()->id == $reply->user->id)
+                        <a href="{{ URL::to('reply/'.$reply->id) }}" class="delete" data-method="delete"><span class="icon-delete"></span></a>
+                    @endif
+                    <div class="content">{{ $reply->texts->first()->markup; }}</div>
+                </li>
             @endforeach
-        </div>
+        </ul>
     </div>
     <div class="boxify">
         <div class="reply new">
@@ -37,20 +42,6 @@
 @section('sidebar')
     <div class="boxify">
         <div class="vcard">
-            <div class="vcard-user-info clearfix">
-                <div class="avatar">{{ HTML::image($topic->user->avatar_url) }}</div>
-                <div class="account">
-                    <span>{{ $topic->user->username }}</span>
-                    @if (Auth::check() and $topic->user->id == Auth::user()->id)
-                        <span><a href="{{ URL::to('settings') }}" class="linklr">{{ Lang::get('locale.edit_profile') }}</a></span>
-                    @elseif (0)
-                        <span><a href="{{ URL::to('unfollow?target='.$topic->user->username) }}" class="linklr relationship">{{ Lang::get('locale.unfollow') }}</a></span>
-                    @else
-                        <span><a href="{{ URL::to('follow?target='.$topic->user->username) }}" class="linklr relationship">{{ Lang::get('locale.follow') }}</a></span>
-                    @endif
-                    <span>{{ join(' ', [$topic->user->created_at->toFormattedDateString(), Lang::get('locale.join_on')]) }}</span>
-                </div>
-            </div>
             <ul class="vcard-stats">
                 <li><a href="{{ URL::to('user/'.$topic->user->username.'/topic') }}"><span class="number">{{ $topics_count }}</span><span>{{ Lang::get('locale.topic') }}</span></a></li>
                 <li><a href="{{ URL::to('user/'.$topic->user->username.'/following') }}"><span class="number">{{ $following_count }}</span><span>{{ Lang::get('locale.following') }}</span></a></li>

@@ -38,4 +38,14 @@ class ReplyController extends BaseController {
         }
         return Redirect::to('topic/'.$topic->id);
     }
+
+    public function destroy($id)
+    {
+        $reply = Reply::findOrFail($id);
+
+        if (Auth::user()->id == $reply->user_id) {
+            $reply->delete();
+        }
+        return Redirect::back();
+    }
 }

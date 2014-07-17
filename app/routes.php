@@ -12,10 +12,8 @@ Route::group(['domain'=>'api.nhn.io', 'prefix'=>'v1', 'namespace'=>'y'], functio
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Crayon\Layers'], function()
 {
-    Route::get('/', 'UserController@index');
-    // Route::resource('user', 'UserController');
-    // Route::resource('topic', 'TopicController');
-    // Route::resource('category', 'CategoryController');
+    Route::get('/', 'TopicController@index');
+    Route::get('/user', 'UserController@index');
 });
 
 Route::get('login', 'SessionController@create');
@@ -68,8 +66,9 @@ Route::post('password/remind', 'ReminderController@postRemind');
 Route::get('password/reset/{token}', 'ReminderController@getReset');
 Route::post('password/reset', 'ReminderController@postReset');
 
-Route::get('{reply}/{id}', 'ReplyController@show');
-Route::put('{reply}/{id}', 'ReplyController@update');
+// Route::get('{reply}/{id}', 'ReplyController@show');
+// Route::put('{reply}/{id}', 'ReplyController@update');
+Route::delete('reply/{id}', 'ReplyController@destroy');
 
 Route::get('relationship', 'RelationshipController@show');
 Route::post('follow', 'RelationshipController@store');

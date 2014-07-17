@@ -213,6 +213,32 @@ ul {
     }
   }
   &.index {
-
+    > li {
+      position: relative;
+      padding: .5em 1em .5em 72px;
+      min-height: 56px;
+    }
+    .avatar {
+      position: absolute;
+      left: .5em;
+      top: 0;
+    }
+    .username,
+    .date {
+      font-size: 14px;
+      line-height: 1em;
+      color: rgba(#53575b, .5);
+    }
+    .delete {
+      float: right;
+      font-size: 20px;
+      color: rgba(#444, .404);
+    }
+    .content {
+      color: #565656;
+      a {
+        color: rgba(#53575b, .94);
+      }
+    }
   }
 }
