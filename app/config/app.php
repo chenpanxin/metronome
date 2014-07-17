@@ -109,6 +109,7 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Intervention\Image\ImageServiceProvider',
+        'Crayon\Providers\SanitizationServiceProvider',
         'Crayon\Providers\MarkdownServiceProvider',
 
     ),
@@ -177,6 +178,7 @@ return array(
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
         'Image'           => 'Intervention\Image\Facades\Image',
+        'Sanitization'    => 'Crayon\Facades\Sanitization',
         'Markdown'        => 'Crayon\Facades\Markdown',
 
     ),
