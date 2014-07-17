@@ -7,9 +7,9 @@ class Reply extends Eloquent {
         return $this->belongsTo('User');
     }
 
-    public function comment()
+    public function topic()
     {
-        return $this->belongsTo('Comment');
+        return $this->belongsTo('Topic');
     }
 
     public function texts()

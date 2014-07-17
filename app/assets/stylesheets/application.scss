@@ -205,7 +205,8 @@ ul {
   }
 }
 .reply {
-  &.new {
+  &.new,
+  &.edit {
     padding: 1em 1em;
     textarea {
       width: 100%;

@@ -59,7 +59,7 @@ Route::post('settings/avatar', 'UserController@avatarStore');
 Route::get('settings/password', 'UserController@edit');
 Route::put('settings/password', 'UserController@update');
 Route::get('u/{username}/replies', 'UserController@show');
-Route::post('{reply}/store', 'ReplyController@store');
+// Route::post('{reply}/store', 'ReplyController@store');
 
 Route::get('session/forgot_password', 'ReminderController@getRemind');
 Route::post('password/remind', 'ReminderController@postRemind');
@@ -67,7 +67,8 @@ Route::get('password/reset/{token}', 'ReminderController@getReset');
 Route::post('password/reset', 'ReminderController@postReset');
 
 // Route::get('{reply}/{id}', 'ReplyController@show');
-// Route::put('{reply}/{id}', 'ReplyController@update');
+Route::put('reply/{id}', 'ReplyController@update');
+Route::get('reply/{id}/edit', 'ReplyController@edit');
 Route::delete('reply/{id}', 'ReplyController@destroy');
 
 Route::get('relationship', 'RelationshipController@show');

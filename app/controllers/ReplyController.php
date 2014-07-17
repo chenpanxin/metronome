@@ -39,6 +39,23 @@ class ReplyController extends BaseController {
         return Redirect::to('topic/'.$topic->id);
     }
 
+    public function edit($id)
+    {
+        $reply = Reply::findOrFail($id);
+
+        $reply->load('topic', 'topic.user');
+
+        return View::make('reply.edit')
+            ->withReply($reply);
+    }
+
+    public function update($id)
+    {
+        $reply = Reply::findOrFail($id);
+
+        return Redirect::back();
+    }
+
     public function destroy($id)
     {
         $reply = Reply::findOrFail($id);
