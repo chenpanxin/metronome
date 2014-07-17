@@ -24,12 +24,10 @@ class TopicController extends BaseController {
     {
         $topic = Topic::findOrFail($id);
 
-        // $comments = $topic->comments;
-        // $comments->load('user', 'replies', 'replies.user');
+        $replies = $topic->replies;
+        $replies->load('user', 'texts');
 
         $topic->load('user', 'category');
-
-        $replies = Reply::all();
 
         $following_count = Relationship::whereFollowerId($topic->user->id)->count();
         $followers_count = Relationship::whereFollowedId($topic->user->id)->count();

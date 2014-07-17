@@ -13,15 +13,28 @@ class ReplyController extends BaseController {
     public function store($id)
     {
         $topic = Topic::findOrFail($id);
-        $validator = Validator::make(Input::all(), ['content'=>'required|min:2']);
+
+        $content = Input::get('content');
+
+        $validator = Validator::make(
+            ['content' => $content],
+            ['content' => 'required|min:2']
+        );
+
         if ($validator->passes()) {
+            $markdown = (new Crayon\Utils\At($content))->getContent();
+            $markup = Sanitization::make(Markdown::make($markdown));
+
             $reply = new Reply;
             $reply->user_id = Auth::user()->id;
             $reply->topic_id = $topic->id;
             $reply->content = '';
             $reply->save();
 
-            $reply->texts()->save(new Text(['markdown'=>'', 'markup'=>'']));
+            $reply->texts()->save(new Text([
+                'markdown' => $markdown,
+                'markup'   => $markup
+            ]));
         }
         return Redirect::to('topic/'.$topic->id);
     }

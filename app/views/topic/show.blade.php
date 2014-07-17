@@ -17,7 +17,10 @@
     <div class="boxify">
         <div class="reply index">
             @foreach ($replies as $reply)
-                <div class="">{{ $reply->body }}</div>
+                <div class="">
+                    <a href="">{{ $reply->user->username }}</a>
+                    <div>{{ $reply->texts->first()->markup; }}</div>
+                </div>
             @endforeach
         </div>
     </div>
