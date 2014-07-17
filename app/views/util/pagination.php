@@ -1,8 +1,8 @@
 <?php
 
-use Ampou\Presenters\AmpouPresenter;
+use Crayon\Utils\Pagination;
 
-$presenter = new AmpouPresenter($paginator);
+$presenter = new Pagination($paginator);
 
 if ($paginator->getLastPage() > 1) {
     echo join($presenter->render(), ['<ul>', '</ul>']);

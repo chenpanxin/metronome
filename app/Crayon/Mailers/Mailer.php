@@ -1,4 +1,4 @@
-<?php namespace Ampou\Mailers;
+<?php namespace Crayon\Mailers;
 
 use Mail;
 

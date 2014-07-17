@@ -1,4 +1,4 @@
-<?php namespace Ampou\Validators;
+<?php namespace Crayon\Validators;
 
 class TopicValidator extends Validator {
 

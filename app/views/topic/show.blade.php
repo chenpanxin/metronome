@@ -14,21 +14,20 @@
             </div> -->
         </div>
     </div>
-
-<!--         <div class="boxify" data-comments-count="">
-            <div class="hidden comment-edit-template">
-                {{ Form::open(['url'=>'']) }}
-                {{ Form::close() }}
-            </div>
-        </div> -->
-
-    <div class="boxify hide">
-<!--         <div class="new comment">
+    <div class="boxify">
+        <div class="reply index">
+            @foreach ($replies as $reply)
+                <div class="">{{ $reply->body }}</div>
+            @endforeach
+        </div>
+    </div>
+    <div class="boxify">
+        <div class="reply new">
             {{ Form::open(['url'=>'topic/'.$topic->id]) }}
-                {{ Form::textarea('content', null, ['placeholder'=>Lang::get('locale.write_comment')]) }}
+                <textarea name="content" placeholder="{{ Lang::get('locale.write_comment') }}"></textarea>
                 {{ Form::submit(Lang::get('locale.comment'), ['class'=>'btn normal']) }}
             {{ Form::close() }}
-        </div> -->
+        </div>
     </div>
 @stop
 

@@ -49,7 +49,7 @@ Route::get('newest', 'TopicController@newest');
 Route::get('popular', 'TopicController@popular');
 Route::get('no_discuss', 'TopicController@byComment');
 
-Route::post('topic/{id}', 'CommentController@store');
+Route::post('topic/{id}', 'ReplyController@store');
 Route::put('comment/{id}', 'CommentController@update');
 Route::delete('topic/{id}/comment/{comment_id}', 'CommentController@destroy');
 Route::get('topic/{id}/comment/{comment_id}', 'CommentController@edit');

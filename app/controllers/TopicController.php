@@ -29,6 +29,8 @@ class TopicController extends BaseController {
 
         $topic->load('user', 'category');
 
+        $replies = Reply::all();
+
         $following_count = Relationship::whereFollowerId($topic->user->id)->count();
         $followers_count = Relationship::whereFollowedId($topic->user->id)->count();
 
@@ -42,7 +44,7 @@ class TopicController extends BaseController {
 
         $text = $topic->texts()->first();
 
-        $topic->body = $text ? $text->markdown : '';
+        $topic->body = $text ? $text->markup : '';
 
         return View::make('topic.show')
             ->with([
@@ -53,7 +55,8 @@ class TopicController extends BaseController {
                 'liking'          => $liking
             ])
             ->withTitle(join(' | ', [Config::get('website.title'), $topic->title]))
-            ->withTopic($topic);
+            ->withTopic($topic)
+            ->withReplies($replies);
     }
 
     public function create()
@@ -64,7 +67,7 @@ class TopicController extends BaseController {
 
     public function store()
     {
-        $validator = new Ampou\Validators\TopicValidator;
+        $validator = new Crayon\Validators\TopicValidator;
 
         if ($validator->fails()) {
             Session::flash('msg', $validator->messages()->first());
@@ -82,7 +85,7 @@ class TopicController extends BaseController {
         ]);
 
         $text = new Text([
-            'markup'   => Input::get('body'),
+            'markup'   => Sanitization::make(Markdown::make(Input::get('body'))),
             'markdown' => Input::get('body')
         ]);
 

@@ -1,8 +1,8 @@
-<?php namespace Ampou\Presenters;
+<?php namespace Crayon\Utils;
 
 use Illuminate\Pagination\Presenter;
 
-class AmpouPresenter extends Presenter {
+class Pagination extends Presenter {
 
     public function getPageLinkWrapper($url, $page, $rel = null)
     {
