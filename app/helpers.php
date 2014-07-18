@@ -20,12 +20,12 @@ HTML::macro('easyActived', function($match, $segment)
 
 HTML::macro('followers', function($user)
 {
-    return '<a href="'.url(join('/', [$user->username, 'followers'])).'">'.trans('locale.followers').' 0</a>';
+    return '<a href="'.url(join('/', [$user->username, 'followers'])).'">'.trans('locale.followers').'</a>';
 });
 
 HTML::macro('following', function($user)
 {
-    return '<a href="'.url(join('/', [$user->username, 'following'])).'">'.trans('locale.following').' 20</a>';
+    return '<a href="'.url(join('/', [$user->username, 'following'])).'">'.trans('locale.following').'</a>';
 });
 
 HTML::macro('activity', function($user)
@@ -35,7 +35,7 @@ HTML::macro('activity', function($user)
 
 HTML::macro('topics', function($user)
 {
-    return '<a href="'.url($user->username.'?tab=topics').'">'.trans('locale.topic').' 10</a>';
+    return '<a href="'.url($user->username.'?tab=topics').'">'.trans('locale.topic').'</a>';
 });
 
 HTML::macro('user', function($user)
@@ -55,10 +55,10 @@ HTML::macro('authTopics', function($user)
 
 HTML::macro('watching', function($user)
 {
-    return '<a href="'.url($user->username.'/watching').'">'.trans('locale.watching').' 20</a>';
+    return '<a href="'.url($user->username.'/watching').'">'.trans('locale.watching').'</a>';
 });
 
 HTML::macro('likes', function($user)
 {
-    return '<a href="'.url($user->username.'/likes').'">'.trans('locale.likes').' 20</a>';
+    return '<a href="'.url($user->username.'/likes').'">'.trans('locale.likes').'</a>';
 });

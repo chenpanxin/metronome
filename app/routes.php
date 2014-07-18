@@ -60,6 +60,7 @@ Route::get('topic/{id}/comment/{comment_id}', 'CommentController@edit');
 
 Route::get('notification', 'NotificationController@index');
 Route::get('search', 'SearchController@index');
+Route::post('search', 'SearchController@store');
 Route::get('settings', 'UserController@notify');
 Route::get('{username}', 'UserController@profileShow');
 

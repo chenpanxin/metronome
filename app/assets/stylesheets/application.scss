@@ -246,3 +246,12 @@ ul {
     }
   }
 }
+.search {
+  &.index {
+    padding: 1em 1em;
+    input[type=text] {
+      width: 100%;
+      margin-bottom: .5em;
+    }
+  }
+}

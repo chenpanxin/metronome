@@ -11,20 +11,11 @@
                 <li>{{ HTML::following($user) }}</li>
             </ul>
         </div>
-        <ul class="list topic">
+        <ul class="list topic index">
             @foreach ($user->topics as $topic)
                 <li>
-                    <a class="title" href="{{ URL::to('topic/'.$topic->id) }}">{{ $topic->title }}<span class="icon-export pull_right"></span></a>
-                    <a class="avatar">{{ HTML::image($user->avatar_url) }}</a>
-                    <p class="meta">
-                        <a href="{{ URL::to('user/'.$user->username) }}">{{ $user->username }}</a>
-                        <span class="timeago" title="{{ $topic->created_at }}">{{ $topic->created_at->diffForHumans() }}</span>
-
-                        @if (Auth::check() and Auth::user()->id == $user->id)
-                        <a href="{{ URL::to('topic/'.$topic->id) }}" class="pull_right" data-method="delele">{{ Lang::get('locale.delete') }}</a>
-                        <a href="{{ URL::to('topic/'.$topic->id.'/edit') }}" class="pull_right">{{ Lang::get('locale.edit') }}</a>
-                        @endif
-                    </p>
+                    <a class="avatar s56">{{ HTML::image('assets/avatar.jpg') }}</a>
+                    <a class="title" href="{{ URL::to('topic/'.$topic->id) }}">{{ $topic->title }}<span class="date">{{ $topic->created_at->diffForHumans() }}</span></a>
                 </li>
             @endforeach
         </ul>

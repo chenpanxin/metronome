@@ -107,7 +107,7 @@ class TopicController extends BaseController {
     {
         $topic = Topic::findOrFail($id);
 
-        $validator = new Ampou\Validators\TopicValidator;
+        $validator = new Crayon\Validators\TopicValidator;
 
         if ($validator->fails()) {
             Session::flash('msg', $validator->messages()->first());
