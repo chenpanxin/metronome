@@ -6,7 +6,7 @@
             <ul class="tab tab-five">
                 <li>{{ HTML::user($user) }}</li>
                 <li>{{ HTML::activity($user) }}</li>
-                <li>{{ HTML::topic($user) }}</li>
+                <li>{{ HTML::topics($user) }}</li>
                 <li class="actived">{{ HTML::followers($user) }}</li>
                 <li>{{ HTML::following($user) }}</li>
             </ul>

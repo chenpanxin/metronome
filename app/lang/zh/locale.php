@@ -70,4 +70,8 @@ return [
     'settings'         => '编辑资料',
     'search'           => '搜索',
     'activity'         => '动态',
+    'subscription'     => '订阅',
+    'watching'         => '订阅',
+    'likes'            => '赞过的',
+    'me'               => '我的',
 ];

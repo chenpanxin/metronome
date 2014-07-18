@@ -6,12 +6,11 @@
             <ul class="tab tab-five">
                 <li>{{ HTML::user($user) }}</li>
                 <li>{{ HTML::activity($user) }}</li>
-                <li class="actived">{{ HTML::topic($user) }}</li>
+                <li class="actived">{{ HTML::topics($user) }}</li>
                 <li>{{ HTML::followers($user) }}</li>
                 <li>{{ HTML::following($user) }}</li>
             </ul>
         </div>
-
         <ul class="list topic">
             @foreach ($user->topics as $topic)
                 <li>

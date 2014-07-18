@@ -6,9 +6,9 @@
         <li>
             <a href="/#" class="user-opt">{{ HTML::image('assets/avatar.jpg') }}<b>{{ Auth::user()->username }}</b></a>
             <ul class="dropdown">
-                <li><a href="{{ URL::to('user/'.Auth::user()->username) }}"><span class="icon-user"></span>{{ Lang::get('locale.home') }}</a></li>
+                <li><a href="{{ URL::to('~'.Auth::user()->username) }}"><span class="icon-user"></span>{{ Lang::get('locale.home') }}</a></li>
                 <li><a href="{{ URL::to('settings') }}"><span class="icon-layout"></span>{{ Lang::get('locale.settings') }}</a></li>
-                <li><a href="{{ URL::to('timeline') }}"><span class="icon-clock"></span>{{ Lang::get('locale.timeline') }}</a></li>
+                <li><a href="{{ URL::to('me/watching') }}"><span class="icon-archive"></span>{{ Lang::get('locale.watching') }}</a></li>
                 <li><a href="{{ URL::to('logout') }}" data-method="delete"><span class="icon-esc"></span>{{ Lang::get('locale.logout') }}</a></li>
             </ul>
         </li>

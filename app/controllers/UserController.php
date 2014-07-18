@@ -185,11 +185,29 @@ class UserController extends BaseController {
 
     public function activity($username)
     {
-        $user = User::with('following')->whereUsername($username)->first();
+        $user = User::whereUsername($username)->first();
         if ($user) {
             return View::make('user.activity')
                 ->withUser($user);
         }
         App::abort();
+    }
+
+    public function watching()
+    {
+        return View::make('user.watching')
+            ->withUser(Auth::user());
+    }
+
+    public function likes()
+    {
+        return View::make('user.likes')
+            ->withUser(Auth::user());
+    }
+
+    public function myTopics()
+    {
+        return View::make('user.private.topics')
+            ->withUser(Auth::user());
     }
 }

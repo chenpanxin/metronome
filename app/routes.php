@@ -27,11 +27,16 @@ Route::get('users', 'UserController@index');
 Route::get('user/new', 'AliasController@signup');
 Route::get('signup', 'UserController@create');
 Route::post('user/store', 'UserController@store');
-Route::get('user/{username}', 'UserController@show');
-Route::get('user/{username}/topic', 'UserController@topics');
-Route::get('user/{username}/following', 'UserController@following');
-Route::get('user/{username}/followers', 'UserController@followers');
-Route::get('user/{username}/activity', 'UserController@activity');
+
+Route::get('~{username}', 'UserController@show');
+Route::get('~{username}/topics', 'UserController@topics');
+Route::get('~{username}/following', 'UserController@following');
+Route::get('~{username}/followers', 'UserController@followers');
+Route::get('~{username}/activity', 'UserController@activity');
+Route::get('me/watching', 'UserController@watching');
+Route::get('me/topics', 'UserController@myTopics');
+Route::get('me/likes', 'UserController@likes');
+
 Route::get('user/verify/{token}', 'UserController@verify');
 
 Route::get('/', 'TopicController@index');
