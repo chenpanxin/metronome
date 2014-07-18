@@ -1,7 +1,16 @@
-@extends('layouts.master')
+@extends('layout.master')
 
 @section('main')
     <div class="boxify">
+        <div class="user tab">
+            <ul class="tab tab-five">
+                <li>{{ HTML::user($user) }}</li>
+                <li>{{ HTML::activity($user) }}</li>
+                <li>{{ HTML::topic($user) }}</li>
+                <li class="actived">{{ HTML::followers($user) }}</li>
+                <li>{{ HTML::following($user) }}</li>
+            </ul>
+        </div>
         <div class="followers">
             @foreach ($user->followers as $follower)
                 <div class="user-item">

@@ -23,8 +23,8 @@ return [
     'website'          => '个人网址',
     'contact_email'    => '联系邮箱',
     'biography'        => '简介',
-    'followers'        => '关注者',
-    'following'        => '正在关注',
+    'followers'        => '关注',
+    'following'        => '粉丝',
     'topic'            => '主题',
     'reset_password'   => '重置密码',
     'user_info'        => '个人信息',
@@ -69,4 +69,5 @@ return [
     'home'             => '个人主页',
     'settings'         => '编辑资料',
     'search'           => '搜索',
+    'activity'         => '动态',
 ];

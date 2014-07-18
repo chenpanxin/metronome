@@ -2,7 +2,19 @@
 
 @section('main')
     <div class="boxify">
+        <div class="user tab">
+            <ul class="tab tab-five">
+                <li class="actived">{{ HTML::user($user) }}</li>
+                <li>{{ HTML::activity($user) }}</li>
+                <li>{{ HTML::topic($user) }}</li>
+                <li>{{ HTML::followers($user) }}</li>
+                <li>{{ HTML::following($user) }}</li>
+            </ul>
+        </div>
         <div class="user show">
+
+
+
 <!--             <div class="avatar-not-square">
                 {{ HTML::image(str_replace('_s56', '', $user->avatar_url)) }}
             </div> -->
@@ -21,11 +33,5 @@
                 <p><span>{{ Lang::get('locale.signup_date') }}</span>{{ $user->created_at->toFormattedDateString() }} ( {{ Lang::get('locale.user_number', ['number'=>$user->id]) }} )</p>
             </div>
         </div>
-    </div>
-@stop
-
-@section('sidebar')
-    <div class="boxify">
-        @include('partials.user.tab')
     </div>
 @stop

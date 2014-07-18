@@ -26,6 +26,40 @@ form {
     resize: none;
   }
 }
+ul {
+  &.tab {
+    width: 100%;
+    @include clearfix();
+    li {
+      float: left;
+      display: inline-block;
+      text-align: center;
+      a {
+        display: inline-block;
+        padding: 0 .5em;
+        font-size: 16px;
+        line-height: 40px;
+        border-top: 1px solid transparent;
+        border-bottom: 3px solid transparent;
+        color: rgba(#53575b, .94);
+      }
+    }
+  }
+}
+.tab {
+  li {
+    &.actived {
+      a {
+        border-bottom: 3px solid #53575b;
+      }
+    }
+  }
+  &.tab-five {
+    li {
+      width: 20%;
+    }
+  }
+}
 
 #nprogress .bar {
   display: none;

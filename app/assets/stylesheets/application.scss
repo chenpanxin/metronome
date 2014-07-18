@@ -164,6 +164,9 @@ ul {
       width: 100%;
     }
   }
+  &.tab {
+    border-bottom: 1px solid #e5e6e8;
+  }
 }
 .session {
   &.new {

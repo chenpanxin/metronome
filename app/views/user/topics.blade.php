@@ -1,7 +1,17 @@
-@extends('layouts.master')
+@extends('layout.master')
 
 @section('main')
     <div class="boxify">
+        <div class="user tab">
+            <ul class="tab tab-five">
+                <li>{{ HTML::user($user) }}</li>
+                <li>{{ HTML::activity($user) }}</li>
+                <li class="actived">{{ HTML::topic($user) }}</li>
+                <li>{{ HTML::followers($user) }}</li>
+                <li>{{ HTML::following($user) }}</li>
+            </ul>
+        </div>
+
         <ul class="list topic">
             @foreach ($user->topics as $topic)
                 <li>
@@ -20,11 +30,5 @@
             @endforeach
         </ul>
         <div class="pagination"></div>
-    </div>
-@stop
-
-@section('sidebar')
-    <div class="boxify">
-        @include('partials.user.tab')
     </div>
 @stop

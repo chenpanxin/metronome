@@ -101,7 +101,7 @@ class UserController extends BaseController {
 
     public function edit()
     {
-        return View::make('users.edit');
+        return View::make('user.password.edit');
     }
 
     public function update()
@@ -157,7 +157,7 @@ class UserController extends BaseController {
     {
         $user = User::with('Topics')->whereUsername($username)->first();
         if ($user) {
-            return View::make('users.topics')
+            return View::make('user.topics')
                 ->withUser($user);
         }
         App::abort();
@@ -167,7 +167,7 @@ class UserController extends BaseController {
     {
         $user = User::with('following')->whereUsername($username)->first();
         if ($user) {
-            return View::make('users.following')
+            return View::make('user.following')
                 ->withUser($user);
         }
         App::abort();
@@ -177,7 +177,17 @@ class UserController extends BaseController {
     {
         $user = User::with('followers')->whereUsername($username)->first();
         if ($user) {
-            return View::make('users.followers')
+            return View::make('user.followers')
+                ->withUser($user);
+        }
+        App::abort();
+    }
+
+    public function activity($username)
+    {
+        $user = User::with('following')->whereUsername($username)->first();
+        if ($user) {
+            return View::make('user.activity')
                 ->withUser($user);
         }
         App::abort();

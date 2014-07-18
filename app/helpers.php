@@ -17,3 +17,28 @@ HTML::macro('easyActived', function($match, $segment)
 {
     return ($match == $segment) ? '<li class="active">' : '<li>';
 });
+
+HTML::macro('followers', function($user)
+{
+    return '<a href="'.url(join('/', ['user', $user->username, 'followers'])).'">'.trans('locale.followers').' 0</a>';
+});
+
+HTML::macro('following', function($user)
+{
+    return '<a href="'.url(join('/', ['user', $user->username, 'following'])).'">'.trans('locale.following').' 20</a>';
+});
+
+HTML::macro('activity', function($user)
+{
+    return '<a href="'.url(join('/', ['user', $user->username, 'activity'])).'">'.trans('locale.activity').'</a>';
+});
+
+HTML::macro('topic', function($user)
+{
+    return '<a href="'.url(join('/', ['user', $user->username, 'topic'])).'">'.trans('locale.topic').' 10</a>';
+});
+
+HTML::macro('user', function($user)
+{
+    return '<a href="'.url(join('/', ['user', $user->username])).'">'.$user->username.'</a>';
+});
