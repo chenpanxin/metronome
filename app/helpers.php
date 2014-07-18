@@ -20,35 +20,45 @@ HTML::macro('easyActived', function($match, $segment)
 
 HTML::macro('followers', function($user)
 {
-    return '<a href="'.url(join('/', ['~'.$user->username, 'followers'])).'">'.trans('locale.followers').' 0</a>';
+    return '<a href="'.url(join('/', [$user->username, 'followers'])).'">'.trans('locale.followers').' 0</a>';
 });
 
 HTML::macro('following', function($user)
 {
-    return '<a href="'.url(join('/', ['~'.$user->username, 'following'])).'">'.trans('locale.following').' 20</a>';
+    return '<a href="'.url(join('/', [$user->username, 'following'])).'">'.trans('locale.following').' 20</a>';
 });
 
 HTML::macro('activity', function($user)
 {
-    return '<a href="'.url(join('/', ['~'.$user->username, 'activity'])).'">'.trans('locale.activity').'</a>';
+    return '<a href="'.url($user->username.'?tab=activity').'">'.trans('locale.activity').'</a>';
 });
 
 HTML::macro('topics', function($user)
 {
-    return '<a href="'.url(join('/', ['~'.$user->username, 'topics'])).'">'.trans('locale.topic').' 10</a>';
+    return '<a href="'.url($user->username.'?tab=topics').'">'.trans('locale.topic').' 10</a>';
 });
 
 HTML::macro('user', function($user)
 {
-    return '<a href="'.url(join('', ['~', $user->username])).'">'.$user->username.'</a>';
+    return '<a href="'.url($user->username).'">'.$user->username.'</a>';
 });
 
-HTML::macro('watching', function()
+HTML::macro('replies', function($user)
 {
-    return '<a href="'.url('me/watching').'">'.trans('locale.watching').' 20</a>';
+    return '<a href="'.url($user->username).'/replies'.'">'.trans('locale.reply').'</a>';
 });
 
-HTML::macro('likes', function()
+HTML::macro('authTopics', function($user)
 {
-    return '<a href="'.url('me/likes').'">'.trans('locale.likes').' 20</a>';
+    return '<a href="'.url($user->username).'/topics'.'">'.trans('locale.me').'</a>';
+});
+
+HTML::macro('watching', function($user)
+{
+    return '<a href="'.url($user->username.'/watching').'">'.trans('locale.watching').' 20</a>';
+});
+
+HTML::macro('likes', function($user)
+{
+    return '<a href="'.url($user->username.'/likes').'">'.trans('locale.likes').' 20</a>';
 });

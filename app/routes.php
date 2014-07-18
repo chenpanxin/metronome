@@ -28,14 +28,13 @@ Route::get('user/new', 'AliasController@signup');
 Route::get('signup', 'UserController@create');
 Route::post('user/store', 'UserController@store');
 
-Route::get('~{username}', 'UserController@show');
-Route::get('~{username}/topics', 'UserController@topics');
-Route::get('~{username}/following', 'UserController@following');
-Route::get('~{username}/followers', 'UserController@followers');
-Route::get('~{username}/activity', 'UserController@activity');
-Route::get('me/watching', 'UserController@watching');
-Route::get('me/topics', 'UserController@myTopics');
-Route::get('me/likes', 'UserController@likes');
+Route::get('{username}/topics', 'UserController@topics');
+Route::get('{username}/following', 'UserController@following');
+Route::get('{username}/followers', 'UserController@followers');
+
+Route::get('{username}/watching', 'UserController@watching');
+Route::get('{username}/likes', 'UserController@likes');
+Route::get('{username}/replies', 'UserController@replies');
 
 Route::get('user/verify/{token}', 'UserController@verify');
 
@@ -58,7 +57,12 @@ Route::put('comment/{id}', 'CommentController@update');
 Route::delete('topic/{id}/comment/{comment_id}', 'CommentController@destroy');
 Route::get('topic/{id}/comment/{comment_id}', 'CommentController@edit');
 
+
+Route::get('notification', 'NotificationController@index');
+Route::get('search', 'SearchController@index');
 Route::get('settings', 'UserController@notify');
+Route::get('{username}', 'UserController@profileShow');
+
 Route::get('settings/profile', 'UserController@profileEdit');
 Route::put('settings/profile', 'UserController@profileUpdate');
 Route::post('settings/avatar', 'UserController@avatarStore');
@@ -83,9 +87,6 @@ Route::post('unfollow', 'RelationshipController@destroy');
 
 Route::post('topic/{id}/like', 'LikeController@store');
 Route::post('topic/{id}/unlike', 'LikeController@destroy');
-
-Route::get('notification', 'NotificationController@index');
-Route::get('search', 'SearchController@index');
 
 Route::get('colour', function()
 {

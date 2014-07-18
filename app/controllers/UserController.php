@@ -47,13 +47,25 @@ class UserController extends BaseController {
         return Redirect::to('signup');
     }
 
-    public function show($username)
+    public function profileShow($username)
     {
         $user = User::whereUsername($username)->first() ?: User::whereDowncase(strtolower($username))->first();
 
         if ($user) {
+
+            if (Input::get('tab') == 'activity') {
+                return View::make('user.profile.activity')
+                    ->withUser($user);
+            }
+
+            if (Input::get('tab') == 'topics') {
+                $user->load('topics');
+                return View::make('user.profile.topics')
+                    ->withUser($user);
+            }
+
             $user->load('profile');
-            return View::make('user.show')
+            return View::make('user.profile.show')
                 ->withUser($user);
         }
         App::abort();
@@ -155,12 +167,14 @@ class UserController extends BaseController {
 
     public function topics($username)
     {
-        $user = User::with('Topics')->whereUsername($username)->first();
-        if ($user) {
-            return View::make('user.topics')
-                ->withUser($user);
-        }
-        App::abort();
+        return View::make('user.topics')
+            ->withUser(Auth::user());
+    }
+
+    public function replies($username)
+    {
+        return View::make('user.replies')
+            ->withUser(Auth::user());
     }
 
     public function following($username)
@@ -193,21 +207,15 @@ class UserController extends BaseController {
         App::abort();
     }
 
-    public function watching()
+    public function watching($username)
     {
         return View::make('user.watching')
             ->withUser(Auth::user());
     }
 
-    public function likes()
+    public function likes($username)
     {
         return View::make('user.likes')
-            ->withUser(Auth::user());
-    }
-
-    public function myTopics()
-    {
-        return View::make('user.private.topics')
             ->withUser(Auth::user());
     }
 }
