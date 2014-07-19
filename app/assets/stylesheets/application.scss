@@ -164,9 +164,6 @@ ul {
       width: 100%;
     }
   }
-  &.tab {
-    border-bottom: 1px solid #e5e6e8;
-  }
 }
 .session {
   &.new {
@@ -204,6 +201,13 @@ ul {
       background-color: #edeeef;
       border: 1px solid #dbdbdb;
       @include border-radius(20px);
+    }
+  }
+  &.edit {
+    padding: 1em 1em;
+    input[type=text] {
+      width: 100%;
+      margin-bottom: .5em;
     }
   }
 }

@@ -25,16 +25,6 @@
 
 @section('sidebar')
     <div class="boxify">
-        @include('partials.settings.tab')
-    </div>
-    @if (str_contains($user->avatar_url, 'uploads'))
-        <div class="boxify">
-            <div class="avatar-not-square">
-                {{ HTML::image(str_replace('_s56', '', $user->avatar_url)) }}
-            </div>
-        </div>
-    @endif
-    <div class="boxify">
         <div class="upload-avatar">
             <div class="upload-form">
                 <span class="icon-upload"></span>

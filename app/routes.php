@@ -13,7 +13,11 @@ Route::group(['domain'=>'api.nhn.io', 'prefix'=>'v1', 'namespace'=>'y'], functio
 Route::group(['prefix'=>'admin', 'namespace'=>'Crayon\Layers'], function()
 {
     Route::get('/', 'TopicController@index');
-    Route::get('/user', 'UserController@index');
+    Route::get('categories', 'CategoryController@index');
+    Route::get('category/{id}/edit', 'CategoryController@edit');
+    Route::put('category/{id}', 'CategoryController@update');
+    Route::get('/users', 'UserController@index');
+    Route::get('/tags', 'TagController@index');
 });
 
 Route::get('login', 'SessionController@create');

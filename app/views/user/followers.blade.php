@@ -23,9 +23,3 @@
         </div>
     </div>
 @stop
-
-@section('sidebar')
-    <div class="boxify">
-        @include('partials.user.tab')
-    </div>
-@stop

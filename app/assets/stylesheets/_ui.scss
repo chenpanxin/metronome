@@ -71,6 +71,15 @@ ul {
   }
 }
 
+.tag,
+.user,
+.topic,
+.category {
+  &.tab {
+    border-bottom: 1px solid #e5e6e8;
+  }
+}
+
 #nprogress .bar {
   display: none;
   background: #e8e8e8;
