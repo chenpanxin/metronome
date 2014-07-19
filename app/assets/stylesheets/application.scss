@@ -178,12 +178,27 @@ ul {
 .category {
   &.index {
     padding: 1em 1em;
+    li {
+      border-width: 1px;
+      border-style: solid;
+      border-color: transparent #dbdbdb #dbdbdb #dbdbdb;
+      &:first-child {
+        border-top: 1px solid #dbdbdb;
+      }
+    }
     a {
+      display: inline-block;
       color: rgba(#000, .5);
       font-size: 1em;
-      line-height: 32px;
-      &:hover {
-        text-decoration: underline;
+      line-height: 40px;
+      min-width: 40px;
+      &:first-child {
+        float: left;
+        text-align: center;
+      }
+      &:last-child {
+        display: block;
+        margin-left: 40px;
       }
     }
   }
@@ -204,6 +219,13 @@ ul {
     }
   }
   &.edit {
+    padding: 1em 1em;
+    input[type=text] {
+      width: 100%;
+      margin-bottom: .5em;
+    }
+  }
+  &.new {
     padding: 1em 1em;
     input[type=text] {
       width: 100%;

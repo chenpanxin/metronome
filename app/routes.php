@@ -14,8 +14,10 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Crayon\Layers'], function()
 {
     Route::get('/', 'TopicController@index');
     Route::get('categories', 'CategoryController@index');
+    Route::post('category/store', 'CategoryController@store');
     Route::get('category/{id}/edit', 'CategoryController@edit');
     Route::put('category/{id}', 'CategoryController@update');
+    Route::delete('category/{id}', 'CategoryController@destroy');
     Route::get('/users', 'UserController@index');
     Route::get('/tags', 'TagController@index');
 });

@@ -12,8 +12,17 @@
         </div>
         <ul class="category index">
             @foreach ($categories as $category)
-                <li><a href="{{ URL::to('admin/category/'.$category->id.'/edit') }}">{{ $category->name }}</a></li>
+                <li>
+                    <a href="{{ URL::to('admin/category/'.$category->id) }}" data-method="delete"><span class="icon-cross"></span></a>
+                    <a href="{{ URL::to('admin/category/'.$category->id.'/edit') }}">{{ $category->name }}</a>
+                </li>
             @endforeach
         </ul>
+        <div class="category new">
+            {{ Form::open(['url'=>'admin/category/store']) }}
+                {{ Form::text('name', $category->name) }}
+                {{ Form::submit(Lang::get('locale.create_category'), ['class'=>'btn normal']) }}
+            {{ Form::close() }}
+        </div>
     </div>
 @stop

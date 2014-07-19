@@ -14,6 +14,16 @@ class CategoryController extends BaseController {
             ->withCategories(Category::all());
     }
 
+    public function store()
+    {
+        $category = new Category;
+        $category->name = Input::get('name');
+        $category->slug = Input::get('name');
+        $category->save();
+
+        return Redirect::back();
+    }
+
     public function edit($id)
     {
         $category = Category::findOrFail($id);
@@ -30,5 +40,12 @@ class CategoryController extends BaseController {
         $category->save();
 
         return Redirect::to('admin/categories');
+    }
+
+    public function destroy($id)
+    {
+        Category::destroy($id);
+
+        return Redirect::back();
     }
 }
