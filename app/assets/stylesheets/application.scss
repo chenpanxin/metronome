@@ -212,11 +212,12 @@ ul {
     }
   }
 }
+
 .category {
   &.index {
     padding: 1em 1em;
     li {
-      border-width: 1px;
+      border-width: 0 1px 1px 1px;
       border-style: solid;
       border-color: transparent #dbdbdb #dbdbdb #dbdbdb;
       &:first-child {
@@ -317,6 +318,38 @@ ul {
     input[type=text] {
       width: 100%;
       margin-bottom: .5em;
+    }
+  }
+}
+
+.admin {
+  &.topic {
+    &.index {
+      padding-top: .5em;
+      li {
+        border-bottom: 1px solid #dbdbdb;
+        &:last-child {
+          border-bottom: 1px solid transparent;
+        }
+        a {
+          display: inline-block;
+          color: rgba(#000, .5);
+          line-height: 40px;
+          &.title {
+            display: block;
+            margin-left: 40px;
+          }
+          &:first-child {
+            float: left;
+            min-width: 40px;
+            text-align: center;
+          }
+        }
+        .date {
+          float: right;
+          margin-right: 1em;
+        }
+      }
     }
   }
 }

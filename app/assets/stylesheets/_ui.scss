@@ -2,12 +2,6 @@
  * ui.css
  */
 
-::selection {
-  text-shadow: none;
-  background-color: #53575b;
-  color: white;
-}
-
 form {
   label {
     color: rgba(#000, .5);
@@ -170,6 +164,12 @@ ul {
   &.tab {
     border-bottom: 1px solid #e5e6e8;
   }
+}
+
+::selection {
+  text-shadow: none;
+  background-color: #53575b;
+  color: white;
 }
 
 /**

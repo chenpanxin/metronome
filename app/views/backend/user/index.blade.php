@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        <div class="tab">
+        <div class="tab user">
             <ul class="tab tab-four">
                 <li>{{ HTML::admin() }}</li>
                 <li>{{ HTML::categories() }}</li>

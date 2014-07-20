@@ -13,6 +13,9 @@ Route::group(['domain'=>'api.nhn.io', 'prefix'=>'v1', 'namespace'=>'y'], functio
 Route::group(['prefix'=>'admin', 'namespace'=>'Crayon\Layers'], function()
 {
     Route::get('/', 'TopicController@index');
+    Route::get('topic/{id}/edit', 'TopicController@edit');
+    Route::put('topic/{id}', 'TopicController@update');
+    Route::delete('topic/{id}', 'TopicController@destroy');
     Route::get('categories', 'CategoryController@index');
     Route::post('category/store', 'CategoryController@store');
     Route::get('category/{id}/edit', 'CategoryController@edit');

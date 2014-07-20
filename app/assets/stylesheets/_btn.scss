@@ -2,16 +2,9 @@
  * btn.css
  */
 
-a {
-  &.btn {
-    display: inline-block;
-    @include border-radius(3px);
-  }
-}
-
 .btn {
-  padding: 0 1em;
-  line-height: 40px;
+  padding: 3px .75em 1px .75em;
+  line-height: 36px;
   font-weight: bold;
   font-size: 1em;
   vertical-align: middle;
@@ -26,5 +19,12 @@ a {
   &:hover {
     border: 1px solid darken(#5fcf80, 8%);
     background-color: darken(#5fcf80, 5%);
+  }
+}
+
+a {
+  &.btn {
+    display: inline-block;
+    @include border-radius(3px);
   }
 }
