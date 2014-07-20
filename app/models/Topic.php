@@ -28,4 +28,9 @@ class Topic extends Eloquent {
     {
         return $this->belongsToMany('User', 'likes');
     }
+
+    public function scopePopular($query)
+    {
+        return $query->orderBy('ranking', 'desc')->orderBy('created_at', 'desc');
+    }
 }

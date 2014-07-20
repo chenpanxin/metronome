@@ -10,12 +10,12 @@
                 </li>
             @endforeach
         </ul>
-        <!-- <div>{{ $topics->links() }}</div> -->
+        <div class="pagination">{{ $topics->links() }}</div>
     </div>
     <div class="boxify">
         <div class="category selection">
             @foreach ($categories as $category)
-                <a href="{{ URL::to('category/'.$category->id) }}" data-category="{{ $category->id }}">{{ $category->name }}</a>
+                <a href="{{ URL::to('category/'.$category->id) }}">{{ $category->name }}</a>
             @endforeach
         </div>
     </div>

@@ -47,21 +47,26 @@ Route::get('{username}/replies', 'UserController@replies');
 
 Route::get('user/verify/{token}', 'UserController@verify');
 
+//<==
+
 Route::get('/', 'TopicController@index');
 Route::get('topic', 'AliasController@index');
 Route::get('topics', 'AliasController@index');
+Route::get('popular', 'AliasController@index');
 Route::get('topic/new', 'TopicController@create');
+Route::post('topic/store', 'TopicController@store');
 Route::get('topic/{id}', 'TopicController@show');
 Route::get('topic/{id}/edit', 'TopicController@edit');
-Route::post('topic/store', 'TopicController@store');
 Route::put('topic/{id}', 'TopicController@update');
 Route::delete('topic/{id}', 'TopicController@destroy');
 Route::get('category/{id}', 'TopicController@byCategory');
 Route::get('newest', 'TopicController@newest');
-Route::get('popular', 'TopicController@popular');
-Route::get('no_discuss', 'TopicController@byComment');
 
+
+//==>>
 Route::post('topic/{id}', 'ReplyController@store');
+
+
 
 // Route::put('comment/{id}', 'CommentController@update');
 // Route::delete('topic/{id}/comment/{comment_id}', 'CommentController@destroy');

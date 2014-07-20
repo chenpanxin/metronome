@@ -2,6 +2,11 @@
 
 class AliasController extends BaseController {
 
+    public function index()
+    {
+        return Redirect::to('/');
+    }
+
     public function users()
     {
         return Redirect::to('users');
@@ -15,10 +20,5 @@ class AliasController extends BaseController {
     public function login()
     {
         return Redirect::to('login');
-    }
-
-    public function index()
-    {
-        return Redirect::to('/');
     }
 }

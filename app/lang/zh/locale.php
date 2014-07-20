@@ -15,7 +15,6 @@ return [
     'account'          => '账户',
     'title'            => '标题',
     'body'             => '内容',
-    'new_topic'        => '新建话题',
     'save'             => '保存',
     'nickname'         => '昵称',
     'location'         => '所在地',
@@ -59,7 +58,7 @@ return [
     'user_number'      => '第 :number 号会员',
     'write_comment'    => '评论在这里...',
     'create_category'  => '创建分类',
-    'create_topic'     => '创建帖子',
+
     'name'             => '名称',
     'slug'             => '标示符',
     'liking'           => '人喜欢',
@@ -75,4 +74,11 @@ return [
     'likes'            => '赞过的',
     'me'               => '我的',
     'tag'              => '标签',
+
+    'popular_topic'    => '热门话题',
+    'create_topic'     => '创建话题',
+    'new_topic'        => '新建话题',
+    'edit_topic'       => '编辑话题',
+    'newest_topic'     => '最新话题',
+
 ];

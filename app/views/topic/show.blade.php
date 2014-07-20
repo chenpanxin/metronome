@@ -7,7 +7,7 @@
             <div class="title"><span>{{{ $topic->title }}}</span></div>
             <div class="body">{{ $topic->body }}</div>
             <div class="topic-opt">
-                @if ($liking)
+                @if ($liker_right)
                     <a href="{{ URL::to('topic/'.$topic->id.'/unlike') }}" data-method="delete" class="heart"><span class="icon-heart"></span></a>
                 @else
                     <a href="{{ URL::to('topic/'.$topic->id.'/like') }}" data-method="post"><span class="icon-heart"></span></a>
@@ -41,13 +41,4 @@
 @stop
 
 @section('sidebar')
-    <div class="boxify">
-        <div class="vcard">
-            <ul class="vcard-stats">
-                <li><a href="{{ URL::to('user/'.$topic->user->username.'/topic') }}"><span class="number">{{ $topics_count }}</span><span>{{ Lang::get('locale.topic') }}</span></a></li>
-                <li><a href="{{ URL::to('user/'.$topic->user->username.'/following') }}"><span class="number">{{ $following_count }}</span><span>{{ Lang::get('locale.following') }}</span></a></li>
-                <li><a href="{{ URL::to('user/'.$topic->user->username.'/followers') }}"><span class="number">{{ $followers_count }}</span><span>{{ Lang::get('locale.followers') }}</span></a></li>
-            </ul>
-        </div>
-    </div>
 @stop
