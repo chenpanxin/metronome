@@ -65,7 +65,12 @@ HTML::macro('admin', function()
     return link_to('admin', trans('locale.topic'));
 });
 
-Str::macro('avatar_url', function($email = null)
+Str::macro('avatarUrl', function($email = null)
+{
+    return $email ? URL::to(join('/', ['avatars', join('', [md5($email), 's256.jpg'])])) : '/assets/avatar.jpg';
+});
+
+Str::macro('gravatarUrl', function($email = null)
 {
     return join(md5(strtolower(trim($email ?: 'hello@gravatar.com'))), ['http://www.gravatar.com/avatar/', '?s=56&d=mm&r=pg']);
 });

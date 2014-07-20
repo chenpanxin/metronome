@@ -18,21 +18,13 @@
                 {{ Form::label('biography', Lang::get('locale.biography')) }}
                 <textarea name="biography">{{ $user->profile->biography }}</textarea>
                 {{ Form::submit(Lang::get('locale.save'), ['class'=>'btn normal']) }}
-        {{ Form::close() }}
+            {{ Form::close() }}
         </div>
-    </div>
-@stop
-
-@section('sidebar')
-    <div class="boxify">
-        <div class="upload-avatar">
-            <div class="upload-form">
-                <span class="icon-upload"></span>
-                {{ Lang::get('locale.change_avatar') }}
-                {{ Form::open(['url'=>URL::to('settings/avatar'), 'files'=>true]) }}
-                    {{ Form::file('avatar', ['class'=>'auto']) }}
-                {{ Form::close() }}
-            </div>
+        <div class="user-avatar profile">
+            <div class="avatar s115">{{ HTML::image(Str::avatarUrl($user->email)) }}</div>
+            {{ Form::open(['url'=>URL::to('settings/avatar'), 'files'=>true]) }}
+                {{ Form::file('avatar', ['class'=>'auto']) }}
+            {{ Form::close() }}
         </div>
     </div>
 @stop

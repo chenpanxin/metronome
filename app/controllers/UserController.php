@@ -95,17 +95,17 @@ class UserController extends BaseController {
     public function avatarStore()
     {
         $validator = Validator::make(Input::all(), ['avatar'=>'mimes:jpeg,jpg,png,gif']);
+
         if ($validator->fails()) {
             return Redirect::to('settings/profile');
         }
-        $user = Auth::user();
-        $avatar = Image::make(Input::file('avatar')->getRealPath());
-        $user_uploads = join('/', [public_path(), 'uploads', md5($user->email)]);
-        File::exists($user_uploads) or File::makeDirectory($user_uploads);
-        $avatar->fit(256)->save(join('/', [$user_uploads, 'avatar.jpg']));
-        $avatar->fit(56)->save(join('/', [$user_uploads, 'avatar_s56.jpg']));
 
-        $user->avatar_url = URL::to(join('/', ['uploads', md5($user->email), 'avatar_s56.jpg']));
+        $user = Auth::user();
+
+        $avatar = new Crayon\Utils\Avatar(Input::file('avatar'));
+        $avatar->touch($user->email)->save();
+
+        $user->avatar_url = URL::to(join('/', ['avatars', md5($user->email).'s56.jpg']));
         $user->save();
 
         return Redirect::back();
