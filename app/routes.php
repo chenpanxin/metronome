@@ -2,7 +2,6 @@
 
 Route::pattern('id', '[0-9]+');
 Route::pattern('username', '[A-Z0-9a-z-_]+');
-Route::pattern('reply', 'reply|r');
 Route::pattern('not_found', '404(\.html)?');
 
 Route::group(['domain'=>'api.nhn.io', 'prefix'=>'v1', 'namespace'=>'y'], function()
@@ -62,22 +61,20 @@ Route::delete('topic/{id}', 'TopicController@destroy');
 Route::get('category/{id}', 'TopicController@byCategory');
 Route::get('newest', 'TopicController@newest');
 
+Route::post('topic/{id}/like', 'LikeController@store');
+Route::delete('topic/{id}/unlike', 'LikeController@destroy');
+
 
 //==>>
+
+
 Route::post('topic/{id}', 'ReplyController@store');
-
-
-
-// Route::put('comment/{id}', 'CommentController@update');
-// Route::delete('topic/{id}/comment/{comment_id}', 'CommentController@destroy');
-// Route::get('topic/{id}/comment/{comment_id}', 'CommentController@edit');
-
 
 Route::get('notification', 'NotificationController@index');
 Route::get('search', 'SearchController@index');
 Route::post('search', 'SearchController@store');
 Route::get('settings', 'UserController@notify');
-Route::get('{username}', 'UserController@profileShow');
+
 
 Route::get('settings/profile', 'UserController@profileEdit');
 Route::put('settings/profile', 'UserController@profileUpdate');
@@ -101,18 +98,12 @@ Route::get('relationship', 'RelationshipController@show');
 Route::post('follow', 'RelationshipController@store');
 Route::post('unfollow', 'RelationshipController@destroy');
 
-Route::post('topic/{id}/like', 'LikeController@store');
-Route::delete('topic/{id}/unlike', 'LikeController@destroy');
 
-Route::get('colour', function()
-{
-    return View::make('pages.colour');
-});
 
-Route::get('/redirect', function()
-{
-    return Redirect::to('http://git.io');
-});
+
+
+
+Route::get('{username}', 'UserController@profileShow');
 
 Route::get('score/{id}', function($id)
 {
@@ -122,11 +113,6 @@ Route::get('score/{id}', function($id)
     // return $hour_age;
 });
 
-Route::get('{not_found}', function()
-{
-    return Response::json(['error'=>'page not found.']);
-});
-
 Event::listen('illuminate.query', function($query)
 {
     Log::info($query);
@@ -134,4 +120,3 @@ Event::listen('illuminate.query', function($query)
 
 // Route::pattern('hash', '[a-z0-9]{32}');
 // Route::pattern('slug', '[a-z0-9-]+');
-// Route::when('*', 'csrf', array('post', 'put', 'delete'));

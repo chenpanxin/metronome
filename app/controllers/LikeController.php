@@ -4,10 +4,11 @@ class LikeController extends BaseController {
 
     public function __construct()
     {
-        $this->beforeFilter(function()
-        {
-            if (Auth::guest()) {
-                return Response::json(['msg'=>'login_required', 'code'=>'94401']);
+        // $this->beforeFilter('csrf', ['on'=>'post']);
+        $this->beforeFilter('auth', ['only'=>['store', 'destroy']]);
+        $this->beforeFilter(function(){
+            if (Request::ajax()) {
+
             }
         });
     }
@@ -15,28 +16,23 @@ class LikeController extends BaseController {
     public function store($id)
     {
         $topic = Topic::findOrFail($id);
-        $user = Auth::user();
+
         Like::firstOrCreate([
-            'user_id'  => $user->id,
+            'user_id'  => Auth::user()->id,
             'topic_id' => $topic->id
         ]);
-        // return Like::all();
+
         return Redirect::back();
     }
 
     public function destroy($id)
     {
         $topic = Topic::findOrFail($id);
-        $user = Auth::user();
-        $like = Like::whereUserId($user->id)
-            ->whereTopicId($topic->id)
-            ->first();
 
-        if ($like) {
-            $like->delete();
-        }
+        $like = Like::whereUserId(Auth::user()->id)->whereTopicId($topic->id)->first();
 
-        // return Like::all();
+        $like and $like->delete();
+
         return Redirect::back();
     }
 }

@@ -4,11 +4,9 @@ class TopicController extends BaseController {
 
     public function __construct()
     {
+        $this->beforeFilter('csrf', ['on'=>'post']);
         $this->beforeFilter('auth', [
-            'only' => ['create', 'store', 'edit', 'update']
-        ]);
-        $this->beforeFilter('csrf', [
-            'on' => 'post'
+            'except'=>['index', 'show', 'byCategory', 'newest']
         ]);
     }
 
@@ -126,16 +124,9 @@ class TopicController extends BaseController {
         return Redirect::back();
     }
 
-    public function byCategory($id)
+    public function destroy($id)
     {
-        $category = Category::findOrFail($id);
 
-        $topics = Topic::with('user', 'category')->whereCategoryId($category->id)->popular()->paginate(16);
-
-        return View::make('topic.index')
-            ->withTitle($category->name)
-            ->withCategories(Category::all())
-            ->withTopics($topics);
     }
 
     public function newest()
@@ -144,6 +135,18 @@ class TopicController extends BaseController {
 
         return View::make('topic.index')
             ->withTitle(Lang::get('locale.newest_topic'))
+            ->withCategories(Category::all())
+            ->withTopics($topics);
+    }
+
+    public function byCategory($id)
+    {
+        $category = Category::findOrFail($id);
+
+        $topics = Topic::with('user', 'category')->whereCategoryId($category->id)->popular()->paginate(16);
+
+        return View::make('topic.index')
+            ->withTitle($category->name)
             ->withCategories(Category::all())
             ->withTopics($topics);
     }
