@@ -1,0 +1,30 @@
+/**
+ * btn.css
+ */
+
+a {
+  &.btn {
+    display: inline-block;
+    @include border-radius(3px);
+  }
+}
+
+.btn {
+  padding: 0 1em;
+  line-height: 40px;
+  font-weight: bold;
+  font-size: 1em;
+  vertical-align: middle;
+  letter-spacing: .1em;
+  @include transition(.115s background-color ease-in-out);
+}
+
+.normal {
+  color: #fefef3;
+  border: 1px solid darken(#5fcf80, 3%);
+  background-color: #5fcf80;
+  &:hover {
+    border: 1px solid darken(#5fcf80, 8%);
+    background-color: darken(#5fcf80, 5%);
+  }
+}

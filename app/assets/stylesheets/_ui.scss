@@ -1,8 +1,13 @@
+/**
+ * ui.css
+ */
+
 ::selection {
-  // text-shadow: none;
-  // background-color: $selection-color;
-  // color: $selection-font-color;
+  text-shadow: none;
+  background-color: #53575b;
+  color: white;
 }
+
 form {
   label {
     color: rgba(#000, .5);
@@ -26,6 +31,7 @@ form {
     resize: none;
   }
 }
+
 ul {
   &.tab {
     width: 100%;
@@ -46,6 +52,29 @@ ul {
     }
   }
 }
+
+.boxify {
+  background-color: white;
+  min-height: 50px;
+  margin-bottom: 20px;
+  padding: 5px 0;
+  border: 1px solid rgba(#b2bac2, .5);
+  @include border-radius(5px);
+}
+
+.avatar {
+  display: inline-block;
+  img {
+    width: 100%;
+    height: auto;
+    @include border-radius(50%);
+  }
+  &.s56 {
+    width: 56px;
+    height: 56px;
+  }
+}
+
 .tab {
   li {
     &.actived {
@@ -70,6 +99,55 @@ ul {
     }
   }
 }
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 140px;
+  background-color: white;
+  padding: 5px 0;
+  border: 1px solid #dbdbdb;
+  @include border-radius(5px);
+  &:before {
+    content: " ";
+    position: absolute;
+    top: -10px;
+    left: 100px;
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #dbdbdb transparent;
+  }
+  &:after {
+    content: " ";
+    position: absolute;
+    top: -8px;
+    left: 100px;
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent white transparent;
+  }
+  li {
+    display: block;
+    width: 100%;
+    a {
+      text-align: left;
+      color: rgba(#000, .625);
+      padding: 0 20px;
+      span {
+        margin-right: 14px;
+      }
+    }
+    &:last-child {
+      border-top: 1px solid #ebebeb;
+    }
+  }
+}
+
 .message {
   &.flash {
     padding: 0 1em;
@@ -84,23 +162,7 @@ ul {
     }
   }
 }
-.topic-opt {
-  line-height: 40px;
-  border-top: 1px solid #e5e6e8;
-  a {
-    display: inline-block;
-    color: rgba(#000, .5);
-    &:first-child {
-      min-width: 40px;
-      font-size: 20px;
-      text-align: center;
-      margin-left: .5em;
-    }
-  }
-  .heart {
-    color: #eb1163;
-  }
-}
+
 .tag,
 .user,
 .topic,
@@ -110,19 +172,20 @@ ul {
   }
 }
 
-#nprogress .bar {
-  display: none;
-  background: #e8e8e8;
-}
+/**
+ * NProgress.css
+ */
 
-/* Fancy blur effect */
-#nprogress .peg {
-  // box-shadow: 0 0 10px #e0e0e0, 0 0 5px #e0e0e0;
-}
+#nprogress {
+  &.bar {
+    background-color: #e7e8e9;
+  }
+  &.peg {
 
-#nprogress .spinner-icon {
-  display: none;
-  border: solid 2px transparent;
-  border-top-color: #bbb;
-  border-left-color: #bbb;
+  }
+  &.spinner-icon {
+    border: 2px solid transparent;
+    border-top-color: #bbb;
+    border-left-color: #bbb;
+  }
 }

@@ -1,8 +1,13 @@
+/**
+ * mixin.css
+ */
+
 @mixin border-box() {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+
 @mixin border-radius($var...) {
   -webkit-border-radius: $var;
      -moz-border-radius: $var;
@@ -10,6 +15,7 @@
        -o-border-radius: $var;
           border-radius: $var;
 }
+
 @mixin box-shadow($var...) {
   -webkit-box-shadow: $var;
      -moz-box-shadow: $var;
@@ -17,6 +23,7 @@
        -o-box-shadow: $var;
           box-shadow: $var;
 }
+
 @mixin transition($var...) {
   -webkit-transition: $var;
      -moz-transition: $var;
@@ -24,12 +31,14 @@
        -o-transition: $var;
           transition: $var;
 }
+
 @mixin white-space() {
   white-space: -moz-pre-wrap;
   white-space: -o-pre-wrap;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
 @mixin clearfix() {
   &:before,
   &:after {
@@ -40,6 +49,7 @@
     clear: both;
   }
 }
+
 @mixin center()
 {
   float: none;

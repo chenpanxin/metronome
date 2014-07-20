@@ -23,4 +23,9 @@ class Topic extends Eloquent {
     {
         return $this->morphMany('Text', 'textable');
     }
+
+    public function likers()
+    {
+        return $this->belongsToMany('User', 'likes');
+    }
 }

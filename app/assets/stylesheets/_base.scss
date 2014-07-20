@@ -1,27 +1,37 @@
+/**
+ * base.css
+ */
+
 * {
   @include border-box();
 }
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
 }
+
 body,
 ul,
 li {
   margin: 0;
   padding: 0;
 }
+
 li {
   list-style: none;
 }
+
 img {
   border: 0;
 }
+
 b,
 strong {
   font-weight: bold;
 }
+
 a {
   background: transparent;
   text-decoration: none;
@@ -32,69 +42,87 @@ a {
     outline: 0;
   }
 }
+
 code,
 pre {
   font-family: monospace;
   font-size: 1em;
 }
+
 pre {
   overflow: auto;
 }
+
 mark {
 }
+
 sub,
 sup {
 }
+
 svg:not(:root) {
   overflow: hidden;
 }
+
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 td,
 th {
   padding: 0;
 }
+
 select,
 input,
 textarea {
   margin: 0;
 }
+
 select {
   text-transform: none;
 }
+
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
+
 textarea {
   overflow: auto;
 }
+
 input[type=submit] {
   -webkit-appearance: button;
   cursor: pointer;
 }
+
 input[disabled] {
   cursor: default;
 }
+
 input {
   line-height: normal;
 }
+
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   padding: 0;
 }
+
 label {
   display: inline-block;
   font-size: 1em;
 }
+
 [hidden] {
   display: none;
 }

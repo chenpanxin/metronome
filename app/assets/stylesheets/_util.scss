@@ -1,24 +1,43 @@
+/**
+ * util.css
+ */
+
 .inner {
+  position: relative;
+  margin: 0 auto;
   height: 100%;
+  &.w970 {
+    max-width: 970px;
+  }
+  &.w560 {
+    max-width: 560px;
+  }
 }
+
 .hide {
   display: none;
 }
+
 .show {
   display: block;
 }
+
 .inline {
   display: inline-block;
 }
+
 .pull_right {
   float: right;
 }
+
 .pull_left {
   float: left;
 }
+
 .center {
   @include center();
 }
+
 .clearfix {
   @include clearfix();
 }
