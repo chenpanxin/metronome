@@ -69,3 +69,8 @@ Str::macro('avatar_url', function($email = null)
 {
     return join(md5(strtolower(trim($email ?: 'hello@gravatar.com'))), ['http://www.gravatar.com/avatar/', '?s=56&d=mm&r=pg']);
 });
+
+Str::macro('calculateScore', function($count, $hour_age, $gravity = 1.8)
+{
+    return ($count - 1) / pow(($hour_age + 2), $gravity);
+});

@@ -12,7 +12,7 @@ class CreateTopicsTable extends Migration {
             $table->integer('user_id')->index();
             $table->integer('category_id')->index();
             $table->integer('likes_count')->default(0);
-            $table->integer('comments_count')->default(0);
+            $table->integer('replies_count')->default(0);
             $table->boolean('frozen')->default(false);
             $table->float('ranking')->default('0.0');
             $table->string('title');

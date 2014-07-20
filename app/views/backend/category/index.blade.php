@@ -20,7 +20,7 @@
         </ul>
         <div class="category new">
             {{ Form::open(['url'=>'admin/category/store']) }}
-                {{ Form::text('name', $category->name) }}
+                {{ Form::text('name') }}
                 {{ Form::submit(Lang::get('locale.create_category'), ['class'=>'btn normal']) }}
             {{ Form::close() }}
         </div>

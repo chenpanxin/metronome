@@ -13,7 +13,6 @@ class CreateWebsiteStatsTable extends Migration {
             $table->integer('topics')->default(0);
             $table->integer('users')->default(0);
             $table->integer('tags')->default(0);
-            $table->integer('comments')->default(0);
             $table->integer('replies')->default(0);
             $table->integer('verify_users')->default(0);
             $table->timestamps();

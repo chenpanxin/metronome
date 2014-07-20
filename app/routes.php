@@ -105,6 +105,14 @@ Route::get('/redirect', function()
     return Redirect::to('http://git.io');
 });
 
+Route::get('score/{id}', function($id)
+{
+    // $topic = Topic::find($id);
+    // $hour_age = $topic->updated_at->diffInHours($topic->created_at);
+    // return Str::calculateScore(10, $hour_age);
+    // return $hour_age;
+});
+
 Route::get('{not_found}', function()
 {
     return Response::json(['error'=>'page not found.']);
