@@ -354,11 +354,12 @@ ul {
   }
 }
 
-.user-avatar {
-  &.profile {
+.profile {
+  position: relative;
+  .user-avatar {
     position: absolute;
     right: 1.5em;
-    top: 2.5em;
+    top: 1.5em;
     width: 120px;
     min-height: 120px;
     text-align: center;

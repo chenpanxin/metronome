@@ -67,12 +67,13 @@ HTML::macro('admin', function()
 
 Str::macro('avatarUrl', function($email = null)
 {
-    return $email ? URL::to(join('/', ['avatars', join('', [md5($email), 's256.jpg'])])) : '/assets/avatar.jpg';
+    return $email ? URL::to(join('/', ['avatars', join('', [md5($email), 's512.jpg'])])) : '/assets/avatar.jpg';
 });
 
-Str::macro('gravatarUrl', function($email = null)
+Str::macro('gravatarUrl', function($email = null, $size = null)
 {
-    return join(md5(strtolower(trim($email ?: 'hello@gravatar.com'))), ['http://www.gravatar.com/avatar/', '?s=56&d=mm&r=pg']);
+    // md5(strtolower(trim()))
+    return join('', ['http://www.gravatar.com/avatar/', md5($email), '?s=', $size ?: 92, '&d=', urlencode('https://avatars3.githubusercontent.com/u/5574090'), '&r=pg']);
 });
 
 Str::macro('calculateScore', function($count, $hour_age, $gravity = 1.8)

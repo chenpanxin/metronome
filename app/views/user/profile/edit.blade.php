@@ -19,12 +19,18 @@
                 <textarea name="biography">{{ $user->profile->biography }}</textarea>
                 {{ Form::submit(Lang::get('locale.save'), ['class'=>'btn normal']) }}
             {{ Form::close() }}
-        </div>
-        <div class="user-avatar profile">
-            <div class="avatar s115">{{ HTML::image(Str::avatarUrl($user->email)) }}</div>
-            {{ Form::open(['url'=>URL::to('settings/avatar'), 'files'=>true]) }}
-                {{ Form::file('avatar', ['class'=>'auto']) }}
-            {{ Form::close() }}
+            <div class="user-avatar">
+                <div class="avatar s115">
+                    @if (Str::contains($user->avatar_url, 'gravatar'))
+                        {{ HTML::image(Str::gravatarUrl($user->email, 256)) }}
+                    @else
+                        {{ HTML::image(Str::avatarUrl($user->email)) }}
+                    @endif
+                </div>
+                {{ Form::open(['url'=>URL::to('settings/avatar'), 'files'=>true]) }}
+                    {{ Form::file('avatar', ['class'=>'auto']) }}
+                {{ Form::close() }}
+            </div>
         </div>
     </div>
 @stop

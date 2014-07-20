@@ -22,13 +22,13 @@ class Avatar {
 
     public function save()
     {
-        $this->avatar->fit(256)->save($this->avatarUrl());
-        $this->avatar->fit(156)->save($this->avatarUrl(156));
-        $this->avatar->fit(56)->save($this->avatarUrl(56));
+        foreach (range(512, 92, -105) as $size) {
+            $this->avatar->fit($size)->save($this->avatarUrl($size));
+        }
     }
 
     private function avatarUrl($size = null)
     {
-        return join('/', [\public_path(), 'avatars', join('', [md5($this->filename), 's', $size ?: '256', '.jpg'])]);
+        return join('/', [\public_path(), 'avatars', join('', [md5($this->filename), 's', $size, '.jpg'])]);
     }
 }

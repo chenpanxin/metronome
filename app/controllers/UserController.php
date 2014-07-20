@@ -38,7 +38,7 @@ class UserController extends BaseController {
             'downcase' => strtolower($username)
         ]);
         $user->password = Hash::make(Input::get('password'));
-        $user->avatar_url = Str::avatar_url($user->email);
+        $user->avatar_url = Str::gravatarUrl($user->email);
 
         if ($user->save() and $user->profile()->save(new Profile(['verify_token'=>str_random(64)]))) {
             Auth::login($user);
@@ -105,7 +105,7 @@ class UserController extends BaseController {
         $avatar = new Crayon\Utils\Avatar(Input::file('avatar'));
         $avatar->touch($user->email)->save();
 
-        $user->avatar_url = URL::to(join('/', ['avatars', md5($user->email).'s56.jpg']));
+        $user->avatar_url = URL::to(join('/', ['avatars', md5($user->email).'s92.jpg']));
         $user->save();
 
         return Redirect::back();

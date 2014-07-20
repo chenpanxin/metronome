@@ -5,7 +5,7 @@
         <ul class="list topic index">
             @foreach ($topics as $topic)
                 <li>
-                    <a href="{{ URL::to('user/'.$topic->user->username) }}" class="avatar s56">{{ HTML::image('/assets/avatar.jpg') }}</a>
+                    <a href="{{ URL::to('user/'.$topic->user->username) }}" class="avatar s56">{{ HTML::image($topic->user->avatar_url) }}</a>
                     <a href="{{ URL::to('topic/'.$topic->id) }}" class="title">{{ $topic->title }}<span class="date">{{ $topic->created_at->toFormattedDateString() }}</span></a>
                 </li>
             @endforeach
