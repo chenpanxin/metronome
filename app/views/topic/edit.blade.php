@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        @include('partials.notify')
+        @include('partial.flash')
         <div class="topic edit">
             {{ Form::open(['url'=>'topic/'.$topic->id, 'method'=>'put']) }}
                 {{ Form::label('title', Lang::get('locale.title')) }}

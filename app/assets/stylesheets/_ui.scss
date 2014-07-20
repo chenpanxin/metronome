@@ -70,7 +70,20 @@ ul {
     }
   }
 }
-
+.message {
+  &.flash {
+    padding: 0 1em;
+    margin-top: 1em;
+    p {
+      margin: 0;
+      line-height: 40px;
+      background-color: #d3ebf3;
+      border: 1px solid darken(#d3ebf3, 20%);
+      color: darken(#d3ebf3, 40%);
+      text-align: center;
+    }
+  }
+}
 .tag,
 .user,
 .topic,

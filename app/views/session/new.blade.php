@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        @include('partials.notify')
+        @include('partial.flash')
         <div class="session new">
             {{ Form::open(['url'=>'session/store']) }}
                 {{ Form::label('account', Lang::get('locale.account')) }}

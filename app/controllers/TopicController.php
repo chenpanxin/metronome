@@ -68,7 +68,7 @@ class TopicController extends BaseController {
         $validator = new Crayon\Validators\TopicValidator;
 
         if ($validator->fails()) {
-            Session::flash('msg', $validator->messages()->first());
+            Session::flash('message', $validator->messages()->first());
             return Redirect::to('topic/new')
                 ->withInput();
         }
@@ -110,7 +110,7 @@ class TopicController extends BaseController {
         $validator = new Crayon\Validators\TopicValidator;
 
         if ($validator->fails()) {
-            Session::flash('msg', $validator->messages()->first());
+            Session::flash('message', $validator->messages()->first());
             return Redirect::back();
         }
 
@@ -128,7 +128,7 @@ class TopicController extends BaseController {
             // $text->content = Input::get('body');
             // $text->save();
         }
-        Session::flash('msg', Lang::get('locale.topic_updated'));
+        Session::flash('message', Lang::get('locale.topic_updated'));
         return Redirect::back();
     }
 

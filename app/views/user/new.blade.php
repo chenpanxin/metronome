@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        @include('partials.notify')
+        @include('partial.flash')
         <div class="user new">
         {{ Form::open(['url'=>'user/store']) }}
             {{ Form::label('username', Lang::get('locale.username')) }}

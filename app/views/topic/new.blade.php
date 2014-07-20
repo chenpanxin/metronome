@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        @include('partials.notify')
+        @include('partial.flash')
         <div class="topic new">
             {{ Form::open(['url'=>'topic/store']) }}
                 {{ Form::label('title', Lang::get('locale.title')) }}

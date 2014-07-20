@@ -24,7 +24,7 @@ class SessionController extends BaseController {
             return Redirect::intended('/');
         }
 
-        Session::flash('msg', Lang::get('locale.auth_incorrect'));
+        Session::flash('message', Lang::get('locale.auth_incorrect'));
         return Redirect::to('login');
     }
 

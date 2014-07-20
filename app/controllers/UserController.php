@@ -27,7 +27,7 @@ class UserController extends BaseController {
         $validator = new Crayon\Validators\UserValidator(array_merge(Input::all(), ['email'=>$email]));
 
         if ($validator->fails()) {
-            Session::flash('msg', $validator->messages()->first());
+            Session::flash('message', $validator->messages()->first());
             return Redirect::to('signup')
                 ->withInput();
         }
@@ -88,7 +88,7 @@ class UserController extends BaseController {
             'biography'     => Input::get('biography')
         ]);
 
-        Session::flash('msg', Lang::get('locale.profile_updated'));
+        Session::flash('message', Lang::get('locale.profile_updated'));
         return Redirect::to('settings/profile');
     }
 

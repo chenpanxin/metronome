@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        @include('partials.notify')
+        @include('partial.flash')
         <div class="search index">
             {{ Form::open(['url'=>'search']) }}
                 {{ Form::text('keyword', null, ['placeholder'=>Lang::get('locale.search')]) }}
