@@ -132,8 +132,8 @@ ul {
       }
       .avatar {
         position: absolute;
-        left: .5em;
-        top: 0;
+        left: .75em;
+        top: .5em;
       }
       .date {
         float: right;
@@ -155,10 +155,15 @@ ul {
     width: 100%;
   }
   &.show {
+    .avatar {
+      float: left;
+      margin-left: .75em;
+      margin-top: .5em;
+    }
     .title {
       position: relative;
       min-height: 56px;
-      padding-left: 72px;
+      margin-left: 72px;
       padding-right: 1em;
       border-bottom: 1px solid #e5e6e8;
       span {

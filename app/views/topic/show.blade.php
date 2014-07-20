@@ -3,6 +3,7 @@
 @section('main')
     <div class="boxify">
         <div class="topic show">
+            <a href="{{ URL::to($topic->user->username) }}" class="avatar s42">{{ HTML::image($topic->user->avatar_url) }}</a>
             <div class="title"><span>{{{ $topic->title }}}</span></div>
             <div class="body">{{ $topic->body }}</div>
             <div class="topic-opt">

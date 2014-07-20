@@ -63,6 +63,10 @@ ul {
     height: auto;
     @include border-radius(50%);
   }
+  &.s42 {
+    width: 42px;
+    height: 42px;
+  }
   &.s56 {
     width: 56px;
     height: 56px;
@@ -70,6 +74,20 @@ ul {
   &.s115 {
     width: 115px;
     height: 115px;
+  }
+}
+
+.avatar-sp {
+  width: 72px;
+  height: 44px;
+  img {
+    display: inline-block;
+    margin-top: -20px;
+    width: 56px;
+    height: 56px;
+    border: 2px solid white;
+    @include border-radius(.5em);
+    @include box-shadow(0 0 2px rgba(#000, .37));
   }
 }
 

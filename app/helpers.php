@@ -42,7 +42,7 @@ HTML::macro('likes', function($user)
 
 HTML::macro('user', function($user)
 {
-    return link_to($user->username, $user->username);
+    return join('', ['<a href="', url($user->username), '" class="avatar-sp">', HTML::image($user->avatar_url), '</a>']);
 });
 
 HTML::macro('categories', function()
