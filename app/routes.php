@@ -59,9 +59,10 @@ Route::get('popular', 'TopicController@popular');
 Route::get('no_discuss', 'TopicController@byComment');
 
 Route::post('topic/{id}', 'ReplyController@store');
-Route::put('comment/{id}', 'CommentController@update');
-Route::delete('topic/{id}/comment/{comment_id}', 'CommentController@destroy');
-Route::get('topic/{id}/comment/{comment_id}', 'CommentController@edit');
+
+// Route::put('comment/{id}', 'CommentController@update');
+// Route::delete('topic/{id}/comment/{comment_id}', 'CommentController@destroy');
+// Route::get('topic/{id}/comment/{comment_id}', 'CommentController@edit');
 
 
 Route::get('notification', 'NotificationController@index');
@@ -93,7 +94,7 @@ Route::post('follow', 'RelationshipController@store');
 Route::post('unfollow', 'RelationshipController@destroy');
 
 Route::post('topic/{id}/like', 'LikeController@store');
-Route::post('topic/{id}/unlike', 'LikeController@destroy');
+Route::delete('topic/{id}/unlike', 'LikeController@destroy');
 
 Route::get('colour', function()
 {

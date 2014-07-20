@@ -84,6 +84,23 @@ ul {
     }
   }
 }
+.topic-opt {
+  line-height: 40px;
+  border-top: 1px solid #e5e6e8;
+  a {
+    display: inline-block;
+    color: rgba(#000, .5);
+    &:first-child {
+      min-width: 40px;
+      font-size: 20px;
+      text-align: center;
+      margin-left: .5em;
+    }
+  }
+  .heart {
+    color: #eb1163;
+  }
+}
 .tag,
 .user,
 .topic,

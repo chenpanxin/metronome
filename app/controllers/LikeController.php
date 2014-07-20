@@ -20,8 +20,8 @@ class LikeController extends BaseController {
             'user_id'  => $user->id,
             'topic_id' => $topic->id
         ]);
-        // return Response::json([]);
-        return Like::all();
+        // return Like::all();
+        return Redirect::back();
     }
 
     public function destroy($id)
@@ -36,7 +36,7 @@ class LikeController extends BaseController {
             $like->delete();
         }
 
-        // return Response::json([]);
-        return Like::all();
+        // return Like::all();
+        return Redirect::back();
     }
 }
