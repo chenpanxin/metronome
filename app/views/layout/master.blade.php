@@ -7,6 +7,8 @@
     <meta name="keywords" content="{{ Config::get('website.keywords') }}">
     <meta name="description" content="{{ Config::get('website.description') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="csrf-param" content="authenticity_token">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title or 'Hello, Laravel.' }}</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="http://ricostacruz.com/nprogress/nprogress.css">

@@ -4,7 +4,7 @@ class ReplyController extends BaseController {
 
     public function __construct()
     {
-        $this->beforeFilter('csrf', ['on'=>'delete']);
+        $this->beforeFilter('csrf', ['on'=>['post', 'put', 'patch', 'delete']]);
         $this->beforeFilter('auth', []);
     }
 
