@@ -33,4 +33,9 @@ class Topic extends Eloquent {
     {
         return $query->orderBy('ranking', 'desc')->orderBy('created_at', 'desc');
     }
+
+    public function scopeSearch($query, $keyword)
+    {
+        return $query->where('title', 'LIKE', Str::matching($keyword))->popular()->paginate(16);
+    }
 }

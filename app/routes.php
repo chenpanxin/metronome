@@ -69,6 +69,8 @@ Route::get('reply/{id}/edit', 'ReplyController@edit');
 Route::put('reply/{id}', 'ReplyController@update');
 Route::delete('reply/{id}', 'ReplyController@destroy');
 
+Route::get('search', 'SearchController@index');
+Route::post('search', 'SearchController@store');
 
 
 
@@ -77,8 +79,7 @@ Route::delete('reply/{id}', 'ReplyController@destroy');
 //==>>
 
 Route::get('notification', 'NotificationController@index');
-Route::get('search', 'SearchController@index');
-Route::post('search', 'SearchController@store');
+
 Route::get('settings', 'UserController@notify');
 
 
@@ -99,11 +100,6 @@ Route::post('password/reset', 'ReminderController@postReset');
 Route::get('relationship', 'RelationshipController@show');
 Route::post('follow', 'RelationshipController@store');
 Route::post('unfollow', 'RelationshipController@destroy');
-
-
-
-
-
 
 Route::get('{username}', 'UserController@profileShow');
 

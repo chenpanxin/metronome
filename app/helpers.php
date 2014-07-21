@@ -80,3 +80,8 @@ Str::macro('calculateScore', function($count, $hour_age, $gravity = 1.8)
 {
     return ($count - 1) / pow(($hour_age + 2), $gravity);
 });
+
+Str::macro('matching', function($matcher)
+{
+    return join($matcher, ['%', '%']);
+});
