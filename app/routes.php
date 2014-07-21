@@ -64,11 +64,17 @@ Route::get('newest', 'TopicController@newest');
 Route::post('topic/{id}/like', 'LikeController@store');
 Route::delete('topic/{id}/unlike', 'LikeController@destroy');
 
-
-//==>>
-
+//dfsdfsdfgdg reply
 
 Route::post('topic/{id}', 'ReplyController@store');
+Route::get('reply/{id}/edit', 'ReplyController@edit');
+Route::put('reply/{id}', 'ReplyController@update');
+Route::delete('reply/{id}', 'ReplyController@destroy');
+
+
+
+
+//==>>
 
 Route::get('notification', 'NotificationController@index');
 Route::get('search', 'SearchController@index');
@@ -89,10 +95,7 @@ Route::post('password/remind', 'ReminderController@postRemind');
 Route::get('password/reset/{token}', 'ReminderController@getReset');
 Route::post('password/reset', 'ReminderController@postReset');
 
-// Route::get('{reply}/{id}', 'ReplyController@show');
-Route::put('reply/{id}', 'ReplyController@update');
-Route::get('reply/{id}/edit', 'ReplyController@edit');
-Route::delete('reply/{id}', 'ReplyController@destroy');
+
 
 Route::get('relationship', 'RelationshipController@show');
 Route::post('follow', 'RelationshipController@store');

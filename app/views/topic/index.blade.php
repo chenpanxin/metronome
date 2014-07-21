@@ -10,7 +10,7 @@
                 </li>
             @endforeach
         </ul>
-        <div class="pagination">{{ $topics->links() }}</div>
+        {{ $topics->links() }}
     </div>
     <div class="boxify">
         <div class="category selection">

@@ -13,12 +13,12 @@ class Pagination extends Presenter {
 
     public function getDisabledTextWrapper($text)
     {
-        return '<li class="nil"><span>'.$text.'</span></li>';
+        return '<li><span>'.$text.'</span></li>';
     }
 
     public function getActivePageWrapper($text)
     {
-        return '<li class="active"><span>'.$text.'</span></li>';
+        return '<li class="actived"><span>'.$text.'</span></li>';
     }
 
     public function render()
@@ -27,6 +27,6 @@ class Pagination extends Presenter {
             ? $this->getPageRange(1, $this->lastPage)
             : $this->getPageSlider();
 
-        return join($content, [$this->getPrevious('<i class="icon-nav-left"></i>'), $this->getNext('<i class="icon-nav-right"></i>')]);
+        return join($content, [$this->getPrevious('<span class="icon-prev"></span>'), $this->getNext('<span class="icon-next"></span>')]);
     }
 }

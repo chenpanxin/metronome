@@ -4,10 +4,8 @@ class ReplyController extends BaseController {
 
     public function __construct()
     {
-        $this->beforeFilter('auth');
-        $this->beforeFilter('csrf', [
-            'on' => 'post'
-        ]);
+        $this->beforeFilter('csrf', ['on'=>'delete']);
+        $this->beforeFilter('auth', []);
     }
 
     public function store($id)
@@ -36,16 +34,17 @@ class ReplyController extends BaseController {
                 'markup'   => $markup
             ]));
         }
+
         return Redirect::to('topic/'.$topic->id);
     }
 
     public function edit($id)
     {
         $reply = Reply::findOrFail($id);
-
         $reply->load('topic', 'topic.user');
 
         return View::make('reply.edit')
+            ->withTitle('sfsdf')
             ->withReply($reply);
     }
 

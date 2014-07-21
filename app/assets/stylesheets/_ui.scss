@@ -188,6 +188,26 @@ ul {
   }
 }
 
+.pagination {
+  border-top: 1px solid #e5e6e8;
+  text-align: center;
+  li {
+    display: inline-block;
+    color: rgba(#444, .404);
+    line-height: 40px;
+    a {
+      display: inline-block;
+      font-size: 16px;
+      color: rgba(#000, .5);
+      padding: 0 .5em;
+    }
+    > span {
+      display: inline-block;
+      padding: 0 .5em;
+    }
+  }
+}
+
 ::selection {
   text-shadow: none;
   background-color: #53575b;

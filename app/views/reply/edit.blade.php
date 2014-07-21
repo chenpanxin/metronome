@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="boxify">
-        @include('partials.notify')
+        @include('partial.flash')
         <div class="topic show">
             <div class="title"><span>{{ $reply->topic->title }}</span></div>
         </div>
