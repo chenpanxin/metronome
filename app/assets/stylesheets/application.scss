@@ -181,10 +181,12 @@ ul {
 }
 
 .user {
+  &.password,
   &.profile {
     &.edit {
       padding: 1em 1em;
-      input[type=text] {
+      input[type=text],
+      input[type=password] {
         margin-bottom: .5em;
       }
       textarea {

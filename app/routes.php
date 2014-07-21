@@ -24,24 +24,6 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Crayon\Layers'], function()
     Route::get('/tags', 'TagController@index');
 });
 
-
-
-Route::get('user', 'AliasController@users');
-Route::get('users', 'UserController@index');
-Route::get('user/new', 'AliasController@signup');
-Route::get('signup', 'UserController@create');
-Route::post('user/store', 'UserController@store');
-
-Route::get('{username}/topics', 'UserController@topics');
-Route::get('{username}/following', 'UserController@following');
-Route::get('{username}/followers', 'UserController@followers');
-
-Route::get('{username}/watching', 'UserController@watching');
-Route::get('{username}/likes', 'UserController@likes');
-Route::get('{username}/replies', 'UserController@replies');
-
-Route::get('user/verify/{token}', 'UserController@verify');
-
 //<==
 
 Route::get('/', 'TopicController@index');
@@ -75,35 +57,37 @@ Route::delete('logout', 'SessionController@destroy');
 Route::delete('session/destroy', 'SessionController@destroy');
 Route::get('logout', 'SessionController@logout');
 
+Route::get('signup', 'UserController@create');
+Route::get('user/new', 'AliasController@signup');
+Route::get('user', 'AliasController@users');
+Route::get('users', 'UserController@index');
+Route::post('user/store', 'UserController@store');
 
+Route::get('settings', 'AliasController@profile');
+Route::get('settings/profile', 'UserController@profileEdit');
+Route::put('settings/profile', 'UserController@profileUpdate');
+Route::patch('settings/avatar', 'UserController@avatarUpdate');
+Route::get('settings/password', 'UserController@edit');
+Route::patch('settings/password', 'UserController@update');
 
 
 //==>>
 
+Route::get('{username}/topics', 'UserController@topics');
+Route::get('{username}/following', 'UserController@following');
+Route::get('{username}/followers', 'UserController@followers');
 
+Route::get('{username}/watching', 'UserController@watching');
+Route::get('{username}/likes', 'UserController@likes');
+Route::get('{username}/replies', 'UserController@replies');
 
-
-
-
-
+Route::get('user/verify/{token}', 'UserController@verify');
 Route::get('notification', 'NotificationController@index');
-
-Route::get('settings', 'UserController@notify');
-
-
-Route::get('settings/profile', 'UserController@profileEdit');
-Route::put('settings/profile', 'UserController@profileUpdate');
-Route::post('settings/avatar', 'UserController@avatarStore');
-Route::get('settings/password', 'UserController@edit');
-Route::put('settings/password', 'UserController@update');
-Route::get('u/{username}/replies', 'UserController@show');
 
 Route::get('session/forgot_password', 'ReminderController@getRemind');
 Route::post('password/remind', 'ReminderController@postRemind');
 Route::get('password/reset/{token}', 'ReminderController@getReset');
 Route::post('password/reset', 'ReminderController@postReset');
-
-
 
 Route::get('relationship', 'RelationshipController@show');
 Route::post('follow', 'RelationshipController@store');

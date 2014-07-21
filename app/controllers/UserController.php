@@ -4,19 +4,25 @@ class UserController extends BaseController {
 
     public function __construct()
     {
-        $this->beforeFilter('csrf', ['on'=>'post']);
-        $this->beforeFilter('auth', ['only' => ['edit']]);
+        $this->beforeFilter('csrf', ['on'=>['post', 'put', 'patch', 'delete']]);
+        $this->beforeFilter('auth', ['only'=>['profileEdit', 'profileUpdate', 'avatarUpdate', 'edit', 'update']]);
     }
 
     public function index()
     {
-        return View::make('users.index')
-            ->withUsers(User::with('profile')->paginate(30));
+        return View::make('user.index')
+            ->withUsers(User::with('profile')->take(30))
+            ->withTitle(Lang::get('locale.top_30'));
     }
 
     public function create()
     {
-        return View::make('user.new');
+        if (Auth::check()) {
+            return Redirect::to('/');
+        }
+
+        return View::make('user.new')
+            ->withTitle(Lang::get('locale.signup'));
     }
 
     public function store()
@@ -37,6 +43,7 @@ class UserController extends BaseController {
             'username' => $username,
             'downcase' => strtolower($username)
         ]);
+
         $user->password = Hash::make(Input::get('password'));
         $user->avatar_url = Str::gravatarUrl($user->email);
 
@@ -44,6 +51,7 @@ class UserController extends BaseController {
             Auth::login($user);
             return Redirect::to('/');
         }
+
         return Redirect::to('signup');
     }
 
@@ -51,30 +59,35 @@ class UserController extends BaseController {
     {
         $user = User::whereUsername($username)->first() ?: User::whereDowncase(strtolower($username))->first();
 
-        if ($user) {
-
-            if (Input::get('tab') == 'activity') {
-                return View::make('user.profile.activity')
-                    ->withUser($user);
-            }
-
-            if (Input::get('tab') == 'topics') {
-                $user->load('topics');
-                return View::make('user.profile.topics')
-                    ->withUser($user);
-            }
-
-            $user->load('profile');
-            return View::make('user.profile.show')
-                ->withUser($user);
+        if (! $user) {
+            App::abort();
         }
-        App::abort();
+
+        if (Input::get('tab') == 'activity') {
+            return View::make('user.profile.activity')
+                ->withUser($user)
+                ->withTitle(Lang::get('locale.activity'));
+        }
+
+        if (Input::get('tab') == 'topics') {
+            $user->load('topics');
+            return View::make('user.profile.topics')
+                ->withUser($user)
+                ->withTitle(Lang::get('locale.topic'));
+        }
+
+        $user->load('profile');
+
+        return View::make('user.profile.show')
+            ->withUser($user)
+            ->withTitle($user->username);
     }
 
     public function profileEdit()
     {
         return View::make('user.profile.edit')
-            ->withUser(Auth::user()->load('profile'));
+            ->withUser(Auth::user()->load('profile'))
+            ->withTitle(Lang::get('locale.edit_profile'));
     }
 
     public function profileUpdate()
@@ -89,10 +102,11 @@ class UserController extends BaseController {
         ]);
 
         Session::flash('message', Lang::get('locale.profile_updated'));
+
         return Redirect::to('settings/profile');
     }
 
-    public function avatarStore()
+    public function avatarUpdate()
     {
         $validator = Validator::make(Input::all(), ['avatar'=>'mimes:jpeg,jpg,png,gif']);
 
@@ -113,7 +127,8 @@ class UserController extends BaseController {
 
     public function edit()
     {
-        return View::make('user.password.edit');
+        return View::make('user.password.edit')
+            ->withTitle(Lang::get('locale.change_password'));
     }
 
     public function update()
@@ -121,7 +136,7 @@ class UserController extends BaseController {
         $user = Auth::user();
 
         if (! Hash::check(Input::get('current_password'), $user->password)) {
-            Session::flash('msg', Lang::get('locale.old_pw_incorrect'));
+            Session::flash('message', Lang::get('locale.old_pw_incorrect'));
             return Redirect::to('settings/password');
         }
 
@@ -131,14 +146,15 @@ class UserController extends BaseController {
         ]);
 
         if ($validator->fails()) {
-            Session::flash('msg', $validator->messages()->first('password'));
+            Session::flash('message', $validator->messages()->first('password'));
             return Redirect::to('settings/password');
         }
 
         $user->password = Hash::make(Input::get('password'));
         $user->save();
 
-        Session::flash('msg', Lang::get('locale.password_updated'));
+        Session::flash('message', Lang::get('locale.password_updated'));
+
         return Redirect::to('settings/password');
     }
 
@@ -158,11 +174,6 @@ class UserController extends BaseController {
         $user->save();
 
         return Redirect::to('/');
-    }
-
-    public function notify()
-    {
-        return Redirect::to('settings/profile');
     }
 
     public function topics($username)

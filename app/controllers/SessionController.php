@@ -9,7 +9,12 @@ class SessionController extends BaseController {
 
     public function create()
     {
-        return View::make('session.new');
+        if (Auth::check()) {
+            return Redirect::to('/');
+        }
+
+        return View::make('session.new')
+            ->withTitle(Lang::get('locale.login'));
     }
 
     public function store()
@@ -38,7 +43,8 @@ class SessionController extends BaseController {
 
     public function logout()
     {
-        return View::make('session.destroy');
+        return View::make('session.destroy')
+            ->withTitle(Lang::get('locale.logout'));
     }
 
     private function params()

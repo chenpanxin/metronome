@@ -21,4 +21,9 @@ class AliasController extends BaseController {
     {
         return Redirect::to('login');
     }
+
+    public function profile()
+    {
+        return Redirect::to('settings/profile');
+    }
 }

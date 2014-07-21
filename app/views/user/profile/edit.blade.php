@@ -27,7 +27,7 @@
                         {{ HTML::image(Str::avatarUrl($user->email)) }}
                     @endif
                 </div>
-                {{ Form::open(['url'=>URL::to('settings/avatar'), 'files'=>true]) }}
+                {{ Form::open(['url'=>URL::to('settings/avatar'), 'method'=>'patch', 'files'=>true]) }}
                     {{ Form::file('avatar', ['class'=>'auto']) }}
                 {{ Form::close() }}
             </div>
