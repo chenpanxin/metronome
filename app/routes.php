@@ -24,11 +24,7 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Crayon\Layers'], function()
     Route::get('/tags', 'TagController@index');
 });
 
-Route::get('login', 'SessionController@create');
-Route::get('logout', 'SessionController@logout');
-Route::get('session/new', 'AliasController@login');
-Route::post('session/store', 'SessionController@store');
-Route::delete('logout', 'SessionController@destroy');
+
 
 Route::get('user', 'AliasController@users');
 Route::get('users', 'UserController@index');
@@ -72,11 +68,23 @@ Route::delete('reply/{id}', 'ReplyController@destroy');
 Route::get('search', 'SearchController@index');
 Route::post('search', 'SearchController@store');
 
+Route::get('login', 'SessionController@create');
+Route::get('session/new', 'AliasController@login');
+Route::post('session/store', 'SessionController@store');
+Route::delete('logout', 'SessionController@destroy');
+Route::delete('session/destroy', 'SessionController@destroy');
+Route::get('logout', 'SessionController@logout');
 
 
 
 
 //==>>
+
+
+
+
+
+
 
 Route::get('notification', 'NotificationController@index');
 

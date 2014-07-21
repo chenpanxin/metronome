@@ -4,9 +4,7 @@ class SessionController extends BaseController {
 
     public function __construct()
     {
-        $this->beforeFilter('csrf', [
-            'on' => 'post'
-        ]);
+        $this->beforeFilter('csrf', ['on'=>['post', 'put', 'patch', 'delete']]);
     }
 
     public function create()
@@ -16,7 +14,7 @@ class SessionController extends BaseController {
 
     public function store()
     {
-        $authenticator = str_contains(Input::get('account'), '@')
+        $authenticator = Str::contains(Input::get('account'), '@')
             ? array_only($this->params(), ['email', 'password'])
             : array_only($this->params(), ['username', 'password']);
 
@@ -25,6 +23,7 @@ class SessionController extends BaseController {
         }
 
         Session::flash('message', Lang::get('locale.auth_incorrect'));
+
         return Redirect::to('login');
     }
 
@@ -33,6 +32,7 @@ class SessionController extends BaseController {
         if (Auth::check()) {
             Auth::logout();
         }
+
         return Redirect::to('/');
     }
 
