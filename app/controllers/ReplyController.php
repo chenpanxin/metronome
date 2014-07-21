@@ -23,11 +23,13 @@ class ReplyController extends BaseController {
             $markdown = (new Crayon\Utils\At($content))->getContent();
             $markup = Sanitization::make(Markdown::make($markdown));
 
-            $reply = new Reply;
-            $reply->user_id = Auth::user()->id;
-            $reply->topic_id = $topic->id;
-            $reply->content = '';
-            $reply->save();
+            Eloquent::unguard();
+
+            $reply = Reply::create([
+                'user_id'  => Auth::user()->id,
+                'topic_id' => $topic->id,
+                'content'  => ''
+            ]);
 
             $reply->texts()->save(new Text([
                 'markdown' => $markdown,
@@ -41,16 +43,32 @@ class ReplyController extends BaseController {
     public function edit($id)
     {
         $reply = Reply::findOrFail($id);
+
+        if ($reply->user_id != Auth::user()->id) {
+            return Redirect::to('topic/'.$reply->topic_id);
+        }
+
         $reply->load('topic', 'topic.user');
+        $reply->content = $reply->texts()->first()->markdown;
 
         return View::make('reply.edit')
-            ->withTitle('sfsdf')
+            ->withTitle(Lang::get('locale.edit_reply'))
             ->withReply($reply);
     }
 
     public function update($id)
     {
         $reply = Reply::findOrFail($id);
+
+        if ($reply->user_id == Auth::user()->id) {
+            $markdown = (new Crayon\Utils\At(Input::get('content')))->getContent();
+            $markup = Sanitization::make(Markdown::make($markdown));
+
+            $text = $reply->texts()->first();
+            $text->markdown = $markdown;
+            $text->markup = $markup;
+            $text->save();
+        }
 
         return Redirect::back();
     }
@@ -62,6 +80,7 @@ class ReplyController extends BaseController {
         if (Auth::user()->id == $reply->user_id) {
             $reply->delete();
         }
+
         return Redirect::back();
     }
 }

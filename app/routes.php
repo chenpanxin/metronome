@@ -64,12 +64,12 @@ Route::get('newest', 'TopicController@newest');
 Route::post('topic/{id}/like', 'LikeController@store');
 Route::delete('topic/{id}/unlike', 'LikeController@destroy');
 
-//dfsdfsdfgdg reply
-
 Route::post('topic/{id}', 'ReplyController@store');
 Route::get('reply/{id}/edit', 'ReplyController@edit');
 Route::put('reply/{id}', 'ReplyController@update');
 Route::delete('reply/{id}', 'ReplyController@destroy');
+
+
 
 
 
@@ -88,7 +88,6 @@ Route::post('settings/avatar', 'UserController@avatarStore');
 Route::get('settings/password', 'UserController@edit');
 Route::put('settings/password', 'UserController@update');
 Route::get('u/{username}/replies', 'UserController@show');
-// Route::post('{reply}/store', 'ReplyController@store');
 
 Route::get('session/forgot_password', 'ReminderController@getRemind');
 Route::post('password/remind', 'ReminderController@postRemind');

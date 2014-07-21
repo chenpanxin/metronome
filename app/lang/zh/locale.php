@@ -81,4 +81,6 @@ return [
     'edit_topic'       => '编辑话题',
     'newest_topic'     => '最新话题',
 
+    'edit_reply'       => '编辑回复',
+
 ];

@@ -4,6 +4,7 @@
     <div class="boxify">
         @include('partial.flash')
         <div class="topic show">
+            <a href="{{ URL::to($reply->topic->user->username) }}" class="avatar s42">{{ HTML::image($reply->topic->user->avatar_url) }}</a>
             <div class="title"><span>{{ $reply->topic->title }}</span></div>
         </div>
         <div class="reply edit">
