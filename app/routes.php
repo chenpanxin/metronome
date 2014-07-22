@@ -4,7 +4,11 @@ Route::pattern('id', '[0-9]+');
 Route::pattern('username', '[A-Z0-9a-z-_]+');
 Route::pattern('not_found', '404(\.html)?');
 
-Route::group(['domain'=>'api.nhn.io', 'prefix'=>'v1', 'namespace'=>'y'], function()
+Route::group([
+    'domain'    => Config::get('website.api_url'),
+    'prefix'    => Config::get('website.api_version'),
+    'namespace' => 'Crayon\APIs'
+], function()
 {
     Route::get('users', 'UserController@index');
 });
@@ -23,8 +27,6 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Crayon\Layers'], function()
     Route::get('/users', 'UserController@index');
     Route::get('/tags', 'TagController@index');
 });
-
-//<==
 
 Route::get('/', 'TopicController@index');
 Route::get('topic', 'AliasController@index');
@@ -62,6 +64,7 @@ Route::get('user/new', 'AliasController@signup');
 Route::get('user', 'AliasController@users');
 Route::get('users', 'UserController@index');
 Route::post('user/store', 'UserController@store');
+Route::get('user/verify/{token}', 'UserController@verify');
 
 Route::get('settings', 'AliasController@profile');
 Route::get('settings/profile', 'UserController@profileEdit');
@@ -70,43 +73,39 @@ Route::patch('settings/avatar', 'UserController@avatarUpdate');
 Route::get('settings/password', 'UserController@edit');
 Route::patch('settings/password', 'UserController@update');
 
-
-//==>>
-
+Route::get('{username}/likes', 'UserController@likes');
 Route::get('{username}/topics', 'UserController@topics');
+Route::get('{username}/replies', 'UserController@replies');
 Route::get('{username}/following', 'UserController@following');
 Route::get('{username}/followers', 'UserController@followers');
-
 Route::get('{username}/watching', 'UserController@watching');
-Route::get('{username}/likes', 'UserController@likes');
-Route::get('{username}/replies', 'UserController@replies');
 
-Route::get('user/verify/{token}', 'UserController@verify');
-Route::get('notification', 'NotificationController@index');
-
-Route::get('session/forgot_password', 'ReminderController@getRemind');
+Route::get('forgot_password', 'ReminderController@getRemind');
 Route::post('password/remind', 'ReminderController@postRemind');
 Route::get('password/reset/{token}', 'ReminderController@getReset');
 Route::post('password/reset', 'ReminderController@postReset');
 
-Route::get('relationship', 'RelationshipController@show');
+Route::get('notification', 'NotificationController@index');
+
 Route::post('follow', 'RelationshipController@store');
-Route::post('unfollow', 'RelationshipController@destroy');
+Route::delete('unfollow', 'RelationshipController@destroy');
+Route::get('relationship', 'RelationshipController@show');
 
 Route::get('{username}', 'UserController@profileShow');
-
-Route::get('score/{id}', function($id)
-{
-    // $topic = Topic::find($id);
-    // $hour_age = $topic->updated_at->diffInHours($topic->created_at);
-    // return Str::calculateScore(10, $hour_age);
-    // return $hour_age;
-});
 
 Event::listen('illuminate.query', function($query)
 {
     Log::info($query);
 });
 
-// Route::pattern('hash', '[a-z0-9]{32}');
-// Route::pattern('slug', '[a-z0-9-]+');
+
+
+//==>>
+
+// Route::get('score/{id}', function($id)
+// {
+//     $topic = Topic::find($id);
+//     $hour_age = $topic->updated_at->diffInHours($topic->created_at);
+//     return Str::calculateScore(10, $hour_age);
+//     return $hour_age;
+// });

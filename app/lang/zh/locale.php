@@ -26,7 +26,7 @@ return [
     'followers'        => '关注',
     'following'        => '粉丝',
     'topic'            => '主题',
-    'reset_password'   => '重置密码',
+    'reset_password'   => '重设密码',
     'user_info'        => '个人信息',
     'user_topic'       => '发布的话题',
     'discuss'          => '讨论',
@@ -59,6 +59,7 @@ return [
     'user_number'      => '第 :number 号会员',
     'write_comment'    => '评论在这里...',
     'create_category'  => '创建分类',
+    'forgot_password'  => '忘记密码',
 
     'name'             => '名称',
     'slug'             => '标示符',
@@ -76,6 +77,7 @@ return [
     'me'               => '我的',
     'tag'              => '标签',
     'notify'           => '通知',
+    'submit'           => '提交',
 
     'popular_topic'    => '热门话题',
     'create_topic'     => '创建话题',

@@ -161,14 +161,12 @@ class UserController extends BaseController {
     public function verify($token)
     {
         $profile = Profile::whereVerifyToken($token)->first();
-        if (! $profile) {
-            App::abort(404);
-        }
+
+        if (is_null($profile)) App::abort(404);
 
         $user = $profile->user;
-        if ($user->verify) {
-            App::abort(400);
-        }
+
+        if ($user->verify) App::abort(400);
 
         $user->verify = true;
         $user->save();
@@ -176,10 +174,21 @@ class UserController extends BaseController {
         return Redirect::to('/');
     }
 
+    public function likes($username)
+    {
+        return View::make('user.likes')
+            ->withUser(Auth::user())
+            ->withTitle(Lang::get('locale.likes'));
+    }
+
     public function topics($username)
     {
+        $user = Auth::user();
+
+        $user->load('topics');
+
         return View::make('user.topics')
-            ->withUser(Auth::user())
+            ->withUser($user)
             ->withTitle(Lang::get('locale.topic'));
     }
 
@@ -217,12 +226,5 @@ class UserController extends BaseController {
         return View::make('user.watching')
             ->withUser(Auth::user())
             ->withTitle(Lang::get('locale.watching'));
-    }
-
-    public function likes($username)
-    {
-        return View::make('user.likes')
-            ->withUser(Auth::user())
-            ->withTitle(Lang::get('locale.likes'));
     }
 }

@@ -4,17 +4,13 @@ class RelationshipController extends BaseController {
 
     public function __construct()
     {
-        $this->beforeFilter(function()
-        {
-            if (Auth::guest()) {
-                return Response::json(['msg'=>'login_required', 'code'=>'94401']);
-            }
-        });
+
     }
 
     public function show()
     {
         $followed = User::whereUsername(Input::get('target'))->first();
+
         if ($followed and Relationship::whereFollowedId($followed->id)
             ->whereFollowerId(Auth::user()->id)
             ->first()) {
@@ -33,6 +29,7 @@ class RelationshipController extends BaseController {
                 'followed_id' => $followed->id,
                 'follower_id' => $follower->id
             ]);
+
             return Response::json(['msg'=>Lang::get('locale.unfollow'), 'code'=>'94200']);
         }
         return Response::json(['msg'=>'failed', 'code'=>'94400']);

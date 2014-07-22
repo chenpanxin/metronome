@@ -195,6 +195,12 @@ ul {
       }
     }
   }
+  &.forgot {
+    padding: 1em 1em;
+    input[type=text] {
+      margin-bottom: .5em;
+    }
+  }
   &.show {
     padding: 1em 1em;
     color: rgba(#000, .5);

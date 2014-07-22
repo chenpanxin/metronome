@@ -9,6 +9,8 @@ return array(
     'description'  => 'website description',
     'copyright'    => 'website copyright',
     'announcement' => 'website announcement',
+    'api_url'      => 'api.nhn.io',
+    'api_version'  => 'v1',
     'owners'       => array(),
     'promos'       => array(),
     'links'        => array(),
