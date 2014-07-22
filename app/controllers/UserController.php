@@ -179,54 +179,50 @@ class UserController extends BaseController {
     public function topics($username)
     {
         return View::make('user.topics')
-            ->withUser(Auth::user());
+            ->withUser(Auth::user())
+            ->withTitle(Lang::get('locale.topic'));
     }
 
     public function replies($username)
     {
         return View::make('user.replies')
-            ->withUser(Auth::user());
+            ->withUser(Auth::user())
+            ->withTitle(Lang::get('locale.reply'));
     }
 
     public function following($username)
     {
-        $user = User::with('following')->whereUsername($username)->first();
-        if ($user) {
-            return View::make('user.following')
-                ->withUser($user);
+        if (! $user = User::with('following')->whereUsername($username)->first()) {
+            App::abort();
         }
-        App::abort();
+
+        return View::make('user.following')
+                ->withUser($user)
+                ->withTitle(Lang::get('locale.following'));
     }
 
     public function followers($username)
     {
-        $user = User::with('followers')->whereUsername($username)->first();
-        if ($user) {
-            return View::make('user.followers')
-                ->withUser($user);
+        if (! $user = User::with('followers')->whereUsername($username)->first()) {
+            App::abort();
         }
-        App::abort();
-    }
 
-    public function activity($username)
-    {
-        $user = User::whereUsername($username)->first();
-        if ($user) {
-            return View::make('user.activity')
-                ->withUser($user);
-        }
-        App::abort();
+        return View::make('user.followers')
+                ->withUser($user)
+                ->withTitle(Lang::get('locale.followers'));
     }
 
     public function watching($username)
     {
         return View::make('user.watching')
-            ->withUser(Auth::user());
+            ->withUser(Auth::user())
+            ->withTitle(Lang::get('locale.watching'));
     }
 
     public function likes($username)
     {
         return View::make('user.likes')
-            ->withUser(Auth::user());
+            ->withUser(Auth::user())
+            ->withTitle(Lang::get('locale.likes'));
     }
 }

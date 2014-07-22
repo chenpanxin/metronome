@@ -75,6 +75,7 @@ return [
     'likes'            => '赞过的',
     'me'               => '我的',
     'tag'              => '标签',
+    'notify'           => '通知',
 
     'popular_topic'    => '热门话题',
     'create_topic'     => '创建话题',

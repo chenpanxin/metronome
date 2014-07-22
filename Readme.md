@@ -45,18 +45,38 @@ php artisan serve
     </tr>
     <tr>
         <td>Backgound Jobs</td>
-        <td></td>
+        <td>Redis</td>
         <td>Redis</td>
     </tr>
     <tr>
         <td>Cache</td>
-        <td></td>
+        <td>File</td>
         <td>Memcached</td>
     </tr>
     <tr>
         <td>E-Mail</td>
         <td>SMTP</td>
         <td>SMTP</td>
+    </tr>
+    <tr>
+        <td>CSS Framework</td>
+        <td>No</td>
+        <td>Bootstrap</td>
+    </tr>
+    <tr>
+        <td>CoffeeScript</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>Turbolinks</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>jQuery uJS</td>
+        <td>Yes</td>
+        <td>Yes</td>
     </tr>
     <tr>
         <td>Best Deploy Environment</td>

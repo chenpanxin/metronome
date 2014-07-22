@@ -16,7 +16,7 @@ class CreateTopicsTable extends Migration {
             $table->boolean('frozen')->default(false);
             $table->float('ranking')->default('0.0');
             $table->string('title');
-            $table->text('body');
+            $table->text('body')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
