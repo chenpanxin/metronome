@@ -26,11 +26,11 @@
     },
     "require": {
         "php": ">=5.4.3",
-        "menglr/component": "v1.0",
+        "menglr/pkgjs": "1.1",
         "erusev/parsedown": "1.0.1",
         "laravel/framework": "4.2.0",
         "intervention/image": "2.0.5",
-        "ezyang/htmlpurifier": "v4.6.0"
+        "ezyang/htmlpurifier": "4.6.0"
     },
     "require-dev": {
         "mockery/mockery": "0.9.1",

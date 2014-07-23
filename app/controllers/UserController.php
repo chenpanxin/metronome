@@ -69,7 +69,7 @@ class UserController extends BaseController {
                 ->withTitle(Lang::get('locale.activity'));
         }
 
-        if (Input::get('tab') == 'topics') {
+        if (Input::get('tab') == 'topic') {
             $user->load('topics');
             return View::make('user.profile.topics')
                 ->withUser($user)

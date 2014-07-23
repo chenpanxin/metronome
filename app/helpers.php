@@ -22,7 +22,7 @@ HTML::macro('replies', function($user)
 
 HTML::macro('topics', function($user)
 {
-    return link_to(join('?', [$user->username, 'tab=topics']), trans('locale.topic'));
+    return link_to(join('?', [$user->username, 'tab=topic']), trans('locale.topic'));
 });
 
 HTML::macro('authTopics', function($user)
