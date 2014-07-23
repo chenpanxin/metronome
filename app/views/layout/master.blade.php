@@ -11,11 +11,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title or 'Hello, Laravel.' }}</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="http://ricostacruz.com/nprogress/nprogress.css">
     {{ HTML::style('assets/application.css') }}
     <script src="http://remote.qiniudn.com/jquery.js"></script>
     <script src="http://remote.qiniudn.com/u.js"></script>
-    <script src="http://ricostacruz.com/nprogress/nprogress.js"></script>
     <script src="http://remote.qiniudn.com/turbolinks.js"></script>
     {{ HTML::script('assets/application.js') }}
 </head>
@@ -28,6 +26,7 @@
         </div>
         <div class="tab right">@include('partial.navtab')</div>
     </div>
+    <div class="spinner"></div>
 </div>
 <div class="master">
     <div class="inner w560">
@@ -35,9 +34,15 @@
     </div>
 </div>
 <script>
-    // $(document).on('page:fetch',   function() { NProgress.start(); });
-    // $(document).on('page:change',  function() { NProgress.done(); });
-    // $(document).on('page:restore', function() { NProgress.remove(); });
+    $(document).on('page:fetch', function(){
+        $('.spinner').fadeIn();
+    });
+    $(document).on('page:change', function(){
+        $('.spinner').fadeOut();
+    });
+    $(document).on('page:restore', function(){
+        $('.spinner').hide();
+    });
 </script>
 </body>
 </html>

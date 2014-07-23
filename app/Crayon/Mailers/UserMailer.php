@@ -13,7 +13,7 @@ class UserMailer extends Mailer {
 
     public function welcome()
     {
-        $this->view = 'emails.welcome';
+        $this->view = 'email.welcome';
         $this->subject = 'Welcome!';
         return $this;
     }

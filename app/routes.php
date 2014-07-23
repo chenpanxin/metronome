@@ -95,7 +95,7 @@ Route::get('{username}', 'UserController@profileShow');
 
 Event::listen('illuminate.query', function($query)
 {
-    Log::info($query);
+
 });
 
 
@@ -109,3 +109,20 @@ Event::listen('illuminate.query', function($query)
 //     return Str::calculateScore(10, $hour_age);
 //     return $hour_age;
 // });
+
+Route::get('q/q', function()
+{
+    $user = User::find(1);
+
+    Queue::push(function($job) use ($user)
+    {
+        Mail::send('email.welcome', $data = [], function($message)
+        {
+            $message->from('hello@nhn.me', 'menglr');
+            $message->to('menglr@live.com');
+            $message->subject('Welcome!');
+        });
+
+        $job->delete();
+    });
+});

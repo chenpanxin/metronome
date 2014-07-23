@@ -32,6 +32,30 @@
           transition: $var;
 }
 
+@mixin transform($var...) {
+  -webkit-transform: $var;
+     -moz-transform: $var;
+      -ms-transform: $var;
+       -o-transform: $var;
+          transform: $var;
+}
+
+@mixin animation($var...) {
+  -webkit-animation: $var;
+     -moz-animation: $var;
+      -ms-animation: $var;
+       -o-animation: $var;
+          animation: $var;
+}
+
+@mixin keyframes($class) {
+  @-webkit-keyframes $class { @content }
+  @-moz-keyframes $class { @content }
+  @-ms-keyframes $class { @content }
+  @-o-keyframes $class { @content }
+  @keyframes $class { @content }
+}
+
 @mixin white-space() {
   white-space: -moz-pre-wrap;
   white-space: -o-pre-wrap;

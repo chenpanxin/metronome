@@ -10,9 +10,11 @@ abstract class Mailer {
 
     public function deliver()
     {
-        Mail::send($this->view, $data = [], function($message)
+        Mail::queue($this->view, $data = [], function($message)
         {
-            $message->to('ruby@ampou.com')->subject('Welcome!');
+            $message->from('hello@nhn.me', 'menglr');
+            $message->to('menglr@live.com');
+            $message->subject('Welcome!');
         });
     }
 }

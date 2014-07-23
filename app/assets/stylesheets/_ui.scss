@@ -213,21 +213,3 @@ ul {
   background-color: #53575b;
   color: white;
 }
-
-/**
- * NProgress.css
- */
-
-#nprogress {
-  &.bar {
-    background-color: #e7e8e9;
-  }
-  &.peg {
-
-  }
-  &.spinner-icon {
-    border: 2px solid transparent;
-    border-top-color: #bbb;
-    border-left-color: #bbb;
-  }
-}
