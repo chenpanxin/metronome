@@ -8,4 +8,6 @@ return [
 
     'locale' => 'zh',
 
+    'timezone' => 'Asia/Shanghai',
+
 ];

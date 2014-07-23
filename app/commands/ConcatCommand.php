@@ -50,8 +50,6 @@ class ConcatCommand extends Command {
         }
 
         file_put_contents(public_path().'/assets/application.js', $content);
-
-        $this->info('.....');
     }
 
     private function javascriptsPath()
