@@ -117,6 +117,7 @@ ul {
 }
 
 .dropdown {
+  display: none;
   position: absolute;
   top: 50px;
   right: 0;
@@ -161,6 +162,9 @@ ul {
     &:last-child {
       border-top: 1px solid #ebebeb;
     }
+  }
+  &.open {
+    display: inline-block;
   }
 }
 

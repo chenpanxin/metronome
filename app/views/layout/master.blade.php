@@ -33,16 +33,5 @@
         @yield('main')
     </div>
 </div>
-<script>
-    $(document).on('page:fetch', function(){
-        $('.spinner').fadeIn();
-    });
-    $(document).on('page:change', function(){
-        $('.spinner').fadeOut();
-    });
-    $(document).on('page:restore', function(){
-        $('.spinner').hide();
-    });
-</script>
 </body>
 </html>
