@@ -12,16 +12,10 @@ namespace :build do
       puts Rainbow('Failed').red
     end
   end
+
   desc 'Uglify'
   task :uglify do
     File.write(File.dirname(__FILE__) + '/public/assets/application.js', Uglifier.compile(File.read('public/assets/application.js')))
-  end
-  desc 'Component'
-  task :component do
-  end
-  desc 'Test'
-  task :test do
-    system('./vendor/bin/phpunit')
   end
 end
 

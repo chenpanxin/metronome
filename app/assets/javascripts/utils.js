@@ -32,6 +32,16 @@ $(document).on('page:fetch', function(){
 $(document).on('page:change', function(){
     $('.spinner').fadeOut();
     $('.user-opt').dropdown();
+    $('form>input.auto[type=file]').change(function(){
+        $(this).parent('form').submit();
+    });
+    $('.category.selection>a').click(function(e){
+        var categoryId = $(this).data('categoryId');
+        if (categoryId) {
+            e.preventDefault();
+            $('form>input#category').val(categoryId);
+        };
+    });
 });
 
 $(document).on('page:restore', function(){
