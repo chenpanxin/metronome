@@ -65,6 +65,11 @@ HTML::macro('admin', function()
     return link_to('admin', trans('locale.topic'));
 });
 
+HTML::macro('replyTheTopic', function(Topic $topic)
+{
+    return join(' ', [trans('locale.reply'), link_to('topic/'.$topic->id, $topic->title)]);
+});
+
 Str::macro('avatarUrl', function($email = null)
 {
     return $email ? URL::to(join('/', ['avatars', join('', [md5($email), 's512.jpg'])])) : '/assets/avatar.jpg';

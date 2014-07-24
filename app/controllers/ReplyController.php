@@ -37,6 +37,9 @@ class ReplyController extends BaseController {
             ]));
         }
 
+        $activity = new Crayon\Models\Activity;
+        $activity->touch($topic)->reply();
+
         return Redirect::to('topic/'.$topic->id);
     }
 
