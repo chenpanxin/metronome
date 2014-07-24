@@ -218,6 +218,20 @@ ul {
       width: 100%;
     }
   }
+  &.activity {
+    padding: 1em 0;
+    p {
+      margin: 0;
+      padding: .5em 1em;
+      color: rgba(#000, .5);
+      a {
+        color: rgba(#2d92c9, .94);
+      }
+      .date {
+        float: right;
+      }
+    }
+  }
 }
 
 .session {

@@ -65,9 +65,14 @@ HTML::macro('admin', function()
     return link_to('admin', trans('locale.topic'));
 });
 
-HTML::macro('replyTheTopic', function(Topic $topic)
+HTML::macro('replyEvent', function(Topic $topic)
 {
     return join(' ', [trans('locale.reply'), link_to('topic/'.$topic->id, $topic->title)]);
+});
+
+HTML::macro('newTopicEvent', function(Topic $topic)
+{
+    return join(' ', [trans('locale.new_topic'), link_to('topic/'.$topic->id, $topic->title)]);
 });
 
 Str::macro('avatarUrl', function($email = null)

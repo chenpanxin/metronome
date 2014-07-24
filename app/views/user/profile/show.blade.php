@@ -11,27 +11,40 @@
                 <li>{{ HTML::following($user) }}</li>
             </ul>
         </div>
-        <div class="user show">
-
-
-
-<!--             <div class="avatar-not-square">
-                {{ HTML::image(str_replace('_s56', '', $user->avatar_url)) }}
-            </div> -->
-            <div class="user-account">
-                <p><span>{{ Lang::get('locale.username') }}</span>{{ $user->username }}</p>
-            </div>
-            <div class="user-profile">
-                <p><span>{{ Lang::get('locale.nickname') }}</span>{{ $user->profile->nickname }}</p>
-                <p><span>{{ Lang::get('locale.location') }}</span>{{ $user->profile->location }}</p>
-                <p><span>{{ Lang::get('locale.school') }}</span>{{ $user->profile->school }}</p>
-                <p><span>{{ Lang::get('locale.website') }}</span>{{ $user->profile->website }}</p>
-                @unless ($user->profile->contact_email == '')
-                <p><span>{{ Lang::get('locale.contact_email') }}</span>{{ HTML::mailto($user->profile->contact_email) }}</p>
-                @endunless
-                <p><span>{{ Lang::get('locale.biography') }}</span>{{ $user->profile->biography }}</p>
-                <p><span>{{ Lang::get('locale.signup_date') }}</span>{{ $user->created_at->toFormattedDateString() }} ( {{ Lang::get('locale.user_number', ['number'=>$user->id]) }} )</p>
-            </div>
+        <div class="user profile show">
+            <p>
+                {{ Lang::get('locale.username') }}
+                {{ $user->username }}
+            </p>
+            <p>
+                {{ Lang::get('locale.nickname') }}
+                {{ $user->profile->nickname }}
+            </p>
+            <p>
+                {{ Lang::get('locale.location') }}
+                {{ $user->profile->location }}
+            </p>
+            <p>
+                {{ Lang::get('locale.school') }}
+                {{ $user->profile->school }}
+            </p>
+            <p>
+                {{ Lang::get('locale.website') }}
+                {{ $user->profile->website }}
+            </p>
+            <p>
+                {{ Lang::get('locale.contact_email') }}
+                {{ HTML::mailto($user->profile->contact_email) }}
+            </p>
+            <p>
+                {{ Lang::get('locale.biography') }}
+                {{ $user->profile->biography }}
+            </p>
+            <p>
+                {{ Lang::get('locale.signup_date') }}
+                {{ $user->created_at->toFormattedDateString() }}
+                {{ Lang::get('locale.user_number', ['number'=>$user->id]) }}
+            </p>
         </div>
     </div>
 @stop

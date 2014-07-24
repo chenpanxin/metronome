@@ -82,6 +82,9 @@ class TopicController extends BaseController {
         Auth::user()->topics()->save($topic);
         $topic->texts()->save($text);
 
+        $activity = new Crayon\Repositories\ActivityRepository;
+        $activity->touch($topic)->newTopicEvent();
+
         return Redirect::to('/');
     }
 

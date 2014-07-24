@@ -64,6 +64,7 @@ class UserController extends BaseController {
         }
 
         if (Input::get('tab') == 'activity') {
+            $user->load('events');
             return View::make('user.profile.activity')
                 ->withUser($user)
                 ->withTitle(Lang::get('locale.activity'));
