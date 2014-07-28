@@ -41,7 +41,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->email;
     }
 
-    public function notStaff()
+    public function normalUser()
     {
         return ! $this->staff;
     }

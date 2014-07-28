@@ -61,7 +61,7 @@ Route::filter('auth', function()
 
 Route::filter('staff', function()
 {
-    // if (Auth::guest() or Auth::user()->notStaff()) return Redirect::to('/');
+    if (Auth::guest() or Auth::user()->normalUser()) return Redirect::to('/');
 });
 
 

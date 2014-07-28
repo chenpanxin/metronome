@@ -1,6 +1,5 @@
 <?php namespace Metronome\Layers;
 
-use BaseController;
 use View;
 use User;
 
