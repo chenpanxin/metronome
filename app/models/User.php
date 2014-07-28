@@ -80,4 +80,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     {
         return $this->hasMany('Metronome\Models\Event');
     }
+
+    public function scopeNormal($query)
+    {
+        return $query->whereStaff(false)->orderBy('id', 'desc');
+    }
 }

@@ -27,8 +27,9 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Metronome\Layers'], function()
     Route::get('category/{id}/edit', 'CategoryController@edit');
     Route::put('category/{id}', 'CategoryController@update');
     Route::delete('category/{id}', 'CategoryController@destroy');
-    Route::get('/users', 'UserController@index');
-    Route::get('/tags', 'TagController@index');
+    Route::get('users', 'UserController@index');
+    Route::get('user/{id}', 'UserController@show');
+    Route::get('tags', 'TagController@index');
 });
 
 Route::get('/', 'TopicController@index');
