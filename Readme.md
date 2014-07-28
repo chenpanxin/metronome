@@ -7,10 +7,12 @@ Inspired by Campo Project.
 ## Installation
 
 ```zsh
-git clone https://github.com/Ampou/Application.git
-./setup.sh
-php artisan serve
+git clone https://github.com/mmruby/crayon.git && cd crayon
+
+sudo ./setup.sh
 ```
+
+You can run `php -S 0.0.0.0:8000 -t public` or `php artisan serve`, then visit [http://0.0.0.0:8000](http://0.0.0.0:8000/).
 
 ## vs. Campo
 
