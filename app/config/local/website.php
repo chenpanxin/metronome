@@ -1,10 +1,12 @@
 <?php
 
-return array(
-    'logo'        => 'Busker',
+return [
+
+    'logo'        => 'Metronome',
     'version'     => 'beta',
-    'title'       => 'Busker',
-    'keywords'    => 'Busker',
-    'description' => 'Busker',
-    'copyright'   => '© 2014 Busker · All rights reserved.',
-);
+    'title'       => 'Metronome',
+    'keywords'    => 'Metronome',
+    'description' => 'Metronome',
+    'copyright'   => '© 2014 Metronome · All rights reserved.',
+
+];

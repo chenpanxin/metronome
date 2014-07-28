@@ -7,13 +7,13 @@ Route::pattern('not_found', '404(\.html)?');
 Route::group([
     'domain'    => Config::get('website.api_url'),
     'prefix'    => Config::get('website.api_version'),
-    'namespace' => 'Crayon\APIs'
+    'namespace' => 'Metronome\APIs'
 ], function()
 {
     Route::get('users', 'UserController@index');
 });
 
-Route::group(['prefix'=>'admin', 'namespace'=>'Crayon\Layers'], function()
+Route::group(['prefix'=>'admin', 'namespace'=>'Metronome\Layers'], function()
 {
     Route::get('/', 'TopicController@index');
     Route::get('topic/{id}/edit', 'TopicController@edit');

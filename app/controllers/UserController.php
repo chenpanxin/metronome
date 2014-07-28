@@ -30,7 +30,7 @@ class UserController extends BaseController {
         $email = strtolower(Input::get('email'));
         $username = Input::get('username');
 
-        $validator = new Crayon\Validators\UserValidator(array_merge(Input::all(), ['email'=>$email]));
+        $validator = new Metronome\Validators\UserValidator(array_merge(Input::all(), ['email'=>$email]));
 
         if ($validator->fails()) {
             Session::flash('message', $validator->messages()->first());
@@ -117,7 +117,7 @@ class UserController extends BaseController {
 
         $user = Auth::user();
 
-        $avatar = new Crayon\Utils\Avatar(Input::file('avatar'));
+        $avatar = new Metronome\Utils\Avatar(Input::file('avatar'));
         $avatar->touch($user->email)->save();
 
         $user->avatar_url = URL::to(join('/', ['avatars', md5($user->email).'s92.jpg']));

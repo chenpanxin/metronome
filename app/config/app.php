@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
     |
     */
 
-    'providers' => array(
+    'providers' => [
 
         'Illuminate\Foundation\Providers\ArtisanServiceProvider',
         'Illuminate\Auth\AuthServiceProvider',
@@ -109,10 +109,10 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Intervention\Image\ImageServiceProvider',
-        'Crayon\Providers\SanitizationServiceProvider',
-        'Crayon\Providers\MarkdownServiceProvider',
+        'Metronome\Providers\SanitizationServiceProvider',
+        'Metronome\Providers\MarkdownServiceProvider',
 
-    ),
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -138,7 +138,7 @@ return array(
     |
     */
 
-    'aliases' => array(
+    'aliases' => [
 
         'App'             => 'Illuminate\Support\Facades\App',
         'Artisan'         => 'Illuminate\Support\Facades\Artisan',
@@ -178,9 +178,9 @@ return array(
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
         'Image'           => 'Intervention\Image\Facades\Image',
-        'Sanitization'    => 'Crayon\Facades\Sanitization',
-        'Markdown'        => 'Crayon\Facades\Markdown',
+        'Sanitization'    => 'Metronome\Facades\Sanitization',
+        'Markdown'        => 'Metronome\Facades\Markdown',
 
-    ),
+    ],
 
-);
+];

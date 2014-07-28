@@ -1,4 +1,4 @@
-# Crayon
+# Metronome
 
 A Simple Forum using Laravel Framework.
 
@@ -8,10 +8,7 @@ Inspired by Campo Project.
 
 ```zsh
 git clone https://github.com/Ampou/Application.git
-cd Application
-composer install
-bundle install
-rake build:sass
+./setup.sh
 php artisan serve
 ```
 
@@ -20,7 +17,7 @@ php artisan serve
 <table>
     <tr>
         <th></th>
-        <th>Crayon Project</th>
+        <th>Metronome Project</th>
         <th>Campo Project</th>
     </tr>
     <tr>

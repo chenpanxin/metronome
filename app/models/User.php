@@ -78,6 +78,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function events()
     {
-        return $this->hasMany('Crayon\Models\Event');
+        return $this->hasMany('Metronome\Models\Event');
     }
 }

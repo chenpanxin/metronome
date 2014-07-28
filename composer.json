@@ -1,10 +1,10 @@
 {
-    "name": "kr/application",
+    "name": "menglr/metronome",
     "license": "MIT",
     "authors": [
         {
-            "name": "Merblr",
-            "email": "merblr@live.com"
+            "name": "menglr",
+            "email": "menglr@live.com"
         }
     ],
     "minimum-stability": "dev",
@@ -18,10 +18,10 @@
             "app/tests/TestCase.php"
         ],
         "psr-4": {
-            "Crayon\\": "app/Crayon"
+            "Metronome\\": "app/Metronome"
         },
         "files": [
-            "app/Crayon/Utils/turbolinks.php"
+            "app/Metronome/Utils/turbolinks.php"
         ]
     },
     "require": {

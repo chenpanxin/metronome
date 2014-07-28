@@ -1,6 +1,7 @@
 <?php
 
-return array(
+return [
+
     'logo'         => 'website logo',
     'version'      => 'website version',
     'author'       => 'website author',
@@ -14,4 +15,5 @@ return array(
     'owners'       => array(),
     'promos'       => array(),
     'links'        => array(),
-);
+
+];

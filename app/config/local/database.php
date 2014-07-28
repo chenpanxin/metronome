@@ -11,4 +11,5 @@ return [
             'database' => __DIR__.'/../../database/development.sqlite',
         ],
     ],
+
 ];

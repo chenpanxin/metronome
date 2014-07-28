@@ -60,7 +60,7 @@ class TopicController extends BaseController {
 
     public function store()
     {
-        $validator = new Crayon\Validators\TopicValidator;
+        $validator = new Metronome\Validators\TopicValidator;
 
         if ($validator->fails()) {
             Session::flash('message', $validator->messages()->first());
@@ -82,7 +82,7 @@ class TopicController extends BaseController {
         Auth::user()->topics()->save($topic);
         $topic->texts()->save($text);
 
-        $activity = new Crayon\Repositories\ActivityRepository;
+        $activity = new Metronome\Repositories\ActivityRepository;
         $activity->touch($topic)->newTopicEvent();
 
         return Redirect::to('/');
@@ -103,7 +103,7 @@ class TopicController extends BaseController {
     {
         $topic = Topic::findOrFail($id);
 
-        $validator = new Crayon\Validators\TopicValidator;
+        $validator = new Metronome\Validators\TopicValidator;
 
         if ($validator->fails()) {
             Session::flash('message', $validator->messages()->first());

@@ -20,7 +20,7 @@ class ReplyController extends BaseController {
         );
 
         if ($validator->passes()) {
-            $markdown = (new Crayon\Utils\At($content))->getContent();
+            $markdown = (new Metronome\Utils\At($content))->getContent();
             $markup = Sanitization::make(Markdown::make($markdown));
 
             Eloquent::unguard();
@@ -37,7 +37,7 @@ class ReplyController extends BaseController {
             ]));
         }
 
-        $activity = new Crayon\Repositories\ActivityRepository;
+        $activity = new Metronome\Repositories\ActivityRepository;
         $activity->touch($topic)->replyEvent();
 
         return Redirect::to('topic/'.$topic->id);
@@ -64,7 +64,7 @@ class ReplyController extends BaseController {
         $reply = Reply::findOrFail($id);
 
         if ($reply->user_id == Auth::user()->id) {
-            $markdown = (new Crayon\Utils\At(Input::get('content')))->getContent();
+            $markdown = (new Metronome\Utils\At(Input::get('content')))->getContent();
             $markup = Sanitization::make(Markdown::make($markdown));
 
             $text = $reply->texts()->first();
