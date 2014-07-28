@@ -11,6 +11,9 @@ Route::group([
 ], function()
 {
     Route::get('users', 'UserController@index');
+    Route::get('topics', 'TopicController@index');
+    Route::get('topic/{id}', 'TopicController@show');
+    Route::get('{username}', 'UserController@show');
 });
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Metronome\Layers'], function()

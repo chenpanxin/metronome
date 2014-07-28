@@ -86,4 +86,6 @@ return [
     'newest_topic'     => '最新话题',
     'edit_reply'       => '编辑回复',
 
+    'july'             => '七月',
+
 ];

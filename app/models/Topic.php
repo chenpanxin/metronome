@@ -38,4 +38,10 @@ class Topic extends Eloquent {
     {
         return $query->where('title', 'LIKE', Str::matching($keyword))->popular()->paginate(16);
     }
+
+    public function createdAt()
+    {
+        $datetime = new Metronome\Utils\DateTime($this->created_at);
+        return $datetime->pretty();
+    }
 }
