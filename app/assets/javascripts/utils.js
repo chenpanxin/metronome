@@ -25,6 +25,9 @@
     };
 })(jQuery);
 
+$.fn.timeago.defaults.selector = 'span.timeago';
+$.fn.timeago.defaults.attr = 'title';
+
 $(document).on('page:fetch', function(){
     $('.spinner').fadeIn();
 });
@@ -32,6 +35,7 @@ $(document).on('page:fetch', function(){
 $(document).on('page:change', function(){
     $('.spinner').fadeOut();
     $('.user-opt').dropdown();
+    $('span.timeago').timeago();
     $('form>input.auto[type=file]').change(function(){
         $(this).parent('form').submit();
     });

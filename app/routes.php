@@ -29,6 +29,8 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Metronome\Layers'], function()
     Route::delete('category/{id}', 'CategoryController@destroy');
     Route::get('users', 'UserController@index');
     Route::get('user/{id}', 'UserController@show');
+    Route::get('photos', 'PhotoController@index');
+    Route::get('photo/{id}', 'PhotoController@show');
     Route::get('tags', 'TagController@index');
 });
 

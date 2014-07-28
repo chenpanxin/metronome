@@ -1,6 +1,7 @@
 <?php namespace Metronome\Layers;
 
 use Category;
+use Lang;
 use Input;
 use Redirect;
 use View;
@@ -10,6 +11,7 @@ class CategoryController extends BaseController {
     public function index()
     {
         return View::make('backend.category.index')
+            ->withTitle(Lang::get('locale.category'))
             ->withCategories(Category::all());
     }
 

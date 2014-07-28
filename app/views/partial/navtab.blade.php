@@ -15,7 +15,6 @@
     @else
         <li><a href="{{ URL::to('search') }}">{{ Lang::get('locale.search') }}</a></li>
         <li><a href="{{ URL::to('newest') }}">{{ Lang::get('locale.newest') }}</a></li>
-        <li><a href="{{ URL::to('category') }}">{{ Lang::get('locale.category') }}</a></li>
         <li><a href="{{ URL::to('signup') }}">{{ Lang::get('locale.signup') }}</a></li>
         <li><a href="{{ URL::to('login') }}">{{ Lang::get('locale.login') }}</a></li>
     @endif

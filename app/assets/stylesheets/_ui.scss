@@ -192,6 +192,35 @@ ul {
   }
 }
 
+.markdown {
+  blockquote {
+    margin: 0;
+    padding: 4px 12px 4px 9px;
+    background-color: rgba(#947adb, .12);
+    border-left: 3px solid rgba(#8a6f64, .5);
+    p {
+      margin: 0;
+      color: #8a6f64;
+    }
+  }
+  pre {
+    padding: 1em 1em;
+    @include border-radius(3px);
+    @include box-shadow(0 0 1px #a89889);
+    code {
+      font-size: 14px;
+      line-height: 32px;
+      font-family: Monaco;
+    }
+  }
+  p {
+    line-height: 32px;
+  }
+  a {
+    color: #fc7353;
+  }
+}
+
 .pagination {
   border-top: 1px solid #e5e6e8;
   text-align: center;

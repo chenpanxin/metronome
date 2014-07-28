@@ -24,7 +24,7 @@ class ConcatCommand extends Command {
 
         $javascript_libs = [
             JavaScript::jquery(),
-            // JavaScript::jqueryTimeago(),
+            JavaScript::jqueryTimeago(),
             // JavaScript::jqueryAutosize(),
             // JavaScript::underscore()
             JavaScript::turbolinks(),
