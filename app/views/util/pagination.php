@@ -1,6 +1,6 @@
 <?php
 
-use Crayon\Utils\Pagination;
+use Metronome\Utils\Pagination;
 
 $presenter = new Pagination($paginator);
 
