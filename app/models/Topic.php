@@ -29,6 +29,11 @@ class Topic extends Eloquent {
         return $this->belongsToMany('User', 'likes');
     }
 
+    public function blog()
+    {
+        return $this->hasOne('Metronome\Models\Blog');
+    }
+
     public function scopePopular($query)
     {
         return $query->orderBy('ranking', 'desc')->orderBy('created_at', 'desc');

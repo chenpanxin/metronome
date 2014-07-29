@@ -10,6 +10,7 @@ return [
     'description'  => 'website description',
     'copyright'    => 'website copyright',
     'announcement' => 'website announcement',
+    'blog_url'     => 'blog.nhn.io',
     'api_url'      => 'api.nhn.io',
     'api_version'  => 'v1',
     'owners'       => array(),

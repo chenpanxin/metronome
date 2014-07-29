@@ -16,6 +16,14 @@ Route::group([
     Route::get('{username}', 'UserController@show');
 });
 
+Route::group([
+    'domain'    => Config::get('website.blog_url'),
+    'namespace' => 'Metronome\Layers'
+], function()
+{
+    Route::get('post/{slug}', 'PostController@show');
+});
+
 Route::group(['prefix'=>'admin', 'namespace'=>'Metronome\Layers'], function()
 {
     Route::get('/', 'TopicController@index');
@@ -31,6 +39,7 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Metronome\Layers'], function()
     Route::get('user/{id}', 'UserController@show');
     Route::get('photos', 'PhotoController@index');
     Route::get('photo/{id}', 'PhotoController@show');
+    Route::post('post/store', 'PostController@store');
     Route::get('tags', 'TagController@index');
 });
 

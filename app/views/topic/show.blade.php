@@ -25,7 +25,7 @@
                     @if (Auth::check() and Auth::user()->id == $reply->user->id)
                         <a href="{{ URL::to('reply/'.$reply->id) }}" class="delete" data-method="delete"><span class="icon-delete"></span></a>
                     @endif
-                    <div class="content">{{ $reply->texts->first()->markup; }}</div>
+                    <div class="content markdown">{{ $reply->texts->first()->markup; }}</div>
                 </li>
             @endforeach
         </ul>

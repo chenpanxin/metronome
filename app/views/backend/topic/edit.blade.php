@@ -21,5 +21,12 @@
                 {{ Form::submit(Lang::get('locale.save'), ['class'=>'btn normal']) }}
             {{ Form::close() }}
         </div>
+
+@if ($topic->blog)
+    {{ $topic->blog->slug }}
+@else
+<a href="{{ URL::to('admin/post/store?topic_id='.$topic->id) }}" data-method="post">g post</a>
+@endif
+
     </div>
 @stop
