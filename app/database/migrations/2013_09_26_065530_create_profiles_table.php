@@ -14,8 +14,8 @@ class CreateProfilesTable extends Migration {
             $table->string('verify_token')->index();
             $table->string('nickname')->nullable();
             $table->string('location')->nullable();
-            $table->string('website')->nullable();
             $table->string('school')->nullable();
+            $table->string('website_url')->nullable();
             $table->string('contact_email')->nullable();
             $table->text('biography')->nullable();
             $table->timestamps();

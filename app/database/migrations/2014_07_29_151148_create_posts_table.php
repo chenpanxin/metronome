@@ -10,8 +10,11 @@ class CreatePostsTable extends Migration {
         Schema::create('posts', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('topic_id')->index();
+            $table->integer('collection_id')->index();
             $table->string('slug')->unique();
+            $table->string('title');
+            $table->text('body')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

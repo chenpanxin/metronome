@@ -12,7 +12,6 @@ class CreatePhotosTable extends Migration {
             $table->increments('id');
             $table->integer('user_id')->index();
             $table->integer('dependency')->index()->nullable();
-            $table->string('note')->nullable();
             $table->timestamps();
         });
     }

@@ -10,10 +10,12 @@ class CreateCollectionsTable extends Migration {
         Schema::create('collections', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('user_id')->index();
-            $table->string('slug')->unique();
             $table->string('name');
-            $table->string('cover');
+            $table->string('cover_url');
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
+            $table->integer('user_id')->index();
+            $table->integer('posts_count')->default(0);
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 use App;
 use Str;
+use Lang;
 use View;
 use Input;
 use Topic;
@@ -9,6 +10,16 @@ use Redirect;
 use Metronome\Models\Blog;
 
 class PostController extends BaseController {
+
+    public function index()
+    {
+        $posts = Blog::all();
+        $posts->load('topic.user');
+
+        return View::make('post.index')
+            ->withTitle(Lang::get('locale.blog'))
+            ->withPosts($posts);
+    }
 
     public function store()
     {
@@ -37,7 +48,7 @@ class PostController extends BaseController {
         $post->body = $post->topic->texts->first()->markup;
         $post->user = $post->topic->user;
 
-        return View::make('blog.index')
+        return View::make('post.show')
             ->withTitle($post->title)
             ->withPost($post);
     }
