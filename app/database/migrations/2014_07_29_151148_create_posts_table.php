@@ -11,6 +11,8 @@ class CreatePostsTable extends Migration {
         {
             $table->increments('id');
             $table->integer('collection_id')->index();
+            $table->integer('user_id')->index();
+            $table->integer('likes_count')->default(0);
             $table->string('slug')->unique();
             $table->string('title');
             $table->text('body')->nullable();

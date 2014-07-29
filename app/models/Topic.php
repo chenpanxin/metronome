@@ -26,12 +26,12 @@ class Topic extends Eloquent {
 
     public function likers()
     {
-        return $this->belongsToMany('User', 'likes');
+        return $this->morphToMany('Metronome\Models\Liker', 'likeable');
     }
 
-    public function blog()
+    public function tags()
     {
-        return $this->hasOne('Metronome\Models\Blog');
+        return $this->morphToMany('Tag', 'taggable');
     }
 
     public function scopePopular($query)

@@ -7,8 +7,13 @@ class Blog extends Eloquent {
     protected $table = 'posts';
     protected $fillable = ['slug'];
 
-    public function topic()
+    public function tags()
     {
-        return $this->belongsTo('Topic');
+        return $this->morphToMany('Tag', 'taggable');
+    }
+
+    public function likers()
+    {
+        return $this->morphToMany('Metronome\Models\Liker', 'likeable');
     }
 }
