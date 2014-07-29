@@ -19,7 +19,7 @@
         <ul class="reply index">
             @foreach ($replies as $reply)
                 <li class="r-{{ $reply->id }}">
-                    <a href="{{ URL::to($reply->user->username) }}" class="avatar s56">{{ HTML::image($reply->user->avatar_url) }}</a>
+                    <a href="{{ URL::to($reply->user->username) }}" class="avatar s42">{{ HTML::image($reply->user->avatar_url) }}</a>
                     <a href="{{ URL::to($reply->user->username) }}" class="username">{{ $reply->user->username }}</a>
                     <span class="date timeago" title="{{ $reply->created_at }}"></span>
                     @if (Auth::check() and Auth::user()->id == $reply->user->id)

@@ -205,8 +205,9 @@ ul {
   }
   pre {
     padding: 1em 1em;
-    @include border-radius(3px);
-    @include box-shadow(0 0 1px #a89889);
+    color: rgba(#000, .5);
+    background-color: #fffbe8;
+    border: 1px solid #e3e0cf;
     code {
       font-size: 14px;
       line-height: 32px;

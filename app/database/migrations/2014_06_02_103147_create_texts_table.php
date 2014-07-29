@@ -7,7 +7,7 @@ class CreateTextsTable extends Migration {
 
     public function up()
     {
-        Schema::create('texts', function($table)
+        Schema::create('texts', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('textable_id')->index();
