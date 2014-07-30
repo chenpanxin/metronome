@@ -17,9 +17,7 @@ class UserController extends BaseController {
 
     public function create()
     {
-        if (Auth::check()) {
-            return Redirect::to('/');
-        }
+        if (Auth::check()) return Redirect::home();
 
         return View::make('user.new')
             ->withTitle(Lang::get('locale.signup'));
@@ -32,8 +30,10 @@ class UserController extends BaseController {
 
         $validator = new Metronome\Validators\UserValidator(array_merge(Input::all(), ['email'=>$email]));
 
-        if ($validator->fails()) {
+        if ($validator->fails())
+        {
             Session::flash('message', $validator->messages()->first());
+
             return Redirect::to('signup')
                 ->withInput();
         }
@@ -44,19 +44,18 @@ class UserController extends BaseController {
             'downcase' => strtolower($username)
         ]);
 
-        // Maybe Event Listen
-        $user->last_logged_ip = Request::getClientIp();
-        $user->last_logged_at = new DateTime;
+        Event::fire('auth.login', [$user]);
 
         $user->password = Hash::make(Input::get('password'));
         $user->avatar_url = Str::gravatarUrl($user->email);
 
-        if ($user->save() and $user->profile()->save(new Profile(['verify_token'=>str_random(64)]))) {
-            Auth::login($user);
-            return Redirect::to('/');
-        }
+        if (! $user->save()) return Redirect::to('signup');
 
-        return Redirect::to('signup');
+        Event::fire('profile.create', [$user]);
+
+        Auth::login($user);
+
+        return Redirect::home();
     }
 
     public function profileShow($username)
