@@ -9,9 +9,7 @@ class SessionController extends BaseController {
 
     public function create()
     {
-        if (Auth::check()) {
-            return Redirect::to('/');
-        }
+        if (Auth::check()) return Redirect::home();
 
         return View::make('session.new')
             ->withTitle(Lang::get('locale.login'));
@@ -23,7 +21,12 @@ class SessionController extends BaseController {
             ? array_only($this->params(), ['email', 'password'])
             : array_only($this->params(), ['username', 'password']);
 
-        if (Auth::attempt($authenticator, Input::has('remember_me'))) {
+        if (Auth::attempt($authenticator, Input::has('remember_me')))
+        {
+            Event::fire('auth.login', [$user = Auth::user()]);
+
+            if (! $user->save()) Auth::logout();
+
             return Redirect::intended('/');
         }
 
@@ -34,11 +37,9 @@ class SessionController extends BaseController {
 
     public function destroy()
     {
-        if (Auth::check()) {
-            Auth::logout();
-        }
+        if (Auth::check()) Auth::logout();
 
-        return Redirect::to('/');
+        return Redirect::home();
     }
 
     public function logout()
