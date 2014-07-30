@@ -30,11 +30,15 @@
             </p>
             <p>
                 {{ Lang::get('locale.website') }}
-                {{ $user->profile->website }}
+                @if ($website_url = $user->profile->website_url)
+                    {{ link_to($website_url) }}
+                @endif
             </p>
             <p>
                 {{ Lang::get('locale.contact_email') }}
-                {{ HTML::mailto($user->profile->contact_email) }}
+                @if ($contact_email = $user->profile->contact_email)
+                    {{ HTML::mailto($contact_email) }}
+                @endif
             </p>
             <p>
                 {{ Lang::get('locale.biography') }}
@@ -48,3 +52,5 @@
         </div>
     </div>
 @stop
+
+@section('width', 'w720')

@@ -22,3 +22,5 @@
         @endif
     </div>
 @stop
+
+@section('width', 'w720')

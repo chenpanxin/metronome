@@ -14,7 +14,7 @@
                 {{ Form::label('contact_email', Lang::get('locale.contact_email')) }}
                 {{ Form::text('contact_email', $user->profile->contact_email) }}
                 {{ Form::label('website', Lang::get('locale.website')) }}
-                {{ Form::text('website', $user->profile->website) }}
+                {{ Form::text('website_url', $user->profile->website_url) }}
                 {{ Form::label('biography', Lang::get('locale.biography')) }}
                 <textarea name="biography">{{ $user->profile->biography }}</textarea>
                 {{ Form::submit(Lang::get('locale.save'), ['class'=>'btn normal']) }}
@@ -34,3 +34,5 @@
         </div>
     </div>
 @stop
+
+@section('width', 'w560')

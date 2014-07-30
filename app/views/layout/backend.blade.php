@@ -26,7 +26,7 @@
     <div class="spinner"></div>
 </div>
 <div class="master">
-    <div class="inner w560">
+    <div class="inner @yield('width', 'w970')">
         @yield('main')
     </div>
 </div>

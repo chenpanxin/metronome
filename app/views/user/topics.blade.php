@@ -20,3 +20,5 @@
         </ul>
     </div>
 @stop
+
+@section('width', 'w720')

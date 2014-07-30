@@ -44,6 +44,10 @@ class UserController extends BaseController {
             'downcase' => strtolower($username)
         ]);
 
+        // Maybe Event Listen
+        $user->last_logged_ip = Request::getClientIp();
+        $user->last_logged_at = new DateTime;
+
         $user->password = Hash::make(Input::get('password'));
         $user->avatar_url = Str::gravatarUrl($user->email);
 
@@ -97,7 +101,7 @@ class UserController extends BaseController {
             'nickname'      => Input::get('nickname'),
             'location'      => Input::get('location'),
             'school'        => Input::get('school'),
-            'website'       => Input::get('website'),
+            'website_url'   => Input::get('website_url'),
             'contact_email' => Input::get('contact_email'),
             'biography'     => Input::get('biography')
         ]);

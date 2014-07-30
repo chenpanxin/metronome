@@ -40,5 +40,4 @@
     </div>
 @stop
 
-@section('sidebar')
-@stop
+@section('width', 'w720')
