@@ -22,15 +22,15 @@ class UserTest extends TestCase {
 
     public function testFollowers()
     {
-        $mock = Mockery::mock('User');
-        $mock->shouldReceive('followers')->andReturn('Followers');
-        $this->assertEquals('Followers', $mock->followers());
+        // $mock = Mockery::mock('User');
+        // $mock->shouldReceive('followers')->andReturn('Followers');
+        // $this->assertEquals('Followers', $mock->followers());
     }
 
     public function testFollowing()
     {
-        $mock = Mockery::mock('User');
-        $mock->shouldReceive('following')->andReturn('Following');
+        // $mock = Mockery::mock('User');
+        // $mock->shouldReceive('following')->andReturn('Following');
         // $this->assertEquals('Following', $this->userCreator()->following());
     }
 
@@ -47,16 +47,5 @@ class UserTest extends TestCase {
     public function testHasManyReplies()
     {
 
-    }
-
-    private function userCreator()
-    {
-        return User::firstOrCreate([
-            'username'   => 'Suzy',
-            'downcase'   => 'suzy',
-            'email'      => 'suzy@me.io',
-            'avatar_url' => Str::avatar_url(),
-            'password'   => Hash::make('password')
-        ]);
     }
 }

@@ -17,21 +17,21 @@ class LikeController extends BaseController {
     {
         $topic = Topic::findOrFail($id);
 
-        Like::firstOrCreate([
-            'user_id'  => Auth::user()->id,
-            'topic_id' => $topic->id
-        ]);
+        // Like::firstOrCreate([
+        //     'user_id'  => Auth::user()->id,
+        //     'topic_id' => $topic->id
+        // ]);
 
         return Redirect::back();
     }
 
     public function destroy($id)
     {
-        $topic = Topic::findOrFail($id);
+        // $topic = Topic::findOrFail($id);
 
-        $like = Like::whereUserId(Auth::user()->id)->whereTopicId($topic->id)->first();
+        // $like = Like::whereUserId(Auth::user()->id)->whereTopicId($topic->id)->first();
 
-        $like and $like->delete();
+        // $like and $like->delete();
 
         return Redirect::back();
     }

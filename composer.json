@@ -33,8 +33,9 @@
         "ezyang/htmlpurifier": "4.6.0"
     },
     "require-dev": {
+        "nelmio/alice": "1.7.0",
+        "phpunit/phpunit": "4.1.0",
         "mockery/mockery": "0.9.1",
-        "phpunit/phpunit": "4.0.*@dev",
-        "fzaninotto/faker": "1.4.*@dev"
+        "fzaninotto/faker": "1.4.0"
     }
 }

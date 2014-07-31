@@ -4,7 +4,7 @@ class AliasController extends BaseController {
 
     public function index()
     {
-        return Redirect::to('/');
+        return Redirect::home();
     }
 
     public function users()
