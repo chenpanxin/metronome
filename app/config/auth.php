@@ -62,7 +62,7 @@ return [
 
         'email' => 'email.auth.reminder',
 
-        'table' => 'password_reminders',
+        'table' => 'user_reminders',
 
         'expire' => 60,
 
