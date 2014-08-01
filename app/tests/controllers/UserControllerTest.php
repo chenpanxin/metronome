@@ -18,6 +18,7 @@ class UserControllerTest extends TestCase {
 
     public function testUserIndex()
     {
+        // $this->app->instance('Post', $this->mock);
         // $this->call('GET', 'users');
         // $this->assertViewHas('users');
         // $this->assertResponseOk();

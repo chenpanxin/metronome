@@ -11,11 +11,14 @@ class CreateProfilesTable extends Migration {
         {
             $table->increments('id');
             $table->integer('user_id')->index();
-            $table->string('verify_token')->index();
             $table->string('nickname')->nullable();
             $table->string('location')->nullable();
-            $table->string('school')->nullable();
             $table->string('company')->nullable();
+            $table->string('school')->nullable();
+            $table->string('douban')->nullable();
+            $table->string('github')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
             $table->string('website_url')->nullable();
             $table->string('contact_email')->nullable();
             $table->text('biography')->nullable();

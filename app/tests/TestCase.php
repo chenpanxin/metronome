@@ -1,14 +1,6 @@
 <?php
 
-use Nelmio\Alice\Fixtures;
-
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
-
-    public function setUp()
-    {
-        parent::setUp();
-        Fixtures::load(__DIR__.'/fixtures/user.yml', $objectManager);
-    }
 
     public function createApplication()
     {

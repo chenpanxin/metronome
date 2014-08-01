@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration {
             $table->string('downcase')->unique();
             $table->string('locale')->default('zh');
             $table->string('remember_token')->nullable();
-            $table->string('last_logged_ip');
-            $table->boolean('staff')->default(false);
-            $table->boolean('verify')->default(false);
-            $table->timestamp('last_logged_at')->nullable();
+            $table->integer('notification_level')->default(0);
+            $table->boolean('backendable')->default(false);
+            $table->boolean('verified')->default(false);
+            $table->timestamp('locked_at')->nullable();
             $table->timestamps();
         });
     }
