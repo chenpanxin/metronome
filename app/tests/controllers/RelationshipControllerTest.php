@@ -2,10 +2,8 @@
 
 class RelationshipControllerTest extends TestCase {
 
-    public function testSessionCreate()
+    public function testFollow()
     {
-        // $this->call('GET', 'login');
-        // $this->assertResponseOk();
-    }
 
+    }
 }

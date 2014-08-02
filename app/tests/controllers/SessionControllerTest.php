@@ -9,8 +9,8 @@ class SessionControllerTest extends TestCase {
 
     public function testSessionCreate()
     {
-        // $this->call('GET', 'login');
-        // $this->assertResponseOk();
+        $this->call('GET', 'login');
+        $this->assertResponseOk();
     }
 
     public function testSessionStoreAuthFails()

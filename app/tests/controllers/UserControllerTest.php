@@ -2,42 +2,50 @@
 
 class UserControllerTest extends TestCase {
 
+    protected $user;
+
     public function setUp()
     {
-        // parent::setUp();
-        // Artisan::call('migrate');
-        // DB::beginTransaction();
-        // Artisan::call('db:seed');
-    }
-
-    public function tearDown()
-    {
-        // DB::rollback();
-        // Mockery::close();
+        parent::setUp();
+        $this->migrateAndSeed();
+        $this->user = User::first();
+        DB::beginTransaction();
     }
 
     public function testUserIndex()
     {
-        // $this->app->instance('Post', $this->mock);
-        // $this->call('GET', 'users');
-        // $this->assertViewHas('users');
-        // $this->assertResponseOk();
+        $this->call('GET', 'users');
+        $this->assertViewHas('users');
+        $this->assertResponseOk();
     }
 
     public function testUserCreate()
     {
-        // $this->call('GET', 'signup');
-        // $this->assertResponseOk();
+        $this->call('GET', 'signup');
+        $this->assertResponseOk();
     }
 
-    public function testUserStore()
+    public function testUserStoreFailed()
     {
-        // $this->call('POST', 'user/store');
-        // $this->assertRedirectedTo('signup');
+        // Input::replace([
+        //     'username' => 'Ali',
+        //     'password' => 'good_password',
+        //     'email'    => 'not@email'
+        // ]);
+
+        // $mock = Mockery::mock('Metronome\Validators\UserValidator');
+        // $mock->shouldReceive('fails')->andReturn(true);
+
+        $this->call('POST', 'user/store');
+
+        $this->assertHasOldInput();
+        $this->assertSessionHas('message');
+        $this->assertRedirectedTo('signup');
     }
 
     public function testUserShow()
     {
+                // $this->app->instance('Post', $this->mock);
         // $username = User::first()->username;
         // $this->action('GET', 'UserController@show', ['username'=>$username]);
         // $this->assertResponseOk();
@@ -69,5 +77,11 @@ class UserControllerTest extends TestCase {
         // $username = User::first()->username;
         // $this->action('GET', 'UserController@followers', ['username'=>$username]);
         // $this->assertResponseOk();
+    }
+
+    public function tearDown()
+    {
+        DB::rollback();
+        Mockery::close();
     }
 }

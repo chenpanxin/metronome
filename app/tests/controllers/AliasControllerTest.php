@@ -2,7 +2,7 @@
 
 class AliasControllerTest extends TestCase {
 
-    public function test_session_new()
+    public function testSessionNew()
     {
         $this->call('GET', 'session/new');
         $this->assertRedirectedTo('login');
