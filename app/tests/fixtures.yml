@@ -1,0 +1,18 @@
+User:
+  username: Ayur
+  downcase: ayur
+  locale: ja
+  password: $string
+  avatar_url: $string
+  email: me@ayur.io
+  remember_token: $string
+  last_logged_ip: $string
+  last_logged_at: $date
+  staff: $boolean
+  verify: $boolean
+  created_at: $date
+  updated_at: $date
+
+Profile:
+  user_id:
+    type: User

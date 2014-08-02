@@ -20,7 +20,7 @@ class CreateUserStatsTable extends Migration {
             $table->string('logged_ip')->nullable();
             $table->string('last_logged_ip')->nullable();
             $table->timestamp('verified_at')->nullable();
-            $table->timestamp('logged_at');->nullable();
+            $table->timestamp('logged_at')->nullable();
             $table->timestamp('last_logged_at')->nullable();
             $table->timestamps();
         });
