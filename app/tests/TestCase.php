@@ -2,13 +2,6 @@
 
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
-    protected static $migrated = false;
-
-    public function setUp()
-    {
-        parent::setUp();
-    }
-
     public function createApplication()
     {
         $unitTesting = true;

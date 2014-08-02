@@ -19,33 +19,31 @@
  * updated_at         :datetime
  */
 
-use Laracasts\TestDummy\Factory;
-
 class UserTest extends TestCase {
+
+    protected $user;
 
     public function setUp()
     {
         parent::setUp();
-        var_dump(static::$migrated);
-        if (! static::$migrated)
-        {
-            $this->migrateAndSeed();
-            static::$migrated = true;
-        }
+        $this->migrateAndSeed();
+        $this->user = User::first();
         DB::beginTransaction();
     }
 
-    public function testUser()
+    public function testNormalUser()
     {
-        // var_dump(User::first());
-        // $user = Factory::build('User');
-        // $this->assertTrue(User::first()->profile instanceOf Profile);
+        $this->assertTrue($this->user->normalUser());
+    }
+
+    public function testProfile()
+    {
+        $this->assertTrue($this->user->profile instanceOf Profile);
     }
 
     public function tearDown()
     {
         DB::rollback();
         Mockery::close();
-        var_dump(static::$migrated);
     }
 }
