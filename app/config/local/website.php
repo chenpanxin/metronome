@@ -9,4 +9,7 @@ return [
     'description' => 'Metronome',
     'copyright'   => '© 2014 Metronome · All rights reserved.',
 
+    'owners' => [
+        'menglr@live.com'
+    ],
 ];

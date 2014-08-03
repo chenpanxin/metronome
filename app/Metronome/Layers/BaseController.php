@@ -6,7 +6,7 @@ class BaseController extends Controller {
 
     public function __construct()
     {
-        $this->beforeFilter('staff');
+        $this->beforeFilter('backendable');
     }
 
     protected function setupLayout()

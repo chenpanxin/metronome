@@ -44,6 +44,11 @@ class UserController extends BaseController {
             'downcase' => strtolower($username)
         ]);
 
+        if (in_array($email, Config::get('website.owners')))
+        {
+            $user->backendable = true;
+        }
+
         $user->password = Hash::make(Input::get('password'));
         $user->avatar_url = Str::gravatarUrl($user->email);
 

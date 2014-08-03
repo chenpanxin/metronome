@@ -43,7 +43,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function normalUser()
     {
-        return ! $this->staff;
+        return ! $this->backendable;
     }
 
     public function topics()

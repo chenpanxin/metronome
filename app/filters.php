@@ -59,7 +59,7 @@ Route::filter('auth', function()
     if (Auth::guest()) return Redirect::guest('login');
 });
 
-Route::filter('staff', function()
+Route::filter('backendable', function()
 {
     if (Auth::guest() or Auth::user()->normalUser()) return Redirect::to('/');
 });

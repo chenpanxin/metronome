@@ -2,17 +2,19 @@
 
 A Simple Forum using Laravel Framework.
 
-Inspired by Campo Project.
+Inspired by [Campo Project](https://github.com/chloerei/campo) - A lightweight forum application, base on Ruby on Rails.
 
 ## Installation
 
 ```zsh
-git clone https://github.com/mmruby/crayon.git && cd crayon
+git clone https://github.com/mmruby/metronome.git
+
+cd metronome
 
 sudo ./setup.sh
-```
 
-You can run `php -S 0.0.0.0:8000 -t public` or `php artisan serve`, then visit [http://0.0.0.0:8000](http://0.0.0.0:8000/).
+php artisan serve
+```
 
 ## vs. Campo
 
@@ -34,12 +36,12 @@ You can run `php -S 0.0.0.0:8000 -t public` or `php artisan serve`, then visit [
     </tr>
     <tr>
         <td>Database</td>
-        <td>Postgresql</td>
+        <td>Postgresql / MySQL</td>
         <td>Postgresql</td>
     </tr>
     <tr>
         <td>Searching</td>
-        <td></td>
+        <td>None</td>
         <td>Elasticsearch</td>
     </tr>
     <tr>
@@ -49,7 +51,7 @@ You can run `php -S 0.0.0.0:8000 -t public` or `php artisan serve`, then visit [
     </tr>
     <tr>
         <td>Cache</td>
-        <td>File</td>
+        <td>Memcached</td>
         <td>Memcached</td>
     </tr>
     <tr>
@@ -59,23 +61,23 @@ You can run `php -S 0.0.0.0:8000 -t public` or `php artisan serve`, then visit [
     </tr>
     <tr>
         <td>CSS Framework</td>
-        <td>No</td>
+        <td>None</td>
         <td>Bootstrap</td>
     </tr>
     <tr>
         <td>CoffeeScript</td>
-        <td>No</td>
-        <td>Yes</td>
+        <td>None</td>
+        <td>Support</td>
     </tr>
     <tr>
         <td>Turbolinks</td>
-        <td>Yes</td>
-        <td>Yes</td>
+        <td>Support</td>
+        <td>Built-in</td>
     </tr>
     <tr>
         <td>jQuery uJS</td>
-        <td>Yes</td>
-        <td>Yes</td>
+        <td>Support</td>
+        <td>Built-in</td>
     </tr>
     <tr>
         <td>Best Deploy Environment</td>
