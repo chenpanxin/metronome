@@ -16,6 +16,7 @@ class UserControllerTest extends TestCase {
     {
         $this->call('GET', 'users');
         $this->assertViewHas('users');
+        $this->assertViewHas('title');
         $this->assertResponseOk();
     }
 
@@ -25,58 +26,82 @@ class UserControllerTest extends TestCase {
         $this->assertResponseOk();
     }
 
+    public function testUserCreateAfterSessionCreated()
+    {
+        $this->be($this->user);
+        $this->call('GET', 'signup');
+        $this->assertRedirectedTo('/');
+    }
+
     public function testUserStoreFailed()
     {
-        // Input::replace([
-        //     'username' => 'Ali',
-        //     'password' => 'good_password',
-        //     'email'    => 'not@email'
-        // ]);
-
-        // $mock = Mockery::mock('Metronome\Validators\UserValidator');
-        // $mock->shouldReceive('fails')->andReturn(true);
+        Validator::shouldReceive('make')->once()->andReturn(Mockery::self())
+            ->getMock()->shouldReceive('fails')->once()->andReturn(true)
+            ->getMock()->shouldReceive('messages')->once()->andReturn(new Illuminate\Support\Collection([1, 2, 3]));
 
         $this->call('POST', 'user/store');
-
         $this->assertHasOldInput();
         $this->assertSessionHas('message');
         $this->assertRedirectedTo('signup');
     }
 
-    public function testUserShow()
+    public function testUserStoreSuccessfully()
     {
-                // $this->app->instance('Post', $this->mock);
-        // $username = User::first()->username;
-        // $this->action('GET', 'UserController@show', ['username'=>$username]);
-        // $this->assertResponseOk();
+        // Input::replace($user = [
+        //     'username' => 'Ali',
+        //     'password' => 'good_password',
+        //     'email'    => 'email@me.io'
+        // ]);
+
+        // Validator::shouldReceive('make')->once()->andReturn(Mockery::mock(['fails'=>false]));
+
+        // $mock = Mockery::mock('User')->shouldReceive('save')->with($user);
+
+        // $this->app->instance('User', $mock);
+
+        // Event::shouldReceive('fire')->twice()->andReturn(true);
+
+        // Auth::shouldReceive('login')->once()->andReturn(true);
+
+        // $this->call('POST', 'user/store');
+        // $this->assertRedirectedTo('/');
+    }
+
+    public function testProfileShow()
+    {
+        $this->action('GET', 'UserController@profileShow', ['username'=>$this->user->username]);
+        $this->assertViewHas('user');
+        $this->assertViewHas('title');
+        $this->assertResponseOk();
     }
 
     public function testUserEdit()
     {
-        // $this->call('GET', 'settings/password');
-        // $this->assertResponseOk();
+        $this->be($this->user);
+        $this->call('GET', 'settings/password');
+        $this->assertViewHas('title');
+        $this->assertResponseOk();
     }
 
     public function testUserProfileEdit()
     {
-        // $this->be(User::first());
-        // $this->call('GET', 'settings/profile');
-        // $this->assertViewHas('user');
-        // $this->assertResponseOk();
+        $this->be($this->user);
+        $this->call('GET', 'settings/profile');
+        $this->assertViewHas('user');
+        $this->assertViewHas('title');
+        $this->assertResponseOk();
     }
 
     public function testUserFollowing()
     {
-        // $username = User::first()->username;
-        // $this->action('GET', 'UserController@following', ['username'=>$username]);
-        // $this->assertResponseOk();
+        $this->action('GET', 'UserController@following', ['username'=>$this->user->username]);
+        $this->assertResponseOk();
     }
 
     public function testUserFollowers()
     {
-        // $username = User::first()->username;
-        // $this->action('GET', 'UserController@followers', ['username'=>$username]);
-        // $this->assertResponseOk();
+        $this->action('GET', 'UserController@followers', ['username'=>$this->user->username]);
+        $this->assertResponseOk();
     }
 
     public function tearDown()
