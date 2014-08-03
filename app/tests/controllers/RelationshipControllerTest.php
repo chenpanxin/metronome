@@ -6,4 +6,14 @@ class RelationshipControllerTest extends TestCase {
     {
 
     }
+
+    public function testUnfollow()
+    {
+
+    }
+
+    public function testShow()
+    {
+
+    }
 }
