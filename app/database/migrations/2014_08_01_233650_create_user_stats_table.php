@@ -12,9 +12,8 @@ class CreateUserStatsTable extends Migration {
             $table->increments('id');
             $table->integer('user_id')->index();
             $table->integer('extern_uid')->nullable();
-            $table->integer('failed_attempts')->default(0);
             $table->integer('logged_count')->default(0);
-            $table->integer('last_logged_count')->default(0);
+            $table->integer('failed_attempts')->default(0);
             $table->string('verification_token')->index();
             $table->string('provider')->nullable();
             $table->string('logged_ip')->nullable();

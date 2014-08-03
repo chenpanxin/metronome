@@ -44,14 +44,14 @@ class UserController extends BaseController {
             'downcase' => strtolower($username)
         ]);
 
-        Event::fire('auth.login', [$user]);
-
         $user->password = Hash::make(Input::get('password'));
         $user->avatar_url = Str::gravatarUrl($user->email);
 
         if (! $user->save()) return Redirect::to('signup');
 
-        Event::fire('profile.create', [$user]);
+        $user->profile()->save(new Profile);
+
+        Event::fire('user.stat', [$user]);
 
         Auth::login($user);
 

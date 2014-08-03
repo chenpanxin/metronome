@@ -16,5 +16,9 @@ class TestingSeeder extends Seeder {
         ]);
 
         $user->profile()->save(new Profile);
+
+        $user->stat()->save(new Stat([
+            'verification_token' => Str::random(64)
+        ]));
     }
 }

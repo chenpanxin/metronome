@@ -41,6 +41,11 @@ class UserTest extends TestCase {
         $this->assertTrue($this->user->profile instanceOf Profile);
     }
 
+    public function testStat()
+    {
+        $this->assertTrue($this->user->stat instanceOf Stat);
+    }
+
     public function tearDown()
     {
         DB::rollback();

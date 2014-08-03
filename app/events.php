@@ -1,14 +1,27 @@
 <?php
 
-Event::listen('auth.login', function(User $user)
+Event::listen('user.stat', function(User $user, $stat = null)
 {
-    $user->last_logged_ip = Request::getClientIp();
-    $user->last_logged_at = new DateTime;
-});
+    if ($stat)
+    {
+        $stat = $user->stat;
+    }
+    else
+    {
+        $stat = new Stat;
+        $stat->user_id = $user->id;
+        $stat->verification_token = Str::random(64);
+    }
 
-Event::listen('profile.create', function(User $user)
-{
-    $user->profile()->save(new Profile(['verify_token'=>Str::random(64)]));
+    $stat->logged_count = $stat->logged_count + 1;
+
+    $stat->last_logged_ip = $stat->logged_ip;
+    $stat->last_logged_at = $stat->logged_at;
+
+    $stat->logged_ip = Request::getClientIp();
+    $stat->logged_at = new DateTime;
+
+    $stat->save();
 });
 
 // View::composer(['topics.*', 'users.*'], function($view)

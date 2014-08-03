@@ -23,7 +23,7 @@ class SessionController extends BaseController {
 
         if (Auth::attempt($authenticator, Input::has('remember_me')))
         {
-            Event::fire('auth.login', [$user = Auth::user()]);
+            Event::fire('user.stat', [$user = Auth::user(), true]);
 
             if (! $user->save()) Auth::logout();
 
