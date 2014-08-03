@@ -44,8 +44,9 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Metronome\Layers'], function()
     Route::get('tags', 'TagController@index');
 });
 
-Route::get('/', ['uses'=>'TopicController@index', 'as'=>'home']);
+Route::get('forum', ['uses'=>'TopicController@index', 'as'=>'home']);
 
+Route::get('/', 'AliasController@index');
 Route::get('topic', 'AliasController@index');
 Route::get('topics', 'AliasController@index');
 Route::get('popular', 'AliasController@index');
