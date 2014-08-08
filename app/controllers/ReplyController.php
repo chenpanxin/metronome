@@ -20,7 +20,9 @@ class ReplyController extends BaseController {
         );
 
         if ($validator->passes()) {
-            $markdown = (new Metronome\Utils\At($content))->getContent();
+            $at = new Metronome\Utils\At($content);
+
+            $markdown = $at->content();
             $markup = Sanitization::make(Markdown::make($markdown));
 
             Eloquent::unguard();
@@ -35,10 +37,21 @@ class ReplyController extends BaseController {
                 'markdown' => $markdown,
                 'markup'   => $markup
             ]));
-        }
 
-        $activity = new Metronome\Repositories\ActivityRepository;
-        $activity->touch($topic)->replyEvent();
+            $activity = new Metronome\Repositories\ActivityRepository;
+            $activity->touch($topic)->replyEvent();
+
+            if ($mentions = $at->mentions())
+            {
+                foreach ($mentions as $user) {
+                    Queue::push(function($job) use ($user)
+                    {
+                        // Notify::mention($user);
+                        $job->delete();
+                    });
+                }
+            }
+        }
 
         return Redirect::to('topic/'.$topic->id);
     }

@@ -24,6 +24,11 @@ Event::listen('user.stat', function(User $user, $stat = null)
     $stat->save();
 });
 
+Event::listen('reply.mention', function(array $mentions)
+{
+
+});
+
 // View::composer(['topics.*', 'users.*'], function($view)
 // {
 //     $view->with('stat', Stat::orderBy('id', 'desc')->first());
