@@ -25,7 +25,10 @@ class LikeController extends BaseController {
             'liker_id'      => Auth::user()->id,
         ]);
 
-        return Response::json(['code'=>'94200', 'message'=>'successfully']);
+        $url = URL::to(join('/', ['topic', $topic->id, 'unlike']));
+        $script = "$('.topic-opt>a').addClass('heart').data('method', 'delete').attr('href', '{$url}');";
+
+        return Response::make($script, 200)->header('Content-Type', 'application/javascript');
     }
 
     public function destroy($id)
@@ -44,6 +47,9 @@ class LikeController extends BaseController {
             $likeable->delete();
         }
 
-        return Response::json(['code'=>'94200', 'message'=>'successfully']);
+        $url = URL::to(join('/', ['topic', $topic->id, 'like']));
+        $script = "$('.topic-opt>a').removeClass('heart').data('method', 'post').attr('href', '{$url}');";
+
+        return Response::make($script, 200)->header('Content-Type', 'application/javascript');
     }
 }

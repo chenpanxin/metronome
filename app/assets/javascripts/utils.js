@@ -36,6 +36,7 @@ $(document).on('page:change', function(){
     $('.spinner').fadeOut();
     $('.user-opt').dropdown();
     $('span.timeago').timeago();
+    $('textarea').autosize();
     $('form>input.auto[type=file]').change(function(){
         $(this).parent('form').submit();
     });

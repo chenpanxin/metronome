@@ -87,5 +87,6 @@ return [
     'edit_reply'       => '编辑回复',
 
     'july'             => '七月',
+    'august'           => '八月',
 
 ];
