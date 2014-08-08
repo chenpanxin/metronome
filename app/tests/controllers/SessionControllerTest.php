@@ -17,7 +17,7 @@ class SessionControllerTest extends TestCase {
         Auth::shouldReceive('check')->once()->andReturn(true);
 
         $this->call('GET', 'login');
-        $this->assertRedirectedTo('/');
+        $this->assertRedirectedToRoute('home');
     }
 
     public function testSessionCreate()
@@ -50,7 +50,7 @@ class SessionControllerTest extends TestCase {
     public function testSessionDestroy()
     {
         $this->call('DELETE', 'logout');
-        $this->assertRedirectedTo('/');
+        $this->assertRedirectedToRoute('home');
     }
 
     public function testLogout()

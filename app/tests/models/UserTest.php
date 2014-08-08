@@ -38,12 +38,12 @@ class UserTest extends TestCase {
 
     public function testProfile()
     {
-        $this->assertTrue($this->user->profile instanceOf Profile);
+        $this->assertInstanceOf('Profile', $this->user->profile);
     }
 
     public function testStat()
     {
-        $this->assertTrue($this->user->stat instanceOf Stat);
+        $this->assertInstanceOf('Stat', $this->user->stat);
     }
 
     public function tearDown()

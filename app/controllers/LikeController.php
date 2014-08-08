@@ -17,6 +17,10 @@ class LikeController extends BaseController {
     {
         $topic = Topic::findOrFail($id);
 
+        // $topic->likers()->get('liker_id');
+
+        // $topic->likers()->save(new Metronome\Models\Liker);
+
         // Like::firstOrCreate([
         //     'user_id'  => Auth::user()->id,
         //     'topic_id' => $topic->id

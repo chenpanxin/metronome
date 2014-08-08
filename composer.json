@@ -27,6 +27,7 @@
     "require": {
         "php": ">=5.4.3",
         "menglr/pkgjs": "1.1",
+        "uikit/uikit": "2.8.0",
         "erusev/parsedown": "1.0.1",
         "laravel/framework": "4.2.0",
         "intervention/image": "2.0.5",

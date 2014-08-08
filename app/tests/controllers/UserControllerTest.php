@@ -30,7 +30,7 @@ class UserControllerTest extends TestCase {
     {
         $this->be($this->user);
         $this->call('GET', 'signup');
-        $this->assertRedirectedTo('/');
+        $this->assertRedirectedToRoute('home');
     }
 
     public function testUserStoreFailed()
@@ -47,24 +47,20 @@ class UserControllerTest extends TestCase {
 
     public function testUserStoreSuccessfully()
     {
-        // Input::replace($user = [
-        //     'username' => 'Ali',
-        //     'password' => 'good_password',
-        //     'email'    => 'email@me.io'
-        // ]);
+        $input = [
+            'username' => 'ChoA',
+            'password' => 'password',
+            'email'    => 'ChoA@crayon.pop'
+        ];
 
-        // Validator::shouldReceive('make')->once()->andReturn(Mockery::mock(['fails'=>false]));
+        Validator::shouldReceive('make')->once()->andReturn(Mockery::mock(['fails'=>false]));
 
-        // $mock = Mockery::mock('User')->shouldReceive('save')->with($user);
+        Event::shouldReceive('fire')->once()->andReturn(true);
 
-        // $this->app->instance('User', $mock);
+        Auth::shouldReceive('login')->once()->andReturn(true);
 
-        // Event::shouldReceive('fire')->twice()->andReturn(true);
-
-        // Auth::shouldReceive('login')->once()->andReturn(true);
-
-        // $this->call('POST', 'user/store');
-        // $this->assertRedirectedTo('/');
+        $this->call('POST', 'user/store', $input);
+        $this->assertRedirectedToRoute('home');
     }
 
     public function testProfileShow()

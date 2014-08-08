@@ -25,10 +25,9 @@ class UserController extends BaseController {
 
     public function store()
     {
-        $email = strtolower(Input::get('email'));
-        $username = Input::get('username');
+        $params = array_merge(Input::all(), ['email'=>strtolower(Input::get('email'))]);
 
-        $validator = new Metronome\Validators\UserValidator(array_merge(Input::all(), ['email'=>$email]));
+        $validator = new Metronome\Validators\UserValidator($params);
 
         if ($validator->fails())
         {
@@ -39,18 +38,18 @@ class UserController extends BaseController {
         }
 
         $user = new User([
-            'email'    => $email,
-            'username' => $username,
-            'downcase' => strtolower($username)
+            'email'    => $params['email'],
+            'username' => $params['username'],
+            'downcase' => strtolower($params['username'])
         ]);
 
-        if (in_array($email, Config::get('website.owners')))
+        $user->avatar_url = Str::gravatarUrl($user->email);
+        $user->password = Hash::make($params['password']);
+
+        if (in_array($user->email, Config::get('website.owners')))
         {
             $user->backendable = true;
         }
-
-        $user->password = Hash::make(Input::get('password'));
-        $user->avatar_url = Str::gravatarUrl($user->email);
 
         if (! $user->save()) return Redirect::to('signup');
 
