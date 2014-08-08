@@ -8,9 +8,9 @@
             <div class="body markdown">{{ $topic->body }}</div>
             <div class="topic-opt">
                 @if ($liker_right)
-                    <a href="{{ URL::to('topic/'.$topic->id.'/unlike') }}" data-method="delete" class="heart"><span class="icon-heart"></span></a>
+                    <a href="{{ URL::to('topic/'.$topic->id.'/unlike') }}" data-method="delete" data-remote="true" class="heart"><span class="icon-heart"></span></a>
                 @else
-                    <a href="{{ URL::to('topic/'.$topic->id.'/like') }}" data-method="post"><span class="icon-heart"></span></a>
+                    <a href="{{ URL::to('topic/'.$topic->id.'/like') }}" data-method="post" data-remote="true"><span class="icon-heart"></span></a>
                 @endif
             </div>
         </div>

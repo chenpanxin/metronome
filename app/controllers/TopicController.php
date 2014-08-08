@@ -37,7 +37,7 @@ class TopicController extends BaseController {
         $following_count = Relationship::whereFollowerId($topic->user->id)->count();
         $followers_count = Relationship::whereFollowedId($topic->user->id)->count();
 
-        $likers = $topic->likers()->lists('user_id');
+        $likers = $topic->likers()->lists('liker_id');
         $liker_right = Auth::check() ? in_array(Auth::user()->id, $likers) : false;
 
         $likers_count = count($likers);

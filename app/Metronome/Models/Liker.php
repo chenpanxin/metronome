@@ -6,6 +6,8 @@ class Liker extends Eloquent {
 
     protected $table = 'users';
 
+    protected $hidden = ['password'];
+
     public function posts()
     {
         return $this->morphedByMany('Metronome\Models\Blog', 'likeable');

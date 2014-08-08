@@ -5,11 +5,11 @@ class LikeController extends BaseController {
     public function __construct()
     {
         // $this->beforeFilter('csrf', ['on'=>'post']);
-        $this->beforeFilter('auth', ['only'=>['store', 'destroy']]);
+        // $this->beforeFilter('auth', ['only'=>['store', 'destroy']]);
         $this->beforeFilter(function(){
-            if (Request::ajax()) {
-
-            }
+            // if (Request::ajax()) {
+            //     App::abort(404);
+            // }
         });
     }
 
@@ -17,26 +17,33 @@ class LikeController extends BaseController {
     {
         $topic = Topic::findOrFail($id);
 
-        // $topic->likers()->get('liker_id');
+        if (! $topic) App::abort(404);
 
-        // $topic->likers()->save(new Metronome\Models\Liker);
+        $likeable = Metronome\Models\Likeable::firstOrCreate([
+            'likeable_type' => 'Topic',
+            'likeable_id'   => $topic->id,
+            'liker_id'      => Auth::user()->id,
+        ]);
 
-        // Like::firstOrCreate([
-        //     'user_id'  => Auth::user()->id,
-        //     'topic_id' => $topic->id
-        // ]);
-
-        return Redirect::back();
+        return Response::json(['code'=>'94200', 'message'=>'successfully']);
     }
 
     public function destroy($id)
     {
-        // $topic = Topic::findOrFail($id);
+        $topic = Topic::findOrFail($id);
 
-        // $like = Like::whereUserId(Auth::user()->id)->whereTopicId($topic->id)->first();
+        if (! $topic) App::abort(404);
 
-        // $like and $like->delete();
+        $likeable = Metronome\Models\Likeable::whereLikerId(Auth::user()->id)
+            ->whereLikeableId($topic->id)
+            ->whereLikeableType('Topic')
+            ->first();
 
-        return Redirect::back();
+        if ($likeable)
+        {
+            $likeable->delete();
+        }
+
+        return Response::json(['code'=>'94200', 'message'=>'successfully']);
     }
 }
