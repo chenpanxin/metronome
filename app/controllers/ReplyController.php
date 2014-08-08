@@ -97,6 +97,10 @@ class ReplyController extends BaseController {
             $reply->delete();
         }
 
-        return Redirect::back();
+        $class = join('-', ['r', $reply->id]);
+
+        $script = "\$('li.{$class}').fadeOut(200, function(){\$(this).remove();if($('ul.reply>li').size()==0){\$('ul.reply.index').parent().hide()}});";
+
+        return Response::make($script, 200)->header('Content-Type', 'application/javascript');
     }
 }

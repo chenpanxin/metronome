@@ -184,8 +184,12 @@ class UserController extends BaseController {
 
     public function likes($username)
     {
+        $user = Auth::user();
+        $liker = Metronome\Models\Liker::find($user->id);
+        $user->topics = $liker->topics;
+
         return View::make('user.likes')
-            ->withUser(Auth::user())
+            ->withUser($user)
             ->withTitle(Lang::get('locale.likes'));
     }
 

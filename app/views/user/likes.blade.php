@@ -10,6 +10,14 @@
                 <li>{{ HTML::replies($user) }}</li>
             </ul>
         </div>
+        <ul class="list topic index">
+            @foreach ($user->topics as $topic)
+                <li>
+                    <a class="avatar s56">{{ HTML::image('assets/avatar.jpg') }}</a>
+                    <a class="title" href="{{ URL::to('topic/'.$topic->id) }}">{{ $topic->title }}<span class="date">{{ $topic->created_at->diffForHumans() }}</span></a>
+                </li>
+            @endforeach
+        </ul>
     </div>
 @stop
 
