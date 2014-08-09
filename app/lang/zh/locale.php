@@ -80,6 +80,7 @@ return [
     'tag'              => '标签',
     'notify'           => '通知',
     'submit'           => '提交',
+    'photo'            => '照片',
 
     'popular_topic'    => '热门话题',
     'create_topic'     => '创建话题',

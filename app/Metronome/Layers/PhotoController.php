@@ -3,6 +3,7 @@
 use Str;
 use Auth;
 use File;
+use Lang;
 use View;
 use Input;
 use Image;
@@ -14,7 +15,8 @@ class PhotoController extends BaseController {
     public function index()
     {
         return View::make('backend.photo.index')
-            ->withPhotos(Photo::all());
+            ->withPhotos(Photo::all())
+            ->withTitle(Lang::get('locale.photo'));
     }
 
     public function store()

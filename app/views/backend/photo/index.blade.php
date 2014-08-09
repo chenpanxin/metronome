@@ -9,12 +9,16 @@
                     <a href="{{ URL::to('admin/photo/'.$photo->id) }}" class="" data-method="delete"><span class="icon-cross"></span></a>
                 </li>
             @endforeach
+            <li>
+                <div class="photo new">
+                    {{ HTML::image('assets/square.png') }}
+                    <div class="uploader square"><span class="icon-upload"></span></div>
+                    {{ Form::open(['url'=>URL::to('admin/photo/store'), 'method'=>'post', 'files'=>true]) }}
+                        {{ Form::file('photo', ['class'=>'auto']) }}
+                    {{ Form::close() }}
+                </div>
+            </li>
         </ul>
-        <div class="photo new">
-            {{ Form::open(['url'=>URL::to('admin/photo/store'), 'method'=>'post', 'files'=>true]) }}
-                {{ Form::file('photo', ['class'=>'auto']) }}
-            {{ Form::close() }}
-        </div>
     </div>
 @stop
 
