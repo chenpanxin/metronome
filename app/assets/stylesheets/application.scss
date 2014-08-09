@@ -444,12 +444,21 @@ ul {
     padding: 0 5px;
     li {
       display: inline-block;
+      position: relative;
       line-height: 0;
       float: left;
       width: 33.33%;
       padding: 4px 4px;
       > a {
         display: block;
+        &:last-child {
+          position: absolute;
+          right: 9px;
+          bottom: 9px;
+          padding: 12px 12px;
+          color: rgba(#f0f0f0, .94);
+          background-color: rgba(#000, .12);
+        }
       }
     }
     img {
@@ -460,5 +469,15 @@ ul {
       @include box-shadow(0 0 3px rgba(#000, .5), inset 0 0 2px rgba(#000, .12));
     }
     @include clearfix();
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .photo {
+    &.index {
+      li {
+        width: 50%;
+      }
+    }
   }
 }

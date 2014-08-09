@@ -6,6 +6,7 @@
             @foreach ($photos as $photo)
                 <li>
                     <a href="{{ URL::to('admin/photo/'.$photo->id) }}">{{ HTML::image('uploads/'.$photo->hash.'.jpg') }}</a>
+                    <a href="{{ URL::to('admin/photo/'.$photo->id) }}" class="" data-method="delete"><span class="icon-cross"></span></a>
                 </li>
             @endforeach
         </ul>

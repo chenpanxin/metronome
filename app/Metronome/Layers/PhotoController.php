@@ -2,6 +2,7 @@
 
 use Str;
 use Auth;
+use File;
 use View;
 use Input;
 use Image;
@@ -40,6 +41,19 @@ class PhotoController extends BaseController {
     public function show()
     {
         return View::make('backend.photo.show');
+    }
+
+    public function destroy($id)
+    {
+        $photo = Photo::findOrFail($id);
+
+        foreach ([true, false] as $origin) {
+            File::exists($path = $this->photoUrl($photo->hash, $origin)) and File::delete($path);
+        }
+
+        $photo->delete();
+
+        return Redirect::back();
     }
 
     private function photoUrl($hash = null, $origin = true)

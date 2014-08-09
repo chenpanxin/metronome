@@ -41,6 +41,7 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Metronome\Layers'], function()
     Route::get('photos', 'PhotoController@index');
     Route::get('photo/{id}', 'PhotoController@show');
     Route::post('photo/store', 'PhotoController@store');
+    Route::delete('photo/{id}', 'PhotoController@destroy');
     Route::post('post/store', 'PostController@store');
     Route::get('tags', 'TagController@index');
 });
