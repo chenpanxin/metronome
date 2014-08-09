@@ -11,7 +11,7 @@ form {
   textarea {
     display: block;
     outline: none;
-    padding: 4px .5em;
+    padding: 4px .4em;
     font-size: 1em;
     line-height: 32px;
     border: 1px solid #dbdbdb;
@@ -175,10 +175,11 @@ ul {
     p {
       margin: 0;
       line-height: 40px;
-      background-color: #d3ebf3;
-      border: 1px solid darken(#d3ebf3, 20%);
-      color: darken(#d3ebf3, 40%);
+      background-color: #e5f3fb;
+      border: 1px solid darken(#e5f3fb, 12%);
+      color: darken(#e5f3fb, 32%);
       text-align: center;
+      @include border-radius(3px);
     }
   }
 }

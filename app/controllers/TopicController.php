@@ -62,7 +62,8 @@ class TopicController extends BaseController {
     {
         $validator = new Metronome\Validators\TopicValidator;
 
-        if ($validator->fails()) {
+        if ($validator->fails())
+        {
             Session::flash('message', $validator->messages()->first());
             return Redirect::to('topic/new')
                 ->withInput();

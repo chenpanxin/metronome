@@ -60,9 +60,11 @@ return [
     'write_comment'    => '评论在这里...',
     'create_category'  => '创建分类',
     'forgot_password'  => '忘记密码',
+    'backend'          => '后台',
+    'uncategoried'     => '默认分类',
 
     'name'             => '名称',
-    'slug'             => '标示符',
+    'slug'             => '英文缩写',
     'liking'           => '人喜欢',
     'category'         => '分类',
     'user'             => '用户',
@@ -88,5 +90,7 @@ return [
 
     'july'             => '七月',
     'august'           => '八月',
+
+    'uncategoried_not_null' => '默认分类不为空',
 
 ];

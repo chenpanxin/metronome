@@ -168,7 +168,7 @@ ul {
     .title {
       position: relative;
       min-height: 56px;
-      margin-left: 72px;
+      padding-left: 72px;
       padding-right: 1em;
       border-bottom: 1px solid #e5e6e8;
       span {
@@ -271,6 +271,10 @@ ul {
         margin-left: 40px;
       }
     }
+    .count {
+      float: right;
+      margin-right: 1em;
+    }
   }
   &.selection {
     padding: .625em .75em;
@@ -283,9 +287,13 @@ ul {
       font-size: 1em;
       line-height: 32px;
       color: rgba(#53575b, .5);
-      background-color: #edeeef;
+      background-color: #fefdff;
       border: 1px solid #dbdbdb;
       @include border-radius(20px);
+      &.selected {
+        color: #fe814d;
+        border: 1px solid #fe814d;
+      }
     }
   }
   &.edit {
@@ -321,7 +329,7 @@ ul {
     }
     .avatar {
       position: absolute;
-      left: .5em;
+      left: .75em;
       top: .5em;
     }
     .username,

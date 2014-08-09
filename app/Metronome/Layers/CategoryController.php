@@ -1,9 +1,13 @@
 <?php namespace Metronome\Layers;
 
+use Metronome\Validators\CategoryValidator;
 use Category;
 use Lang;
 use Input;
+use Topic;
+use Validator;
 use Redirect;
+use Session;
 use View;
 
 class CategoryController extends BaseController {
@@ -17,10 +21,19 @@ class CategoryController extends BaseController {
 
     public function store()
     {
-        $category = new Category;
-        $category->name = Input::get('name');
-        $category->slug = Input::get('name');
-        $category->save();
+        $validator = new CategoryValidator;
+
+        if ($validator->fails())
+        {
+            Session::flash('message', $validator->messages()->first());
+            return Redirect::to('admin/categories')
+                ->withInput();
+        }
+
+        Category::create([
+            'name' => Input::get('name'),
+            'slug' => Input::get('slug')
+        ]);
 
         return Redirect::back();
     }
@@ -37,15 +50,53 @@ class CategoryController extends BaseController {
     {
         $category = Category::findOrFail($id);
 
-        $category->name = Input::get('name');
-        $category->save();
+        $validator = Validator::make(Input::all(), [
+            'name' => 'required|min:2|unique:categories,name,'.$category->id,
+            'slug' => 'required|unique:categories,slug,'.$category->id
+        ]);
+
+        if ($validator->fails())
+        {
+            Session::flash('message', $validator->messages()->first());
+            return Redirect::to('admin/category/'.$category->id.'/edit')
+                ->withInput();
+        }
+
+        $category->update([
+            'name' => Input::get('name'),
+            'slug' => Input::get('slug')
+        ]);
 
         return Redirect::to('admin/categories');
     }
 
     public function destroy($id)
     {
-        Category::destroy($id);
+        $category = Category::findOrFail($id);
+
+        $uncategoried = Category::whereName(Lang::get('uncategoried'))->orWhere('slug', 'uncategoried')->first();
+
+        if (! $uncategoried)
+        {
+            Category::create([
+                'name' => Lang::get('uncategoried'),
+                'slug' => 'uncategoried'
+            ]);
+        }
+
+        if ($category == $uncategoried)
+        {
+            Session::flash('message', Lang::get('locale.uncategoried_not_null'));
+        }
+        else
+        {
+            $count = Topic::whereCategoryId($category->id)->update(['category_id'=>$uncategoried->id]);
+
+            $uncategoried->topics_count += $count;
+            $uncategoried->save();
+
+            $category->delete();
+        }
 
         return Redirect::back();
     }

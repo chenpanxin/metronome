@@ -7,9 +7,10 @@ class LikeController extends BaseController {
         // $this->beforeFilter('csrf', ['on'=>'post']);
         // $this->beforeFilter('auth', ['only'=>['store', 'destroy']]);
         $this->beforeFilter(function(){
-            // if (Request::ajax()) {
-            //     App::abort(404);
-            // }
+            if (Auth::guest()) {
+                $script = join(URL::to('login'), ['Turbolinks.visit(\'', '\');']);
+                return Response::make($script, 200)->header('Content-Type', 'application/javascript');
+            }
         });
     }
 

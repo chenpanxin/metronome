@@ -9,22 +9,16 @@
   font-size: 1em;
   vertical-align: middle;
   letter-spacing: .1em;
+  @include border-radius(3px);
   @include transition(.115s background-color ease-in-out);
 }
 
-.normal {
+.primary {
   color: #fefef3;
   border: 1px solid darken(#5fcf80, 3%);
   background-color: #5fcf80;
   &:hover {
     border: 1px solid darken(#5fcf80, 8%);
     background-color: darken(#5fcf80, 5%);
-  }
-}
-
-a {
-  &.btn {
-    display: inline-block;
-    @include border-radius(3px);
   }
 }

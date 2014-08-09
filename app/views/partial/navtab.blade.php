@@ -1,5 +1,8 @@
 <ul class="navtab">
     @if (Auth::check())
+        @if (Auth::user()->backendable)
+            <li><a href="{{ URL::to('admin') }}"><span class="icon-cloud"></span></a></li>
+        @endif
         <li><a href="{{ URL::to('topic/new') }}"><span class="icon-plus"></span></a></li>
         <li><a href="{{ URL::to('search') }}"><span class="icon-search"></span></a></li>
         <li><a href="{{ URL::to('notification') }}"><span class="icon-inbox"></span></a></li>
