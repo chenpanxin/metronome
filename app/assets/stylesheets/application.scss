@@ -438,3 +438,27 @@ ul {
     color: #eb1163;
   }
 }
+
+.photo {
+  &.index {
+    padding: 0 5px;
+    li {
+      display: inline-block;
+      line-height: 0;
+      float: left;
+      width: 33.33%;
+      padding: 4px 4px;
+      > a {
+        display: block;
+      }
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border: 5px solid #f0f0f0;
+      @include border-radius(3px);
+      @include box-shadow(0 0 3px rgba(#000, .5), inset 0 0 2px rgba(#000, .12));
+    }
+    @include clearfix();
+  }
+}

@@ -69,8 +69,10 @@ class TopicController extends BaseController {
                 ->withInput();
         }
 
+        $category_id = Input::get('category_id');
+
         $topic = new Topic([
-            'category_id' => Input::get('category_id'),
+            'category_id' => $category_id,
             'title'       => Input::get('title'),
             'body'        => ''
         ]);
@@ -82,6 +84,8 @@ class TopicController extends BaseController {
 
         Auth::user()->topics()->save($topic);
         $topic->texts()->save($text);
+
+        Category::findOrFail($category_id)->increment('topics_count');
 
         $activity = new Metronome\Repositories\ActivityRepository;
         $activity->touch($topic)->newTopicEvent();

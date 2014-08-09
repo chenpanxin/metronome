@@ -41,7 +41,8 @@ class TopicController extends BaseController {
     {
         $topic = Topic::findOrFail($id);
 
-        $topic and Topic::destroy($topic->id);
+        $topic->category->decrement('topics_count');
+        $topic->delete();
 
         return Redirect::back();
     }

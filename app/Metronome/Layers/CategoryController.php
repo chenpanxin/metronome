@@ -74,28 +74,37 @@ class CategoryController extends BaseController {
     {
         $category = Category::findOrFail($id);
 
-        $uncategoried = Category::whereName(Lang::get('uncategoried'))->orWhere('slug', 'uncategoried')->first();
-
-        if (! $uncategoried)
+        if ($category->topics_count == 0)
         {
-            Category::create([
-                'name' => Lang::get('uncategoried'),
-                'slug' => 'uncategoried'
-            ]);
-        }
-
-        if ($category == $uncategoried)
-        {
-            Session::flash('message', Lang::get('locale.uncategoried_not_null'));
+            $category->delete();
         }
         else
         {
-            $count = Topic::whereCategoryId($category->id)->update(['category_id'=>$uncategoried->id]);
+            $uncategoried = Category::whereName(Lang::get('locale.uncategoried'))
+                ->orWhere('slug', 'uncategoried')
+                ->first();
 
-            $uncategoried->topics_count += $count;
-            $uncategoried->save();
+            if (! $uncategoried)
+            {
+                $uncategoried = Category::create([
+                    'name' => Lang::get('locale.uncategoried'),
+                    'slug' => 'uncategoried'
+                ]);
+            }
 
-            $category->delete();
+            if ($category == $uncategoried)
+            {
+                Session::flash('message', Lang::get('locale.uncategoried_not_null'));
+            }
+            else
+            {
+                $count = Topic::whereCategoryId($category->id)->update(['category_id'=>$uncategoried->id]);
+
+                $uncategoried->topics_count += $count;
+                $uncategoried->save();
+
+                $category->delete();
+            }
         }
 
         return Redirect::back();
