@@ -10,8 +10,9 @@
             <a href="/#" class="user-opt">{{ HTML::image(Auth::user()->avatar_url) }}<b>{{ Auth::user()->username }}</b></a>
             <ul class="dropdown">
                 <li><a href="{{ URL::to(Auth::user()->username) }}"><span class="icon-user"></span>{{ Lang::get('locale.home') }}</a></li>
+                <li><a href="{{ URL::to(Auth::user()->username.'/topics') }}"><span class="icon-archive"></span>{{ Lang::get('locale.my_topics') }}</a></li>
                 <li><a href="{{ URL::to('settings') }}"><span class="icon-layout"></span>{{ Lang::get('locale.settings') }}</a></li>
-                <li><a href="{{ URL::to(Auth::user()->username.'/watching') }}"><span class="icon-archive"></span>{{ Lang::get('locale.watching') }}</a></li>
+                <li><a href="{{ URL::to('settings/password') }}"><span class="icon-unlock"></span>{{ Lang::get('locale.change_password') }}</a></li>
                 <li><a href="{{ URL::to('logout') }}" data-method="delete"><span class="icon-esc"></span>{{ Lang::get('locale.logout') }}</a></li>
             </ul>
         </li>

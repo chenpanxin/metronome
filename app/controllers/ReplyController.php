@@ -77,7 +77,7 @@ class ReplyController extends BaseController {
         $reply = Reply::findOrFail($id);
 
         if ($reply->user_id == Auth::user()->id) {
-            $markdown = (new Metronome\Utils\At(Input::get('content')))->getContent();
+            $markdown = (new Metronome\Utils\At(Input::get('content')))->content();
             $markup = Sanitization::make(Markdown::make($markdown));
 
             $text = $reply->texts()->first();

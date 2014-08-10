@@ -13,8 +13,8 @@
         <ul class="list topic index">
             @foreach ($user->topics as $topic)
                 <li>
-                    <a class="avatar s56">{{ HTML::image('assets/avatar.jpg') }}</a>
-                    <a class="title" href="{{ URL::to('topic/'.$topic->id) }}">{{ $topic->title }}<span class="date">{{ $topic->created_at->diffForHumans() }}</span></a>
+                    <a class="avatar s42">{{ HTML::image($user->avatar_url) }}</a>
+                    <a class="title" href="{{ URL::to('topic/'.$topic->id) }}">{{ $topic->title }}<span class="date timeago" title="{{ $topic->created_at }}"></span></a>
                 </li>
             @endforeach
         </ul>

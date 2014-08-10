@@ -16,3 +16,5 @@
         </div>
     </div>
 @stop
+
+@section('width', 'w560')

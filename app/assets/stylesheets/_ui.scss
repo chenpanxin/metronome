@@ -26,6 +26,21 @@ form {
   }
 }
 
+table {
+  width: 100%;
+  thead {
+    th {
+      text-align: left;
+      color: rgba(#53575b, .92);
+    }
+  }
+  tbody {
+    td {
+      color: rgba(#53575b, .72);
+    }
+  }
+}
+
 ul {
   &.tab {
     width: 100%;

@@ -10,8 +10,7 @@ class UserController extends BaseController {
     {
         return View::make('backend.user.index')
             ->withTitle(Lang::get('locale.users'))
-            ->withStaffs(User::whereStaff(true)->get())
-            ->withUsers(User::normal()->paginate(16));
+            ->withUsers(User::with('stat')->normal()->paginate(16));
     }
 
     public function show($id)

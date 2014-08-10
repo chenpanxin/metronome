@@ -13,7 +13,7 @@
         </div>
         <div class="user activity">
             @foreach ($user->events as $activity)
-                <p><a href="{{ URL::to($user->username) }}">{{ $user->username }}</a> {{ $activity->content }}<span class="date">{{ $activity->created_at }}</span></p>
+                <p><a href="{{ URL::to($user->username) }}">{{ $user->username }}</a> {{ $activity->content }}<span class="date timeago" title="{{ $activity->created_at }}"></span></p>
             @endforeach
         </div>
     </div>

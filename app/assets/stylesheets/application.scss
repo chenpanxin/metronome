@@ -232,6 +232,12 @@ ul {
       }
     }
   }
+  &.index {
+    padding: 1em 1em;
+    li {
+    }
+    @include clearfix();
+  }
 }
 
 .session {
@@ -337,6 +343,12 @@ ul {
       font-size: 14px;
       line-height: 1em;
       color: rgba(#53575b, .5);
+    }
+    .editable {
+      color: rgba(#727272, .404);
+      &:hover {
+        color: rgba(#000, .404);
+      }
     }
     .delete {
       float: right;

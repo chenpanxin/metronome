@@ -93,6 +93,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function scopeNormal($query)
     {
-        return $query->whereStaff(false)->orderBy('id', 'desc');
+        return $query->whereBackendable(false)->orderBy('id', 'desc');
     }
 }

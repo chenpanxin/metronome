@@ -71,7 +71,8 @@ class UserController extends BaseController {
         }
 
         if (Input::get('tab') == 'activity') {
-            $user->load('events');
+            $user->events = $user->events()->orderBy('created_at', 'desc')->limit(20)->get();
+
             return View::make('user.profile.activity')
                 ->withUser($user)
                 ->withTitle(Lang::get('locale.activity'));

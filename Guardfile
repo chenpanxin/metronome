@@ -1,4 +1,4 @@
-#!usr/bin/env ruby
+#!/usr/bin/env ruby
 
 UI.info 'Guard is using PHP Artisan Command to concat files.'
 

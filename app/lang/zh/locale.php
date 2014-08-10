@@ -62,6 +62,9 @@ return [
     'forgot_password'  => '忘记密码',
     'backend'          => '后台',
     'uncategoried'     => '默认分类',
+    'logged_count'     => '登录次数',
+    'logged_ip'        => 'IP 地址',
+    'verified'         => '已验证',
 
     'name'             => '名称',
     'slug'             => '英文缩写',
@@ -81,6 +84,7 @@ return [
     'notify'           => '通知',
     'submit'           => '提交',
     'photo'            => '照片',
+    'my_topics'        => '我的主题',
 
     'popular_topic'    => '热门话题',
     'create_topic'     => '创建话题',
