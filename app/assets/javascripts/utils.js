@@ -47,6 +47,8 @@ $(document).on('page:change', function(){
             $(this).addClass('selected');
         };
     });
+    $('pre').addClass('prettyprint');
+    prettyPrint();
 });
 
 $(document).on('page:restore', function(){

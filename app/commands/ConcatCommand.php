@@ -24,11 +24,12 @@ class ConcatCommand extends Command {
 
         $javascript_libs = [
             JavaScript::jquery(),
+            JavaScript::jqueryRails(),
             JavaScript::jqueryTimeago(),
             JavaScript::jqueryAutosize(),
             // JavaScript::underscore()
             JavaScript::turbolinks(),
-            JavaScript::jqueryU()
+            JavaScript::prettify(),
         ];
 
         foreach ($javascript_libs as $lib) {
