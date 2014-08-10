@@ -41,6 +41,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->email;
     }
 
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['email'] = strtolower($value);
+    }
+
+    public function setDowncaseAttribute($value)
+    {
+        $this->attributes['downcase'] = strtolower($value);
+    }
+
     public function normalUser()
     {
         return ! $this->backendable;

@@ -25,7 +25,7 @@ class UserController extends BaseController {
 
     public function store()
     {
-        $params = array_merge(Input::all(), ['email'=>strtolower(Input::get('email'))]);
+        $params = array_merge(Input::all(), ['email'=>Input::get('email')]);
 
         $validator = new Metronome\Validators\UserValidator($params);
 
@@ -40,7 +40,7 @@ class UserController extends BaseController {
         $user = new User([
             'email'    => $params['email'],
             'username' => $params['username'],
-            'downcase' => strtolower($params['username'])
+            'downcase' => $params['username']
         ]);
 
         $user->avatar_url = Str::gravatarUrl($user->email);

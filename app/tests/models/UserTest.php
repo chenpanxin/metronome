@@ -31,6 +31,16 @@ class UserTest extends TestCase {
         DB::beginTransaction();
     }
 
+    public function testUserModel()
+    {
+        $this->assertInstanceOf('User', $this->user);
+        $this->assertInternalType('string', $this->user->username);
+        $this->assertInternalType('string', $this->user->backendable);
+        $this->assertContains('@', $this->user->email);
+        $this->assertRegExp('/[a-z0-9]+/', $this->user->downcase);
+        // assertCount
+    }
+
     public function testNormalUser()
     {
         $this->assertTrue($this->user->normalUser());

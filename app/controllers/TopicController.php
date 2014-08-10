@@ -43,9 +43,7 @@ class TopicController extends BaseController {
         $likers_count = count($likers);
         $topics_count = $topic->user->topics()->count();
 
-        $text = $topic->texts()->first();
-
-        $topic->body = $text ? $text->markup : '';
+        $topic->body = $topic->markup() ?: '';
 
         return View::make('topic.show')
             ->withTitle($topic->title)
@@ -96,7 +94,7 @@ class TopicController extends BaseController {
     public function edit($id)
     {
         $topic = Topic::with('category')->findOrFail($id);
-        $topic->body = $topic->texts()->first()->markdown;
+        $topic->body = $topic->markdown();
 
         return View::make('topic.edit')
             ->withTitle(Lang::get('locale.edit_topic'))

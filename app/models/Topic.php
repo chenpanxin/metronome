@@ -24,6 +24,25 @@ class Topic extends Eloquent {
         return $this->morphMany('Text', 'textable');
     }
 
+    public function getText()
+    {
+        return $this->texts()->first();
+    }
+
+    public function markup()
+    {
+        $text = $this->getText();
+
+        return $text ? $text->markup : null;
+    }
+
+    public function markdown()
+    {
+        $text = $this->getText();
+
+        return $text ? $text->markdown : null;
+    }
+
     public function likers()
     {
         return $this->morphToMany('Metronome\Models\Liker', 'likeable');
