@@ -30,7 +30,7 @@ class TopicController extends BaseController {
         $topic = Topic::findOrFail($id);
 
         $replies = $topic->replies;
-        $replies->load('user', 'texts');
+        $replies->load('user', 'text');
 
         $topic->load('user', 'category');
 
@@ -43,7 +43,7 @@ class TopicController extends BaseController {
         $likers_count = count($likers);
         $topics_count = $topic->user->topics()->count();
 
-        $topic->body = $topic->markup() ?: '';
+        $topic->body = $topic->text->markup;
 
         return View::make('topic.show')
             ->withTitle($topic->title)
@@ -81,7 +81,7 @@ class TopicController extends BaseController {
         ]);
 
         Auth::user()->topics()->save($topic);
-        $topic->texts()->save($text);
+        $topic->text()->save($text);
 
         Category::findOrFail($category_id)->increment('topics_count');
 

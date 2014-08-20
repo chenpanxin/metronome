@@ -19,28 +19,9 @@ class Topic extends Eloquent {
         return $this->hasMany('Reply');
     }
 
-    public function texts()
+    public function text()
     {
-        return $this->morphMany('Text', 'textable');
-    }
-
-    public function getText()
-    {
-        return $this->texts()->first();
-    }
-
-    public function markup()
-    {
-        $text = $this->getText();
-
-        return $text ? $text->markup : null;
-    }
-
-    public function markdown()
-    {
-        $text = $this->getText();
-
-        return $text ? $text->markdown : null;
+        return $this->morphOne('Text', 'textable');
     }
 
     public function likers()

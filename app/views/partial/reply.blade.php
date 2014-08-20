@@ -9,7 +9,7 @@
                     <a href="{{ URL::to('reply/'.$reply->id.'/edit') }}" class="editable">{{ Lang::get('locale.edit') }}</a>
                     <a href="{{ URL::to('reply/'.$reply->id) }}" class="delete" data-method="delete" data-remote="true"><span class="icon-delete"></span></a>
                 @endif
-                <div class="content markdown">{{ $reply->markup(); }}</div>
+                <div class="content markdown">{{ $reply->text->markup; }}</div>
             </li>
         @endforeach
     </ul>

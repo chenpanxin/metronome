@@ -33,7 +33,7 @@ class ReplyController extends BaseController {
                 'content'  => ''
             ]);
 
-            $reply->texts()->save(new Text([
+            $reply->text()->save(new Text([
                 'markdown' => $markdown,
                 'markup'   => $markup
             ]));
